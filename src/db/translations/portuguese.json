@@ -1,0 +1,19 @@
+{
+  "programPage": {
+    "title": "Treino",
+    "week": "Semana",
+    "day": "Dia"
+  },
+  "calculatorPage": {
+    "title": "Calculadora de 1RM"
+  },
+  "plateMathPage": {
+    "title": "Calculadora de Anilhas"
+  },
+  "programEditorPage": {
+    "title": "Editor de Treinos"
+  },
+  "settingsPage": {
+    "title": "Configurações"
+  }
+}

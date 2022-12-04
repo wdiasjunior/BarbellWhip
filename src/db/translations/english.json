@@ -1,0 +1,19 @@
+{
+  "programPage": {
+    "title": "Program",
+    "week": "Week",
+    "day": "Day"
+  },
+  "calculatorPage": {
+    "title": "1RM Calculator"
+  },
+  "plateMathPage": {
+    "title": "Plate Math"
+  },
+  "programEditorPage": {
+    "title": "Program Editor"
+  },
+  "settingsPage": {
+    "title": "Settings"
+  }
+}

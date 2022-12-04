@@ -1,0 +1,183 @@
+import React, { useState, useEffect, useLayoutEffect, useRef, } from "react";
+import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from 'react-native';
+import Modal from "react-native-modal";
+import DraggableFlatList, { ScaleDecorator } from "react-native-draggable-flatlist";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import Icon from 'react-native-vector-icons/Ionicons';
+
+import { useAtom } from 'jotai';
+import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../../../helpers/jotai/programEditorAtoms";
+import { activeThemeAtom } from "../../../../helpers/jotai/atomsWithStorage";
+
+import { deepClone } from "../../../../helpers/deepClone";
+
+import TopTabBar from "../../../../sharedComponents/topTabBar/topTabBar";
+import Header from "../../../../sharedComponents/header/header";
+
+import styles from './stepThreeStyles';
+
+const StepThree = ({ navigation }) => {
+
+  const [activeTheme, ] = useAtom(activeThemeAtom);
+
+  const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
+  const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
+  const [selectedDay, setSelectedDay] = useAtom(selectedDayAtom);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const onScreenLoad = () => {
+    navigation.setOptions({ headerTitle: () =>
+                  <Header
+                    title={"Create Program"}
+                    menu={false}
+                    saveButton={true}
+                    backButton={true}
+                  />
+              });
+  }
+
+  useLayoutEffect(() => {
+    onScreenLoad();
+  }, [])
+
+  const dayRef = useRef(null);
+  const selectDay = (day) => {
+    setSelectedDay(day);
+  }
+
+  const addExercise = (data) => {
+    let auxAtom = deepClone(programEditorData);
+    auxAtom.trainingProgram[selectedWeek].week[selectedDay].day.push({
+      RMid: data === "simple" ? "0" : data.id,
+      exerciceName: data === "simple" ? "" : data.name,
+      set: [
+        {
+          exerciceName: "",
+          sets: "",
+          reps: "",
+          percentage: "",
+          rpe: "",
+          tempo: "",
+          description: ""
+        }
+      ]
+    });
+    setProgramEditorData(auxAtom);
+
+    if(data === "simple") {
+      setModalOpen(false);
+      navigation.push('ExerciseEditorPage', {oneRMweight: 0, exerciseIndex: "add"});
+    } else {
+      setModalOpen(false);
+      navigation.push('ExerciseEditorPage', {oneRMweight: data.weight, oneRMname: data.name, exerciseIndex: "add"});
+    }
+  }
+
+  const editExercise = (index) => {
+    navigation.push('ExerciseEditorPage', {exerciseIndex: index});
+  }
+
+  const reorder = (data, from, to) => {
+    let auxAtom = deepClone(programEditorData);
+    auxAtom.trainingProgram[selectedWeek].week[selectedDay].day = data;
+    setProgramEditorData(auxAtom);
+  }
+
+  // const renderDayExerciseItems = useCallback(({item, index, drag}) => {
+  const renderDayExerciseItems = ({item, index, drag}) => {
+
+    const deleteExercise = () => {
+      let auxAtom = deepClone(programEditorData);
+      auxAtom.trainingProgram[selectedWeek].week[selectedDay].day.splice(index, 1);
+      setProgramEditorData(auxAtom);
+    }
+
+    return (
+      <ScaleDecorator>
+        <View style={styles(activeTheme).exerciseItem} key={index}>
+          <TouchableOpacity style={{width: 36, height: 30}} onLongPress={drag} delayLongPress={50}>
+            <Icon name="reorder-three-outline" size={30} style={styles(activeTheme).exerciseItemIcon} />
+          </TouchableOpacity>
+
+          <Text style={styles(activeTheme).exerciseItemText}>
+            {programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[index].exerciceName}
+          </Text>
+
+          <TouchableOpacity style={{width: 32, height: 20}} onPress={() => editExercise(index)} >
+            <Icon name="pencil-sharp" size={20} style={styles(activeTheme).exerciseItemIcon} />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={{width: 20, height: 20}} onPress={() => deleteExercise(index)} >
+            <Icon name="trash-outline" size={20} style={styles(activeTheme).exerciseItemIcon} />
+          </TouchableOpacity>
+        </View>
+      </ScaleDecorator>
+    )
+  }
+  // }, [programEditorData.trainingProgram[selectedWeek].week[selectedDay].day, addExercise, reorder, selectedDay, selectedWeek]); // not sure if this array should have all of this
+
+  // setFirstTab={context.weekSelected}
+  return (
+    <View style={styles(activeTheme).container}>
+      <TopTabBar
+        setFirstTab={selectedWeek}
+        selectDay={selectDay}
+        days={programEditorData.trainingProgram[selectedWeek].week.length}
+        programPage={false}
+      />
+
+      <View style={styles(activeTheme).exerciseList}>{/*<ScrollView overScrollMode="never">*/}
+
+        <GestureHandlerRootView>
+          <DraggableFlatList
+            ref={dayRef}
+            data={programEditorData.trainingProgram[selectedWeek].week[selectedDay].day}
+            keyExtractor={(item, index) => index}
+            onDragEnd={({data}) => reorder(data)}
+            renderItem={renderDayExerciseItems}
+            ListFooterComponent={() => {
+              return (
+                <>
+                  {programEditorData.trainingProgram[selectedWeek].week[selectedDay].day.length === 0 &&
+                    <Text style={styles(activeTheme).RestDayText}>Leave day empty to mark it as a rest day</Text>
+                  }
+                  <TouchableOpacity onPress={() => setModalOpen(true)} style={styles(activeTheme).AddExerciseButton}>
+                    <Text style={styles(activeTheme).AddExerciseButtonText}>ADD EXERCISE</Text>
+                  </TouchableOpacity>
+                </>
+              )
+            }}
+          />
+        </GestureHandlerRootView>
+      </View>
+
+      <Modal
+        isVisible={modalOpen}
+        onBackButtonPress={() => setModalOpen(false)}
+        onBackdropPress={() => setModalOpen(false)}
+        useNativeDriver={true}
+        hideModalContentWhileAnimating={true}
+        animationInTiming={100}
+        animationOutTiming={1}
+        backdropTransitionInTiming={100}
+        backdropTransitionOutTiming={1}
+      >
+        <View style={styles(activeTheme).modalContent}>
+          {programEditorData.oneRMs.length > 0 && programEditorData.oneRMs.map((item, index) => {
+            return (
+              <TouchableOpacity style={styles(activeTheme).modalItem} key={index} onPress={() => addExercise(item)}>
+                <Text style={styles(activeTheme).modalItemText}>{item.name}</Text>
+              </TouchableOpacity>
+            )
+          })}
+          <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => addExercise("simple")}>
+            <Text style={styles(activeTheme).modalItemText}>Simple Exercise (no RM)</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
+
+    </View>
+  );
+}
+
+export default StepThree;

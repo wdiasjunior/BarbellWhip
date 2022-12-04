@@ -1,0 +1,18 @@
+{
+  "oneRMs": [
+    {
+      "id": 0,
+      "name": "squat",
+      "oneRM": 150,
+    }
+  ],
+  "calculatorData": {
+    "reps": 1,
+    "weight": 150,
+  },
+  "weekSelected": 1,
+  "daySelected": 1,
+  "weightUnit": "kg",
+  "selectedLanguage": "english",
+  "colorTheme": "dark",
+}

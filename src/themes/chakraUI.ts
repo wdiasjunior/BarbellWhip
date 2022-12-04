@@ -1,0 +1,13 @@
+const colors = {
+  backgroundPrimary: "#171923",
+  backgroundSecondary: "#1a202c",
+  text: "#ffffff",
+  textHighlight: "#81e6d9",
+  textFaded: "#ECEFF4",
+  placeholderText: "#ffffff3d",
+  active: "#38b2ac",
+  inactive: "#cbd5e0",
+  statusBar: "light",
+}
+
+export default colors;

@@ -1,0 +1,12 @@
+{
+  "personalRecords": {
+    "squat": [
+      {
+        "exerciseId": 0,
+        "bodyWeight": 92,
+        "weight": 150
+        "weightUnit": "kg",
+      }
+    ]
+  }
+}
