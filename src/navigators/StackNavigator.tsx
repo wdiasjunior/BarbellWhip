@@ -209,6 +209,7 @@ const ProgramPageStack = () => {
         options={{
           headerShown: true,
           presentation: 'modal',
+          detachPreviousScreen: false,
           headerTitle: "Exercise Info",
           animationEnabled: false,
           headerStyle:{
@@ -225,6 +226,7 @@ const ProgramPageStack = () => {
         options={{
           headerShown: true,
           presentation: 'modal',
+          detachPreviousScreen: false,
           headerTitle: "RM Review",
           animationEnabled: false,
           headerStyle:{
