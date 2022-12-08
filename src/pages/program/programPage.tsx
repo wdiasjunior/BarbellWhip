@@ -4,26 +4,26 @@ import SideMenu from "react-native-side-menu-updated";
 
 import Header from "../../sharedComponents/header/header";
 import TopTabBar from "../../sharedComponents/topTabBar/topTabBar";
-import LoadingProgramPage from "../../sharedComponents/loadingProgramPage/loadingProgramPage";
+// import Loading from "../../sharedComponents/loading/loading";
 import ExerciseItem from "./components/exerciseItem/exerciseItem";
 
 import { useAtom } from 'jotai';
-import { activeThemeAtom, activeProgramAtom, programPageSelectedDayAtom, programPageSelecteWeekAtom } from "../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, activeProgramAtom, programPageSelectedDayAtom, programPageSelectedWeekAtom } from "../../helpers/jotai/atomsWithStorage";
 
 import { useInitialRender } from "../../helpers/useInitialRender";
 
 import styles from './programPageStyles';
 
-import defaultProgramData from "../../db/programs/strengthV4.json"; // TODO - remove this ?
+import defaultProgramData from "../../db/programs/strengthV4.json";
 
 const ProgramPage = ({ navigation }) => {
 
   const isInitialRender = useInitialRender();
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+
   const [activeProgramData, setActiveProgramData] = useAtom(activeProgramAtom);
-  // const data = activeProgramData.trainingProgram ? activeProgramData : defaultProgramData; // TODO - change this so it doesn't break depending on the program that's loaded
-  const data = defaultProgramData; // TODO - change this so it doesn't break depending on the program that's loaded
+  const data = activeProgramData.trainingProgram ? activeProgramData : defaultProgramData; // TODO - change this so it doesn't break depending on the program that's loaded
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const openMenu = () => {
@@ -34,12 +34,12 @@ const ProgramPage = ({ navigation }) => {
   }
 
   const [selectedDay, setSelectedDay] = useAtom(programPageSelectedDayAtom);
-  const [selectedWeek, setSelectedWeek] = useAtom(programPageSelecteWeekAtom);
+  const [selectedWeek, setSelectedWeek] = useAtom(programPageSelectedWeekAtom);
 
   const selectDay = (day) => {
     setSelectedDay(day);
-  };
-  const selectWeek = ({index}) => {
+  }
+  const selectWeek = ({ index }) => {
     if(selectedWeek != index) {
       setSelectedDay(0);
     }
@@ -92,7 +92,7 @@ const ProgramPage = ({ navigation }) => {
       <View style={styles(activeTheme).weekSelectorContainer}>
         <Text style={styles(activeTheme).titleWeekDrawer}>Week Selector</Text>
         <ScrollView persistentScrollbar={true} overScrollMode="never">
-          {data?.trainingProgram.map((item, index) => {
+          {data?.trainingProgram?.map((item, index) => {
             return (
               <TouchableOpacity key={index}
                 style={(index == selectedWeek) ? styles(activeTheme).drawerItemSelected : styles(activeTheme).drawerItem}
@@ -125,7 +125,7 @@ const ProgramPage = ({ navigation }) => {
   // if(isInitialRender) {
   //   console.log(isInitialRender);
   //
-  //   return <LoadingProgramPage />;
+  //   return <Loading />;
   //   // return null;
   // }
 
@@ -139,8 +139,11 @@ const ProgramPage = ({ navigation }) => {
       animationFunction={(prop, value) =>
         Animated.spring(prop, {
           toValue: value,
-          friction: 10,
+          // friction: 10,
+          overshootClamping: true,
           useNativeDriver: true,
+          bounciness: 0,
+          // stiffness: 1,
         })
       }
     >
@@ -149,12 +152,12 @@ const ProgramPage = ({ navigation }) => {
         <TopTabBar
           setFirstTab={selectedWeek}
           selectDay={setSelectedDay}
-          days={data?.trainingProgram[selectedWeek].week.length}
+          days={data?.trainingProgram[selectedWeek]?.week?.length}
           programPage={true}
         />
 
         <FlatList
-          data={data?.trainingProgram[selectedWeek].week[selectedDay].day}
+          data={data?.trainingProgram[selectedWeek]?.week[selectedDay]?.day}
           renderItem={flatListRenderItem}
           keyExtractor={item => item.exerciceName}
         />
@@ -164,4 +167,5 @@ const ProgramPage = ({ navigation }) => {
   );
 }
 
-export default React.memo(ProgramPage);
+export default ProgramPage;
+// export default React.memo(ProgramPage);

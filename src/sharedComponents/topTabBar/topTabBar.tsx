@@ -50,6 +50,10 @@ const TopTabBar = (props: Props) => {
     }
   }, [])
 
+  useEffect(() => {
+    selectTab(selectedDay);
+  }, [selectedDay])
+
   const scrollToTabOnLoad = () => {
     if(ref.current != null && props.programPage) {
       ref.current.scrollTo({x: dataSourceCords[selectedDay - 2], y: 0, animated: true});

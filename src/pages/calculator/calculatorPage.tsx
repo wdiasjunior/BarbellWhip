@@ -310,4 +310,5 @@ const CalculatorPage = ({ navigation }) => {
   );
 }
 
-export default React.memo(CalculatorPage);
+export default CalculatorPage;
+// export default React.memo(CalculatorPage);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect, } from "react";
 import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, } from 'react-native';
-// import Icon from 'react-native-vector-icons/Ionicons';
+// import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import styles from './settingsPageStyles';
 
@@ -39,7 +39,7 @@ const SettingsPage = ({ navigation }) => {
               >
                 <View style={styles(activeTheme).themeSelectorIconContainer}>
                   {theme.id === activeThemeId &&
-                    <Icon
+                    <Ionicons
                       name="checkmark-sharp"
                       size={20}
                       style={styles(activeTheme).themeSelectorIcon}

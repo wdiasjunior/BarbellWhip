@@ -12,7 +12,7 @@ const activeProgramNameAtom = atomWithStorage("activeProgramNameAtom", "", stora
 
 // Program page
 const programPageSelectedDayAtom = atomWithStorage("programPageSelectedDayAtom", 0, storage);
-const programPageSelecteWeekAtom = atomWithStorage("programPageSelecteWeekAtom", 0, storage);
+const programPageSelectedWeekAtom = atomWithStorage("programPageSelectedWeekAtom", 0, storage);
 
 // 1RM Calculator Page
 const calculatorPageRepsAtom = atomWithStorage("calculatorPageReps", 1, storage);
@@ -48,7 +48,7 @@ export {
   activeProgramAtom,
   activeProgramNameAtom,
   programPageSelectedDayAtom,
-  programPageSelecteWeekAtom,
+  programPageSelectedWeekAtom,
   calculatorPageRepsAtom,
   calculatorPageWeightAtom,
   calculatorPageWeightUnitAtom,

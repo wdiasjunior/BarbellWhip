@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { BottomTabProgramPageNavigator, BottomTabProgramEditorPageNavigator } from "./TabNavigator";
 import { ProgramPageStack, ProgramEditorPageStack } from "./StackNavigator";
@@ -38,7 +38,7 @@ const DrawerNavigator = () => {
           // } else if (route.name === 'Home') {
           //   iconName = focused ? 'home' : 'home-outline';
           }
-          return <Icon name={iconName} size={size} color={color} />;
+          return <Ionicons name={iconName} size={size} color={color} />;
         },
         drawerActiveTintColor: activeTheme.active,
         drawerInactiveTintColor: activeTheme.inactive,

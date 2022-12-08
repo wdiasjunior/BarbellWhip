@@ -1,18 +1,17 @@
 import React, { useState, useLayoutEffect, } from "react";
 import { Share, Text, View, TouchableOpacity, SafeAreaView, ScrollView, AsyncStorage, ActivityIndicator, } from 'react-native';
 import Modal from "react-native-modal";
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import DocumentPicker from 'react-native-document-picker';
 import { useIsFocused } from '@react-navigation/native';
 
 import Header from "../../sharedComponents/header/header";
 
-import RNFS from 'react-native-fs';
 import { writeToJSON, copyJSON, deleteJSON } from "../../db/fileSystem/fsWrite";
 import { readJSON, readImportedJSON, readDirectory, returnFileURL } from "../../db/fileSystem/fsRead";
 
 import { useAtom } from 'jotai';
-import { activeThemeAtom, activeProgramAtom, activeProgramNameAtom } from "../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, activeProgramAtom, activeProgramNameAtom, programPageSelectedDayAtom, programPageSelectedWeekAtom } from "../../helpers/jotai/atomsWithStorage";
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../helpers/jotai/programEditorAtoms";
 
 import styles from './programEditorPageStyles';
@@ -28,6 +27,8 @@ const ProgramEditorPage = ({ navigation }) => {
   const [programList, setProgramList] = useState([]);
   const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
   const [selectedDay, setSelectedDay] = useAtom(selectedDayAtom);
+  const [programPageSelectedDay, setProgramPageSelectedDay] = useAtom(programPageSelectedDayAtom);
+  const [programPageSelectedWeek, setProgramPageSelectedWeek] = useAtom(programPageSelectedWeekAtom);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [programNameForAction, setProgramNameForAction] = useState("");
@@ -107,10 +108,14 @@ const ProgramEditorPage = ({ navigation }) => {
 
   const programOptionModal = async (action) => {
     const programData = await readProgram(programNameForAction);
+
     switch(action) {
       case "setActive":
         setActiveProgramData(programData);
-        setActiveProgramName(programNameForAction)
+        setActiveProgramName(programNameForAction);
+        setProgramPageSelectedDay(0);
+        setProgramPageSelectedWeek(0);
+        setSelectedDay(0);
         setModalOpen(false);
         break;
       case "edit":
@@ -152,18 +157,18 @@ const ProgramEditorPage = ({ navigation }) => {
           {/*<ActivityIndicator size="large" color="#3da9db"/>*/}
             {(programList?.length > 0) &&
               (programList?.map((item, index) => {
-                if(item.includes(".json")) {
+                if(item.name.includes(".json")) {
                   return (
                     <View
-                      style={activeProgramName === item ? styles(activeTheme).programItemSelected : styles(activeTheme).programItem}
+                      style={activeProgramName === item.name ? styles(activeTheme).programItemSelected : styles(activeTheme).programItem}
                       key={index}
                     >
-                      <Text style={styles(activeTheme).programItemText}>{item}</Text>
-                      <Icon
+                      <Text style={styles(activeTheme).programItemText}>{item.name}</Text>
+                      <Ionicons
                         name="ellipsis-vertical"
                         size={24}
                         style={styles(activeTheme).iconRight}
-                        onPress={() => { setModalOpen(true); setProgramNameForAction(item); }}
+                        onPress={() => { setModalOpen(true); setProgramNameForAction(item.name); }}
                       />
                     </View>
                   )

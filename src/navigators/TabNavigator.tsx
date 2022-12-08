@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import CalculatorPage from "../pages/calculator/calculatorPage";
 import ProgramPage from "../pages/program/programPage";
 import PlateMathPage from '../pages/plateMath/plateMathPage';
-import LoadingProgramPage from '../sharedComponents/loadingProgramPage/loadingProgramPage';
+import Loading from '../sharedComponents/loading/loading';
 
 import { ProgramPageStack } from "./StackNavigator";
 
@@ -35,7 +35,7 @@ const BottomTabProgramPageNavigator = () => {
           else if (route.name === 'Plate Math') {
             iconName = focused ? 'barbell-sharp' : 'barbell-sharp';
           }
-          return <Icon name={iconName} size={size} color={color} />;
+          return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: activeTheme.active,
         tabBarInactiveTintColor: activeTheme.inactive,
@@ -52,7 +52,7 @@ const BottomTabProgramPageNavigator = () => {
     >
       <Tab.Screen
         name="ProgramTab"
-        component={isInitialRender ? LoadingProgramPage : ProgramPageStack}
+        component={isInitialRender ? Loading : ProgramPageStack}
         options={{
           headerShown: false,
           title: "Program",

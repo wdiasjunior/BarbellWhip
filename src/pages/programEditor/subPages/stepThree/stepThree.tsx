@@ -3,7 +3,8 @@ import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from 'react-n
 import Modal from "react-native-modal";
 import DraggableFlatList, { ScaleDecorator } from "react-native-draggable-flatlist";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import { useAtom } from 'jotai';
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../../../helpers/jotai/programEditorAtoms";
@@ -96,7 +97,7 @@ const StepThree = ({ navigation }) => {
       <ScaleDecorator>
         <View style={styles(activeTheme).exerciseItem} key={index}>
           <TouchableOpacity style={{width: 36, height: 30}} onLongPress={drag} delayLongPress={50}>
-            <Icon name="reorder-three-outline" size={30} style={styles(activeTheme).exerciseItemIcon} />
+            <Ionicons name="reorder-three-outline" size={30} style={styles(activeTheme).exerciseItemIcon} />
           </TouchableOpacity>
 
           <Text style={styles(activeTheme).exerciseItemText}>
@@ -104,11 +105,11 @@ const StepThree = ({ navigation }) => {
           </Text>
 
           <TouchableOpacity style={{width: 32, height: 20}} onPress={() => editExercise(index)} >
-            <Icon name="pencil-sharp" size={20} style={styles(activeTheme).exerciseItemIcon} />
+            <MaterialIcons name="edit" size={20} style={styles(activeTheme).exerciseItemIcon} />
           </TouchableOpacity>
 
           <TouchableOpacity style={{width: 20, height: 20}} onPress={() => deleteExercise(index)} >
-            <Icon name="trash-outline" size={20} style={styles(activeTheme).exerciseItemIcon} />
+            <Ionicons name="trash-outline" size={20} style={styles(activeTheme).exerciseItemIcon} />
           </TouchableOpacity>
         </View>
       </ScaleDecorator>

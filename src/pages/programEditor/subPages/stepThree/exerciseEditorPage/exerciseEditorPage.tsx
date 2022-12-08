@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, KeyboardAvoidingView, TextInput, } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { useAtom } from 'jotai';
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../../../../helpers/jotai/programEditorAtoms";
@@ -11,6 +11,8 @@ import { deepClone } from "../../../../../helpers/deepClone";
 import styles from './exerciseEditorPageStyles';
 
 const ExerciseEditorPage = (props) => {
+
+  // TODO - add "discard" icon to header ?
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
 
@@ -55,8 +57,6 @@ const ExerciseEditorPage = (props) => {
     auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex === "add" ? length : exerciseIndex].set.splice(index, 1);
     setProgramEditorData(auxAtom);
   }
-  // console.log(programEditorData);
-
 
   return (
     <ScrollView style={styles(activeTheme).container} overScrollMode="never">
@@ -93,7 +93,7 @@ const ExerciseEditorPage = (props) => {
                   returnKeyType={"done"}
                 />
                 <TouchableOpacity style={styles(activeTheme).exerciseItemRemoveIconContainer}  onPress={() => removeExerciseSubSet(index)}>
-                  <Icon name="trash-outline" size={25} style={styles(activeTheme).exerciseItemRemoveIcon} />
+                  <Ionicons name="trash-outline" size={25} style={styles(activeTheme).exerciseItemRemoveIcon} />
                 </TouchableOpacity>
               </View>
             </View>

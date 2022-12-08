@@ -2,7 +2,7 @@ import React, { useState, useEffect, useLayoutEffect, useRef, useCallback, } fro
 import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from 'react-native';
 import DraggableFlatList, { ScaleDecorator } from "react-native-draggable-flatlist";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { useAtom } from 'jotai';
 import { programEditorDataAtom, selectedWeekAtom } from "../../../../helpers/jotai/programEditorAtoms";
@@ -90,16 +90,16 @@ const StepTwo = ({ navigation }) => {
           onPress={() => selectWeek(index)}
         >
           <TouchableOpacity style={{width: 40, height: 30}} onLongPress={drag} delayLongPress={50}>
-            <Icon name="reorder-three-outline" size={30} style={styles(activeTheme).weekItemIcon} />
+            <Ionicons name="reorder-three-outline" size={30} style={styles(activeTheme).weekItemIcon} />
           </TouchableOpacity>
           <Text style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemText : styles(activeTheme).weekItemText}>Week {index + 1}</Text>
 
           <TouchableOpacity style={styles(activeTheme).weekItemIconContainer} >
-            <Icon onPress={() => duplicateWeek(index)} name="copy-outline" size={20} style={styles(activeTheme).weekItemIcon} />
+            <Ionicons onPress={() => duplicateWeek(index)} name="copy-outline" size={20} style={styles(activeTheme).weekItemIcon} />
           </TouchableOpacity>
 
           <TouchableOpacity style={styles(activeTheme).weekItemIconContainer}  onPress={() => deleteWeek(index)} >
-            <Icon name="trash-outline" size={20} style={styles(activeTheme).weekItemIcon} />
+            <Ionicons name="trash-outline" size={20} style={styles(activeTheme).weekItemIcon} />
           </TouchableOpacity>
         </TouchableOpacity>
       </ScaleDecorator>

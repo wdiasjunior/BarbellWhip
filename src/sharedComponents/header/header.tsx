@@ -1,7 +1,8 @@
 import React from "react";
 import { Text, View, FlatList, Button, ScrollView, TouchableOpacity, } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 import styles from './headerStyles';
 
@@ -34,7 +35,6 @@ export default Header = (props: Props) => {
     const fileName = programEditorData.programName;
     if(fileName !== "") {
       const programJSON = deepClone(programEditorData);
-      console.log(programJSON,"programJSON")
       await writeToJSON(fileName, programJSON);
       navigation.replace("ProgramEditorStack");
     } else {
@@ -68,14 +68,14 @@ export default Header = (props: Props) => {
     <View style={styles(activeTheme).header}>
       <View style={styles(activeTheme).contentLeft}>
         {props.backButton ?
-          <Icon
+          <Ionicons
             name="arrow-back-sharp"
             size={24}
             style={styles(activeTheme).iconLeft}
             onPress={backButton}
           />
           :
-          <Icon
+          <Ionicons
             name="menu-sharp"
             size={24}
             style={styles(activeTheme).iconLeft}
@@ -86,7 +86,7 @@ export default Header = (props: Props) => {
       <View style={styles(activeTheme).contentRight}>
         <Text style={styles(activeTheme).headerText}> {props.title} </Text>
         {props.menu &&
-          <Icon
+          <Ionicons
             name="ellipsis-vertical"
             size={24}
             style={styles(activeTheme).iconRight}
@@ -94,7 +94,7 @@ export default Header = (props: Props) => {
           />
         }
         {props.import &&
-          <Icon
+          <Ionicons
             name="download-outline"
             size={24}
             style={styles(activeTheme).iconRight}
@@ -102,7 +102,7 @@ export default Header = (props: Props) => {
           />
         }
         {props.saveButton &&
-          <Icon
+          <Entypo
             name="save"
             size={24}
             style={styles(activeTheme).iconRight}

@@ -13,7 +13,6 @@ export default function App() {
     colors: {
       ...DefaultTheme.colors,
       background: "#171923"
-      // background: "red"
     },
   };
 
@@ -26,15 +25,10 @@ export default function App() {
       }
     >
       <Provider>
-        {/*<View style={{ backgroundColor: "red", flex: 1 }}>*/}
-        {/*<Text>teste</Text>*/}
-        {/* gambiarra to fix the dreaded react navigation white flicker on navigate */}
           <StatusBar translucent={false} barStyle="light-content" backgroundColor="#1a202c" />
-
           <NavigationContainer theme={navigatorTheme} >
             <DrawerNavigator />
           </NavigationContainer>
-        {/*</View>*/}
       </Provider>
     </Suspense>
   );

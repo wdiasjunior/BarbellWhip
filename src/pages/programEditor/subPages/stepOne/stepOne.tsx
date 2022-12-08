@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from "react"; // , useRef
 import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, KeyboardAvoidingView, TextInput, } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { useAtom } from 'jotai';
 import { programEditorDataAtom } from "../../../../helpers/jotai/programEditorAtoms";
@@ -96,9 +96,9 @@ const StepOne = ({ navigation }) => {
     auxAtom.oneRMs.splice(index, 1);
     setProgramEditorData(auxAtom);
   }
-// onSubmitEditing={() => refInputRMWeight?.current?.focus()}
+
   return (
-    <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles(activeTheme).container}>
+    <View style={styles(activeTheme).container}>
       <ScrollView overScrollMode="never">
         <TextInput
           placeholder="Program Name"
@@ -146,7 +146,7 @@ const StepOne = ({ navigation }) => {
                   returnKeyType={"done"}
                 />
                 <TouchableOpacity style={styles(activeTheme).onermItemIconContainer} onPress={() => remove1rm(index)}>
-                  <Icon name="trash-outline" size={30} style={styles(activeTheme).onermItemIcon} />
+                  <Ionicons name="trash-outline" size={30} style={styles(activeTheme).onermItemIcon} />
                 </TouchableOpacity>
               </View>
             </View>
@@ -158,7 +158,7 @@ const StepOne = ({ navigation }) => {
         </TouchableOpacity>
 
       </ScrollView>
-    </KeyboardAvoidingView>
+    </View>
   );
 }
 export default StepOne;

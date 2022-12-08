@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, } from 'react-native';
-// import Icon from 'react-native-vector-icons/Ionicons';
+// import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 
 import { useAtom } from 'jotai';
@@ -23,7 +23,7 @@ const ExerciseItem = (props) => {
         onPress={() => { navigation.push('ExerciseItemPage', {onermOBJ: props.onermOBJ, rmId: props.rmId, exerciseOBJ: props.data, weightUnit: props.weightUnit}); }}
       >
         <Text style={styles(activeTheme).text1}>{props.exerciseName}</Text>
-        {/*{isDone && <Icon name="checkmark" size={30} color="#3da9db" />}*/}
+        {/*{isDone && <Ionicons name="checkmark" size={30} color="#3da9db" />}*/}
       </TouchableOpacity>
   )
 }
