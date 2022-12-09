@@ -4,11 +4,12 @@ import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from 'react-n
 import styles from './prTrackerPageStyles';
 
 import { useAtom } from 'jotai';
-import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
 
 const PRTrackerPage = ({ navigation }) => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   return (
     <View style={styles(activeTheme).container}>

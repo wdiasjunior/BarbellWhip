@@ -18,7 +18,7 @@ const styles = (theme) => {
       alignItems: 'center',
     },
     textWarning: {
-      color: theme.text,
+      color: theme.backgroundPrimary,
       fontSize: 20,
       fontWeight: 'bold',
       textAlign: 'center',

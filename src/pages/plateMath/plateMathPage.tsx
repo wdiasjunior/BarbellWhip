@@ -10,7 +10,7 @@ import WeightCalc from './utils/WeightCalc';
 import styles from './plateMathPageStyles';
 
 import { useAtom } from 'jotai';
-import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
 
 // settings button
 // weight unit switch
@@ -21,10 +21,11 @@ import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
 const PlateMathPage = ({ navigation }) => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
-                  <Header title={'Plate Math'} menu={false} />
+                  <Header title={selectedLocale.plateMathPage.title} menu={false} />
               });
   }
 
@@ -111,7 +112,7 @@ const PlateMathPage = ({ navigation }) => {
 
         <View style={styles(activeTheme).cardIncrement}>
           <View style={styles(activeTheme).rowWrapper}>
-            <Text style={styles(activeTheme).title}>Weight</Text>
+            <Text style={styles(activeTheme).title}>{selectedLocale.plateMathPage.weightLabel}</Text>
             <View style={styles(activeTheme).row}>
               <TouchableOpacity onPress={decrementWeight}>
                 <View style={styles(activeTheme).incrementWrapper}>
@@ -131,7 +132,7 @@ const PlateMathPage = ({ navigation }) => {
             </View>
           </View>
 
-          <Text style={styles(activeTheme).info}>Current Bar Weight:
+          <Text style={styles(activeTheme).info}>{selectedLocale.plateMathPage.currentBarWeightLabel}:
             <Text style={styles(activeTheme).infoWeight}> {defaultMenBarWeight[weightUnit]}{weightUnit}</Text>
           </Text>
           {/*<Text style={styles(activeTheme).info}>Current Weight on the Bar:

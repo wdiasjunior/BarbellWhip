@@ -25,10 +25,10 @@ export default function App() {
       }
     >
       <Provider>
-          <StatusBar translucent={false} barStyle="light-content" backgroundColor="#1a202c" />
-          <NavigationContainer theme={navigatorTheme} >
-            <DrawerNavigator />
-          </NavigationContainer>
+        <StatusBar translucent={false} barStyle="light-content" backgroundColor="#1a202c" />
+        <NavigationContainer theme={navigatorTheme} >
+          <DrawerNavigator />
+        </NavigationContainer>
       </Provider>
     </Suspense>
   );

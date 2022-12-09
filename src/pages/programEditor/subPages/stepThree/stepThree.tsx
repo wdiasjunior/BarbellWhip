@@ -8,7 +8,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import { useAtom } from 'jotai';
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../../../helpers/jotai/programEditorAtoms";
-import { activeThemeAtom } from "../../../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
 import { deepClone } from "../../../../helpers/deepClone";
 
@@ -20,6 +20,7 @@ import styles from './stepThreeStyles';
 const StepThree = ({ navigation }) => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
   const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
@@ -29,7 +30,7 @@ const StepThree = ({ navigation }) => {
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={"Create Program"}
+                    title={selectedLocale.programEditorPage.programEditorStep3.title}
                     menu={false}
                     saveButton={true}
                     backButton={true}
@@ -140,10 +141,10 @@ const StepThree = ({ navigation }) => {
               return (
                 <>
                   {programEditorData.trainingProgram[selectedWeek].week[selectedDay].day.length === 0 &&
-                    <Text style={styles(activeTheme).RestDayText}>Leave day empty to mark it as a rest day</Text>
+                    <Text style={styles(activeTheme).RestDayText}>{selectedLocale.programEditorPage.programEditorStep3.emptyDayInfo}</Text>
                   }
                   <TouchableOpacity onPress={() => setModalOpen(true)} style={styles(activeTheme).AddExerciseButton}>
-                    <Text style={styles(activeTheme).AddExerciseButtonText}>ADD EXERCISE</Text>
+                    <Text style={styles(activeTheme).AddExerciseButtonText}>{selectedLocale.programEditorPage.programEditorStep3.addExerciseButton}</Text>
                   </TouchableOpacity>
                 </>
               )
@@ -172,7 +173,7 @@ const StepThree = ({ navigation }) => {
             )
           })}
           <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => addExercise("simple")}>
-            <Text style={styles(activeTheme).modalItemText}>Simple Exercise (no RM)</Text>
+            <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.programEditorStep3.simpleExerciseModalLabel}</Text>
           </TouchableOpacity>
         </View>
       </Modal>

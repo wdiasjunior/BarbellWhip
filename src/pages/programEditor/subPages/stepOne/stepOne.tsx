@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { useAtom } from 'jotai';
 import { programEditorDataAtom } from "../../../../helpers/jotai/programEditorAtoms";
-import { activeThemeAtom } from "../../../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
 import { deepClone } from "../../../../helpers/deepClone";
 
@@ -26,6 +26,7 @@ import styles from './stepOneStyles';
 const StepOne = ({ navigation }) => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
   const [weightUnit, setWeightUnit] = useState(programEditorData.weightUnit === "kg" ? false : true); // false == kg == left, true == lbs == right
@@ -36,7 +37,7 @@ const StepOne = ({ navigation }) => {
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={"Create Program"}
+                    title={selectedLocale.programEditorPage.programEditorStep1.title}
                     menu={false}
                     saveButton={true}
                     backButton={true}
@@ -101,7 +102,7 @@ const StepOne = ({ navigation }) => {
     <View style={styles(activeTheme).container}>
       <ScrollView overScrollMode="never">
         <TextInput
-          placeholder="Program Name"
+          placeholder={selectedLocale.programEditorPage.programEditorStep1.programName}
           placeholderTextColor={activeTheme.placeholderText}
           cursorColor={activeTheme.active}
           style={[styles(activeTheme).programNameTextInput, styles(activeTheme).shadowProp]}
@@ -126,7 +127,7 @@ const StepOne = ({ navigation }) => {
           return (
             <View style={[styles(activeTheme).onermItem, styles(activeTheme).shadowProp]} key={index} >
               <TextInput
-                placeholder="1RM Exercise"
+                placeholder={selectedLocale.programEditorPage.programEditorStep1.RMexercise}
                 placeholderTextColor={activeTheme.placeholderText}
                 cursorColor={activeTheme.active}
                 style={styles(activeTheme).oneRMTextInput}
@@ -136,7 +137,7 @@ const StepOne = ({ navigation }) => {
               />
               <View style={styles(activeTheme).onermItem_InputRow} >
                 <TextInput
-                  placeholder="Weight"
+                  placeholder={selectedLocale.programEditorPage.programEditorStep1.weightLabel}
                   keyboardType="numeric"
                   placeholderTextColor={activeTheme.placeholderText}
                   cursorColor={activeTheme.active}
@@ -154,7 +155,7 @@ const StepOne = ({ navigation }) => {
         })}
 
         <TouchableOpacity onPress={add1rm} style={[styles(activeTheme).AddOneRMButton, styles(activeTheme).shadowProp]}>
-          <Text style={styles(activeTheme).AddOneRMButtonText}>ADD 1RM EXERCISE</Text>
+          <Text style={styles(activeTheme).AddOneRMButtonText}>{selectedLocale.programEditorPage.programEditorStep1.add1RMexerciseButton}</Text>
         </TouchableOpacity>
 
       </ScrollView>

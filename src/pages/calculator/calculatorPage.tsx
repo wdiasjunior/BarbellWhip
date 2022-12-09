@@ -8,11 +8,12 @@ import NumberInput from '../../sharedComponents/numberInput/numberInput';
 import Header from "../../sharedComponents/header/header";
 
 import { useAtom } from 'jotai';
-import { activeThemeAtom, calculatorPageRepsAtom, calculatorPageWeightAtom, calculatorPageWeightUnitAtom } from "../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom, calculatorPageRepsAtom, calculatorPageWeightAtom, calculatorPageWeightUnitAtom } from "../../helpers/jotai/atomsWithStorage";
 
 const CalculatorPage = ({ navigation }) => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const [repsPerformed, setRepsPerformed] = useAtom(calculatorPageRepsAtom);
   const [weightLifted, setWeightLifted] = useAtom(calculatorPageWeightAtom);
@@ -23,7 +24,7 @@ const CalculatorPage = ({ navigation }) => {
 
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
-                  <Header title={'1RM Calculator'} menu={false} />
+                  <Header title={selectedLocale.calculatorPage.title} menu={false} />
               });
   }
 
@@ -98,7 +99,7 @@ const CalculatorPage = ({ navigation }) => {
         <View style={styles(activeTheme).cardIncrement}>
 
           <View style={styles(activeTheme).rowWrapper}>
-            <Text style={styles(activeTheme).title}>Weight Lifted</Text>
+            <Text style={styles(activeTheme).title}>{selectedLocale.calculatorPage.weightLifted}</Text>
             <View style={styles(activeTheme).row}>
               <TouchableOpacity onPress={decrementWeight}>
                 <View style={styles(activeTheme).incrementWrapper}>
@@ -119,7 +120,7 @@ const CalculatorPage = ({ navigation }) => {
           </View>
 
           <View style={styles(activeTheme).rowWrapper}>
-            <Text style={styles(activeTheme).title}>Reps Performed</Text>
+            <Text style={styles(activeTheme).title}>{selectedLocale.calculatorPage.repsPerformed}</Text>
             <View style={styles(activeTheme).row}>
               <TouchableOpacity onPress={decrementReps}>
                 <View style={styles(activeTheme).incrementWrapper}>
@@ -143,12 +144,12 @@ const CalculatorPage = ({ navigation }) => {
 
         {showWarning &&
           <View style={styles(activeTheme).cardWarning}>
-            <Text style={styles(activeTheme).textWarning}>WARNING. Calculation accuracy drops drastically when calculating above 12 reps.</Text>
+            <Text style={styles(activeTheme).textWarning}>{selectedLocale.calculatorPage.textWarning}</Text>
           </View>
         }
 
         <View style={styles(activeTheme).card1RM}>
-          <Text style={styles(activeTheme).title1RM}>One Rep Max</Text>
+          <Text style={styles(activeTheme).title1RM}>{selectedLocale.calculatorPage.rmTitle}</Text>
 
           <View style={styles(activeTheme).card1RMRow1}>
             <View style={styles(activeTheme).card1RMCol}>
@@ -219,7 +220,7 @@ const CalculatorPage = ({ navigation }) => {
         </View>
 
         <View style={styles(activeTheme).cardPercentage}>
-          <Text style={styles(activeTheme).title1RM}>Percentage of 1RM</Text>
+          <Text style={styles(activeTheme).title1RM}>{selectedLocale.calculatorPage.rmPercentageTitle}</Text>
 
           <View style={styles(activeTheme).card1RMRow1}>
             <View style={styles(activeTheme).card1RMCol}>

@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { useAtom } from 'jotai';
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../../../../helpers/jotai/programEditorAtoms";
-import { activeThemeAtom } from "../../../../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../../../../../helpers/jotai/atomsWithStorage";
 
 import { deepClone } from "../../../../../helpers/deepClone";
 
@@ -15,6 +15,7 @@ const ExerciseEditorPage = (props) => {
   // TODO - add "discard" icon to header ?
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
   const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
@@ -62,7 +63,7 @@ const ExerciseEditorPage = (props) => {
     <ScrollView style={styles(activeTheme).container} overScrollMode="never">
 
       <View style={styles(activeTheme).exerciseItem}>
-        <Text style={styles(activeTheme).inputLabel}>Exercise name displayed on day list</Text>
+        <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.exerciseNameInfo}</Text>
         <TextInput
           style={styles(activeTheme).input}
           placeholderTextColor={activeTheme.placeholderText}
@@ -82,7 +83,7 @@ const ExerciseEditorPage = (props) => {
             <View style={styles(activeTheme).exerciseItem} key={index}>
 
             <View style={styles(activeTheme).col}>
-              <Text style={styles(activeTheme).inputLabel}>Exercise/Variation name</Text>
+              <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.exerciseVariation}</Text>
               <View style={styles(activeTheme).row}>
                 <TextInput
                   style={styles(activeTheme).inputExerciseVariationName}
@@ -100,7 +101,7 @@ const ExerciseEditorPage = (props) => {
 
               <View style={styles(activeTheme).row}>
                 <View style={styles(activeTheme).col}>
-                  <Text style={styles(activeTheme).inputLabel}>Sets</Text>
+                  <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.sets}</Text>
                   <TextInput
                     keyboardType="numeric"
                     style={styles(activeTheme).input}
@@ -113,7 +114,7 @@ const ExerciseEditorPage = (props) => {
                 </View>
 
                 <View style={styles(activeTheme).col}>
-                  <Text style={styles(activeTheme).inputLabel}>Reps</Text>
+                  <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.reps}</Text>
                   <TextInput
                     keyboardType="numeric"
                     style={styles(activeTheme).input}
@@ -128,7 +129,7 @@ const ExerciseEditorPage = (props) => {
 
               <View style={styles(activeTheme).row}>
                 <View style={styles(activeTheme).col}>
-                  <Text style={styles(activeTheme).inputLabel}>Percentage</Text>
+                  <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.percentage}</Text>
                   <TextInput
                     keyboardType="numeric"
                     style={styles(activeTheme).input}
@@ -140,7 +141,7 @@ const ExerciseEditorPage = (props) => {
                   />
                 </View>
                 <View style={styles(activeTheme).colWeight}>
-                  <Text style={styles(activeTheme).inputLabel}>Weight</Text>
+                  <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.weightLabel}</Text>
                   <Text style={styles(activeTheme).weightText}>
                     {isNaN(oneRMweight?.weight * item.percentage / 100) ? "" :
                       Math.ceil((oneRMweight?.weight * (item.percentage / 100) / 2.5)) * 2.5 } {!isNaN(oneRMweight?.weight * item.percentage / 100) ? programEditorData.weightUnit : "0 " + programEditorData.weightUnit}
@@ -176,7 +177,7 @@ const ExerciseEditorPage = (props) => {
               </View>
 
               <View style={styles(activeTheme).col}>
-                <Text style={styles(activeTheme).inputLabel}>Description</Text>
+                <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.description}</Text>
                 <TextInput
                   style={[styles(activeTheme).input, { height: 'auto', flex: 0 }]}
                   placeholderTextColor={activeTheme.placeholderText}
@@ -192,7 +193,7 @@ const ExerciseEditorPage = (props) => {
         })}
 
         <TouchableOpacity onPress={addExerciseSubSet} style={styles(activeTheme).AddExerciseButton}>
-          <Text style={styles(activeTheme).AddExerciseButtonText}>ADD EXERCISE</Text>
+          <Text style={styles(activeTheme).AddExerciseButtonText}>{selectedLocale.programEditorPage.exerciseEditorPage.addExerciseButton}</Text>
         </TouchableOpacity>
 
       </View>

@@ -1,0 +1,81 @@
+{
+  "programPage": {
+    "title": "Program",
+    "week": "Week",
+    "day": "Day",
+    "rmReviewTitle": "1RM Review",
+    "rmReviewWeightLable": "Weight",
+    "weekSelectorTitle": "Week Selector",
+    "exerciseInfo" : {
+      "title": "Exercise Info",
+      "sets": "Sets",
+      "reps": "Reps",
+      "weightLabel": "Weight",
+      "percentage": "Percentage",
+      "description": "Description"
+    }
+  },
+  "calculatorPage": {
+    "title": "1RM Calculator",
+    "weightLifted": "Weight Lifted",
+    "repsPerformed": "Reps Performed",
+    "rmTitle": "One Rep Max",
+    "rmPercentageTitle": "Percetage of 1RM",
+    "textWarning": "WARNING. Calculation accuracy drops drastically when calculating above 12 reps."
+  },
+  "plateMathPage": {
+    "title": "Plate Math",
+    "weightLabel": "Weight",
+    "currentBarWeightLabel": "Current Bar Weight"
+  },
+  "programEditorPage": {
+    "title": "Program Editor",
+    "modal": {
+      "setActive": "Set Active",
+      "edit": "Edit",
+      "share": "Share",
+      "makeCopy": "Make Copy",
+      "delete": "Delete"
+    },
+    "programEditorStep1": {
+      "title": "Create Program",
+      "tabTitle": "Info",
+      "programName": "Program Name",
+      "add1RMexerciseButton": "ADD 1RM EXERCISE",
+      "RMexercise": "1RM Exercise",
+      "weightLabel": "Weight"
+    },
+    "programEditorStep2": {
+      "title": "Create Program",
+      "tabTitle": "Weeks",
+      "addWeekButton": "ADD WEEK",
+      "week": "Week",
+    },
+    "programEditorStep3": {
+      "title": "Create Program",
+      "tabTitle": "Days",
+      "emptyDayInfo": "Leave day empty to mark it as a rest day",
+      "addExerciseButton": "ADD EXERCISE",
+      "simpleExerciseModalLabel": "Simple Exercise (no RM)"
+    },
+    "exerciseEditorPage": {
+      "title": "Exercise Editor",
+      "exerciseNameInfo": "Exercise name displayed on day list",
+      "exerciseVariation": "Exercise/Variation name",
+      "sets": "Sets",
+      "reps": "Reps",
+      "percentage": "Percentage",
+      "weightLabel": "Weight",
+      "description": "Description",
+      "addExerciseButton": "ADD EXERCISE"
+    }
+  },
+  "settingsPage": {
+    "title": "Settings",
+    "themeSelectorTitle": "Theme",
+    "languageSelectorTitle": "Language",
+  },
+  "numberInputModal": {
+    "cancelButtonLabel": "CANCEL"
+  }
+}

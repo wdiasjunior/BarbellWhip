@@ -5,11 +5,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { BottomTabProgramPageNavigator, BottomTabProgramEditorPageNavigator } from "./TabNavigator";
 import { ProgramPageStack, ProgramEditorPageStack } from "./StackNavigator";
 // import PRTrackerPage from '../pages/prTracker/prTrackerPage';
-// import SettingsPage from "../pages/settings/settingsPage";
-// import HomePage from "../pages/home/homePage";
+import SettingsPage from "../pages/settings/settingsPage";
 
 import { useAtom } from 'jotai';
-import { activeThemeAtom } from "../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
 
 import { useInitialRender } from "../helpers/useInitialRender";
 
@@ -19,6 +18,7 @@ const DrawerNavigator = () => {
 
   const isInitialRender = useInitialRender();
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   return (
     <Drawer.Navigator
@@ -35,8 +35,6 @@ const DrawerNavigator = () => {
           //   iconName = focused ? 'bar-chart' : 'bar-chart-outline';
           } else if (route.name === 'Settings') {
             iconName = focused ? 'settings' : 'settings-outline';
-          // } else if (route.name === 'Home') {
-          //   iconName = focused ? 'home' : 'home-outline';
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
@@ -62,7 +60,7 @@ const DrawerNavigator = () => {
         component={BottomTabProgramPageNavigator}
         options={{
           headerShown: false,
-          title: "Program",
+          title: selectedLocale.programPage.title,
           headerStyle:{
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
@@ -80,7 +78,7 @@ const DrawerNavigator = () => {
         component={ProgramEditorPageStack}
         options={{
           headerShown: false,
-          title: "Program Editor",
+          title: selectedLocale.programEditorPage.title,
           headerStyle:{
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
@@ -95,10 +93,11 @@ const DrawerNavigator = () => {
       />
       {/*<Drawer.Screen name="Home" component={HomePage} />*/}
       {/*<Drawer.Screen name="PR Tracker" component={PRTrackerPage} />*/}
-      {/*<Drawer.Screen
+      <Drawer.Screen
         name="Settings"
         component={SettingsPage}
         options={{
+          title: selectedLocale.settingsPage.title,
           headerStyle:{
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
@@ -110,7 +109,7 @@ const DrawerNavigator = () => {
             opacity: 1,
           },
         }}
-      />*/}
+      />
     </Drawer.Navigator>
   );
 }

@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './numberInputStyles';
 
 import { useAtom } from 'jotai';
-import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
 
 interface Props {
   toggleModal(): any;
@@ -15,6 +15,7 @@ interface Props {
 const NumberInput = (props: Props) => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", " ", "0", "."];
   const [weightString, setWeightString] = useState("0");
@@ -96,7 +97,7 @@ const NumberInput = (props: Props) => {
       </View>
 
       <View style={styles(activeTheme).bottomButtonsRow}>
-        <Text style={styles(activeTheme).bottomButtonsText} onPress={props.toggleModal}>CANCEL</Text>
+        <Text style={styles(activeTheme).bottomButtonsText} onPress={props.toggleModal}>{selectedLocaleAtom.numberInputModal.cancelButtonLabel}</Text>
         <Text style={styles(activeTheme).bottomButtonsText} onPress={() => props.toggleModal(weightString, props.inputLabel)}>OK</Text>
       </View>
 

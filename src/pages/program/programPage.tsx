@@ -8,7 +8,7 @@ import TopTabBar from "../../sharedComponents/topTabBar/topTabBar";
 import ExerciseItem from "./components/exerciseItem/exerciseItem";
 
 import { useAtom } from 'jotai';
-import { activeThemeAtom, activeProgramAtom, programPageSelectedDayAtom, programPageSelectedWeekAtom } from "../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom, activeProgramAtom, programPageSelectedDayAtom, programPageSelectedWeekAtom } from "../../helpers/jotai/atomsWithStorage";
 
 import { useInitialRender } from "../../helpers/useInitialRender";
 
@@ -21,6 +21,7 @@ const ProgramPage = ({ navigation }) => {
   const isInitialRender = useInitialRender();
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const [activeProgramData, setActiveProgramData] = useAtom(activeProgramAtom);
   const data = activeProgramData.trainingProgram ? activeProgramData : defaultProgramData; // TODO - change this so it doesn't break depending on the program that's loaded
@@ -47,7 +48,7 @@ const ProgramPage = ({ navigation }) => {
     setIsMenuOpen(!isMenuOpen);
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={data?.programName + ' - Week ' + (index + 1)}
+                    title={data?.programName + ' - ' + selectedLocale.programPage.week + ' ' + (index + 1)}
                     isMenuOpen={isMenuOpen}
                     setIsMenuOpen={setIsMenuOpen}
                     menu={true}
@@ -58,7 +59,7 @@ const ProgramPage = ({ navigation }) => {
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={data?.programName + ' - Week ' + (selectedWeek + 1)}
+                    title={data?.programName + ' - ' + selectedLocale.programPage.week + ' ' + (selectedWeek + 1)}
                     isMenuOpen={isMenuOpen}
                     setIsMenuOpen={setIsMenuOpen}
                     menu={true}
@@ -85,12 +86,12 @@ const ProgramPage = ({ navigation }) => {
             navigation.push('RMReviewPage', {onermOBJ: data?.oneRMs, weightUnit: data?.weightUnit});
           }}
         >
-          <Text style={styles(activeTheme).RMReview}>1RM Review</Text>
+          <Text style={styles(activeTheme).RMReview}>{selectedLocale.programPage.rmReviewTitle}</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles(activeTheme).weekSelectorContainer}>
-        <Text style={styles(activeTheme).titleWeekDrawer}>Week Selector</Text>
+        <Text style={styles(activeTheme).titleWeekDrawer}>{selectedLocale.programPage.weekSelectorTitle}</Text>
         <ScrollView persistentScrollbar={true} overScrollMode="never">
           {data?.trainingProgram?.map((item, index) => {
             return (
@@ -99,7 +100,7 @@ const ProgramPage = ({ navigation }) => {
                 onPress={() => selectWeek({index})}
               >
                 <Text style={(index == selectedWeek) ? styles(activeTheme).drawerTextSelected : styles(activeTheme).drawerText}>
-                  Week {JSON.stringify(index + 1)}
+                  {selectedLocale.programPage.week} {JSON.stringify(index + 1)}
                 </Text>
               </TouchableOpacity>
             )

@@ -1,0 +1,81 @@
+{
+  "programPage": {
+    "title": "Treino",
+    "week": "Semana",
+    "day": "Dia",
+    "rmReviewTitle": "1RM Review",
+    "rmReviewWeightLable": "Peso",
+    "weekSelectorTitle": "Seletor de semanas",
+    "exerciseInfo" : {
+      "title": "Informações do Exercício",
+      "sets": "Séries",
+      "reps": "Repetições",
+      "weightLabel": "Peso",
+      "percentage": "Porcentagem",
+      "description": "Descrição"
+    }
+  },
+  "calculatorPage": {
+    "title": "Calculadora de 1RM",
+    "weightLifted": "Peso Erguido",
+    "repsPerformed": "Repetições Feitas",
+    "rmTitle": "One Rep Max",
+    "rmPercentageTitle": "Porcetagem de 1RM",
+    "textWarning": "AVISO. A precisão dos calculos diminúi drásticamente com repetições acima de 12."
+  },
+  "plateMathPage": {
+    "title": "Calculadora de Anilhas",
+    "weightLabel": "Peso",
+    "currentBarWeightLabel": "Peso da barra atual"
+  },
+  "programEditorPage": {
+    "title": "Editor de Treinos",
+    "modal": {
+      "setActive": "Ativar",
+      "edit": "Editar",
+      "share": "Compartilhar",
+      "makeCopy": "Criar Cópia",
+      "delete": "Excluir"
+    },
+    "programEditorStep1": {
+      "title": "Criar Treino",
+      "tabTitle": "Info",
+      "programName": "Nome do Treino",
+      "add1RMexerciseButton": "ADD EXERCÍCIO 1RM",
+      "RMexercise": "Exercício 1RM",
+      "weightLabel": "Peso"
+    },
+    "programEditorStep2": {
+      "title": "Criar Treino",
+      "tabTitle": "Semanas",
+      "addWeekButton": "ADD SEMANA",
+      "week": "Semana",
+    },
+    "programEditorStep3": {
+      "title": "Criar Treino",
+      "tabTitle": "Dias",
+      "emptyDayInfo": "Deixe o dia vazio para marca-lo como dia de descanso",
+      "addExerciseButton": "ADD EXERCÍCIO",
+      "simpleExerciseModalLabel": "Exercício Simples (sem RM)"
+    },
+    "exerciseEditorPage": {
+      "title": "Editor de Exercício",
+      "exerciseNameInfo": "Nome do Exercício exibido na lista do dia",
+      "exerciseVariation": "Nome do Exercício/Variação",
+      "sets": "Séries",
+      "reps": "Repetições",
+      "percentage": "Porcetagem",
+      "weightLabel": "Peso",
+      "description": "Descrição",
+      "addExerciseButton": "ADD EXERCÍCIO"
+    }
+  },
+  "settingsPage": {
+    "title": "Configurações",
+    "themeSelectorTitle": "Tema",
+    "languageSelectorTitle": "Idioma",
+  },
+  "numberInputModal": {
+    "cancelButtonLabel": "CANCELAR"
+  }
+}

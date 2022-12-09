@@ -42,6 +42,11 @@ const styles = (theme) => {
       fontSize: 24,
       fontWeight: 'bold',
     },
+    weightText: {
+      color: theme.textHighlight,
+      fontSize: 24,
+      fontWeight: 'bold',
+    },
     description: {
       color: theme.text,
       fontSize: 16,

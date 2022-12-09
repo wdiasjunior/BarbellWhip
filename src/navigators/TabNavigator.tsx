@@ -10,7 +10,7 @@ import Loading from '../sharedComponents/loading/loading';
 import { ProgramPageStack } from "./StackNavigator";
 
 import { useAtom } from 'jotai';
-import { activeThemeAtom } from "../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
 
 import { useInitialRender } from "../helpers/useInitialRender";
 
@@ -20,6 +20,7 @@ const BottomTabProgramPageNavigator = () => {
 
   const isInitialRender = useInitialRender();
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   return (
     <Tab.Navigator
@@ -55,7 +56,7 @@ const BottomTabProgramPageNavigator = () => {
         component={isInitialRender ? Loading : ProgramPageStack}
         options={{
           headerShown: false,
-          title: "Program",
+          title: selectedLocale.programPage.title,
           headerStyle:{
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
@@ -74,7 +75,7 @@ const BottomTabProgramPageNavigator = () => {
         component={CalculatorPage}
         options={{
           headerShown: true,
-          title: "1RM Calculator",
+          title: selectedLocale.calculatorPage.title,
           headerStyle:{
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
@@ -92,7 +93,7 @@ const BottomTabProgramPageNavigator = () => {
         component={PlateMathPage}
         options={{
           headerShown: true,
-          title: "Plate Math",
+          title: selectedLocale.plateMathPage.title,
           headerStyle:{
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,

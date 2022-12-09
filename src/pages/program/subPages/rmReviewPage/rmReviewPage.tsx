@@ -4,11 +4,12 @@ import { Text, View, ScrollView, TouchableOpacity, } from 'react-native';
 import styles from './rmReviewPageStyles';
 
 import { useAtom } from 'jotai';
-import { activeThemeAtom } from "../../../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
 const RMReviewPage = (props) => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const onermOBJ = props.route.params.onermOBJ;
   const weightUnit = props.route.params.weightUnit;
@@ -21,7 +22,7 @@ const RMReviewPage = (props) => {
             {item.name ? <Text style={styles(activeTheme).title}>{item.name}</Text> : null}
             {item.weight ?
               <Text style={styles(activeTheme).subTitle}>
-                Weight: <Text style={styles(activeTheme).weight}>{item.weight}{weightUnit}</Text>
+                {selectedLocale.programPage.rmReviewWeightLable}: <Text style={styles(activeTheme).weight}>{item.weight}{weightUnit}</Text>
               </Text>
               :
               null

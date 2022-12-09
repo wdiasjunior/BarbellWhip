@@ -4,11 +4,12 @@ import { Text, View, ScrollView, } from 'react-native';
 import styles from './exerciseItemPageStyles';
 
 import { useAtom } from 'jotai';
-import { activeThemeAtom } from "../../../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
 const ExerciseItemPage = (props) => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const setsList = props.route.params.exerciseOBJ.set;
   const onermOBJ = props.route.params.onermOBJ;
@@ -27,8 +28,8 @@ const ExerciseItemPage = (props) => {
 
               {item.sets || item.reps ? (
                 <View style={styles(activeTheme).setListItemRow}>
-                  {item.sets ? <Text style={styles(activeTheme).label}>Sets:  <Text style={styles(activeTheme).data}>{item.sets}</Text></Text> : null}
-                  {item.reps ? <Text style={styles(activeTheme).label}>Reps:  <Text style={styles(activeTheme).data}>{item.reps}</Text></Text> : null}
+                  {item.sets ? <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.sets}:  <Text style={styles(activeTheme).data}>{item.sets}</Text></Text> : null}
+                  {item.reps ? <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.reps}:  <Text style={styles(activeTheme).data}>{item.reps}</Text></Text> : null}
                 </View>
               ) : null}
 
@@ -36,12 +37,12 @@ const ExerciseItemPage = (props) => {
                 <View style={styles(activeTheme).setListItemRow}>
                   {item.percentage ?
                     <Text style={styles(activeTheme).label}>
-                      Weight:  <Text style={styles(activeTheme).data}>{Math.ceil((parseFloat(oneRMweight?.weight) * (parseFloat(item.percentage) / 100) / 2.5)) * 2.5}{weightUnit}</Text>
+                      {selectedLocale.programPage.exerciseInfo.weightLabel}:  <Text style={styles(activeTheme).weightText}>{Math.ceil((parseFloat(oneRMweight?.weight) * (parseFloat(item.percentage) / 100) / 2.5)) * 2.5}{weightUnit}</Text>
                     </Text>
                     :
                     null
                   }
-                  {item.percentage ? <Text style={styles(activeTheme).label}>Percentage:  <Text style={styles(activeTheme).data}>{item.percentage}%</Text></Text> : null}
+                  {item.percentage ? <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.percentage}:  <Text style={styles(activeTheme).data}>{item.percentage}%</Text></Text> : null}
                 </View>
               ) : null }
 
@@ -54,7 +55,7 @@ const ExerciseItemPage = (props) => {
 
               {item.description ? (
                 <View style={styles(activeTheme).setListItemRow}>
-                  <Text style={styles(activeTheme).label}>Description:  <Text style={styles(activeTheme).description}>{item.description}</Text></Text>
+                  <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.description}:  <Text style={styles(activeTheme).description}>{item.description}</Text></Text>
                 </View>
               ) : null}
 

@@ -17,11 +17,12 @@ import StepThree from '../pages/programEditor/subPages/stepThree/stepThree';
 import ExerciseEditorPage from "../pages/programEditor/subPages/stepThree/exerciseEditorPage/exerciseEditorPage";
 
 import { useAtom } from 'jotai';
-import { activeThemeAtom } from "../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
 
 const ProgramEditorDayPageStack = () => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const navigation = useNavigation();
 
@@ -63,7 +64,7 @@ const ProgramEditorDayPageStack = () => {
         options={{
           headerShown: true,
           presentation: 'modal',
-          headerTitle: "Exercise Editor",
+          headerTitle: selectedLocale.programEditorPage.exerciseEditorPage.title,
           animationEnabled: false,
           headerStyle:{
             backgroundColor: activeTheme.backgroundSecondary,
@@ -83,6 +84,7 @@ const Tab = createBottomTabNavigator();
 const BottomTabProgramEditorPageNavigator = () => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const navigation = useNavigation();
 
@@ -116,8 +118,9 @@ const BottomTabProgramEditorPageNavigator = () => {
         name="Info"
         component={StepOne}
         options={{
+          tabBarLabel: selectedLocale.programEditorPage.programEditorStep1.tabTitle,
           headerShown: true,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
@@ -132,8 +135,9 @@ const BottomTabProgramEditorPageNavigator = () => {
         name="Weeks"
         component={StepTwo}
         options={{
+          tabBarLabel: selectedLocale.programEditorPage.programEditorStep2.tabTitle,
           headerShown: true,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
@@ -148,8 +152,9 @@ const BottomTabProgramEditorPageNavigator = () => {
         name="Days"
         component={ProgramEditorDayPageStack}
         options={{
+          tabBarLabel: selectedLocale.programEditorPage.programEditorStep3.tabTitle,
           headerShown: false,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
@@ -167,6 +172,7 @@ const BottomTabProgramEditorPageNavigator = () => {
 const ProgramPageStack = () => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const navigation = useNavigation();
 
@@ -190,8 +196,8 @@ const ProgramPageStack = () => {
         component={ProgramPage}
         options={{
           headerShown: true,
-          title: "Program",
-          headerStyle:{
+          title: selectedLocale.programPage.title,
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
@@ -210,9 +216,9 @@ const ProgramPageStack = () => {
           headerShown: true,
           presentation: 'modal',
           detachPreviousScreen: false,
-          headerTitle: "Exercise Info",
+          headerTitle: selectedLocale.programPage.exerciseInfo.title,
           animationEnabled: false,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
@@ -227,9 +233,9 @@ const ProgramPageStack = () => {
           headerShown: true,
           presentation: 'modal',
           detachPreviousScreen: false,
-          headerTitle: "RM Review",
+          headerTitle: selectedLocale.programPage.rmReviewTitle,
           animationEnabled: false,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
@@ -244,6 +250,7 @@ const ProgramPageStack = () => {
 const ProgramEditorPageStack = () => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const navigation = useNavigation();
 
@@ -268,8 +275,8 @@ const ProgramEditorPageStack = () => {
         options={{
           headerShown: true,
           headerLeft: null,
-          title: "Program Editor",
-          headerTitle: "Program Editor",
+          title: selectedLocale.programEditorPage.title,
+          headerTitle: selectedLocale.programEditorPage.title,
           headerStyle:{
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
@@ -290,7 +297,7 @@ const ProgramEditorPageStack = () => {
             // headerShown: navigation?.getState()?.routes[1]?.state?.routes[1]?.state?.routes[2]?.state?.routes[1]?.name !== "ExerciseEditorPage",
             headerShown: false,
             presentation: 'modal',
-            headerTitle: "Create Program",
+            headerTitle: selectedLocale.programEditorPage.programEditorStep1.title,
             animationEnabled: false,
             headerStyle:{
               backgroundColor: activeTheme.backgroundSecondary,

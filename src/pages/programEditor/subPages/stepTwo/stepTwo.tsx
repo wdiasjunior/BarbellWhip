@@ -6,7 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { useAtom } from 'jotai';
 import { programEditorDataAtom, selectedWeekAtom } from "../../../../helpers/jotai/programEditorAtoms";
-import { activeThemeAtom } from "../../../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
 import { deepClone } from "../../../../helpers/deepClone";
 
@@ -17,6 +17,7 @@ import styles from './stepTwoStyles';
 const StepTwo = ({ navigation }) => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
   const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
@@ -25,7 +26,7 @@ const StepTwo = ({ navigation }) => {
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={"Create Program"}
+                    title={selectedLocale.programEditorPage.programEditorStep2.title}
                     menu={false}
                     saveButton={true}
                     backButton={true}
@@ -92,7 +93,7 @@ const StepTwo = ({ navigation }) => {
           <TouchableOpacity style={{width: 40, height: 30}} onLongPress={drag} delayLongPress={50}>
             <Ionicons name="reorder-three-outline" size={30} style={styles(activeTheme).weekItemIcon} />
           </TouchableOpacity>
-          <Text style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemText : styles(activeTheme).weekItemText}>Week {index + 1}</Text>
+          <Text style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemText : styles(activeTheme).weekItemText}>{selectedLocale.programEditorPage.programEditorStep2.week} {index + 1}</Text>
 
           <TouchableOpacity style={styles(activeTheme).weekItemIconContainer} >
             <Ionicons onPress={() => duplicateWeek(index)} name="copy-outline" size={20} style={styles(activeTheme).weekItemIcon} />
@@ -119,7 +120,7 @@ const StepTwo = ({ navigation }) => {
             ListFooterComponent={() => {
               return (
                 <TouchableOpacity onPress={addWeek} style={styles(activeTheme).AddWeekButton}>
-                  <Text style={styles(activeTheme).AddWeekButtonText}>ADD WEEK</Text>
+                  <Text style={styles(activeTheme).AddWeekButtonText}>{selectedLocale.programEditorPage.programEditorStep2.addWeekButton}</Text>
                 </TouchableOpacity>
               )
             }}

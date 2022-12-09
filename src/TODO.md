@@ -1,26 +1,4 @@
-- https://github.com/typicode/lowdb
-
-- https://github.com/computerjazz/react-native-draggable-flatlist
-  - draggable flatlist slow render on add week/exercise?
-  - https://snack.expo.dev/@computerjazz/swipeable-draggable-list
-  - https://github.com/computerjazz/react-native-draggable-flatlist/pull/383
-  - https://github.com/computerjazz/react-native-draggable-flatlist/issues/229
-  - reimplement component without a flatlist?
-
-- react native ota?
-
-- https://stackoverflow.com/questions/57554335/react-native-bottom-tab-bar-pushing-itself-up-when-opening-keyboard/69843662#69843662
-
-- https://stackoverflow.com/questions/70233053/keyboard-pushing-everything-up-in-react-native-app
---------------------------------------------------------------------------------------
-
-https://echobind.com/post/react-native-fix-jumping-screens-in-the-react-navigation-tabnavigator
-https://reactnavigation.org/docs/3.x/common-mistakes/
-https://stackoverflow.com/questions/61787309/react-native-is-it-possible-to-adjust-fontsize-to-make-sure-font-fits-in-one-li
-
-- react dev tools - analyse and optimize performance
-
-- change licenses to gpl 3.0? gpl vs mpl
+- choose a license - gpl vs mpl
 
 - make text responsive? - beta
   - // <Text adjustsFontSizeToFit style={styles(activeTheme).text}>teste</Text>
@@ -97,7 +75,7 @@ https://stackoverflow.com/questions/61787309/react-native-is-it-possible-to-adju
 - - - readme - - -
 from simple bodybuilding and calisthenics workouts to complex powerlifting and
 weightlifting programs with RM calculation based on percentage (and rpe? future feature), and
-tools such as a program editor, rm and weight plate calculators,
+tools such as a program editor, RM and weight plate calculators,
 and (hopefully) more in the future.
 
 --------------------------------------------------------------------------------------

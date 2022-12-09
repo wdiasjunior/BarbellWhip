@@ -11,7 +11,7 @@ import { writeToJSON, copyJSON, deleteJSON } from "../../db/fileSystem/fsWrite";
 import { readJSON, readImportedJSON, readDirectory, returnFileURL } from "../../db/fileSystem/fsRead";
 
 import { useAtom } from 'jotai';
-import { activeThemeAtom, activeProgramAtom, activeProgramNameAtom, programPageSelectedDayAtom, programPageSelectedWeekAtom } from "../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom, activeProgramAtom, activeProgramNameAtom, programPageSelectedDayAtom, programPageSelectedWeekAtom } from "../../helpers/jotai/atomsWithStorage";
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../helpers/jotai/programEditorAtoms";
 
 import styles from './programEditorPageStyles';
@@ -21,6 +21,7 @@ const ProgramEditorPage = ({ navigation }) => {
   const isFocused = useIsFocused();
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const [activeProgramData, setActiveProgramData] = useAtom(activeProgramAtom);
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
@@ -37,7 +38,7 @@ const ProgramEditorPage = ({ navigation }) => {
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={"Program Editor"}
+                    title={selectedLocale.programEditorPage.title}
                     import={true}
                     importProgram={importProgram}
                   />
@@ -191,23 +192,23 @@ const ProgramEditorPage = ({ navigation }) => {
         >
           <View style={styles(activeTheme).modalContent}>
             <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("setActive")}>
-              <Text style={styles(activeTheme).modalItemText}>Set Active</Text>
+              <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.setActive}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("edit")}>
-              <Text style={styles(activeTheme).modalItemText}>Edit</Text>
+              <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.edit}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("share")}>
-              <Text style={styles(activeTheme).modalItemText}>Share</Text>
+              <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.share}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("copy")}>
-              <Text style={styles(activeTheme).modalItemText}>Make copy</Text>
+              <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.makeCopy}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("delete")}>
-              <Text style={styles(activeTheme).modalItemText}>Delete</Text>
+              <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.delete}</Text>
             </TouchableOpacity>
           </View>
         </Modal>

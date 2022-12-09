@@ -7,8 +7,8 @@ const WeightCalc = {
 
     platesAvailable.forEach((plate) => {
       let numPlates = Math.floor(weightRack[plate] / 2);
-      for (let i = 1; i <= numPlates; i++) {
-        if (this.sum([...plates, plate]) <= weightOfSingleSidePlates) {
+      for(let i = 1; i <= numPlates; i++) {
+        if(this.sum([...plates, plate]) <= weightOfSingleSidePlates) {
           plates.push(plate);
         } else {
           return;
