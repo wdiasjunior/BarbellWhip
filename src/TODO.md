@@ -1,9 +1,12 @@
 - choose a license - gpl vs mpl
 
+- reduce splash screen time
+
 - make text responsive? - beta
   - // <Text adjustsFontSizeToFit style={styles(activeTheme).text}>teste</Text>
 
 - calculator page
+  - unify calculator page and program page math
   - kg - lbs switch - beta
   - settings not working
   - implement rpe calculator ? https://www.rpecalculator.com/ ?
@@ -13,8 +16,10 @@
 
 - plate math page
   - persistence
+    - import and export file for plate rack and bar configs?
   - settings not working - bottom drawer / modal / page ?
   - add weight rack and custom bars
+    - priority plates (bumpers) come first on the bar
   - kg - lbs switch
   - fix warning about weights that are not round or don't finish with 0 or 5
   - get inspiration from juggernaut
@@ -27,6 +32,8 @@
   - setSelected next day workout on dateNow change (compare with atomsWithStorage lastDay?) ? - beta
 
 - program management / program editor page
+  - sharing is broken
+  - fix top tab bar selected day bug (programPage and programEditor.stepThree sharing the same state)
   - 4th step - program editor (screen / modal options) ??
     - another page ? or modal ? show per week total volume of 1rm exercise separate values for accessories and total
       - button - show screen for weekly (input amount of weeks) volume / intensity
@@ -49,11 +56,13 @@
   - strengthVx
   - jamal deadlift
 
+- program downloader page?
+  - fetch from a git repo?
+
 - settings page - beta
-  - language switch - add multi language support (put translations with variables on a json file?)
-    - save preferred language into atomsWithStorage - beta
   - about? - separate page for this?
   - Weights are rounded to 2.5kg so that it's easier on the head mid training session, and it's applied in every screen. In the future, it will be added a toggle so that you can disable this behavior.
+  - add switch for absolute percentage instead of rounding
 
 - create PR Tracker page (display some fancy graphs/charts)
 --------------------------------------------------------------------------------------

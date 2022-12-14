@@ -164,7 +164,7 @@ const ProgramEditorPage = ({ navigation }) => {
                       style={activeProgramName === item.name ? styles(activeTheme).programItemSelected : styles(activeTheme).programItem}
                       key={index}
                     >
-                      <Text style={styles(activeTheme).programItemText}>{item.name}</Text>
+                      <Text style={styles(activeTheme).programItemText}>{item.name.replace(".json", "")}</Text>
                       <Ionicons
                         name="ellipsis-vertical"
                         size={24}
