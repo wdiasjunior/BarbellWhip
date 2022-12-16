@@ -37,6 +37,9 @@ const ExerciseEditorPage = (props) => {
       percentage: "",
       rpe: "",
       tempo: "",
+      rest: "",
+      altExercise1: "",
+      altExercise2: "",
       description: ""
     });
     setProgramEditorData(auxAtom);
@@ -148,6 +151,7 @@ const ExerciseEditorPage = (props) => {
                   </Text>
                 </View>
               </View>
+
               <View style={styles(activeTheme).row}>
                 <View style={styles(activeTheme).col}>
                   <Text style={styles(activeTheme).inputLabel}>RPE</Text>
@@ -171,6 +175,49 @@ const ExerciseEditorPage = (props) => {
                     cursorColor={activeTheme.active}
                     onChangeText={(input) => editExerciseField("tempo", input, index)}
                     value={item.tempo+""}
+                    returnKeyType={"done"}
+                  />
+                </View>
+              </View>
+
+              <View style={styles(activeTheme).row}>
+                <View style={styles(activeTheme).col}>
+                  <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.rest}</Text>
+                  <TextInput
+                    keyboardType="numeric"
+                    style={styles(activeTheme).input}
+                    placeholderTextColor={activeTheme.placeholderText}
+                    cursorColor={activeTheme.active}
+                    onChangeText={(input) => editExerciseField("rest", input, index)}
+                    value={item.rest+""}
+                    returnKeyType={"done"}
+                  />
+                </View>
+              </View>
+
+              <View style={styles(activeTheme).row}>
+                <View style={styles(activeTheme).col}>
+                  <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.altExercise1}</Text>
+                  <TextInput
+                    keyboardType="numeric"
+                    style={styles(activeTheme).input}
+                    placeholderTextColor={activeTheme.placeholderText}
+                    cursorColor={activeTheme.active}
+                    onChangeText={(input) => editExerciseField("altExercise1", input, index)}
+                    value={item.altExercise1+""}
+                    returnKeyType={"done"}
+                  />
+                </View>
+
+                <View style={styles(activeTheme).col}>
+                  <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.altExercise2}</Text>
+                  <TextInput
+                    keyboardType="numeric"
+                    style={styles(activeTheme).input}
+                    placeholderTextColor={activeTheme.placeholderText}
+                    cursorColor={activeTheme.active}
+                    onChangeText={(input) => editExerciseField("altExercise2", input, index)}
+                    value={item.altExercise2+""}
                     returnKeyType={"done"}
                   />
                 </View>

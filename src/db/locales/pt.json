@@ -12,6 +12,9 @@
       "reps": "Repetições",
       "weightLabel": "Peso",
       "percentage": "Porcentagem",
+      "rest": "Descanso",
+      "altExercise1": "Exercício Alternativo 1",
+      "altExercise2": "Exercício Alternativo 2",
       "description": "Descrição"
     }
   },
@@ -66,6 +69,9 @@
       "reps": "Repetições",
       "percentage": "Porcetagem",
       "weightLabel": "Peso",
+      "rest": "Descanso",
+      "altExercise1": "Exercício Alternativo 1",
+      "altExercise2": "Exercício Alternativo 2",
       "description": "Descrição",
       "addExerciseButton": "ADD EXERCÍCIO"
     }

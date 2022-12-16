@@ -53,6 +53,19 @@ const ExerciseItemPage = (props) => {
                 </View>
               ) : null}
 
+              {item.rest ? (
+                <View style={styles(activeTheme).setListItemRow}>
+                  {item.rest ? <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.rest}:  <Text style={styles(activeTheme).data}>{item.rest}</Text></Text> : null}
+                </View>
+              ) : null}
+
+              {item.altExercise1 || item.altExercise2 ? (
+                <View style={styles(activeTheme).setListItemRow}>
+                  {item.altExercise1 ? <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.altExercise1}:  <Text style={styles(activeTheme).data}>{item.altExercise1}</Text></Text> : null}
+                  {item.altExercise2 ? <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.altExercise2}:  <Text style={styles(activeTheme).data}>{item.altExercise2}</Text></Text> : null}
+                </View>
+              ) : null}
+
               {item.description ? (
                 <View style={styles(activeTheme).setListItemRow}>
                   <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.description}:  <Text style={styles(activeTheme).description}>{item.description}</Text></Text>

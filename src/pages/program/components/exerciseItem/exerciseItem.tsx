@@ -22,7 +22,7 @@ const ExerciseItem = (props) => {
         style={styles(activeTheme).item}
         onPress={() => { navigation.push('ExerciseItemPage', {onermOBJ: props.onermOBJ, rmId: props.rmId, exerciseOBJ: props.data, weightUnit: props.weightUnit}); }}
       >
-        <Text style={styles(activeTheme).text1}>{props.exerciseName}</Text>
+        <Text adjustsFontSizeToFit style={styles(activeTheme).text1}>{props.exerciseName}</Text>
         {/*{isDone && <Ionicons name="checkmark" size={30} color="#3da9db" />}*/}
       </TouchableOpacity>
   )

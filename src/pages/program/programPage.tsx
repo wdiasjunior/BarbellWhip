@@ -160,7 +160,7 @@ const ProgramPage = ({ navigation }) => {
         <FlatList
           data={data?.trainingProgram[selectedWeek]?.week[selectedDay]?.day}
           renderItem={flatListRenderItem}
-          keyExtractor={item => item.exerciceName}
+          keyExtractor={(item, index) => item.exerciceName + "" + index}
         />
 
       </View>

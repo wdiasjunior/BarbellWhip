@@ -134,7 +134,7 @@ const StepThree = ({ navigation }) => {
           <DraggableFlatList
             ref={dayRef}
             data={programEditorData.trainingProgram[selectedWeek].week[selectedDay].day}
-            keyExtractor={(item, index) => index}
+            keyExtractor={(item, index) => item.exerciseName + "" + index}
             onDragEnd={({data}) => reorder(data)}
             renderItem={renderDayExerciseItems}
             ListFooterComponent={() => {
