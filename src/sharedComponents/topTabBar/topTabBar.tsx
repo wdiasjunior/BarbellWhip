@@ -10,7 +10,7 @@ interface Props {
   days: number;
   selectDay(): any;
   setFirstTab(): any;
-  programPage: boolean;
+  isProgramPage: boolean;
 }
 
 const TopTabBar = (props: Props) => {
@@ -34,7 +34,7 @@ const TopTabBar = (props: Props) => {
   }
 
   useEffect(() => {
-    if(props.programPage) {
+    if(props.isProgramPage) {
       setSelected(0);
       props.selectDay(0);
       if(ref.current != null) {
@@ -44,19 +44,21 @@ const TopTabBar = (props: Props) => {
   }, [props.setFirstTab])
 
   useEffect(() => {
-    setSelected(!props.programPage ? 0 : selectedDay);
-    props.selectDay(!props.programPage ? 0 : selectedDay);
+    setSelected(!props.isProgramPage ? 0 : selectedDay);
+    props.selectDay(!props.isProgramPage ? 0 : selectedDay);
     if(ref.current != null) {
       ref.current.scrollTo({x: dataSourceCords[0 - 1], y: 0, animated: true});
     }
   }, [])
 
   useEffect(() => {
-    selectTab(selectedDay);
+    if(props.isProgramPage) {
+      selectTab(selectedDay);
+    }
   }, [selectedDay])
 
   const scrollToTabOnLoad = () => {
-    if(ref.current != null && props.programPage) {
+    if(ref.current != null && props.isProgramPage) {
       ref.current.scrollTo({x: dataSourceCords[selectedDay - 2], y: 0, animated: true});
     }
   }

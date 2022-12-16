@@ -154,7 +154,7 @@ const ProgramPage = ({ navigation }) => {
           setFirstTab={selectedWeek}
           selectDay={setSelectedDay}
           days={data?.trainingProgram[selectedWeek]?.week?.length}
-          programPage={true}
+          isProgramPage={true}
         />
 
         <FlatList

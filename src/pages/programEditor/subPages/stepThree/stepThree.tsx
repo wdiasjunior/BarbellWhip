@@ -125,7 +125,7 @@ const StepThree = ({ navigation }) => {
         setFirstTab={selectedWeek}
         selectDay={selectDay}
         days={programEditorData.trainingProgram[selectedWeek].week.length}
-        programPage={false}
+        isProgramPage={false}
       />
 
       <View style={styles(activeTheme).exerciseList}>{/*<ScrollView overScrollMode="never">*/}
