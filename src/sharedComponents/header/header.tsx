@@ -51,6 +51,9 @@ export default Header = (props: Props) => {
   }
 
   const saveButton = async () => {
+    // TODO
+    // - add loading indicator on save
+    // - remove empty days and empty weeks on save
     await saveProgram();
   }
 
@@ -83,8 +86,10 @@ export default Header = (props: Props) => {
           />
         }
       </View>
+      <View style={styles(activeTheme).contentCenter}>
+        <Text adjustsFontSizeToFit style={styles(activeTheme).headerText}>{props.title} </Text>
+      </View>
       <View style={styles(activeTheme).contentRight}>
-        <Text style={styles(activeTheme).headerText}> {props.title} </Text>
         {props.menu &&
           <Ionicons
             name="ellipsis-vertical"
