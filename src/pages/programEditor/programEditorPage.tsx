@@ -1,7 +1,8 @@
 import React, { useState, useLayoutEffect, } from "react";
-import { Share, Text, View, TouchableOpacity, SafeAreaView, ScrollView, AsyncStorage, ActivityIndicator, } from 'react-native';
+import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, AsyncStorage, ActivityIndicator, } from 'react-native';
 import Modal from "react-native-modal";
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Share from 'react-native-share';
 import DocumentPicker from 'react-native-document-picker';
 import { useIsFocused } from '@react-navigation/native';
 
@@ -128,7 +129,7 @@ const ProgramEditorPage = ({ navigation }) => {
         break;
       case "share":
         const url = await returnFileURL(programNameForAction);
-        Share.share({ url: url })
+        await Share.open({ url: `file://${url}` });
         setModalOpen(false);
         break;
       case "delete":
@@ -164,7 +165,7 @@ const ProgramEditorPage = ({ navigation }) => {
                       style={activeProgramName === item.name ? styles(activeTheme).programItemSelected : styles(activeTheme).programItem}
                       key={index}
                     >
-                      <Text style={styles(activeTheme).programItemText}>{item.name.replace(".json", "")}</Text>
+                      <Text adjustsFontSizeToFit style={styles(activeTheme).programItemText}>{item.name.replace(".json", "")}</Text>
                       <Ionicons
                         name="ellipsis-vertical"
                         size={24}

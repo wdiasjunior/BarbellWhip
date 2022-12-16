@@ -32,8 +32,6 @@
   - setSelected next day workout on dateNow change (compare with atomsWithStorage lastDay?) ? - beta
 
 - program management / program editor page
-  - sharing is broken
-  - fix top tab bar selected day bug (programPage and programEditor.stepThree sharing the same state)
   - 4th step - program editor (screen / modal options) ??
     - another page ? or modal ? show per week total volume of 1rm exercise separate values for accessories and total
       - button - show screen for weekly (input amount of weeks) volume / intensity
