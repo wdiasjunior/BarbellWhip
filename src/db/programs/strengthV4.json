@@ -219,7 +219,7 @@
               "exerciceName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "CG Bench Press",
+                  "exerciceName": "Close Grip Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "85",
@@ -228,7 +228,7 @@
                   "description": ""
                 },
                 {
-                  "exerciceName": "CG Bench Press",
+                  "exerciceName": "Close Grip Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "70",
@@ -355,6 +355,20 @@
                   "rpe": "8",
                   "tempo": "",
                   "description": ""
+                }
+              ]
+            },
+            {
+              "exerciceName": "Lu Raises",
+              "set": [
+                {
+                  "exerciceName": "Lu Raises",
+                  "sets": "3-4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "or Lateral Raises"
                 }
               ]
             }
@@ -611,7 +625,7 @@
               "exerciceName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "CG Bench Press",
+                  "exerciceName": "Close Grip Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "85",
@@ -620,7 +634,7 @@
                   "description": ""
                 },
                 {
-                  "exerciceName": "CG Bench Press",
+                  "exerciceName": "Close Grip Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "70",
@@ -747,6 +761,20 @@
                   "rpe": "8",
                   "tempo": "",
                   "description": ""
+                }
+              ]
+            },
+            {
+              "exerciceName": "Lu Raises",
+              "set": [
+                {
+                  "exerciceName": "Lu Raises",
+                  "sets": "3-4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "or Lateral Raises"
                 }
               ]
             }
@@ -1012,7 +1040,7 @@
               "exerciceName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "CG Bench Press",
+                  "exerciceName": "Close Grip Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "85",
@@ -1021,7 +1049,7 @@
                   "description": ""
                 },
                 {
-                  "exerciceName": "CG Bench Press",
+                  "exerciceName": "Close Grip Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "70",
@@ -1148,6 +1176,20 @@
                   "rpe": "8",
                   "tempo": "",
                   "description": ""
+                }
+              ]
+            },
+            {
+              "exerciceName": "Lu Raises",
+              "set": [
+                {
+                  "exerciceName": "Lu Raises",
+                  "sets": "3-4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "or Lateral Raises"
                 }
               ]
             }
@@ -1404,7 +1446,7 @@
               "exerciceName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "CG Bench Press",
+                  "exerciceName": "Close Grip Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "85",
@@ -1413,7 +1455,7 @@
                   "description": ""
                 },
                 {
-                  "exerciceName": "CG Bench Press",
+                  "exerciceName": "Close Grip Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "70",
@@ -1540,6 +1582,20 @@
                   "rpe": "8",
                   "tempo": "",
                   "description": ""
+                }
+              ]
+            },
+            {
+              "exerciceName": "Lu Raises",
+              "set": [
+                {
+                  "exerciceName": "Lu Raises",
+                  "sets": "3-4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "or Lateral Raises"
                 }
               ]
             }
@@ -1936,7 +1992,7 @@
                   "percentage": "",
                   "rpe": "",
                   "tempo": "",
-                  "description": ""
+                  "description": "or Lateral Raises"
                 }
               ]
             }
@@ -2333,7 +2389,7 @@
                   "percentage": "",
                   "rpe": "",
                   "tempo": "",
-                  "description": ""
+                  "description": "or Lateral Raises"
                 }
               ]
             }
@@ -2599,7 +2655,7 @@
               "exerciceName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "CG Bench Press",
+                  "exerciceName": "Close Grip Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "85",
@@ -2608,7 +2664,7 @@
                   "description": ""
                 },
                 {
-                  "exerciceName": "CG Bench Press",
+                  "exerciceName": "Close Grip Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "70",
@@ -2739,7 +2795,7 @@
                   "percentage": "",
                   "rpe": "",
                   "tempo": "",
-                  "description": ""
+                  "description": "or Lateral Raises"
                 }
               ]
             }
@@ -2996,7 +3052,7 @@
               "exerciceName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "CG Bench Press",
+                  "exerciceName": "Close Grip Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "85",
@@ -3005,7 +3061,7 @@
                   "description": ""
                 },
                 {
-                  "exerciceName": "CG Bench Press",
+                  "exerciceName": "Close Grip Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "70",
@@ -3136,7 +3192,7 @@
                   "percentage": "",
                   "rpe": "",
                   "tempo": "",
-                  "description": ""
+                  "description": "or Lateral Raises"
                 }
               ]
             }
@@ -3393,7 +3449,7 @@
               "exerciceName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "CG Bench Press",
+                  "exerciceName": "Close Grip Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "85",
@@ -3402,7 +3458,7 @@
                   "description": ""
                 },
                 {
-                  "exerciceName": "CG Bench Press",
+                  "exerciceName": "Close Grip Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "70",
@@ -3533,7 +3589,7 @@
                   "percentage": "",
                   "rpe": "",
                   "tempo": "",
-                  "description": ""
+                  "description": "or Lateral Raises"
                 }
               ]
             }
@@ -3930,7 +3986,7 @@
                   "percentage": "",
                   "rpe": "",
                   "tempo": "",
-                  "description": ""
+                  "description": "or Lateral Raises"
                 }
               ]
             }
@@ -4336,7 +4392,7 @@
                   "percentage": "",
                   "rpe": "",
                   "tempo": "",
-                  "description": ""
+                  "description": "or Lateral Raises"
                 }
               ]
             }
