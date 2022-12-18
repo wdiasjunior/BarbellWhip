@@ -22,6 +22,13 @@ const CalculatorPage = ({ navigation }) => {
   const [inputLabel, setInputLabel] = useState("");
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
 
+  // TODO - fix - using this causes a glitch on the first render of the page
+  // const rmCol1 = [2, 3, 4, 5, 6, 7];
+  // const rmCol2 = [8, 9, 10, 11, 12, 15];
+  // const percentCol1 = [0.95, 0.9, 0.85, 0.8, 0.75, 0.7];
+  // const percentCol2 = [0.65, 0.6, 0.55, 0.5, 0.45, 0.4];
+  // const percentLabel = (i) => i.toFixed(2).toString().replace("0.", "");
+
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
                   <Header title={selectedLocale.calculatorPage.title} menu={false} />
@@ -164,6 +171,16 @@ const CalculatorPage = ({ navigation }) => {
 
           <View style={styles(activeTheme).card1RMRow2}>
             <View style={styles(activeTheme).card1RMCol}>
+
+              {/*{rmCol1.map((item, index) => {
+                return (
+                  <View style={styles(activeTheme).card1RMColContentRow} key={"key rm"+index}>
+                    <Text style={styles(activeTheme).weightSubBottom}>{item}RM</Text>
+                    <Text style={styles(activeTheme).weightBottom}>{oneRMCalc(weightLifted, repsPerformed, item)} {weightUnit}</Text>
+                  </View>
+                )
+              })}*/}
+
               <View style={styles(activeTheme).card1RMColContentRow}>
                 <Text style={styles(activeTheme).weightSubBottom}>2RM</Text>
                 <Text style={styles(activeTheme).weightBottom}>{oneRMCalc(weightLifted, repsPerformed, 2)} {weightUnit}</Text>
@@ -190,6 +207,16 @@ const CalculatorPage = ({ navigation }) => {
               </View>
             </View>
             <View style={styles(activeTheme).card1RMCol}>
+
+              {/*{rmCol2.map((item, index) => {
+                return (
+                  <View style={styles(activeTheme).card1RMColContentRow} key={"key rm"+index}>
+                    <Text style={styles(activeTheme).weightSubBottom}>{item}RM</Text>
+                    <Text style={styles(activeTheme).weightBottom}>{oneRMCalc(weightLifted, repsPerformed, item)} {weightUnit}</Text>
+                  </View>
+                )
+              })}*/}
+
               <View style={styles(activeTheme).card1RMColContentRow}>
                 <Text style={styles(activeTheme).weightSubBottom}>8RM</Text>
                 <Text style={styles(activeTheme).weightBottom}>{oneRMCalc(weightLifted, repsPerformed, 8)} {weightUnit}</Text>
@@ -235,6 +262,16 @@ const CalculatorPage = ({ navigation }) => {
 
           <View style={styles(activeTheme).card1RMRow2}>
             <View style={styles(activeTheme).card1RMCol}>
+
+              {/*{percentCol1.map((item, index) => {
+                return (
+                  <View style={styles(activeTheme).card1RMColContentRow} key={"key percentage"+index}>
+                    <Text style={styles(activeTheme).weightSubBottom}>{percentLabel(item)}%</Text>
+                    <Text style={styles(activeTheme).weightBottom}>{Math.floor(weightLifted * item)} {weightUnit}</Text>
+                  </View>
+                )
+              })}*/}
+
               <View style={styles(activeTheme).card1RMColContentRow}>
                 <Text style={styles(activeTheme).weightSubBottom}>95%</Text>
                 <Text style={styles(activeTheme).weightBottom}>{Math.floor(weightLifted * 0.95)} {weightUnit}</Text>
@@ -261,6 +298,16 @@ const CalculatorPage = ({ navigation }) => {
               </View>
             </View>
             <View style={styles(activeTheme).card1RMCol}>
+
+              {/*{percentCol2.map((item, index) => {
+                return (
+                  <View style={styles(activeTheme).card1RMColContentRow} key={"key percentage" + index}>
+                    <Text style={styles(activeTheme).weightSubBottom}>{percentLabel(item)}%</Text>
+                    <Text style={styles(activeTheme).weightBottom}>{Math.floor(weightLifted * item)} {weightUnit}</Text>
+                  </View>
+                )
+              })}*/}
+
               <View style={styles(activeTheme).card1RMColContentRow}>
                 <Text style={styles(activeTheme).weightSubBottom}>65%</Text>
                 <Text style={styles(activeTheme).weightBottom}>{Math.floor(weightLifted * 0.65)} {weightUnit}</Text>

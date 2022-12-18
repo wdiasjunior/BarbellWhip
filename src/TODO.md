@@ -32,6 +32,7 @@
   - setSelected next day workout on dateNow change (compare with atomsWithStorage lastDay?) ? - beta
 
 - program management / program editor page
+  - "create program" header show have dynamic title - create and edit depending on the action (add to locales)
   - 4th step - program editor (screen / modal options) ??
     - another page ? or modal ? show per week total volume of 1rm exercise separate values for accessories and total
       - button - show screen for weekly (input amount of weeks) volume / intensity
@@ -47,12 +48,19 @@
   - replace navigation.replace("ProgramEditorStack"); with navigation reset? and prevent android back button
   - keyboard avoiding view not pushing content up and glitching bottomTabBar every time it opens - beta
   - react native file system - create directory for programs?
+  - copy and paste function? - similar to how whatsapp lets you forward a message to multiple chats, do this for days?
+  - add spinner on save
 
-- include a few programs loaded by default in the app - beta
+- include a few programs loaded by default in programEditorPage - beta
   - phat
   - ph3
   - strengthVx
   - jamal deadlift
+
+- PR tracker page
+  - lift selector
+  - show graph with x axis for the passage of time and the y axis for the weight lifted
+  - percentage math for lastest entry of exercise below the graph
 
 - program downloader page?
   - fetch from a git repo?
@@ -72,7 +80,7 @@
 
 --------------------------------------------------------------------------------------
 - excel conversion to json? - spreadsheet template?
--
+- web/desktop program view and editor (and json checker?)
 --------------------------------------------------------------------------------------
 
 - notes for days/exercises on the program page ? (where/how would I save this ?)
