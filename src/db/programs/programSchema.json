@@ -15,16 +15,18 @@
           "day": [
             {
               "RMid": "ec03f7b7-ac43-43d9-af22-885cc8557926",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "80",
                   "rpe": "8",
                   "tempo": "410",
                   "rest": "3 minutes",
+                  "altExercise1": "",
+                  "altExercise2": "",
                   "description": "tempo paused squat"
                 }
               ]

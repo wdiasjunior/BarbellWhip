@@ -51,10 +51,10 @@ const StepThree = ({ navigation }) => {
     let auxAtom = deepClone(programEditorData);
     auxAtom.trainingProgram[selectedWeek].week[selectedDay].day.push({
       RMid: data === "simple" ? "0" : data.id,
-      exerciceName: data === "simple" ? "" : data.name,
+      exerciseName: data === "simple" ? "" : data.name,
       set: [
         {
-          exerciceName: "",
+          exerciseName: "",
           sets: "",
           reps: "",
           percentage: "",
@@ -102,7 +102,7 @@ const StepThree = ({ navigation }) => {
           </TouchableOpacity>
 
           <Text style={styles(activeTheme).exerciseItemText}>
-            {programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[index].exerciceName}
+            {programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[index].exerciseName}
           </Text>
 
           <TouchableOpacity style={{width: 32, height: 20}} onPress={() => editExercise(index)} >

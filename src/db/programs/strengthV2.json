@@ -25,22 +25,22 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90"
                 },
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "2",
                   "percentage": "75"
                 },
                 {
-                  "exerciceName": "Paused Squat",
+                  "exerciseName": "Paused Squat",
                   "sets": "3",
                   "reps": "2",
                   "percentage": "70",
@@ -50,10 +50,10 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Paused Bench Press",
+                  "exerciseName": "Paused Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "85",
@@ -62,7 +62,7 @@
                   "description": "3 seconds pause"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "5",
                   "reps": "5",
                   "percentage": "72.5",
@@ -71,10 +71,10 @@
               ]
             },
             {
-              "exerciceName": "Bulgarian Split Squats",
+              "exerciseName": "Bulgarian Split Squats",
               "set": [
                 {
-                  "exerciceName": "Bulgarian Split Squats",
+                  "exerciseName": "Bulgarian Split Squats",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -82,10 +82,10 @@
               ]
             },
             {
-              "exerciceName": "Triceps Pushdown",
+              "exerciseName": "Triceps Pushdown",
               "set": [
                 {
-                  "exerciceName": "Triceps Pushdown",
+                  "exerciseName": "Triceps Pushdown",
                   "sets": "3",
                   "reps": "20",
                   "rpe": "8"
@@ -98,16 +98,16 @@
           "day": [
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "5",
                   "reps": "6",
                   "percentage": "72.5"
                 },
                 {
-                  "exerciceName": "Paused Deadlift",
+                  "exerciseName": "Paused Deadlift",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "67.5",
@@ -118,10 +118,10 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Feet Up Bench Press",
+                  "exerciseName": "Feet Up Bench Press",
                   "sets": "4",
                   "reps": "10",
                   "percentage": "60",
@@ -130,10 +130,10 @@
               ]
             },
             {
-              "exerciceName": "Good Morning",
+              "exerciseName": "Good Morning",
               "set": [
                 {
-                  "exerciceName": "Good Morning",
+                  "exerciseName": "Good Morning",
                   "sets": "4",
                   "reps": "8 - 10",
                   "rpe": "7"
@@ -141,10 +141,10 @@
               ]
             },
             {
-              "exerciceName": "Chest Supported Row",
+              "exerciseName": "Chest Supported Row",
               "set": [
                 {
-                  "exerciceName": "Chest Supported Row",
+                  "exerciseName": "Chest Supported Row",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "7"
@@ -157,16 +157,16 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "72.5"
                 },
                 {
-                  "exerciceName": "Tempo Squat",
+                  "exerciseName": "Tempo Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "72.5",
@@ -175,10 +175,10 @@
               ]
             },
             {
-              "exerciceName": "Chin up / Pull up",
+              "exerciseName": "Chin up / Pull up",
               "set": [
                 {
-                  "exerciceName": "Chin up / Pull up",
+                  "exerciseName": "Chin up / Pull up",
                   "sets": "4",
                   "reps": "5",
                   "rpe": "8"
@@ -186,10 +186,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pulldown",
+              "exerciseName": "Lat Pulldown",
               "set": [
                 {
-                  "exerciceName": "Lat Pulldown",
+                  "exerciseName": "Lat Pulldown",
                   "sets": "4",
                   "reps": "10",
                   "rpe": "8"
@@ -197,10 +197,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pullover + Face Pull",
+              "exerciseName": "Lat Pullover + Face Pull",
               "set": [
                 {
-                  "exerciceName": "Lat Pullover + Face Pull",
+                  "exerciseName": "Lat Pullover + Face Pull",
                   "sets": "3",
                   "reps": "15 + 15",
                   "rpe": "8"
@@ -208,10 +208,10 @@
               ]
             },
             {
-              "exerciceName": "Biceps",
+              "exerciseName": "Biceps",
               "set": [
                 {
-                  "exerciceName": "Biceps",
+                  "exerciseName": "Biceps",
                   "sets": "4",
                   "reps": "MAX"
                 }
@@ -223,10 +223,10 @@
           "day": [
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "1-1 Tempo Bench Press",
+                  "exerciseName": "1-1 Tempo Bench Press",
                   "sets": "1",
                   "reps": "2",
                   "percentage": "85",
@@ -235,7 +235,7 @@
                   "description": "The first rep is a tempo rep, the second is a comp bench"
                 },
                 {
-                  "exerciceName": "1-1 Tempo Bench Press",
+                  "exerciseName": "1-1 Tempo Bench Press",
                   "sets": "3",
                   "reps": "2",
                   "percentage": "80",
@@ -244,7 +244,7 @@
                   "description": "The first rep is a tempo rep, the second is a comp bench"
                 },
                 {
-                  "exerciceName": "Paused Bench Press",
+                  "exerciseName": "Paused Bench Press",
                   "sets": "4",
                   "reps": "5",
                   "percentage": "70",
@@ -255,10 +255,10 @@
               ]
             },
             {
-              "exerciceName": "Dip",
+              "exerciseName": "Dip",
               "set": [
                 {
-                  "exerciceName": "Dip",
+                  "exerciseName": "Dip",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8"
@@ -266,10 +266,10 @@
               ]
             },
             {
-              "exerciceName": "Overhead Press",
+              "exerciseName": "Overhead Press",
               "set": [
                 {
-                  "exerciceName": "Overhead Press",
+                  "exerciseName": "Overhead Press",
                   "sets": "3",
                   "reps": "10",
                   "rpe": "8"
@@ -277,10 +277,10 @@
               ]
             },
             {
-              "exerciceName": "Skull Crusher",
+              "exerciseName": "Skull Crusher",
               "set": [
                 {
-                  "exerciceName": "Skull Crusher",
+                  "exerciseName": "Skull Crusher",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "8"
@@ -293,10 +293,10 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "High Bar Squat",
+                  "exerciseName": "High Bar Squat",
                   "sets": "3",
                   "reps": "6",
                   "percentage": "70"
@@ -305,17 +305,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Close Grip Bench Press",
+                  "exerciseName": "Close Grip Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "85",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Close Grip Bench Press",
+                  "exerciseName": "Close Grip Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "70",
@@ -325,16 +325,16 @@
             },
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "1",
                   "reps": "1",
                   "rpe": "6"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "6",
                   "reps": "4",
                   "percentage": "75"
@@ -342,10 +342,10 @@
               ]
             },
             {
-              "exerciceName": "Single Leg Extensions",
+              "exerciseName": "Single Leg Extensions",
               "set": [
                 {
-                  "exerciceName": "Single Leg Extensions",
+                  "exerciseName": "Single Leg Extensions",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -362,22 +362,22 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90.5"
                 },
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "3",
                   "percentage": "75"
                 },
                 {
-                  "exerciceName": "Paused Squat",
+                  "exerciseName": "Paused Squat",
                   "sets": "3",
                   "reps": "3",
                   "percentage": "72.5",
@@ -387,10 +387,10 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Paused Bench Press",
+                  "exerciseName": "Paused Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "87.5",
@@ -399,7 +399,7 @@
                   "description": "3 seconds pause"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "5",
                   "reps": "5",
                   "percentage": "75",
@@ -408,10 +408,10 @@
               ]
             },
             {
-              "exerciceName": "Bulgarian Split Squats",
+              "exerciseName": "Bulgarian Split Squats",
               "set": [
                 {
-                  "exerciceName": "Bulgarian Split Squats",
+                  "exerciseName": "Bulgarian Split Squats",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -419,10 +419,10 @@
               ]
             },
             {
-              "exerciceName": "Triceps Pushdown",
+              "exerciseName": "Triceps Pushdown",
               "set": [
                 {
-                  "exerciceName": "Triceps Pushdown",
+                  "exerciseName": "Triceps Pushdown",
                   "sets": "3",
                   "reps": "20",
                   "rpe": "8"
@@ -435,16 +435,16 @@
           "day": [
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "5",
                   "reps": "6",
                   "percentage": "72.5"
                 },
                 {
-                  "exerciceName": "Paused Deadlift",
+                  "exerciseName": "Paused Deadlift",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "67.5",
@@ -455,10 +455,10 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Feet Up Bench Press",
+                  "exerciseName": "Feet Up Bench Press",
                   "sets": "4",
                   "reps": "10",
                   "percentage": "62.5",
@@ -467,10 +467,10 @@
               ]
             },
             {
-              "exerciceName": "Good Morning",
+              "exerciseName": "Good Morning",
               "set": [
                 {
-                  "exerciceName": "Good Morning",
+                  "exerciseName": "Good Morning",
                   "sets": "4",
                   "reps": "8 - 10",
                   "rpe": "7"
@@ -478,10 +478,10 @@
               ]
             },
             {
-              "exerciceName": "Chest Supported Row",
+              "exerciseName": "Chest Supported Row",
               "set": [
                 {
-                  "exerciceName": "Chest Supported Row",
+                  "exerciseName": "Chest Supported Row",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "7"
@@ -494,16 +494,16 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "72.5"
                 },
                 {
-                  "exerciceName": "Tempo Squat",
+                  "exerciseName": "Tempo Squat",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "72.5",
@@ -512,10 +512,10 @@
               ]
             },
             {
-              "exerciceName": "Chin up / Pull up",
+              "exerciseName": "Chin up / Pull up",
               "set": [
                 {
-                  "exerciceName": "Chin up / Pull up",
+                  "exerciseName": "Chin up / Pull up",
                   "sets": "4",
                   "reps": "5",
                   "rpe": "8"
@@ -523,10 +523,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pulldown",
+              "exerciseName": "Lat Pulldown",
               "set": [
                 {
-                  "exerciceName": "Lat Pulldown",
+                  "exerciseName": "Lat Pulldown",
                   "sets": "4",
                   "reps": "10",
                   "rpe": "8"
@@ -534,10 +534,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pullover + Face Pull",
+              "exerciseName": "Lat Pullover + Face Pull",
               "set": [
                 {
-                  "exerciceName": "Lat Pullover + Face Pull",
+                  "exerciseName": "Lat Pullover + Face Pull",
                   "sets": "3",
                   "reps": "15 + 15",
                   "rpe": "8"
@@ -545,10 +545,10 @@
               ]
             },
             {
-              "exerciceName": "Biceps",
+              "exerciseName": "Biceps",
               "set": [
                 {
-                  "exerciceName": "Biceps",
+                  "exerciseName": "Biceps",
                   "sets": "4",
                   "reps": "MAX"
                 }
@@ -560,10 +560,10 @@
           "day": [
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "1-1 Tempo Bench Press",
+                  "exerciseName": "1-1 Tempo Bench Press",
                   "sets": "1",
                   "reps": "2",
                   "percentage": "85",
@@ -572,7 +572,7 @@
                   "description": "The first rep is a tempo rep, the second is a comp bench"
                 },
                 {
-                  "exerciceName": "1-1 Tempo Bench Press",
+                  "exerciseName": "1-1 Tempo Bench Press",
                   "sets": "2",
                   "reps": "2",
                   "percentage": "80",
@@ -581,7 +581,7 @@
                   "description": "The first rep is a tempo rep, the second is a comp bench"
                 },
                 {
-                  "exerciceName": "Paused Bench Press",
+                  "exerciseName": "Paused Bench Press",
                   "sets": "4",
                   "reps": "5",
                   "percentage": "70",
@@ -592,10 +592,10 @@
               ]
             },
             {
-              "exerciceName": "Dip",
+              "exerciseName": "Dip",
               "set": [
                 {
-                  "exerciceName": "Dip",
+                  "exerciseName": "Dip",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8"
@@ -603,10 +603,10 @@
               ]
             },
             {
-              "exerciceName": "Overhead Press",
+              "exerciseName": "Overhead Press",
               "set": [
                 {
-                  "exerciceName": "Overhead Press",
+                  "exerciseName": "Overhead Press",
                   "sets": "3",
                   "reps": "10",
                   "rpe": "8"
@@ -614,10 +614,10 @@
               ]
             },
             {
-              "exerciceName": "Skull Crusher",
+              "exerciseName": "Skull Crusher",
               "set": [
                 {
-                  "exerciceName": "Skull Crusher",
+                  "exerciseName": "Skull Crusher",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "8"
@@ -630,10 +630,10 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "High Bar Squat",
+                  "exerciseName": "High Bar Squat",
                   "sets": "3",
                   "reps": "7",
                   "percentage": "72.5"
@@ -642,17 +642,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Close Grip Bench Press",
+                  "exerciseName": "Close Grip Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "85",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Close Grip Bench Press",
+                  "exerciseName": "Close Grip Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "70",
@@ -662,16 +662,16 @@
             },
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "1",
                   "reps": "1",
                   "rpe": "6"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "6",
                   "reps": "4",
                   "percentage": "77.5"
@@ -679,10 +679,10 @@
               ]
             },
             {
-              "exerciceName": "Single Leg Extensions",
+              "exerciseName": "Single Leg Extensions",
               "set": [
                 {
-                  "exerciceName": "Single Leg Extensions",
+                  "exerciseName": "Single Leg Extensions",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -699,22 +699,22 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "92"
                 },
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "77.5"
                 },
                 {
-                  "exerciceName": "Paused Squat",
+                  "exerciseName": "Paused Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "75",
@@ -724,10 +724,10 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Paused Bench Press",
+                  "exerciseName": "Paused Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
@@ -736,7 +736,7 @@
                   "description": "3 seconds pause"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "5",
                   "reps": "5",
                   "percentage": "77.5",
@@ -745,10 +745,10 @@
               ]
             },
             {
-              "exerciceName": "Bulgarian Split Squats",
+              "exerciseName": "Bulgarian Split Squats",
               "set": [
                 {
-                  "exerciceName": "Bulgarian Split Squats",
+                  "exerciseName": "Bulgarian Split Squats",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -756,10 +756,10 @@
               ]
             },
             {
-              "exerciceName": "Triceps Pushdown",
+              "exerciseName": "Triceps Pushdown",
               "set": [
                 {
-                  "exerciceName": "Triceps Pushdown",
+                  "exerciseName": "Triceps Pushdown",
                   "sets": "3",
                   "reps": "20",
                   "rpe": "8"
@@ -772,16 +772,16 @@
           "day": [
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "5",
                   "reps": "5",
                   "percentage": "75"
                 },
                 {
-                  "exerciceName": "Paused Deadlift",
+                  "exerciseName": "Paused Deadlift",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "70",
@@ -792,10 +792,10 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Feet Up Bench Press",
+                  "exerciseName": "Feet Up Bench Press",
                   "sets": "4",
                   "reps": "10",
                   "percentage": "65",
@@ -804,10 +804,10 @@
               ]
             },
             {
-              "exerciceName": "Good Morning",
+              "exerciseName": "Good Morning",
               "set": [
                 {
-                  "exerciceName": "Good Morning",
+                  "exerciseName": "Good Morning",
                   "sets": "4",
                   "reps": "8 - 10",
                   "rpe": "7"
@@ -815,10 +815,10 @@
               ]
             },
             {
-              "exerciceName": "Chest Supported Row",
+              "exerciseName": "Chest Supported Row",
               "set": [
                 {
-                  "exerciceName": "Chest Supported Row",
+                  "exerciseName": "Chest Supported Row",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "7"
@@ -831,16 +831,16 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "6",
                   "percentage": "72.5"
                 },
                 {
-                  "exerciceName": "Tempo Squat",
+                  "exerciseName": "Tempo Squat",
                   "sets": "3",
                   "reps": "6",
                   "percentage": "72.5",
@@ -849,10 +849,10 @@
               ]
             },
             {
-              "exerciceName": "Chin up / Pull up",
+              "exerciseName": "Chin up / Pull up",
               "set": [
                 {
-                  "exerciceName": "Chin up / Pull up",
+                  "exerciseName": "Chin up / Pull up",
                   "sets": "4",
                   "reps": "5",
                   "rpe": "8"
@@ -860,10 +860,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pulldown",
+              "exerciseName": "Lat Pulldown",
               "set": [
                 {
-                  "exerciceName": "Lat Pulldown",
+                  "exerciseName": "Lat Pulldown",
                   "sets": "4",
                   "reps": "10",
                   "rpe": "8"
@@ -871,10 +871,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pullover + Face Pull",
+              "exerciseName": "Lat Pullover + Face Pull",
               "set": [
                 {
-                  "exerciceName": "Lat Pullover + Face Pull",
+                  "exerciseName": "Lat Pullover + Face Pull",
                   "sets": "3",
                   "reps": "15 + 15",
                   "rpe": "8"
@@ -882,10 +882,10 @@
               ]
             },
             {
-              "exerciceName": "Biceps",
+              "exerciseName": "Biceps",
               "set": [
                 {
-                  "exerciceName": "Biceps",
+                  "exerciseName": "Biceps",
                   "sets": "4",
                   "reps": "MAX"
                 }
@@ -897,10 +897,10 @@
           "day": [
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "1-1 Tempo Bench Press",
+                  "exerciseName": "1-1 Tempo Bench Press",
                   "sets": "1",
                   "reps": "2",
                   "percentage": "90",
@@ -909,7 +909,7 @@
                   "description": "The first rep is a tempo rep, the second is a comp bench"
                 },
                 {
-                  "exerciceName": "1-1 Tempo Bench Press",
+                  "exerciseName": "1-1 Tempo Bench Press",
                   "sets": "3",
                   "reps": "2",
                   "percentage": "85",
@@ -918,7 +918,7 @@
                   "description": "The first rep is a tempo rep, the second is a comp bench"
                 },
                 {
-                  "exerciceName": "Paused Bench Press",
+                  "exerciseName": "Paused Bench Press",
                   "sets": "4",
                   "reps": "5",
                   "percentage": "75",
@@ -929,10 +929,10 @@
               ]
             },
             {
-              "exerciceName": "Dip",
+              "exerciseName": "Dip",
               "set": [
                 {
-                  "exerciceName": "Dip",
+                  "exerciseName": "Dip",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8"
@@ -940,10 +940,10 @@
               ]
             },
             {
-              "exerciceName": "Overhead Press",
+              "exerciseName": "Overhead Press",
               "set": [
                 {
-                  "exerciceName": "Overhead Press",
+                  "exerciseName": "Overhead Press",
                   "sets": "3",
                   "reps": "10",
                   "rpe": "8"
@@ -951,10 +951,10 @@
               ]
             },
             {
-              "exerciceName": "Skull Crusher",
+              "exerciseName": "Skull Crusher",
               "set": [
                 {
-                  "exerciceName": "Skull Crusher",
+                  "exerciseName": "Skull Crusher",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "8"
@@ -967,10 +967,10 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "High Bar Squat",
+                  "exerciseName": "High Bar Squat",
                   "sets": "3",
                   "reps": "8",
                   "percentage": "72.5"
@@ -979,17 +979,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Close Grip Bench Press",
+                  "exerciseName": "Close Grip Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "85",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Close Grip Bench Press",
+                  "exerciseName": "Close Grip Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "70",
@@ -999,16 +999,16 @@
             },
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "1",
                   "reps": "1",
                   "rpe": "7"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "6",
                   "reps": "3",
                   "percentage": "80"
@@ -1016,10 +1016,10 @@
               ]
             },
             {
-              "exerciceName": "Single Leg Extensions",
+              "exerciseName": "Single Leg Extensions",
               "set": [
                 {
-                  "exerciceName": "Single Leg Extensions",
+                  "exerciseName": "Single Leg Extensions",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -1036,22 +1036,22 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90"
                 },
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "2",
                   "percentage": "75"
                 },
                 {
-                  "exerciceName": "Paused Squat",
+                  "exerciseName": "Paused Squat",
                   "sets": "3",
                   "reps": "2",
                   "percentage": "70",
@@ -1061,10 +1061,10 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Paused Bench Press",
+                  "exerciseName": "Paused Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
@@ -1073,7 +1073,7 @@
                   "description": "3 seconds pause"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "5",
                   "reps": "4",
                   "percentage": "77.5",
@@ -1082,10 +1082,10 @@
               ]
             },
             {
-              "exerciceName": "Bulgarian Split Squats",
+              "exerciseName": "Bulgarian Split Squats",
               "set": [
                 {
-                  "exerciceName": "Bulgarian Split Squats",
+                  "exerciseName": "Bulgarian Split Squats",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -1093,10 +1093,10 @@
               ]
             },
             {
-              "exerciceName": "Triceps Pushdown",
+              "exerciseName": "Triceps Pushdown",
               "set": [
                 {
-                  "exerciceName": "Triceps Pushdown",
+                  "exerciseName": "Triceps Pushdown",
                   "sets": "3",
                   "reps": "20",
                   "rpe": "8"
@@ -1109,16 +1109,16 @@
           "day": [
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "5",
                   "reps": "5",
                   "percentage": "77.5"
                 },
                 {
-                  "exerciceName": "Paused Deadlift",
+                  "exerciseName": "Paused Deadlift",
                   "sets": "3",
                   "reps": "6",
                   "percentage": "70",
@@ -1129,10 +1129,10 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Feet Up Bench Press",
+                  "exerciseName": "Feet Up Bench Press",
                   "sets": "4",
                   "reps": "8",
                   "percentage": "65",
@@ -1141,10 +1141,10 @@
               ]
             },
             {
-              "exerciceName": "Good Morning",
+              "exerciseName": "Good Morning",
               "set": [
                 {
-                  "exerciceName": "Good Morning",
+                  "exerciseName": "Good Morning",
                   "sets": "4",
                   "reps": "8 - 10",
                   "rpe": "7"
@@ -1152,10 +1152,10 @@
               ]
             },
             {
-              "exerciceName": "Chest Supported Row",
+              "exerciseName": "Chest Supported Row",
               "set": [
                 {
-                  "exerciceName": "Chest Supported Row",
+                  "exerciseName": "Chest Supported Row",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "7"
@@ -1168,16 +1168,16 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "72.5"
                 },
                 {
-                  "exerciceName": "Tempo Squat",
+                  "exerciseName": "Tempo Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "72.5",
@@ -1186,10 +1186,10 @@
               ]
             },
             {
-              "exerciceName": "Chin up / Pull up",
+              "exerciseName": "Chin up / Pull up",
               "set": [
                 {
-                  "exerciceName": "Chin up / Pull up",
+                  "exerciseName": "Chin up / Pull up",
                   "sets": "4",
                   "reps": "5",
                   "rpe": "8"
@@ -1197,10 +1197,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pulldown",
+              "exerciseName": "Lat Pulldown",
               "set": [
                 {
-                  "exerciceName": "Lat Pulldown",
+                  "exerciseName": "Lat Pulldown",
                   "sets": "4",
                   "reps": "10",
                   "rpe": "8"
@@ -1208,10 +1208,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pullover + Face Pull",
+              "exerciseName": "Lat Pullover + Face Pull",
               "set": [
                 {
-                  "exerciceName": "Lat Pullover + Face Pull",
+                  "exerciseName": "Lat Pullover + Face Pull",
                   "sets": "3",
                   "reps": "15 + 15",
                   "rpe": "8"
@@ -1219,10 +1219,10 @@
               ]
             },
             {
-              "exerciceName": "Biceps",
+              "exerciseName": "Biceps",
               "set": [
                 {
-                  "exerciceName": "Biceps",
+                  "exerciseName": "Biceps",
                   "sets": "4",
                   "reps": "MAX"
                 }
@@ -1234,24 +1234,24 @@
           "day": [
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "2",
                   "percentage": "90",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "3",
                   "reps": "2",
                   "percentage": "85",
                   "rpe": "7"
                 },
                 {
-                  "exerciceName": "Paused Bench Press",
+                  "exerciseName": "Paused Bench Press",
                   "sets": "4",
                   "reps": "5",
                   "percentage": "75",
@@ -1262,10 +1262,10 @@
               ]
             },
             {
-              "exerciceName": "Dip",
+              "exerciseName": "Dip",
               "set": [
                 {
-                  "exerciceName": "Dip",
+                  "exerciseName": "Dip",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8"
@@ -1273,10 +1273,10 @@
               ]
             },
             {
-              "exerciceName": "Overhead Press",
+              "exerciseName": "Overhead Press",
               "set": [
                 {
-                  "exerciceName": "Overhead Press",
+                  "exerciseName": "Overhead Press",
                   "sets": "3",
                   "reps": "10",
                   "rpe": "8"
@@ -1284,10 +1284,10 @@
               ]
             },
             {
-              "exerciceName": "Skull Crusher",
+              "exerciseName": "Skull Crusher",
               "set": [
                 {
-                  "exerciceName": "Skull Crusher",
+                  "exerciseName": "Skull Crusher",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "8"
@@ -1300,10 +1300,10 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "High Bar Squat",
+                  "exerciseName": "High Bar Squat",
                   "sets": "3",
                   "reps": "6",
                   "percentage": "72.5"
@@ -1312,17 +1312,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Close Grip Bench Press",
+                  "exerciseName": "Close Grip Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "85",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Close Grip Bench Press",
+                  "exerciseName": "Close Grip Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "70",
@@ -1332,16 +1332,16 @@
             },
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "1",
                   "reps": "1",
                   "rpe": "7"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "6",
                   "reps": "3",
                   "percentage": "82.5"
@@ -1349,10 +1349,10 @@
               ]
             },
             {
-              "exerciceName": "Single Leg Extensions",
+              "exerciseName": "Single Leg Extensions",
               "set": [
                 {
-                  "exerciceName": "Single Leg Extensions",
+                  "exerciseName": "Single Leg Extensions",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -1369,22 +1369,22 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90.5"
                 },
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "3",
                   "percentage": "75"
                 },
                 {
-                  "exerciceName": "Paused Squat",
+                  "exerciseName": "Paused Squat",
                   "sets": "3",
                   "reps": "3",
                   "percentage": "72.5",
@@ -1394,17 +1394,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "5",
                   "reps": "4",
                   "percentage": "75",
@@ -1413,10 +1413,10 @@
               ]
             },
             {
-              "exerciceName": "Bulgarian Split Squats",
+              "exerciseName": "Bulgarian Split Squats",
               "set": [
                 {
-                  "exerciceName": "Bulgarian Split Squats",
+                  "exerciseName": "Bulgarian Split Squats",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -1424,10 +1424,10 @@
               ]
             },
             {
-              "exerciceName": "Triceps Pushdown",
+              "exerciseName": "Triceps Pushdown",
               "set": [
                 {
-                  "exerciceName": "Triceps Pushdown",
+                  "exerciseName": "Triceps Pushdown",
                   "sets": "3",
                   "reps": "20",
                   "rpe": "8"
@@ -1440,16 +1440,16 @@
           "day": [
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "5",
                   "reps": "4",
                   "percentage": "80"
                 },
                 {
-                  "exerciceName": "Paused Deadlift",
+                  "exerciseName": "Paused Deadlift",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "72.5",
@@ -1460,10 +1460,10 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Close Grip Bench Press",
+                  "exerciseName": "Close Grip Bench Press",
                   "sets": "5",
                   "reps": "8",
                   "percentage": "65",
@@ -1472,10 +1472,10 @@
               ]
             },
             {
-              "exerciceName": "Good Morning",
+              "exerciseName": "Good Morning",
               "set": [
                 {
-                  "exerciceName": "Good Morning",
+                  "exerciseName": "Good Morning",
                   "sets": "4",
                   "reps": "8 - 10",
                   "rpe": "7"
@@ -1483,10 +1483,10 @@
               ]
             },
             {
-              "exerciceName": "Chest Supported Row",
+              "exerciseName": "Chest Supported Row",
               "set": [
                 {
-                  "exerciceName": "Chest Supported Row",
+                  "exerciseName": "Chest Supported Row",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "7"
@@ -1499,16 +1499,16 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "72.5"
                 },
                 {
-                  "exerciceName": "Tempo Squat",
+                  "exerciseName": "Tempo Squat",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "72.5",
@@ -1517,10 +1517,10 @@
               ]
             },
             {
-              "exerciceName": "Chin up / Pull up",
+              "exerciseName": "Chin up / Pull up",
               "set": [
                 {
-                  "exerciceName": "Chin up / Pull up",
+                  "exerciseName": "Chin up / Pull up",
                   "sets": "4",
                   "reps": "5",
                   "rpe": "8"
@@ -1528,10 +1528,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pulldown",
+              "exerciseName": "Lat Pulldown",
               "set": [
                 {
-                  "exerciceName": "Lat Pulldown",
+                  "exerciseName": "Lat Pulldown",
                   "sets": "4",
                   "reps": "10",
                   "rpe": "8"
@@ -1539,10 +1539,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pullover + Face Pull",
+              "exerciseName": "Lat Pullover + Face Pull",
               "set": [
                 {
-                  "exerciceName": "Lat Pullover + Face Pull",
+                  "exerciseName": "Lat Pullover + Face Pull",
                   "sets": "3",
                   "reps": "15 + 15",
                   "rpe": "8"
@@ -1550,10 +1550,10 @@
               ]
             },
             {
-              "exerciceName": "Biceps",
+              "exerciseName": "Biceps",
               "set": [
                 {
-                  "exerciceName": "Biceps",
+                  "exerciseName": "Biceps",
                   "sets": "4",
                   "reps": "MAX"
                 }
@@ -1565,17 +1565,17 @@
           "day": [
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "3",
                   "percentage": "85",
                   "rpe": "7"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "6",
                   "reps": "3",
                   "percentage": "77.5",
@@ -1584,10 +1584,10 @@
               ]
             },
             {
-              "exerciceName": "Dip",
+              "exerciseName": "Dip",
               "set": [
                 {
-                  "exerciceName": "Dip",
+                  "exerciseName": "Dip",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8"
@@ -1595,10 +1595,10 @@
               ]
             },
             {
-              "exerciceName": "Overhead Press",
+              "exerciseName": "Overhead Press",
               "set": [
                 {
-                  "exerciceName": "Overhead Press",
+                  "exerciseName": "Overhead Press",
                   "sets": "3",
                   "reps": "10",
                   "rpe": "8"
@@ -1606,10 +1606,10 @@
               ]
             },
             {
-              "exerciceName": "Skull Crusher",
+              "exerciseName": "Skull Crusher",
               "set": [
                 {
-                  "exerciceName": "Skull Crusher",
+                  "exerciseName": "Skull Crusher",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "8"
@@ -1617,10 +1617,10 @@
               ]
             },
             {
-              "exerciceName": "Lu Raises",
+              "exerciseName": "Lu Raises",
               "set": [
                 {
-                  "exerciceName": "Lu Raises",
+                  "exerciseName": "Lu Raises",
                   "sets": "4",
                   "reps": "MAX",
                   "rpe": "8"
@@ -1633,10 +1633,10 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "High Bar Squat",
+                  "exerciseName": "High Bar Squat",
                   "sets": "3",
                   "reps": "7",
                   "percentage": "72.5"
@@ -1645,17 +1645,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "70",
@@ -1665,16 +1665,16 @@
             },
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "1",
                   "reps": "1",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "6",
                   "reps": "3",
                   "percentage": "85"
@@ -1682,10 +1682,10 @@
               ]
             },
             {
-              "exerciceName": "Single Leg Extensions",
+              "exerciseName": "Single Leg Extensions",
               "set": [
                 {
-                  "exerciceName": "Single Leg Extensions",
+                  "exerciseName": "Single Leg Extensions",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -1702,22 +1702,22 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "92.5"
                 },
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "77.5"
                 },
                 {
-                  "exerciceName": "Paused Squat",
+                  "exerciseName": "Paused Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "75",
@@ -1727,17 +1727,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "5",
                   "reps": "4",
                   "percentage": "77.5",
@@ -1746,10 +1746,10 @@
               ]
             },
             {
-              "exerciceName": "Bulgarian Split Squats",
+              "exerciseName": "Bulgarian Split Squats",
               "set": [
                 {
-                  "exerciceName": "Bulgarian Split Squats",
+                  "exerciseName": "Bulgarian Split Squats",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -1757,10 +1757,10 @@
               ]
             },
             {
-              "exerciceName": "Triceps Pushdown",
+              "exerciseName": "Triceps Pushdown",
               "set": [
                 {
-                  "exerciceName": "Triceps Pushdown",
+                  "exerciseName": "Triceps Pushdown",
                   "sets": "3",
                   "reps": "20",
                   "rpe": "8"
@@ -1773,16 +1773,16 @@
           "day": [
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "75"
                 },
                 {
-                  "exerciceName": "Paused Deadlift",
+                  "exerciseName": "Paused Deadlift",
                   "sets": "2",
                   "reps": "5",
                   "percentage": "70",
@@ -1793,10 +1793,10 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Close Grip Bench Press",
+                  "exerciseName": "Close Grip Bench Press",
                   "sets": "5",
                   "reps": "7",
                   "percentage": "67.5",
@@ -1805,10 +1805,10 @@
               ]
             },
             {
-              "exerciceName": "Good Morning",
+              "exerciseName": "Good Morning",
               "set": [
                 {
-                  "exerciceName": "Good Morning",
+                  "exerciseName": "Good Morning",
                   "sets": "4",
                   "reps": "8 - 10",
                   "rpe": "7"
@@ -1816,10 +1816,10 @@
               ]
             },
             {
-              "exerciceName": "Chest Supported Row",
+              "exerciseName": "Chest Supported Row",
               "set": [
                 {
-                  "exerciceName": "Chest Supported Row",
+                  "exerciseName": "Chest Supported Row",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "7"
@@ -1832,16 +1832,16 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "6",
                   "percentage": "72.5"
                 },
                 {
-                  "exerciceName": "Tempo Squat",
+                  "exerciseName": "Tempo Squat",
                   "sets": "3",
                   "reps": "6",
                   "percentage": "72.5",
@@ -1850,10 +1850,10 @@
               ]
             },
             {
-              "exerciceName": "Chin up / Pull up",
+              "exerciseName": "Chin up / Pull up",
               "set": [
                 {
-                  "exerciceName": "Chin up / Pull up",
+                  "exerciseName": "Chin up / Pull up",
                   "sets": "4",
                   "reps": "5",
                   "rpe": "8"
@@ -1861,10 +1861,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pulldown",
+              "exerciseName": "Lat Pulldown",
               "set": [
                 {
-                  "exerciceName": "Lat Pulldown",
+                  "exerciseName": "Lat Pulldown",
                   "sets": "4",
                   "reps": "10",
                   "rpe": "8"
@@ -1872,10 +1872,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pullover + Face Pull",
+              "exerciseName": "Lat Pullover + Face Pull",
               "set": [
                 {
-                  "exerciceName": "Lat Pullover + Face Pull",
+                  "exerciseName": "Lat Pullover + Face Pull",
                   "sets": "3",
                   "reps": "15 + 15",
                   "rpe": "8"
@@ -1883,10 +1883,10 @@
               ]
             },
             {
-              "exerciceName": "Biceps",
+              "exerciseName": "Biceps",
               "set": [
                 {
-                  "exerciceName": "Biceps",
+                  "exerciseName": "Biceps",
                   "sets": "4",
                   "reps": "MAX"
                 }
@@ -1898,17 +1898,17 @@
           "day": [
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "3",
                   "percentage": "87.5",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "6",
                   "reps": "3",
                   "percentage": "80",
@@ -1917,10 +1917,10 @@
               ]
             },
             {
-              "exerciceName": "Dip",
+              "exerciseName": "Dip",
               "set": [
                 {
-                  "exerciceName": "Dip",
+                  "exerciseName": "Dip",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8"
@@ -1928,10 +1928,10 @@
               ]
             },
             {
-              "exerciceName": "Overhead Press",
+              "exerciseName": "Overhead Press",
               "set": [
                 {
-                  "exerciceName": "Overhead Press",
+                  "exerciseName": "Overhead Press",
                   "sets": "3",
                   "reps": "10",
                   "rpe": "8"
@@ -1939,10 +1939,10 @@
               ]
             },
             {
-              "exerciceName": "Skull Crusher",
+              "exerciseName": "Skull Crusher",
               "set": [
                 {
-                  "exerciceName": "Skull Crusher",
+                  "exerciseName": "Skull Crusher",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "8"
@@ -1950,10 +1950,10 @@
               ]
             },
             {
-              "exerciceName": "Lu Raises",
+              "exerciseName": "Lu Raises",
               "set": [
                 {
-                  "exerciceName": "Lu Raises",
+                  "exerciseName": "Lu Raises",
                   "sets": "4",
                   "reps": "MAX",
                   "rpe": "8"
@@ -1966,10 +1966,10 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "High Bar Squat",
+                  "exerciseName": "High Bar Squat",
                   "sets": "3",
                   "reps": "8",
                   "percentage": "72.5"
@@ -1978,17 +1978,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "72.5",
@@ -1998,16 +1998,16 @@
             },
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "1",
                   "reps": "1",
                   "rpe": "6"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "4",
                   "reps": "3",
                   "percentage": "80"
@@ -2015,10 +2015,10 @@
               ]
             },
             {
-              "exerciceName": "Single Leg Extensions",
+              "exerciseName": "Single Leg Extensions",
               "set": [
                 {
-                  "exerciceName": "Single Leg Extensions",
+                  "exerciseName": "Single Leg Extensions",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -2035,22 +2035,22 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90.5"
                 },
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "2",
                   "percentage": "75"
                 },
                 {
-                  "exerciceName": "Paused Squat",
+                  "exerciseName": "Paused Squat",
                   "sets": "3",
                   "reps": "2",
                   "percentage": "72.5",
@@ -2060,17 +2060,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "5",
                   "reps": "4",
                   "percentage": "80",
@@ -2079,10 +2079,10 @@
               ]
             },
             {
-              "exerciceName": "Bulgarian Split Squats",
+              "exerciseName": "Bulgarian Split Squats",
               "set": [
                 {
-                  "exerciceName": "Bulgarian Split Squats",
+                  "exerciseName": "Bulgarian Split Squats",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -2090,10 +2090,10 @@
               ]
             },
             {
-              "exerciceName": "Triceps Pushdown",
+              "exerciseName": "Triceps Pushdown",
               "set": [
                 {
-                  "exerciceName": "Triceps Pushdown",
+                  "exerciseName": "Triceps Pushdown",
                   "sets": "3",
                   "reps": "20",
                   "rpe": "8"
@@ -2106,10 +2106,10 @@
           "day": [
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Paused Deadlift",
+                  "exerciseName": "Paused Deadlift",
                   "sets": "4",
                   "reps": "4",
                   "percentage": "80",
@@ -2117,7 +2117,7 @@
                   "description": "Pause off the floor"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "4",
                   "reps": "5",
                   "percentage": "72.5"
@@ -2126,10 +2126,10 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Close Grip Bench Press",
+                  "exerciseName": "Close Grip Bench Press",
                   "sets": "5",
                   "reps": "6",
                   "percentage": "70",
@@ -2138,10 +2138,10 @@
               ]
             },
             {
-              "exerciceName": "Good Morning",
+              "exerciseName": "Good Morning",
               "set": [
                 {
-                  "exerciceName": "Good Morning",
+                  "exerciseName": "Good Morning",
                   "sets": "4",
                   "reps": "8 - 10",
                   "rpe": "7"
@@ -2149,10 +2149,10 @@
               ]
             },
             {
-              "exerciceName": "Chest Supported Row",
+              "exerciseName": "Chest Supported Row",
               "set": [
                 {
-                  "exerciceName": "Chest Supported Row",
+                  "exerciseName": "Chest Supported Row",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "7"
@@ -2165,16 +2165,16 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "72.5"
                 },
                 {
-                  "exerciceName": "Tempo Squat",
+                  "exerciseName": "Tempo Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "72.5",
@@ -2183,10 +2183,10 @@
               ]
             },
             {
-              "exerciceName": "Chin up / Pull up",
+              "exerciseName": "Chin up / Pull up",
               "set": [
                 {
-                  "exerciceName": "Chin up / Pull up",
+                  "exerciseName": "Chin up / Pull up",
                   "sets": "4",
                   "reps": "5",
                   "rpe": "8"
@@ -2194,10 +2194,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pulldown",
+              "exerciseName": "Lat Pulldown",
               "set": [
                 {
-                  "exerciceName": "Lat Pulldown",
+                  "exerciseName": "Lat Pulldown",
                   "sets": "4",
                   "reps": "10",
                   "rpe": "8"
@@ -2205,10 +2205,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pullover + Face Pull",
+              "exerciseName": "Lat Pullover + Face Pull",
               "set": [
                 {
-                  "exerciceName": "Lat Pullover + Face Pull",
+                  "exerciseName": "Lat Pullover + Face Pull",
                   "sets": "3",
                   "reps": "15 + 15",
                   "rpe": "8"
@@ -2216,10 +2216,10 @@
               ]
             },
             {
-              "exerciceName": "Biceps",
+              "exerciseName": "Biceps",
               "set": [
                 {
-                  "exerciceName": "Biceps",
+                  "exerciseName": "Biceps",
                   "sets": "4",
                   "reps": "MAX"
                 }
@@ -2231,17 +2231,17 @@
           "day": [
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "3",
                   "percentage": "90",
                   "rpe": "9"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "6",
                   "reps": "3",
                   "percentage": "82.5",
@@ -2250,10 +2250,10 @@
               ]
             },
             {
-              "exerciceName": "Dip",
+              "exerciseName": "Dip",
               "set": [
                 {
-                  "exerciceName": "Dip",
+                  "exerciseName": "Dip",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8"
@@ -2261,10 +2261,10 @@
               ]
             },
             {
-              "exerciceName": "Overhead Press",
+              "exerciseName": "Overhead Press",
               "set": [
                 {
-                  "exerciceName": "Overhead Press",
+                  "exerciseName": "Overhead Press",
                   "sets": "3",
                   "reps": "10",
                   "rpe": "8"
@@ -2272,10 +2272,10 @@
               ]
             },
             {
-              "exerciceName": "Skull Crusher",
+              "exerciseName": "Skull Crusher",
               "set": [
                 {
-                  "exerciceName": "Skull Crusher",
+                  "exerciseName": "Skull Crusher",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "8"
@@ -2283,10 +2283,10 @@
               ]
             },
             {
-              "exerciceName": "Lu Raises",
+              "exerciseName": "Lu Raises",
               "set": [
                 {
-                  "exerciceName": "Lu Raises",
+                  "exerciseName": "Lu Raises",
                   "sets": "4",
                   "reps": "MAX",
                   "rpe": "8"
@@ -2299,10 +2299,10 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "High Bar Squat",
+                  "exerciseName": "High Bar Squat",
                   "sets": "3",
                   "reps": "6",
                   "percentage": "75"
@@ -2311,17 +2311,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "75",
@@ -2331,16 +2331,16 @@
             },
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "2",
                   "reps": "1",
                   "rpe": "7"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "6",
                   "reps": "4",
                   "percentage": "80"
@@ -2348,10 +2348,10 @@
               ]
             },
             {
-              "exerciceName": "Single Leg Extensions",
+              "exerciseName": "Single Leg Extensions",
               "set": [
                 {
-                  "exerciceName": "Single Leg Extensions",
+                  "exerciseName": "Single Leg Extensions",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -2368,22 +2368,22 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "92.5"
                 },
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "3",
                   "percentage": "77.5"
                 },
                 {
-                  "exerciceName": "Paused Squat",
+                  "exerciseName": "Paused Squat",
                   "sets": "3",
                   "reps": "3",
                   "percentage": "75",
@@ -2393,17 +2393,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "5",
                   "reps": "3",
                   "percentage": "77.5",
@@ -2412,10 +2412,10 @@
               ]
             },
             {
-              "exerciceName": "Bulgarian Split Squats",
+              "exerciseName": "Bulgarian Split Squats",
               "set": [
                 {
-                  "exerciceName": "Bulgarian Split Squats",
+                  "exerciseName": "Bulgarian Split Squats",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -2423,10 +2423,10 @@
               ]
             },
             {
-              "exerciceName": "Triceps Pushdown",
+              "exerciseName": "Triceps Pushdown",
               "set": [
                 {
-                  "exerciceName": "Triceps Pushdown",
+                  "exerciseName": "Triceps Pushdown",
                   "sets": "3",
                   "reps": "20",
                   "rpe": "8"
@@ -2439,10 +2439,10 @@
           "day": [
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Paused Deadlift",
+                  "exerciseName": "Paused Deadlift",
                   "sets": "4",
                   "reps": "4",
                   "percentage": "82.5",
@@ -2450,7 +2450,7 @@
                   "description": "Pause off the floor"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "4",
                   "reps": "5",
                   "percentage": "75"
@@ -2459,10 +2459,10 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Close Grip Bench Press",
+                  "exerciseName": "Close Grip Bench Press",
                   "sets": "4",
                   "reps": "6",
                   "percentage": "70",
@@ -2471,10 +2471,10 @@
               ]
             },
             {
-              "exerciceName": "Good Morning",
+              "exerciseName": "Good Morning",
               "set": [
                 {
-                  "exerciceName": "Good Morning",
+                  "exerciseName": "Good Morning",
                   "sets": "4",
                   "reps": "8 - 10",
                   "rpe": "7"
@@ -2482,10 +2482,10 @@
               ]
             },
             {
-              "exerciceName": "Chest Supported Row",
+              "exerciseName": "Chest Supported Row",
               "set": [
                 {
-                  "exerciceName": "Chest Supported Row",
+                  "exerciseName": "Chest Supported Row",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "7"
@@ -2498,16 +2498,16 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "72.5"
                 },
                 {
-                  "exerciceName": "Tempo Squat",
+                  "exerciseName": "Tempo Squat",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "72.5",
@@ -2516,10 +2516,10 @@
               ]
             },
             {
-              "exerciceName": "Chin up / Pull up",
+              "exerciseName": "Chin up / Pull up",
               "set": [
                 {
-                  "exerciceName": "Chin up / Pull up",
+                  "exerciseName": "Chin up / Pull up",
                   "sets": "4",
                   "reps": "5",
                   "rpe": "8"
@@ -2527,10 +2527,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pulldown",
+              "exerciseName": "Lat Pulldown",
               "set": [
                 {
-                  "exerciceName": "Lat Pulldown",
+                  "exerciseName": "Lat Pulldown",
                   "sets": "4",
                   "reps": "10",
                   "rpe": "8"
@@ -2538,10 +2538,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pullover + Face Pull",
+              "exerciseName": "Lat Pullover + Face Pull",
               "set": [
                 {
-                  "exerciceName": "Lat Pullover + Face Pull",
+                  "exerciseName": "Lat Pullover + Face Pull",
                   "sets": "3",
                   "reps": "15 + 15",
                   "rpe": "8"
@@ -2549,10 +2549,10 @@
               ]
             },
             {
-              "exerciceName": "Biceps",
+              "exerciseName": "Biceps",
               "set": [
                 {
-                  "exerciceName": "Biceps",
+                  "exerciseName": "Biceps",
                   "sets": "4",
                   "reps": "MAX"
                 }
@@ -2564,17 +2564,17 @@
           "day": [
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "9"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "5",
                   "reps": "3",
                   "percentage": "80",
@@ -2583,10 +2583,10 @@
               ]
             },
             {
-              "exerciceName": "Dip",
+              "exerciseName": "Dip",
               "set": [
                 {
-                  "exerciceName": "Dip",
+                  "exerciseName": "Dip",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8"
@@ -2594,10 +2594,10 @@
               ]
             },
             {
-              "exerciceName": "Overhead Press",
+              "exerciseName": "Overhead Press",
               "set": [
                 {
-                  "exerciceName": "Overhead Press",
+                  "exerciseName": "Overhead Press",
                   "sets": "3",
                   "reps": "10",
                   "rpe": "8"
@@ -2605,10 +2605,10 @@
               ]
             },
             {
-              "exerciceName": "Skull Crusher",
+              "exerciseName": "Skull Crusher",
               "set": [
                 {
-                  "exerciceName": "Skull Crusher",
+                  "exerciseName": "Skull Crusher",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "8"
@@ -2616,10 +2616,10 @@
               ]
             },
             {
-              "exerciceName": "Lu Raises",
+              "exerciseName": "Lu Raises",
               "set": [
                 {
-                  "exerciceName": "Lu Raises",
+                  "exerciseName": "Lu Raises",
                   "sets": "4",
                   "reps": "MAX",
                   "rpe": "8"
@@ -2632,10 +2632,10 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "High Bar Squat",
+                  "exerciseName": "High Bar Squat",
                   "sets": "3",
                   "reps": "7",
                   "percentage": "75"
@@ -2644,17 +2644,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "3",
                   "reps": "3",
                   "percentage": "75",
@@ -2664,16 +2664,16 @@
             },
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "2",
                   "reps": "1",
                   "rpe": "7"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "6",
                   "reps": "3",
                   "percentage": "85",
@@ -2682,10 +2682,10 @@
               ]
             },
             {
-              "exerciceName": "Single Leg Extensions",
+              "exerciseName": "Single Leg Extensions",
               "set": [
                 {
-                  "exerciceName": "Single Leg Extensions",
+                  "exerciseName": "Single Leg Extensions",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -2702,22 +2702,22 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "92.5"
                 },
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "77.5"
                 },
                 {
-                  "exerciceName": "Paused Squat",
+                  "exerciseName": "Paused Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "75",
@@ -2727,17 +2727,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "5",
                   "reps": "4",
                   "percentage": "72.5",
@@ -2746,10 +2746,10 @@
               ]
             },
             {
-              "exerciceName": "Bulgarian Split Squats",
+              "exerciseName": "Bulgarian Split Squats",
               "set": [
                 {
-                  "exerciceName": "Bulgarian Split Squats",
+                  "exerciseName": "Bulgarian Split Squats",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -2757,10 +2757,10 @@
               ]
             },
             {
-              "exerciceName": "Triceps Pushdown",
+              "exerciseName": "Triceps Pushdown",
               "set": [
                 {
-                  "exerciceName": "Triceps Pushdown",
+                  "exerciseName": "Triceps Pushdown",
                   "sets": "3",
                   "reps": "20",
                   "rpe": "8"
@@ -2773,10 +2773,10 @@
           "day": [
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Paused Deadlift",
+                  "exerciseName": "Paused Deadlift",
                   "sets": "3",
                   "reps": "3",
                   "percentage": "85",
@@ -2785,7 +2785,7 @@
                   "description": "Pause off the floor"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "4",
                   "reps": "5",
                   "percentage": "75"
@@ -2794,10 +2794,10 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Close Grip Bench Press",
+                  "exerciseName": "Close Grip Bench Press",
                   "sets": "5",
                   "reps": "8",
                   "percentage": "70",
@@ -2806,10 +2806,10 @@
               ]
             },
             {
-              "exerciceName": "Good Morning",
+              "exerciseName": "Good Morning",
               "set": [
                 {
-                  "exerciceName": "Good Morning",
+                  "exerciseName": "Good Morning",
                   "sets": "4",
                   "reps": "8 - 10",
                   "rpe": "7"
@@ -2817,10 +2817,10 @@
               ]
             },
             {
-              "exerciceName": "Chest Supported Row",
+              "exerciseName": "Chest Supported Row",
               "set": [
                 {
-                  "exerciceName": "Chest Supported Row",
+                  "exerciseName": "Chest Supported Row",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "7"
@@ -2833,16 +2833,16 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "6",
                   "percentage": "72.5"
                 },
                 {
-                  "exerciceName": "Tempo Squat",
+                  "exerciseName": "Tempo Squat",
                   "sets": "3",
                   "reps": "6",
                   "percentage": "72.5",
@@ -2851,10 +2851,10 @@
               ]
             },
             {
-              "exerciceName": "Chin up / Pull up",
+              "exerciseName": "Chin up / Pull up",
               "set": [
                 {
-                  "exerciceName": "Chin up / Pull up",
+                  "exerciseName": "Chin up / Pull up",
                   "sets": "4",
                   "reps": "5",
                   "rpe": "8"
@@ -2862,10 +2862,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pulldown",
+              "exerciseName": "Lat Pulldown",
               "set": [
                 {
-                  "exerciceName": "Lat Pulldown",
+                  "exerciseName": "Lat Pulldown",
                   "sets": "4",
                   "reps": "10",
                   "rpe": "8"
@@ -2873,10 +2873,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pullover + Face Pull",
+              "exerciseName": "Lat Pullover + Face Pull",
               "set": [
                 {
-                  "exerciceName": "Lat Pullover + Face Pull",
+                  "exerciseName": "Lat Pullover + Face Pull",
                   "sets": "3",
                   "reps": "15 + 15",
                   "rpe": "8"
@@ -2884,10 +2884,10 @@
               ]
             },
             {
-              "exerciceName": "Biceps",
+              "exerciseName": "Biceps",
               "set": [
                 {
-                  "exerciceName": "Biceps",
+                  "exerciseName": "Biceps",
                   "sets": "4",
                   "reps": "MAX"
                 }
@@ -2899,17 +2899,17 @@
           "day": [
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "3",
                   "percentage": "87.5",
                   "rpe": "7"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "6",
                   "reps": "3",
                   "percentage": "80",
@@ -2918,10 +2918,10 @@
               ]
             },
             {
-              "exerciceName": "Dip",
+              "exerciseName": "Dip",
               "set": [
                 {
-                  "exerciceName": "Dip",
+                  "exerciseName": "Dip",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8"
@@ -2929,10 +2929,10 @@
               ]
             },
             {
-              "exerciceName": "Overhead Press",
+              "exerciseName": "Overhead Press",
               "set": [
                 {
-                  "exerciceName": "Overhead Press",
+                  "exerciseName": "Overhead Press",
                   "sets": "3",
                   "reps": "10",
                   "rpe": "8"
@@ -2940,10 +2940,10 @@
               ]
             },
             {
-              "exerciceName": "Skull Crusher",
+              "exerciseName": "Skull Crusher",
               "set": [
                 {
-                  "exerciceName": "Skull Crusher",
+                  "exerciseName": "Skull Crusher",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "8"
@@ -2951,10 +2951,10 @@
               ]
             },
             {
-              "exerciceName": "Lu Raises",
+              "exerciseName": "Lu Raises",
               "set": [
                 {
-                  "exerciceName": "Lu Raises",
+                  "exerciseName": "Lu Raises",
                   "sets": "4",
                   "reps": "MAX",
                   "rpe": "8"
@@ -2967,10 +2967,10 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "High Bar Squat",
+                  "exerciseName": "High Bar Squat",
                   "sets": "3",
                   "reps": "8",
                   "percentage": "75"
@@ -2979,17 +2979,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "72.5",
@@ -2999,16 +2999,16 @@
             },
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "2",
                   "reps": "1",
                   "rpe": "7.5"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "6",
                   "reps": "3",
                   "percentage": "87.5",
@@ -3017,10 +3017,10 @@
               ]
             },
             {
-              "exerciceName": "Single Leg Extensions",
+              "exerciseName": "Single Leg Extensions",
               "set": [
                 {
-                  "exerciceName": "Single Leg Extensions",
+                  "exerciseName": "Single Leg Extensions",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -3037,22 +3037,22 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "92.5"
                 },
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "2",
                   "percentage": "77.5"
                 },
                 {
-                  "exerciceName": "Paused Squat",
+                  "exerciseName": "Paused Squat",
                   "sets": "3",
                   "reps": "2",
                   "percentage": "75",
@@ -3062,17 +3062,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "5",
                   "reps": "4",
                   "percentage": "77.5",
@@ -3081,10 +3081,10 @@
               ]
             },
             {
-              "exerciceName": "Bulgarian Split Squats",
+              "exerciseName": "Bulgarian Split Squats",
               "set": [
                 {
-                  "exerciceName": "Bulgarian Split Squats",
+                  "exerciseName": "Bulgarian Split Squats",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -3092,10 +3092,10 @@
               ]
             },
             {
-              "exerciceName": "Triceps Pushdown",
+              "exerciseName": "Triceps Pushdown",
               "set": [
                 {
-                  "exerciceName": "Triceps Pushdown",
+                  "exerciseName": "Triceps Pushdown",
                   "sets": "3",
                   "reps": "20",
                   "rpe": "8"
@@ -3108,10 +3108,10 @@
           "day": [
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Paused Deadlift",
+                  "exerciseName": "Paused Deadlift",
                   "sets": "3",
                   "reps": "3",
                   "percentage": "87.5",
@@ -3120,7 +3120,7 @@
                   "description": "Pause off the floor"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "4",
                   "reps": "5",
                   "percentage": "77.5",
@@ -3130,10 +3130,10 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Close Grip Bench Press",
+                  "exerciseName": "Close Grip Bench Press",
                   "sets": "5",
                   "reps": "7",
                   "percentage": "67.5",
@@ -3142,10 +3142,10 @@
               ]
             },
             {
-              "exerciceName": "Good Morning",
+              "exerciseName": "Good Morning",
               "set": [
                 {
-                  "exerciceName": "Good Morning",
+                  "exerciseName": "Good Morning",
                   "sets": "4",
                   "reps": "8 - 10",
                   "rpe": "7"
@@ -3153,10 +3153,10 @@
               ]
             },
             {
-              "exerciceName": "Chest Supported Row",
+              "exerciseName": "Chest Supported Row",
               "set": [
                 {
-                  "exerciceName": "Chest Supported Row",
+                  "exerciseName": "Chest Supported Row",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "7"
@@ -3169,16 +3169,16 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "72.5"
                 },
                 {
-                  "exerciceName": "Tempo Squat",
+                  "exerciseName": "Tempo Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "72.5",
@@ -3187,10 +3187,10 @@
               ]
             },
             {
-              "exerciceName": "Chin up / Pull up",
+              "exerciseName": "Chin up / Pull up",
               "set": [
                 {
-                  "exerciceName": "Chin up / Pull up",
+                  "exerciseName": "Chin up / Pull up",
                   "sets": "4",
                   "reps": "5",
                   "rpe": "8"
@@ -3198,10 +3198,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pulldown",
+              "exerciseName": "Lat Pulldown",
               "set": [
                 {
-                  "exerciceName": "Lat Pulldown",
+                  "exerciseName": "Lat Pulldown",
                   "sets": "4",
                   "reps": "10",
                   "rpe": "8"
@@ -3209,10 +3209,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pullover + Face Pull",
+              "exerciseName": "Lat Pullover + Face Pull",
               "set": [
                 {
-                  "exerciceName": "Lat Pullover + Face Pull",
+                  "exerciseName": "Lat Pullover + Face Pull",
                   "sets": "3",
                   "reps": "15 + 15",
                   "rpe": "8"
@@ -3220,10 +3220,10 @@
               ]
             },
             {
-              "exerciceName": "Biceps",
+              "exerciseName": "Biceps",
               "set": [
                 {
-                  "exerciceName": "Biceps",
+                  "exerciseName": "Biceps",
                   "sets": "4",
                   "reps": "MAX"
                 }
@@ -3235,17 +3235,17 @@
           "day": [
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "3",
                   "percentage": "87.5",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "6",
                   "reps": "3",
                   "percentage": "80",
@@ -3254,10 +3254,10 @@
               ]
             },
             {
-              "exerciceName": "Dip",
+              "exerciseName": "Dip",
               "set": [
                 {
-                  "exerciceName": "Dip",
+                  "exerciseName": "Dip",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8"
@@ -3265,10 +3265,10 @@
               ]
             },
             {
-              "exerciceName": "Overhead Press",
+              "exerciseName": "Overhead Press",
               "set": [
                 {
-                  "exerciceName": "Overhead Press",
+                  "exerciseName": "Overhead Press",
                   "sets": "3",
                   "reps": "10",
                   "rpe": "8"
@@ -3276,10 +3276,10 @@
               ]
             },
             {
-              "exerciceName": "Skull Crusher",
+              "exerciseName": "Skull Crusher",
               "set": [
                 {
-                  "exerciceName": "Skull Crusher",
+                  "exerciseName": "Skull Crusher",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "8"
@@ -3287,10 +3287,10 @@
               ]
             },
             {
-              "exerciceName": "Lu Raises",
+              "exerciseName": "Lu Raises",
               "set": [
                 {
-                  "exerciceName": "Lu Raises",
+                  "exerciseName": "Lu Raises",
                   "sets": "4",
                   "reps": "MAX",
                   "rpe": "8"
@@ -3303,10 +3303,10 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "High Bar Squat",
+                  "exerciseName": "High Bar Squat",
                   "sets": "3",
                   "reps": "6",
                   "percentage": "75"
@@ -3315,17 +3315,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "75",
@@ -3335,16 +3335,16 @@
             },
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "1",
                   "reps": "1",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "6",
                   "reps": "2",
                   "percentage": "90",
@@ -3353,10 +3353,10 @@
               ]
             },
             {
-              "exerciceName": "Single Leg Extensions",
+              "exerciseName": "Single Leg Extensions",
               "set": [
                 {
-                  "exerciceName": "Single Leg Extensions",
+                  "exerciseName": "Single Leg Extensions",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -3373,22 +3373,22 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "92.5"
                 },
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "3",
                   "percentage": "80"
                 },
                 {
-                  "exerciceName": "Paused Squat",
+                  "exerciseName": "Paused Squat",
                   "sets": "3",
                   "reps": "3",
                   "percentage": "75",
@@ -3398,17 +3398,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "5",
                   "reps": "4",
                   "percentage": "80",
@@ -3417,10 +3417,10 @@
               ]
             },
             {
-              "exerciceName": "Bulgarian Split Squats",
+              "exerciseName": "Bulgarian Split Squats",
               "set": [
                 {
-                  "exerciceName": "Bulgarian Split Squats",
+                  "exerciseName": "Bulgarian Split Squats",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -3428,10 +3428,10 @@
               ]
             },
             {
-              "exerciceName": "Triceps Pushdown",
+              "exerciseName": "Triceps Pushdown",
               "set": [
                 {
-                  "exerciceName": "Triceps Pushdown",
+                  "exerciseName": "Triceps Pushdown",
                   "sets": "3",
                   "reps": "20",
                   "rpe": "8"
@@ -3444,10 +3444,10 @@
           "day": [
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Paused Deadlift",
+                  "exerciseName": "Paused Deadlift",
                   "sets": "3",
                   "reps": "3",
                   "percentage": "90",
@@ -3456,7 +3456,7 @@
                   "description": "Pause off the floor"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "4",
                   "reps": "5",
                   "percentage": "80",
@@ -3466,10 +3466,10 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Close Grip Bench Press",
+                  "exerciseName": "Close Grip Bench Press",
                   "sets": "5",
                   "reps": "6",
                   "percentage": "70",
@@ -3478,10 +3478,10 @@
               ]
             },
             {
-              "exerciceName": "Good Morning",
+              "exerciseName": "Good Morning",
               "set": [
                 {
-                  "exerciceName": "Good Morning",
+                  "exerciseName": "Good Morning",
                   "sets": "4",
                   "reps": "8 - 10",
                   "rpe": "7"
@@ -3489,10 +3489,10 @@
               ]
             },
             {
-              "exerciceName": "Chest Supported Row",
+              "exerciseName": "Chest Supported Row",
               "set": [
                 {
-                  "exerciceName": "Chest Supported Row",
+                  "exerciseName": "Chest Supported Row",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "7"
@@ -3505,16 +3505,16 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "72.5"
                 },
                 {
-                  "exerciceName": "Tempo Squat",
+                  "exerciseName": "Tempo Squat",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "72.5",
@@ -3523,10 +3523,10 @@
               ]
             },
             {
-              "exerciceName": "Chin up / Pull up",
+              "exerciseName": "Chin up / Pull up",
               "set": [
                 {
-                  "exerciceName": "Chin up / Pull up",
+                  "exerciseName": "Chin up / Pull up",
                   "sets": "4",
                   "reps": "5",
                   "rpe": "8"
@@ -3534,10 +3534,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pulldown",
+              "exerciseName": "Lat Pulldown",
               "set": [
                 {
-                  "exerciceName": "Lat Pulldown",
+                  "exerciseName": "Lat Pulldown",
                   "sets": "4",
                   "reps": "10",
                   "rpe": "8"
@@ -3545,10 +3545,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pullover + Face Pull",
+              "exerciseName": "Lat Pullover + Face Pull",
               "set": [
                 {
-                  "exerciceName": "Lat Pullover + Face Pull",
+                  "exerciseName": "Lat Pullover + Face Pull",
                   "sets": "3",
                   "reps": "15 + 15",
                   "rpe": "8"
@@ -3556,10 +3556,10 @@
               ]
             },
             {
-              "exerciceName": "Biceps",
+              "exerciseName": "Biceps",
               "set": [
                 {
-                  "exerciceName": "Biceps",
+                  "exerciseName": "Biceps",
                   "sets": "4",
                   "reps": "MAX"
                 }
@@ -3571,17 +3571,17 @@
           "day": [
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "3",
                   "percentage": "90",
                   "rpe": "9"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "6",
                   "reps": "3",
                   "percentage": "82.5",
@@ -3590,10 +3590,10 @@
               ]
             },
             {
-              "exerciceName": "Dip",
+              "exerciseName": "Dip",
               "set": [
                 {
-                  "exerciceName": "Dip",
+                  "exerciseName": "Dip",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8"
@@ -3601,10 +3601,10 @@
               ]
             },
             {
-              "exerciceName": "Overhead Press",
+              "exerciseName": "Overhead Press",
               "set": [
                 {
-                  "exerciceName": "Overhead Press",
+                  "exerciseName": "Overhead Press",
                   "sets": "3",
                   "reps": "10",
                   "rpe": "8"
@@ -3612,10 +3612,10 @@
               ]
             },
             {
-              "exerciceName": "Skull Crusher",
+              "exerciseName": "Skull Crusher",
               "set": [
                 {
-                  "exerciceName": "Skull Crusher",
+                  "exerciseName": "Skull Crusher",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "8"
@@ -3623,10 +3623,10 @@
               ]
             },
             {
-              "exerciceName": "Lu Raises",
+              "exerciseName": "Lu Raises",
               "set": [
                 {
-                  "exerciceName": "Lu Raises",
+                  "exerciseName": "Lu Raises",
                   "sets": "4",
                   "reps": "MAX",
                   "rpe": "8"
@@ -3639,10 +3639,10 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "High Bar Squat",
+                  "exerciseName": "High Bar Squat",
                   "sets": "3",
                   "reps": "7",
                   "percentage": "75"
@@ -3651,17 +3651,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "3",
                   "reps": "5",
                   "percentage": "75",
@@ -3671,16 +3671,16 @@
             },
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "4",
                   "reps": "1",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "2",
                   "reps": "2",
                   "percentage": "92.5",
@@ -3689,10 +3689,10 @@
               ]
             },
             {
-              "exerciceName": "Single Leg Extensions",
+              "exerciseName": "Single Leg Extensions",
               "set": [
                 {
-                  "exerciceName": "Single Leg Extensions",
+                  "exerciseName": "Single Leg Extensions",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -3709,22 +3709,22 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "95"
                 },
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "80"
                 },
                 {
-                  "exerciceName": "Paused Squat",
+                  "exerciseName": "Paused Squat",
                   "sets": "3",
                   "reps": "4",
                   "percentage": "75",
@@ -3734,17 +3734,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "92.5",
                   "rpe": "8"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "5",
                   "reps": "4",
                   "percentage": "80",
@@ -3753,10 +3753,10 @@
               ]
             },
             {
-              "exerciceName": "Bulgarian Split Squats",
+              "exerciseName": "Bulgarian Split Squats",
               "set": [
                 {
-                  "exerciceName": "Bulgarian Split Squats",
+                  "exerciseName": "Bulgarian Split Squats",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8"
@@ -3764,10 +3764,10 @@
               ]
             },
             {
-              "exerciceName": "Triceps Pushdown",
+              "exerciseName": "Triceps Pushdown",
               "set": [
                 {
-                  "exerciceName": "Triceps Pushdown",
+                  "exerciseName": "Triceps Pushdown",
                   "sets": "3",
                   "reps": "20",
                   "rpe": "8"
@@ -3780,10 +3780,10 @@
           "day": [
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "3",
                   "reps": "1",
                   "percentage": "90",
@@ -3791,7 +3791,7 @@
                   "rpe": "8.5"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "3",
                   "reps": "3",
                   "percentage": "80",
@@ -3800,10 +3800,10 @@
               ]
             },
             {
-              "exerciceName": "Back Extensions",
+              "exerciseName": "Back Extensions",
               "set": [
                 {
-                  "exerciceName": "Back Extensions",
+                  "exerciseName": "Back Extensions",
                   "sets": "4",
                   "reps": "8 - 10",
                   "rpe": "7"
@@ -3811,10 +3811,10 @@
               ]
             },
             {
-              "exerciceName": "Chin up / Pull up",
+              "exerciseName": "Chin up / Pull up",
               "set": [
                 {
-                  "exerciceName": "Chin up / Pull up",
+                  "exerciseName": "Chin up / Pull up",
                   "sets": "4",
                   "reps": "5",
                   "rpe": "8"
@@ -3822,10 +3822,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pulldown",
+              "exerciseName": "Lat Pulldown",
               "set": [
                 {
-                  "exerciceName": "Lat Pulldown",
+                  "exerciseName": "Lat Pulldown",
                   "sets": "4",
                   "reps": "10",
                   "rpe": "8"
@@ -3833,10 +3833,10 @@
               ]
             },
             {
-              "exerciceName": "Lat Pullover + Face Pull",
+              "exerciseName": "Lat Pullover + Face Pull",
               "set": [
                 {
-                  "exerciceName": "Lat Pullover + Face Pull",
+                  "exerciseName": "Lat Pullover + Face Pull",
                   "sets": "3",
                   "reps": "15 + 15",
                   "rpe": "7"
@@ -3844,10 +3844,10 @@
               ]
             },
             {
-              "exerciceName": "Biceps",
+              "exerciseName": "Biceps",
               "set": [
                 {
-                  "exerciceName": "Biceps",
+                  "exerciseName": "Biceps",
                   "sets": "4",
                   "reps": "MAX"
                 }
@@ -3859,16 +3859,16 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "3",
                   "reps": "6",
                   "percentage": "72.5"
                 },
                 {
-                  "exerciceName": "Tempo Squat",
+                  "exerciseName": "Tempo Squat",
                   "sets": "3",
                   "reps": "6",
                   "percentage": "72.5",
@@ -3878,17 +3878,17 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "3",
                   "reps": "1",
                   "percentage": "90",
                   "rpe": "9"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "6",
                   "reps": "3",
                   "percentage": "82.5",
@@ -3897,10 +3897,10 @@
               ]
             },
             {
-              "exerciceName": "Dip",
+              "exerciseName": "Dip",
               "set": [
                 {
-                  "exerciceName": "Dip",
+                  "exerciseName": "Dip",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8"
@@ -3908,10 +3908,10 @@
               ]
             },
             {
-              "exerciceName": "Skull Crusher",
+              "exerciseName": "Skull Crusher",
               "set": [
                 {
-                  "exerciceName": "Skull Crusher",
+                  "exerciseName": "Skull Crusher",
                   "sets": "3",
                   "reps": "12",
                   "rpe": "8"
@@ -3919,10 +3919,10 @@
               ]
             },
             {
-              "exerciceName": "Lu Raises",
+              "exerciseName": "Lu Raises",
               "set": [
                 {
-                  "exerciceName": "Lu Raises",
+                  "exerciseName": "Lu Raises",
                   "sets": "4",
                   "reps": "MAX",
                   "rpe": "8"
@@ -3935,22 +3935,22 @@
           "day": [
             {
               "RMid": "0",
-              "exerciceName": "Squat",
+              "exerciseName": "Squat",
               "set": [
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "92"
                 },
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "98"
                 },
                 {
-                  "exerciceName": "Squat",
+                  "exerciseName": "Squat",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "102"
@@ -3959,22 +3959,22 @@
             },
             {
               "RMid": "1",
-              "exerciceName": "Bench Press",
+              "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "92"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "98"
                 },
                 {
-                  "exerciceName": "Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "102"
@@ -3983,22 +3983,22 @@
             },
             {
               "RMid": "2",
-              "exerciceName": "Deadlift",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "92"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "98"
                 },
                 {
-                  "exerciceName": "Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "1",
                   "reps": "1",
                   "percentage": "102"

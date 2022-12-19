@@ -22,9 +22,9 @@ const ExerciseItemPage = (props) => {
       <View style={styles(activeTheme).setList}>
         {setsList.map((item, index) => {
           return (
-            <View key={item.exerciceName + index} style={styles(activeTheme).setListItem}>
+            <View key={item.exerciseName + index} style={styles(activeTheme).setListItem}>
 
-              {item.exerciceName ? <Text style={styles(activeTheme).title}>{item.exerciceName}</Text> : null}
+              {item.exerciseName ? <Text style={styles(activeTheme).title}>{item.exerciseName}</Text> : null}
 
               {item.sets || item.reps ? (
                 <View style={styles(activeTheme).setListItemRow}>
@@ -59,10 +59,15 @@ const ExerciseItemPage = (props) => {
                 </View>
               ) : null}
 
-              {item.altExercise1 || item.altExercise2 ? (
+              {item.altExercise1 ? (
                 <View style={styles(activeTheme).setListItemRow}>
-                  {item.altExercise1 ? <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.altExercise1}:  <Text style={styles(activeTheme).data}>{item.altExercise1}</Text></Text> : null}
-                  {item.altExercise2 ? <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.altExercise2}:  <Text style={styles(activeTheme).data}>{item.altExercise2}</Text></Text> : null}
+                  <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.altExercise1}:  <Text style={styles(activeTheme).description}>{item.altExercise1}</Text></Text>
+                </View>
+              ) : null}
+
+              {item.altExercise2 ? (
+                <View style={styles(activeTheme).setListItemRow}>
+                  <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.altExercise2}:  <Text style={styles(activeTheme).description}>{item.altExercise2}</Text></Text>
                 </View>
               ) : null}
 

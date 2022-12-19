@@ -31,7 +31,7 @@ const ExerciseEditorPage = (props) => {
   const addExerciseSubSet = () => {
     let auxAtom = deepClone(programEditorData);
     auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex === "add" ? length : exerciseIndex].set.push({
-      exerciceName: "",
+      exerciseName: "",
       sets: "",
       reps: "",
       percentage: "",
@@ -49,7 +49,7 @@ const ExerciseEditorPage = (props) => {
     let auxAtom = deepClone(programEditorData);
     const auxExerciseIndex = exerciseIndex === "add" ? length : exerciseIndex;
     if(field === "parentExerciseName") {
-      auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[auxExerciseIndex].exerciceName = e;
+      auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[auxExerciseIndex].exerciseName = e;
     } else {
       auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[auxExerciseIndex].set[index][field] = e;
     }
@@ -74,7 +74,7 @@ const ExerciseEditorPage = (props) => {
           onChangeText={(input) => editExerciseField("parentExerciseName", input)}
           returnKeyType={"done"}
           editable={oneRMname ? false : true}
-          value={exerciseData.exerciceName+""}
+          value={exerciseData.exerciseName+""}
         />
         {oneRMweight?.weight ? <Text style={styles(activeTheme).weightText}>1RM: {oneRMweight?.weight}{programEditorData.weightUnit}</Text> : null}
       </View>
@@ -92,8 +92,8 @@ const ExerciseEditorPage = (props) => {
                   style={styles(activeTheme).inputExerciseVariationName}
                   placeholderTextColor={activeTheme.placeholderText}
                   cursorColor={activeTheme.active}
-                  onChangeText={(input) => editExerciseField("exerciceName", input, index)}
-                  value={item.exerciceName+""}
+                  onChangeText={(input) => editExerciseField("exerciseName", input, index)}
+                  value={item.exerciseName+""}
                   returnKeyType={"done"}
                 />
                 <TouchableOpacity style={styles(activeTheme).exerciseItemRemoveIconContainer}  onPress={() => removeExerciseSubSet(index)}>
