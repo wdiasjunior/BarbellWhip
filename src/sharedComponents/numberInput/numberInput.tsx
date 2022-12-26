@@ -97,7 +97,7 @@ const NumberInput = (props: Props) => {
       </View>
 
       <View style={styles(activeTheme).bottomButtonsRow}>
-        <Text style={styles(activeTheme).bottomButtonsText} onPress={props.toggleModal}>{selectedLocaleAtom.numberInputModal.cancelButtonLabel}</Text>
+        <Text style={styles(activeTheme).bottomButtonsText} onPress={props.toggleModal}>{selectedLocale.numberInputModal.cancelButtonLabel}</Text>
         <Text style={styles(activeTheme).bottomButtonsText} onPress={() => props.toggleModal(weightString, props.inputLabel)}>OK</Text>
       </View>
 
