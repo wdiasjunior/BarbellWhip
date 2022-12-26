@@ -26,4 +26,6 @@ then run the commands below in the `/android/` directory
 
 `export JAVA_HOME='/usr/lib/jvm/java-11-openjdk/'`
 
+`export ANDROID_SDK_ROOT='/home/$USER/Android/Sdk'`
+
 `./gradlew assembleDebug`
