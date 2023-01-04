@@ -25,7 +25,7 @@ const PlateMathPage = ({ navigation }) => {
 
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
-                  <Header title={selectedLocale.plateMathPage.title} menu={false} />
+                  <Header title={selectedLocale.plateMathPage.title} weightRack={true} />
               });
   }
 
@@ -105,6 +105,17 @@ const PlateMathPage = ({ navigation }) => {
     }
     setModalWeightInputVisible(!isModalWeightInputVisible);
   };
+
+  // juggernaut plate math page
+  // unit toggle
+  // weight input
+  // bar input (make plate rack input priority?)
+  // smallest plates input
+  //
+  // plate view
+  // total weight
+  // (bar weight + plates weight)
+  // color coded plates? toggle to turn it on and off?
 
   return (
     <ScrollView style={styles(activeTheme).container} overScrollMode="never">

@@ -29,7 +29,13 @@
   "plateMathPage": {
     "title": "Calculadora de Anilhas",
     "weightLabel": "Peso",
-    "currentBarWeightLabel": "Peso da barra atual"
+    "currentBarWeightLabel": "Peso da barra atual",
+    "weightRackPage": {
+      "title": "weightRackPageTitle",
+      "priorityRackTitle": "priorityRackTitle",
+      "rackTitle": "rackTitle",
+      "barsTitle": "barsTitle"
+    }
   },
   "programEditorPage": {
     "title": "Editor de Treinos",

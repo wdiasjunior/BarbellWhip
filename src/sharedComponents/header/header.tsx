@@ -18,6 +18,7 @@ interface Props {
   setIsMenuOpen(): any;
   title: string;
   menu: boolean;
+  weightRack: boolean;
   saveButton: boolean;
   backButton: boolean;
   import: boolean;
@@ -96,6 +97,14 @@ export default Header = (props: Props) => {
             size={24}
             style={styles(activeTheme).iconRight}
             onPress={setMenuOpenFromHeader}
+          />
+        }
+        {props.weightRack &&
+          <Ionicons
+            name="settings-sharp"
+            size={24}
+            style={styles(activeTheme).iconRight}
+            onPress={() => navigation.push('WeightRackPage')}
           />
         }
         {props.import &&

@@ -1,4 +1,5 @@
-- choose a license - gpl vs mpl
+- jotai - change this `const [, setValue] = useAtom(valueAtom)` to useSetAtom to increase performance
+  - https://jotai.org/docs/api/core#use-set-atom
 
 - reduce splash screen time
 
@@ -30,6 +31,7 @@
     - add checkboxes to indicate how many sets were done ? - beta
     - header - add weight unit toggle for weight conversion math ?
   - setSelected next day workout on dateNow change (compare with atomsWithStorage lastDay?) ? - beta
+  - oneRMs atom with storage object for semi persistent data that temporarily overrides the object in the json file?
 
 - program management / program editor page
   - "create program" header show have dynamic title - create and edit depending on the action (add to locales)

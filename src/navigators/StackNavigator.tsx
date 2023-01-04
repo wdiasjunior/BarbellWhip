@@ -5,6 +5,9 @@ import ProgramPage from "../pages/program/programPage";
 import ExerciseItemPage from "../pages/program/subPages/exerciseItemPage/exerciseItemPage";
 import RMReviewPage from "../pages/program/subPages/rmReviewPage/rmReviewPage";
 
+import PlateMathPage from '../pages/plateMath/plateMathPage';
+import WeightRackPage from '../pages/plateMath/weightRackPage/weightRackPage';
+
 import ProgramEditorPage from "../pages/programEditor/programEditorPage";
 // import { BottomTabProgramEditorPageNavigator } from "./TabNavigator";
 
@@ -247,6 +250,67 @@ const ProgramPageStack = () => {
   );
 }
 
+const PlateMathPageStack = () => {
+
+  const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+
+  const navigation = useNavigation();
+
+  return (
+    <Stack.Navigator
+      screenOptions={({ route }) => ({
+        cardStyle: {
+          backgroundColor: activeTheme.backgroundPrimary,
+          opacity: 1,
+        },
+        sceneContainerStyle: {
+          backgroundColor: activeTheme.backgroundPrimary,
+        },
+      })}
+      sceneContainerStyle={{
+        backgroundColor: activeTheme.backgroundPrimary,
+      }}
+    >
+      <Stack.Screen
+        name='PlateMathPage'
+        component={PlateMathPage}
+        options={{
+          headerShown: true,
+          title: selectedLocale.plateMathPage.title,
+          headerStyle: {
+            backgroundColor: activeTheme.backgroundSecondary,
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+          headerTintColor: activeTheme.text,
+          cardStyle: {
+            backgroundColor: activeTheme.backgroundPrimary,
+            opacity: 1,
+          },
+        }}
+      />
+      <Stack.Screen
+        name='WeightRackPage'
+        component={WeightRackPage}
+        options={{
+          headerShown: true,
+          presentation: 'modal',
+          detachPreviousScreen: false,
+          headerTitle: selectedLocale.plateMathPage.weightRackPage.title,
+          animationEnabled: false,
+          headerStyle: {
+            backgroundColor: activeTheme.backgroundSecondary,
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+          headerTintColor: activeTheme.text,
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
 const ProgramEditorPageStack = () => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
@@ -316,4 +380,4 @@ const ProgramEditorPageStack = () => {
   );
 }
 
-export { ProgramPageStack, ProgramEditorPageStack };
+export { ProgramPageStack, ProgramEditorPageStack, PlateMathPageStack };

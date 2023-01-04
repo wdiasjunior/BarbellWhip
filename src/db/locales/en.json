@@ -29,7 +29,13 @@
   "plateMathPage": {
     "title": "Plate Math",
     "weightLabel": "Weight",
-    "currentBarWeightLabel": "Current Bar Weight"
+    "currentBarWeightLabel": "Current Bar Weight",
+    "weightRackPage": {
+      "title": "weightRackPageTitle",
+      "priorityRackTitle": "priorityRackTitle",
+      "rackTitle": "rackTitle",
+      "barsTitle": "barsTitle"
+    }
   },
   "programEditorPage": {
     "title": "Program Editor",

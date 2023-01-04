@@ -3,11 +3,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import CalculatorPage from "../pages/calculator/calculatorPage";
-import ProgramPage from "../pages/program/programPage";
-import PlateMathPage from '../pages/plateMath/plateMathPage';
+// import ProgramPage from "../pages/program/programPage";
+// import PlateMathPage from '../pages/plateMath/plateMathPage';
 import Loading from '../sharedComponents/loading/loading';
 
-import { ProgramPageStack } from "./StackNavigator";
+import { ProgramPageStack, PlateMathPageStack } from "./StackNavigator";
 
 import { useAtom } from 'jotai';
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
@@ -90,9 +90,9 @@ const BottomTabProgramPageNavigator = () => {
       />
       <Tab.Screen
         name="Plate Math"
-        component={PlateMathPage}
+        component={PlateMathPageStack}
         options={{
-          headerShown: true,
+          headerShown: false,
           title: selectedLocale.plateMathPage.title,
           headerStyle:{
             backgroundColor: activeTheme.backgroundSecondary,
