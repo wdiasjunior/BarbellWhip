@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
-import { Text, View, FlatList, Button, ScrollView, TouchableOpacity, } from 'react-native';
+import { Text, View, FlatList, Button, ScrollView, TouchableOpacity, Switch } from 'react-native';
 import Modal from "react-native-modal";
 
 import Header from "../../sharedComponents/header/header";
@@ -33,17 +33,24 @@ const PlateMathPage = ({ navigation }) => {
     onScreenLoad();
   }, [])
 
+  const bumperPlatesRack = {
+    kg: {
+      25 : 0,
+      20 : 0,
+      15 : 2,
+      10 : 2,
+      5  : 2
+    },
+    lb: {
+      55 : 0,
+      45 : 0,
+      35 : 2,
+      25 : 2,
+      10 : 2
+    },
+  }
   // add support for custom bar weight and deadlift and squat bars on a list
   const defaultWeightRack = {
-    lb: {
-      45 : 6,
-      35 : 6,
-      25 : 6,
-      15 : 6,
-      10 : 6,
-      5  : 6,
-      2.5: 6
-    },
     kg: {
       25 : 0,
       20 : 10,
@@ -56,6 +63,15 @@ const PlateMathPage = ({ navigation }) => {
       1.5: 0,
       1  : 0,
       0.5: 0,
+    },
+    lb: {
+      45 : 6,
+      35 : 6,
+      25 : 6,
+      15 : 6,
+      10 : 6,
+      5  : 6,
+      2.5: 6
     }
   };
   const defaultMenBarWeight = {
@@ -70,18 +86,21 @@ const PlateMathPage = ({ navigation }) => {
   const [weightUnit, setWeightUnit] = useState("kg"); // "lbs"
   const [currentWeight, setCurrentWeight] = useState(150);
   const [selectedBar, setSelectedBar] = useState(true); // true == men's bar | false == women's bar
-  const [showWarning, setShowWarning] = useState(false);
+  // const [showWarning, setShowWarning] = useState(false);
+  const [bumper, setBumper] = useState(true);
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
-  const currentPlates = WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit] , defaultWeightRack[weightUnit]);
+  const currentPlates = bumper ? WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit], bumperPlatesRack[weightUnit]) : WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit]);
+  // const bumperPlates = WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], bumperPlatesRack[weightUnit]);
+  // console.log(bumperPlates);
 
-  useEffect(() => { //  if currentWeight > defaultWeightRack[weightUnit] total + bar show warning
-    if(currentWeight <= WeightCalc.getClosestAvailableWeight(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit])) {
-      setShowWarning(false);
-    }
-    if(currentWeight > WeightCalc.getClosestAvailableWeight(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit])) {
-      setShowWarning(true);
-    }
-  }, [currentWeight])
+  // useEffect(() => { //  if currentWeight > defaultWeightRack[weightUnit] total + bar show warning
+  //   if(currentWeight <= WeightCalc.getClosestAvailableWeight(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit])) {
+  //     setShowWarning(false);
+  //   }
+  //   if(currentWeight > WeightCalc.getClosestAvailableWeight(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit])) {
+  //     setShowWarning(true);
+  //   }
+  // }, [currentWeight])
 
   const decrementWeight = () => {
     if((currentWeight - 5) < 0) { // if currentWeight <= selectedBarWeight
@@ -156,6 +175,14 @@ const PlateMathPage = ({ navigation }) => {
             <Text style={styles(activeTheme).textWarning}>WARNING. The weight entered exceeds the total in your rack.</Text>
           </View>
         }*/}
+        <Switch
+          trackColor={{ false: activeTheme.active, true: activeTheme.active }}
+          thumbColor={"#f4f3f4"}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={setBumper}
+          value={bumper}
+          style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }] }}
+        />
       </View>
 
       <WeightView
@@ -164,6 +191,7 @@ const PlateMathPage = ({ navigation }) => {
         weight={currentWeight}
         plates={currentPlates}
         activeTheme={activeTheme}
+        bumper={bumper}
       />
 
       <Modal

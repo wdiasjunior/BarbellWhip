@@ -3,9 +3,20 @@ import { View, Text } from 'react-native';
 
 import styles from './plateStyles';
 
+interface Props {
+  weight: any;
+  size: any;
+  activeTheme: any;
+  bumper: any;
+}
+
 const Plate = (props) => {
 
   const computePlateStyle = () => {
+    // if(props.bumper) {
+    //   // TODO
+    //   // change size and color of the bumper
+    // }
     const hScale = 0.5 + (0.5 * props.size);
     const wScale = 0.7 + (0.3 * props.size);
     return Object.assign({

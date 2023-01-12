@@ -6,14 +6,26 @@ import Plate from '../plate/plate';
 
 import styles from './weightViewStyles';
 
-const WeightView = (props) => {
+interface Props {
+  weightRack: any;
+  barWeight: any;
+  weight: any;
+  plates: any;
+  activeTheme: any;
+  bumper: any;
+}
+
+const WeightView = (props: Props) => {
+
+  // console.log("WeightView props.plates", props.plates);
+  // console.log(props.bumperPlates);
 
   return (
       <View style={styles(props.activeTheme).plateWrap}>
         {
           props.plates.map((weight, i) => {
             return (
-              <Plate weight={weight} key={i} size={WeightCalc.getPlatePercentOfMax(weight, props.weightRack)} activeTheme={props.activeTheme} />
+              <Plate weight={weight} bumper={props.bumper} key={i} size={WeightCalc.getPlatePercentOfMax(weight, props.weightRack)} activeTheme={props.activeTheme} />
             );
         })}
       </View>

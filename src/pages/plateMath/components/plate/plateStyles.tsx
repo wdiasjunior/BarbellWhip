@@ -48,6 +48,6 @@ export default styles;
 //   { value: 20, quantity: 10, plateColor: "#588dff"},
 //   { value: 15, quantity: 2, plateColor: "#FFFF99"},
 //   { value: 10, quantity: 2, plateColor: "#7FBF7F"},
-//   { value: 5, quantity: 4, plateColor: "#FFFFF"},
+//   { value: 5, quantity: 4, plateColor: "#FFFFFF"},
 //   { value: 2.5, quantity: 2, plateColor: "#FFC0CB"}
 // ]
