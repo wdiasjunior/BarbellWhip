@@ -13,7 +13,6 @@
   - implement rpe calculator ? https://www.rpecalculator.com/ ?
   - add features from juggernaut
   - calculator tab screen - add topTabBar to switch between RPE and RM? (example on juggernaut app)
-  - refactor calculator weightcalc items into a .map ?
 
 - plate math page
   - persistence
