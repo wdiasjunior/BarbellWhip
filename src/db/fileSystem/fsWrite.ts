@@ -25,7 +25,7 @@ const copyJSON = async (programName, programURL) => {
 
 const deleteJSON = async (programURL) => {
   try {
-    await RNFS.unlink(programURL); // ?
+    await RNFS.unlink(programURL);
   } catch(error) {
     alert("Error deleting file.");
   }
