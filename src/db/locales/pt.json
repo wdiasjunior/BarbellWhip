@@ -30,6 +30,7 @@
     "title": "Calculadora de Anilhas",
     "weightLabel": "Peso",
     "currentBarWeightLabel": "Peso da barra atual",
+    "bumperToggleLabel": "Anilhas Bumper",
     "weightRackPage": {
       "title": "weightRackPageTitle",
       "priorityRackTitle": "priorityRackTitle",

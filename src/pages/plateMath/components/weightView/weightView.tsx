@@ -12,7 +12,8 @@ interface Props {
   weight: any;
   plates: any;
   activeTheme: any;
-  bumper: any;
+  showBumper: boolean;
+  bumperRack: any;
 }
 
 const WeightView = (props: Props) => {
@@ -25,7 +26,7 @@ const WeightView = (props: Props) => {
         {
           props.plates.map((weight, i) => {
             return (
-              <Plate weight={weight} bumper={props.bumper} key={i} size={WeightCalc.getPlatePercentOfMax(weight, props.weightRack)} activeTheme={props.activeTheme} />
+              <Plate weight={weight} bumperRack={props.bumperRack} showBumper={props.showBumper} key={i} size={WeightCalc.getPlatePercentOfMax(weight, props.weightRack)} activeTheme={props.activeTheme} />
             );
         })}
       </View>

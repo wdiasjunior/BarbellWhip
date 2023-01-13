@@ -33,6 +33,7 @@ const PlateMathPage = ({ navigation }) => {
     onScreenLoad();
   }, [])
 
+  // TODO add support for 2.5kg weightlifting collars
   const bumperPlatesRack = {
     kg: {
       25 : 0,
@@ -73,23 +74,23 @@ const PlateMathPage = ({ navigation }) => {
       5  : 6,
       2.5: 6
     }
-  };
+  }
   const defaultMenBarWeight = {
     lb: 45,
     kg: 20,
-  };
+  }
   const defaultWomenBarWeight = {
     lb: 35,
     kg: 15,
-  };
+  }
 
   const [weightUnit, setWeightUnit] = useState("kg"); // "lbs"
   const [currentWeight, setCurrentWeight] = useState(150);
   const [selectedBar, setSelectedBar] = useState(true); // true == men's bar | false == women's bar
   // const [showWarning, setShowWarning] = useState(false);
-  const [bumper, setBumper] = useState(true);
+  const [showBumper, setShowBumper] = useState(true);
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
-  const currentPlates = bumper ? WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit], bumperPlatesRack[weightUnit]) : WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit]);
+  const currentPlates = showBumper ? WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit], bumperPlatesRack[weightUnit]) : WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit]);
   // const bumperPlates = WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], bumperPlatesRack[weightUnit]);
   // console.log(bumperPlates);
 
@@ -151,7 +152,7 @@ const PlateMathPage = ({ navigation }) => {
               </TouchableOpacity>
 
               <TouchableOpacity onPress={toggleModal}>
-                <Text style={styles(activeTheme).repsSets}>{currentWeight}</Text>
+                <Text style={styles(activeTheme).weight}>{currentWeight}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity onPress={incrementWeight}>
@@ -168,6 +169,16 @@ const PlateMathPage = ({ navigation }) => {
           {/*<Text style={styles(activeTheme).info}>Current Weight on the Bar:
             <Text style={styles(activeTheme).infoWeight}> {WeightCalc.getClosestAvailableWeight(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit])}{weightUnit}</Text>
           </Text>*/}
+
+          <Text style={styles(activeTheme).bumperLabel}>{selectedLocale.plateMathPage.bumperToggleLabel}</Text>
+          <Switch
+            trackColor={{ false: activeTheme.inactive, true: activeTheme.active }}
+            thumbColor={"#f4f3f4"}
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={setShowBumper}
+            value={showBumper}
+            style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginTop: 10, }}
+          />
         </View>
 
         {/*{showWarning &&
@@ -175,14 +186,6 @@ const PlateMathPage = ({ navigation }) => {
             <Text style={styles(activeTheme).textWarning}>WARNING. The weight entered exceeds the total in your rack.</Text>
           </View>
         }*/}
-        <Switch
-          trackColor={{ false: activeTheme.active, true: activeTheme.active }}
-          thumbColor={"#f4f3f4"}
-          ios_backgroundColor="#3e3e3e"
-          onValueChange={setBumper}
-          value={bumper}
-          style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }] }}
-        />
       </View>
 
       <WeightView
@@ -191,7 +194,8 @@ const PlateMathPage = ({ navigation }) => {
         weight={currentWeight}
         plates={currentPlates}
         activeTheme={activeTheme}
-        bumper={bumper}
+        showBumper={showBumper}
+        bumperRack={bumperPlatesRack[weightUnit]}
       />
 
       <Modal

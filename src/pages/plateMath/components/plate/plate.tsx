@@ -7,23 +7,53 @@ interface Props {
   weight: any;
   size: any;
   activeTheme: any;
-  bumper: any;
+  showBumper: boolean;
+  bumperRack: any;
 }
 
 const Plate = (props) => {
 
+  const findBumpers = (_weight) => {
+    // console.log("aqui", Object.keys(props.bumperRack).some((a) => parseFloat(a) === _weight));
+
+    // return Object.keys(props.bumperRack).some((bumperPlate) => {
+    //   console.log("bumperPlate", bumperPlate, _weight);
+    //   return parseFloat(bumperPlate) === _weight;
+    //
+    // });
+console.log("parseFloat bumper 111111111111111111111111");
+
+    for(const [key, value] of Object.entries(props.bumperRack)) {
+      if(parseFloat(key) === _weight && value !== 0) {
+        console.log(`bumper ${key}: ${value}`);
+        return true;
+      }
+    }
+    return false;
+  }
+
   const computePlateStyle = () => {
-    // if(props.bumper) {
+    findBumpers(props.weight);
+    // if(findBumpers(props.showBumper)) {
+    // if(findBumpers(props.weight)) {
     //   // TODO
     //   // change size and color of the bumper
+    //   const hScale = 0.5 + (0.5 * props.size);
+    //   const wScale = 0.9 + (0.5 * props.size);
+    //   return Object.assign({
+    //     ...styles(props.activeTheme).plate}, {
+    //       width: styles(props.activeTheme).plate.width * wScale,
+    //       height: styles(props.activeTheme).plate.height * hScale
+    //     });
+    // } else {
+      const hScale = 0.5 + (0.5 * props.size);
+      const wScale = 0.7 + (0.3 * props.size);
+      return Object.assign({
+        ...styles(props.activeTheme).plate}, {
+          width: styles(props.activeTheme).plate.width * wScale,
+          height: styles(props.activeTheme).plate.height * hScale
+        });
     // }
-    const hScale = 0.5 + (0.5 * props.size);
-    const wScale = 0.7 + (0.3 * props.size);
-    return Object.assign({
-      ...styles(props.activeTheme).plate}, {
-        width: styles(props.activeTheme).plate.width * wScale,
-        height: styles(props.activeTheme).plate.height * hScale
-      });
   }
 
   return (
@@ -36,6 +66,7 @@ const Plate = (props) => {
 export default Plate;
 
 // // animation
+// import { UIManager } from 'react-native';
 // UNSAFE_componentWillUpdate() {
 //   // UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental( true );
 //   // LayoutAnimation.spring();

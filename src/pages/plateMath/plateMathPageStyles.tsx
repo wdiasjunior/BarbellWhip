@@ -15,15 +15,20 @@ const styles = (theme) => {
       backgroundColor: theme.backgroundSecondary,
       padding: 22,
       marginTop: 20,
-      marginBottom: 20,
+      // marginBottom: 10,
       borderRadius: 10,
-      height: 210,
+      height: 260,
       justifyContent: 'center',
       alignItems: 'center',
     },
     title: {
       color: theme.text,
       fontSize: 12,
+    },
+    bumperLabel: {
+      color: theme.text,
+      fontSize: 16,
+      marginTop: 20,
     },
     rowWrapper: {
       flexDirection: 'column',
@@ -52,7 +57,7 @@ const styles = (theme) => {
       color: theme.text,
       fontSize: 16,
     },
-    repsSets: {
+    weight: {
       color: theme.text,
       fontSize: 24,
       textAlign: 'center',

@@ -30,6 +30,7 @@
     "title": "Plate Math",
     "weightLabel": "Weight",
     "currentBarWeightLabel": "Current Bar Weight",
+    "bumperToggleLabel": "Bumper Plates",
     "weightRackPage": {
       "title": "weightRackPageTitle",
       "priorityRackTitle": "priorityRackTitle",
