@@ -7,58 +7,31 @@ interface Props {
   weight: any;
   size: any;
   activeTheme: any;
-  showBumper: boolean;
-  bumperRack: any;
 }
 
-const Plate = (props) => {
+const Plate = (props: Props) => {
 
-  const findBumpers = (_weight) => {
-    // console.log("aqui", Object.keys(props.bumperRack).some((a) => parseFloat(a) === _weight));
+  const computePlateStyle = (_size) => {
+    // console.log(_size);
+    const size = isNaN(_size) ? 1 : _size;
+    // console.log(size);
 
-    // return Object.keys(props.bumperRack).some((bumperPlate) => {
-    //   console.log("bumperPlate", bumperPlate, _weight);
-    //   return parseFloat(bumperPlate) === _weight;
-    //
-    // });
-console.log("parseFloat bumper 111111111111111111111111");
-
-    for(const [key, value] of Object.entries(props.bumperRack)) {
-      if(parseFloat(key) === _weight && value !== 0) {
-        console.log(`bumper ${key}: ${value}`);
-        return true;
-      }
-    }
-    return false;
-  }
-
-  const computePlateStyle = () => {
-    findBumpers(props.weight);
-    // if(findBumpers(props.showBumper)) {
-    // if(findBumpers(props.weight)) {
-    //   // TODO
-    //   // change size and color of the bumper
-    //   const hScale = 0.5 + (0.5 * props.size);
-    //   const wScale = 0.9 + (0.5 * props.size);
-    //   return Object.assign({
-    //     ...styles(props.activeTheme).plate}, {
-    //       width: styles(props.activeTheme).plate.width * wScale,
-    //       height: styles(props.activeTheme).plate.height * hScale
-    //     });
-    // } else {
-      const hScale = 0.5 + (0.5 * props.size);
-      const wScale = 0.7 + (0.3 * props.size);
+    if(props.weight.isBumper) {
+      return Object.assign({...styles(props.activeTheme).bumperPlate});
+    } else {
+      const hScale = 0.5 + (0.5 * size);
+      const wScale = 0.7 + (0.3 * size);
       return Object.assign({
-        ...styles(props.activeTheme).plate}, {
+          ...styles(props.activeTheme).plate}, {
           width: styles(props.activeTheme).plate.width * wScale,
           height: styles(props.activeTheme).plate.height * hScale
         });
-    // }
+    }
   }
-
+// computePlateStyle(props.size)
   return (
     <View style={computePlateStyle(props.size)}>
-      <Text adjustsFontSizeToFit style={styles(props.activeTheme).text}>{props.weight}</Text>
+      <Text adjustsFontSizeToFit style={styles(props.activeTheme).text}>{props.weight.plate}</Text>
     </View>
   );
 }

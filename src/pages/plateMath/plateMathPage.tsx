@@ -54,12 +54,12 @@ const PlateMathPage = ({ navigation }) => {
   const defaultWeightRack = {
     kg: {
       25 : 0,
-      20 : 10,
-      15 : 2,
-      10 : 2,
-      5  : 2,
+      20 : 20,
+      15 : 20,
+      10 : 20,
+      5  : 20,
       3  : 0,
-      2.5: 2,
+      2.5: 20,
       2  : 0,
       1.5: 0,
       1  : 0,
@@ -93,6 +93,7 @@ const PlateMathPage = ({ navigation }) => {
   const currentPlates = showBumper ? WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit], bumperPlatesRack[weightUnit]) : WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit]);
   // const bumperPlates = WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], bumperPlatesRack[weightUnit]);
   // console.log(bumperPlates);
+  // console.log("currentPlates", currentPlates);
 
   // useEffect(() => { //  if currentWeight > defaultWeightRack[weightUnit] total + bar show warning
   //   if(currentWeight <= WeightCalc.getClosestAvailableWeight(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit])) {
@@ -194,7 +195,6 @@ const PlateMathPage = ({ navigation }) => {
         weight={currentWeight}
         plates={currentPlates}
         activeTheme={activeTheme}
-        showBumper={showBumper}
         bumperRack={bumperPlatesRack[weightUnit]}
       />
 
