@@ -20,13 +20,13 @@ const calculatorPageRepsAtom = atomWithStorage("calculatorPageReps", 1, storage)
 const calculatorPageWeightAtom = atomWithStorage("calculatorPageWeight", 150, storage);
 const calculatorPageWeightUnitAtom = atomWithStorage("calculatorPageWeightUnit", "kg", storage);
 
-// Plate Math Page
+// Plate Math Page - for future reference only
 // const plateMathPageWeight = atomWithStorage("plateMathPageWeight", 150, storage);
 // const plateMathWeightUnit = atomWithStorage("plateMathWeightUnit", "kg", storage);
 // const plateMathSelectedBar = atomWithStorage("plateMathSelectedBar", 1, storage);
 // const plateMathWeightRack = atomWithStorage("plateMathWeightRack", 1, storage);
 
-// Settings Page
+// Settings Page - for future reference only
 // const settingsPageWeightRoundAtom = atomWithStorage("settingsPageWeightRound", true, storage);
 // object with keys for every calc funtion and every value is true by defalut
 // const settingsPage1RMCalculationFormulasAtom = atomWithStorage("settingsPage1RMCalculationFormulas", {}, storage);
