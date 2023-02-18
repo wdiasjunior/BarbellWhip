@@ -10,6 +10,10 @@ const styles = (theme) => {
       fontSize: 20,
       color: theme.textHighlight,
     },
+    text: {
+      fontSize: 20,
+      color: theme.text,
+    },
   });
 }
 

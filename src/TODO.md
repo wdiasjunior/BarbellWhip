@@ -17,13 +17,13 @@
 # plate math page
   - persistence
     - import and export file for plate rack and bar configs?
-  - settings not working - bottom drawer / modal / page ?
-  - add weight rack and custom bars
-    - priority plates (bumpers) come first on the bar
-  - kg - lbs switch
+  - settings page
+    - weight rack and custom bars weight input
+    - change weight unit
+    - kg - lbs switch
+    - switch to set color depending on plate weight?
   - fix warning about weights that are not round or don't finish with 0 or 5
   - get inspiration from juggernaut
-  - set color depending on plate weight?
 
 # program page
   - exercise item page

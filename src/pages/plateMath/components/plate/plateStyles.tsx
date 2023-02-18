@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
 
-const styles = (theme) => {
+export const styles = (theme) => {
   return StyleSheet.create({
     bar: {
       height: 30,
       width: 200,
       borderRadius: 3,
-      borderColor: '#bbbbbb',
+      borderColor: '#cccccc',
       borderWidth: 0.5,
       backgroundColor: '#cccccc',
       marginRight: 2,
@@ -18,7 +18,7 @@ const styles = (theme) => {
       height: 200,
       width: 30,
       borderRadius: 3,
-      borderColor: '#bbbbbb',
+      borderColor: '#cccccc',
       borderWidth: 0.5,
       backgroundColor: '#cccccc',
       marginRight: 2,
@@ -51,14 +51,30 @@ const styles = (theme) => {
   });
 }
 
-export default styles;
-
-// nord theme
-// defaultPlates: Array<{ value: number, quantity: number, plateColor: string}> = [
-//   { value: 25, quantity: 10, plateColor: "#FF9999"},
-//   { value: 20, quantity: 10, plateColor: "#588dff"},
-//   { value: 15, quantity: 2, plateColor: "#FFFF99"},
-//   { value: 10, quantity: 2, plateColor: "#7FBF7F"},
-//   { value: 5, quantity: 4, plateColor: "#FFFFFF"},
-//   { value: 2.5, quantity: 2, plateColor: "#FFC0CB"}
-// ]
+export const plateColors = {
+  kg: {
+    50   : '#8c8c8c', // TODO - find colors for these
+    25   : '#FF9999',
+    20   : '#588dff',
+    15   : '#FFFF99',
+    10   : '#7FBF7F',
+    5    : '#FFFFFF',
+    2.5  : '#FFC0CB',
+    2    : '#8c8c8c', // TODO - find colors for these
+    1.5  : '#8c8c8c', // TODO - find colors for these
+    1.25 : '#8c8c8c', // TODO - find colors for these
+    1    : '#8c8c8c', // TODO - find colors for these
+    0.5  : '#8c8c8c', // TODO - find colors for these
+  },
+  lb: {
+    100  : '#8c8c8c', // TODO - find colors for these
+    55   : '#FF9999',
+    45   : '#588dff',
+    35   : '#FFFF99',
+    25   : '#7FBF7F',
+    10   : '#FFFFFF',
+    5    : '#FFC0CB',
+    2.5  : '#8c8c8c', // TODO - find colors for these
+    1.25 : '#8c8c8c', // TODO - find colors for these
+  }
+}

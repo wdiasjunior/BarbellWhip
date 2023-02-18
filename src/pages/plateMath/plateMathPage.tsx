@@ -12,12 +12,6 @@ import styles from './plateMathPageStyles';
 import { useAtom } from 'jotai';
 import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
 
-// settings button
-// weight unit switch
-// men/women bar switch
-// plates/weight rack editor - allow for mixed weight unit plates?
-// bar weight input
-
 const PlateMathPage = ({ navigation }) => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
@@ -33,7 +27,6 @@ const PlateMathPage = ({ navigation }) => {
     onScreenLoad();
   }, [])
 
-  // TODO add support for 2.5kg weightlifting collars
   const bumperPlatesRack = {
     kg: {
       25 : 0,
@@ -50,62 +43,57 @@ const PlateMathPage = ({ navigation }) => {
       10 : 2
     },
   }
-  // add support for custom bar weight and deadlift and squat bars on a list
   const defaultWeightRack = {
     kg: {
+      50   : 0,
       25   : 0,
       20   : 20,
       15   : 20,
       10   : 20,
       5    : 20,
-      3    : 0,
       2.5  : 20,
       2    : 0,
+      1.5  : 0,
       1.25 : 2,
       1    : 0,
       0.5  : 0,
     },
     lb: {
       100  : 6,
-      55  : 6,
-      45  : 6,
-      35  : 6,
-      25  : 6,
-      15  : 6,
-      10  : 6,
-      5   : 6,
-      2.5 : 6
+      55   : 6,
+      45   : 6,
+      35   : 6,
+      25   : 6,
+      10   : 6,
+      5    : 6,
+      2.5  : 6,
+      1.25 : 6,
     }
   }
-  const defaultMenBarWeight = {
+  const defaultBarWeight = {
     lb: 45,
     kg: 20,
-  }
-  const defaultWomenBarWeight = {
-    lb: 35,
-    kg: 15,
   }
 
   const [weightUnit, setWeightUnit] = useState("kg"); // "lbs"
   const [currentWeight, setCurrentWeight] = useState(150);
-  const [selectedBar, setSelectedBar] = useState(true); // true == men's bar | false == women's bar
   // const [showWarning, setShowWarning] = useState(false);
   const [showBumper, setShowBumper] = useState(true);
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
-  const currentPlates = showBumper ? WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit], bumperPlatesRack[weightUnit]) : WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit]);
+  const currentPlates = showBumper ? WeightCalc.getPlates(currentWeight, defaultBarWeight[weightUnit], defaultWeightRack[weightUnit], bumperPlatesRack[weightUnit]) : WeightCalc.getPlates(currentWeight, defaultBarWeight[weightUnit], defaultWeightRack[weightUnit]);
 
-  // useEffect(() => { //  if currentWeight > defaultWeightRack[weightUnit] total + bar show warning
-  //   if(currentWeight <= WeightCalc.getClosestAvailableWeight(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit])) {
+  // useEffect(() => { //  if currentWeight > defaultWeightRack[weightUnit] total + bar -> show warning
+  //   if(currentWeight <= WeightCalc.getClosestAvailableWeight(currentWeight, defaultBarWeight[weightUnit], defaultWeightRack[weightUnit])) {
   //     setShowWarning(false);
   //   }
-  //   if(currentWeight > WeightCalc.getClosestAvailableWeight(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit])) {
+  //   if(currentWeight > WeightCalc.getClosestAvailableWeight(currentWeight, defaultBarWeight[weightUnit], defaultWeightRack[weightUnit])) {
   //     setShowWarning(true);
   //   }
   // }, [currentWeight])
 
   const decrementWeight = () => {
-    if((currentWeight - 5) < 0) { // if currentWeight <= selectedBarWeight
-      setCurrentWeight(0); // setCurrentWeight(selectedBarWeight) ?
+    if((currentWeight - 5) < 0) {
+      setCurrentWeight(0);
     } else {
       setCurrentWeight(currentWeight - 5);
     }
@@ -126,8 +114,8 @@ const PlateMathPage = ({ navigation }) => {
     setModalWeightInputVisible(!isModalWeightInputVisible);
   };
 
-  // juggernaut plate math page
-  // unit toggle
+  // juggernaut plate math page structure
+  // weight unit toggle
   // weight input
   // bar input (make plate rack input priority?)
   // smallest plates input
@@ -164,10 +152,10 @@ const PlateMathPage = ({ navigation }) => {
           </View>
 
           <Text style={styles(activeTheme).info}>{selectedLocale.plateMathPage.currentBarWeightLabel}:
-            <Text style={styles(activeTheme).infoWeight}> {defaultMenBarWeight[weightUnit]}{weightUnit}</Text>
+            <Text style={styles(activeTheme).infoWeight}> {defaultBarWeight[weightUnit]}{weightUnit}</Text>
           </Text>
           {/*<Text style={styles(activeTheme).info}>Current Weight on the Bar:
-            <Text style={styles(activeTheme).infoWeight}> {WeightCalc.getClosestAvailableWeight(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit])}{weightUnit}</Text>
+            <Text style={styles(activeTheme).infoWeight}> {WeightCalc.getClosestAvailableWeight(currentWeight, defaultBarWeight[weightUnit], defaultWeightRack[weightUnit])}{weightUnit}</Text>
           </Text>*/}
 
           <Text style={styles(activeTheme).bumperLabel}>{selectedLocale.plateMathPage.bumperToggleLabel}</Text>
@@ -190,7 +178,7 @@ const PlateMathPage = ({ navigation }) => {
 
       <WeightView
         weightRack={defaultWeightRack[weightUnit]}
-        barWeight={defaultMenBarWeight[weightUnit]}
+        barWeight={defaultBarWeight[weightUnit]}
         weight={currentWeight}
         plates={currentPlates}
         activeTheme={activeTheme}
