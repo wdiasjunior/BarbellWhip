@@ -12,6 +12,7 @@ interface Props {
   // weight: any;
   plates: any;
   activeTheme: any;
+  weightUnit: any;
 }
 
 const WeightView = (props: Props) => {
@@ -23,13 +24,14 @@ const WeightView = (props: Props) => {
               <Plate
                 weight={weight}
                 key={`keyPlate${index}`}
-                size={WeightCalc.getPlatePercentOfMax(weight, props.plates)}
                 activeTheme={props.activeTheme}
+                weightUnit={props.weightUnit}
               />
             );
         })}
       </View>
   );
 }
+// size={WeightCalc.getPlatePercentOfMax(weight, props.plates)}
 
 export default WeightView;

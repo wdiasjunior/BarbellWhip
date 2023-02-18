@@ -53,26 +53,28 @@ const PlateMathPage = ({ navigation }) => {
   // add support for custom bar weight and deadlift and squat bars on a list
   const defaultWeightRack = {
     kg: {
-      25 : 0,
-      20 : 20,
-      15 : 20,
-      10 : 20,
-      5  : 20,
-      3  : 0,
-      2.5: 20,
-      2  : 0,
-      1.5: 0,
-      1  : 0,
-      0.5: 0,
+      25   : 0,
+      20   : 20,
+      15   : 20,
+      10   : 20,
+      5    : 20,
+      3    : 0,
+      2.5  : 20,
+      2    : 0,
+      1.25 : 2,
+      1    : 0,
+      0.5  : 0,
     },
     lb: {
-      45 : 6,
-      35 : 6,
-      25 : 6,
-      15 : 6,
-      10 : 6,
-      5  : 6,
-      2.5: 6
+      100  : 6,
+      55  : 6,
+      45  : 6,
+      35  : 6,
+      25  : 6,
+      15  : 6,
+      10  : 6,
+      5   : 6,
+      2.5 : 6
     }
   }
   const defaultMenBarWeight = {
@@ -91,9 +93,6 @@ const PlateMathPage = ({ navigation }) => {
   const [showBumper, setShowBumper] = useState(true);
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
   const currentPlates = showBumper ? WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit], bumperPlatesRack[weightUnit]) : WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit]);
-  // const bumperPlates = WeightCalc.getPlates(currentWeight, defaultMenBarWeight[weightUnit], bumperPlatesRack[weightUnit]);
-  // console.log(bumperPlates);
-  // console.log("currentPlates", currentPlates);
 
   // useEffect(() => { //  if currentWeight > defaultWeightRack[weightUnit] total + bar show warning
   //   if(currentWeight <= WeightCalc.getClosestAvailableWeight(currentWeight, defaultMenBarWeight[weightUnit], defaultWeightRack[weightUnit])) {
@@ -196,6 +195,7 @@ const PlateMathPage = ({ navigation }) => {
         plates={currentPlates}
         activeTheme={activeTheme}
         bumperRack={bumperPlatesRack[weightUnit]}
+        weightUnit={weightUnit}
       />
 
       <Modal
@@ -249,4 +249,5 @@ const PlateMathPage = ({ navigation }) => {
 // //
 // // export default BottomHalfModal;
 
-export default React.memo(PlateMathPage);
+// export default React.memo(PlateMathPage);
+export default PlateMathPage;

@@ -50,18 +50,14 @@ const WeightCalc = {
   },
 
   getPlatePercentOfMax(weight, weightRack) {
-    // console.log(weight.plate, weightRack);
-
-    // const plates = this.getPlatesAvailableFromRack(weightRack);
-    // const plates = weightRack.map((a) => !a.isBumper ? a.plate : 0).sort((a, b) => a.plate - b.plate).reverse();
-    const plates = weightRack.map((a) => !a.isBumper ? a.plate : 0);
-    console.log("----------plates", plates);
-
+    const plates = weightRack.map((a) => !a.isBumper ? a.plate : 0).sort((a, b) => a.plate - b.plate).reverse();
+    // console.log("----------plates", plates);
+    // funtion kinda broken after adding bumper plates rack funcitonality
     const min = Math.min.apply(null, plates);
     const max = Math.max.apply(null, plates);
-    // console.log((weight.plate - min) / (max - min));
+    const size =  (weight.plate - min) / (max - min);
 
-    return (weight.plate - min) / (max - min);
+    return isNaN(size) ? 1 : size; // 180kg returns NaN wtf?
   },
 
   getClosestAvailableWeight(weight, barWeight, weightRack) {
