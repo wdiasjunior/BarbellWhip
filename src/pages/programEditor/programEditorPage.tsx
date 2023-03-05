@@ -153,6 +153,9 @@ const ProgramEditorPage = ({ navigation }) => {
     }
   }
 
+  // fix overflow not spacing items correctly if program list fills the screen.
+  // fab button covers action items. maybe hide it on scroll threshold
+
   return (
       <View style={styles(activeTheme).container}>
 
