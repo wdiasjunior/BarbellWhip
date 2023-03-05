@@ -217,6 +217,7 @@ const ProgramPageStack = () => {
         component={ExerciseItemPage}
         options={{
           headerShown: true,
+          headerLeft: () => null,
           presentation: 'modal',
           detachPreviousScreen: false,
           headerTitle: selectedLocale.programPage.exerciseInfo.title,

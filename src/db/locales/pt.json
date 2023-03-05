@@ -1,11 +1,14 @@
 {
   "programPage": {
+    "defaultTitle": "Treino",
     "title": "Treino",
     "week": "Semana",
     "day": "Dia",
     "rmReviewTitle": "1RM Review",
     "rmReviewWeightLable": "Peso",
     "weekSelectorTitle": "Seletor de semanas",
+    "noActiveProgramTextTitle": "Nenhum treino ativo encontrado.",
+    "noActiveProgramTextSubtitle": "Crie ou importe um na página Editor de Treinos para ativa-lo.",
     "exerciseInfo" : {
       "title": "Informações do Exercício",
       "sets": "Séries",
@@ -40,6 +43,9 @@
   },
   "programEditorPage": {
     "title": "Editor de Treinos",
+    "noProgramListTextTitle": "Nenhum treino encontrado.",
+    "noProgramListTextSubtitle": "Crie ou importe um.",
+    "importErrorMessage": "Tipo de arquivo inválido.",
     "modal": {
       "setActive": "Ativar",
       "edit": "Editar",
@@ -71,7 +77,7 @@
     "exerciseEditorPage": {
       "title": "Editor de Exercício",
       "exerciseNameInfo": "Nome do Exercício exibido na lista do dia",
-      "exerciseVariation": "Nome do Exercício/Variação",
+      "exerciseVariation": "Nome do Exercício/Variação (opcional)",
       "sets": "Séries",
       "reps": "Repetições",
       "percentage": "Porcetagem",

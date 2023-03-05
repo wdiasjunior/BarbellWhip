@@ -9,6 +9,21 @@ const styles = (theme) => {
       justifyContent: 'flex-start',
       paddingTop: 12,
     },
+
+    noProgramListTextContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: "100%",
+      height: "100%",
+      flex: 1,
+    },
+    noProgramListText: {
+      color: theme.text,
+      fontWeight: 'bold',
+      fontSize: 24,
+      textAlign: 'center',
+    },
+
     shadowProp: {
       elevation: 3,
       shadowColor: '#171717',

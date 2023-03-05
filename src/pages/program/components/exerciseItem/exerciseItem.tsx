@@ -10,7 +10,16 @@ import styles from './exerciseItemStyles';
 
 // does this component even need to be in a separate file?
 
-const ExerciseItem = (props) => {
+interface Props {
+  onermOBJ: any;
+  rmId: any;
+  weightUnit: any;
+  navigation: any;
+  exerciseName: any;
+  data: any;
+}
+
+const ExerciseItem = (props: Props) => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
 
@@ -20,7 +29,15 @@ const ExerciseItem = (props) => {
   return (
       <TouchableOpacity
         style={styles(activeTheme).item}
-        onPress={() => { navigation.push('ExerciseItemPage', {onermOBJ: props.onermOBJ, rmId: props.rmId, exerciseOBJ: props.data, weightUnit: props.weightUnit}); }}
+        onPress={() => {
+          navigation.push('ExerciseItemPage', {
+            exerciseName: props.exerciseName,
+            onermOBJ: props.onermOBJ,
+            rmId: props.rmId,
+            exerciseOBJ: props.data,
+            weightUnit: props.weightUnit
+          });
+        }}
       >
         <Text adjustsFontSizeToFit style={styles(activeTheme).text1}>{props.exerciseName}</Text>
         {/*{isDone && <Ionicons name="checkmark" size={30} color="#3da9db" />}*/}

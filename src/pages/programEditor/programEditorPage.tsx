@@ -88,11 +88,16 @@ const ProgramEditorPage = ({ navigation }) => {
     // readDIR();
     // TODO - write a test to check if the selected program is valid?
     const file = await DocumentPicker.pick();
-    if(file[0].type === "application/json") {
+
+    // if(file[0].type === "application/json") {
+    // this apparently does not work in some older android versions for whatever
+    // reason and returns type: "application/octet-stream". so I'm checking the file name
+    // GoHorse just doing it's thing I guess
+    if(file[0].name.includes(".json")) {
       const fileContent = await readImportedJSON(file[0].uri);
       await saveProgram(file[0].name, JSON.parse(fileContent));
     } else {
-      alert("Invalid file type.");
+      alert(selectedLocale.programEditorPage.importErrorMessage);
     }
   }
 
@@ -110,6 +115,7 @@ const ProgramEditorPage = ({ navigation }) => {
 
   const programOptionModal = async (action) => {
     const programData = await readProgram(programNameForAction);
+    console.log(programData.oneRMs);
 
     switch(action) {
       case "setActive":
@@ -155,10 +161,10 @@ const ProgramEditorPage = ({ navigation }) => {
         </TouchableOpacity>
 
         <View style={styles(activeTheme).programList}>
+        {programList?.length > 0 ? (
           <ScrollView overScrollMode="never">
           {/*<ActivityIndicator size="large" color="#3da9db"/>*/}
-            {(programList?.length > 0) &&
-              (programList?.map((item, index) => {
+              {(programList?.map((item, index) => {
                 if(item.name.includes(".json")) {
                   return (
                     <View
@@ -175,9 +181,18 @@ const ProgramEditorPage = ({ navigation }) => {
                     </View>
                   )
                 }
-              }))
-            }
+              }))}
           </ScrollView>
+        ) : (
+          <View style={styles(activeTheme).noProgramListTextContainer}>
+            <Text style={styles(activeTheme).noProgramListText}>
+              {selectedLocale.programEditorPage.noProgramListTextTitle}
+            </Text>
+            <Text style={styles(activeTheme).noProgramListText}>
+              {selectedLocale.programEditorPage.noProgramListTextSubtitle}
+            </Text>
+          </View>
+        )}
         </View>
 
         <Modal

@@ -1,11 +1,14 @@
 {
   "programPage": {
+    "defaultTitle": "Program Page",
     "title": "Program",
     "week": "Week",
     "day": "Day",
     "rmReviewTitle": "1RM Review",
     "rmReviewWeightLable": "Weight",
     "weekSelectorTitle": "Week Selector",
+    "noActiveProgramTextTitle": "No program loaded.",
+    "noActiveProgramTextSubtitle": "Go to Program Editor Page to create or import one and set it as active.",
     "exerciseInfo" : {
       "title": "Exercise Info",
       "sets": "Sets",
@@ -40,6 +43,9 @@
   },
   "programEditorPage": {
     "title": "Program Editor",
+    "noProgramListTextTitle": "No programs found.",
+    "noProgramListTextSubtitle": "Create or import one.",
+    "importErrorMessage": "Invalid file type.",
     "modal": {
       "setActive": "Set Active",
       "edit": "Edit",
@@ -71,7 +77,7 @@
     "exerciseEditorPage": {
       "title": "Exercise Editor",
       "exerciseNameInfo": "Exercise name displayed on day list",
-      "exerciseVariation": "Exercise/Variation name",
+      "exerciseVariation": "Exercise/Variation name (optional)",
       "sets": "Sets",
       "reps": "Reps",
       "percentage": "Percentage",

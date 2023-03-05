@@ -54,6 +54,11 @@ const SettingsPage = ({ navigation }) => {
           })}
         </View>*/}
 
+        {/*
+          enable rounding of 1rm estimates and 1rm percentages?
+          1 switch of each per page?
+        */}
+
         <View style={styles(activeTheme).themeSelectorContainer}>
           <Text style={styles(activeTheme).themeSelectorTitle}>{selectedLocale.settingsPage.languageSelectorTitle}:</Text>
           {locales.map((locale, index) => {

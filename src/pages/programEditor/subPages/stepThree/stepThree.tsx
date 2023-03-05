@@ -68,15 +68,24 @@ const StepThree = ({ navigation }) => {
 
     if(data === "simple") {
       setModalOpen(false);
-      navigation.push('ExerciseEditorPage', {oneRMweight: 0, exerciseIndex: "add"});
+      navigation.push('ExerciseEditorPage', {
+        oneRMweight: 0, // never used? check this
+        exerciseIndex: "add",
+      });
     } else {
       setModalOpen(false);
-      navigation.push('ExerciseEditorPage', {oneRMweight: data.weight, oneRMname: data.name, exerciseIndex: "add"});
+      navigation.push('ExerciseEditorPage', {
+        oneRMweight: data.weight, // never used? check this
+        oneRMname: data.name,
+        exerciseIndex: "add",
+      });
     }
   }
 
   const editExercise = (index) => {
-    navigation.push('ExerciseEditorPage', {exerciseIndex: index});
+    navigation.push('ExerciseEditorPage', {
+      exerciseIndex: index,
+    });
   }
 
   const reorder = (data, from, to) => {

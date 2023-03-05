@@ -70,6 +70,25 @@ const styles = (theme) => {
       fontWeight: 'bold',
       fontSize: 16,
     },
+    noActiveProgramTextContainer: {
+      flex: 1,
+      backgroundColor: theme.backgroundPrimary,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginHorizontal: 30,
+    },
+    noActiveProgramTextTitle: {
+      color: theme.text,
+      fontWeight: 'bold',
+      fontSize: 24,
+      textAlign: 'center',
+    },
+    noActiveProgramTextSubtitle: {
+      color: theme.text,
+      fontWeight: 'bold',
+      fontSize: 18,
+      textAlign: 'center',
+    }
   });
 }
 

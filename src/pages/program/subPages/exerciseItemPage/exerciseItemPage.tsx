@@ -1,21 +1,48 @@
-import { React } from 'react';
+import React, { useLayoutEffect, } from 'react';
 import { Text, View, ScrollView, } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+import Header from "../../../../sharedComponents/header/header";
 
 import styles from './exerciseItemPageStyles';
 
 import { useAtom } from 'jotai';
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
+// interface Props {
+//   exerciseName: any;
+//   onermOBJ: any;
+//   rmId: any;
+//   exerciseOBJ: any;
+//   weightUnit: any;
+// }
+
 const ExerciseItemPage = (props) => {
+
+  const navigation = useNavigation();
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+
+  const onScreenLoad = () => {
+    navigation.setOptions({ headerTitle: () =>
+                  <Header
+                    title={props.route.params.exerciseName}
+                    backButton={true}
+                  />
+              });
+  }
+
+  useLayoutEffect(() => {
+    onScreenLoad();
+  }, [])
 
   const setsList = props.route.params.exerciseOBJ.set;
   const onermOBJ = props.route.params.onermOBJ;
   const rmId = props.route.params.rmId;
   const weightUnit = props.route.params.weightUnit;
-  const oneRMweight = onermOBJ.find((el) => el.id === rmId);
+  const weightRoundingFactor = weightUnit === "kg" ? 2.5 : 5;
+  const oneRMweight = onermOBJ.find((el) => el.id === rmId) ?? 0; // check this
 
   return (
     <ScrollView style={styles(activeTheme).container} overScrollMode="never">
@@ -37,7 +64,7 @@ const ExerciseItemPage = (props) => {
                 <View style={styles(activeTheme).setListItemRow}>
                   {item.percentage ?
                     <Text style={styles(activeTheme).label}>
-                      {selectedLocale.programPage.exerciseInfo.weightLabel}:  <Text style={styles(activeTheme).weightText}>{Math.ceil((parseFloat(oneRMweight?.weight) * (parseFloat(item.percentage) / 100) / 2.5)) * 2.5}{weightUnit}</Text>
+                      {selectedLocale.programPage.exerciseInfo.weightLabel}:  <Text style={styles(activeTheme).weightText}>{Math.ceil((parseFloat(oneRMweight?.weight) * (parseFloat(item.percentage) / 100) / weightRoundingFactor)) * weightRoundingFactor}{weightUnit}</Text>
                     </Text>
                     :
                     null

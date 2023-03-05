@@ -24,7 +24,8 @@ const ProgramPage = ({ navigation }) => {
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const [activeProgramData, setActiveProgramData] = useAtom(activeProgramAtom);
-  const data = activeProgramData.trainingProgram ? activeProgramData : defaultProgramData; // TODO - change this so it doesn't break depending on the program that's loaded
+  // const data = activeProgramData.trainingProgram ? activeProgramData : defaultProgramData; // TODO - change this so it doesn't break depending on the program that's loaded
+  const data = activeProgramData;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const openMenu = () => {
@@ -48,10 +49,10 @@ const ProgramPage = ({ navigation }) => {
     setIsMenuOpen(!isMenuOpen);
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={data?.programName + ' - ' + selectedLocale.programPage.week + ' ' + (index + 1)}
+                    title={data !== undefined ? data?.programName + ' - ' + selectedLocale.programPage.week + ' ' + (index + 1) : selectedLocale.programPage.defaultTitle}
                     isMenuOpen={isMenuOpen}
                     setIsMenuOpen={setIsMenuOpen}
-                    menu={true}
+                    menu={data !== undefined}
                   />
               });
   }
@@ -59,10 +60,10 @@ const ProgramPage = ({ navigation }) => {
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={data?.programName + ' - ' + selectedLocale.programPage.week + ' ' + (selectedWeek + 1)}
+                    title={data !== undefined ? data?.programName + ' - ' + selectedLocale.programPage.week + ' ' + (selectedWeek + 1) : selectedLocale.programPage.defaultTitle}
                     isMenuOpen={isMenuOpen}
                     setIsMenuOpen={setIsMenuOpen}
-                    menu={true}
+                    menu={data !== undefined}
                   />
               });
   }
@@ -131,40 +132,53 @@ const ProgramPage = ({ navigation }) => {
   // }
 
   return (
-    <SideMenu
-      menu={menuWeekList}
-      isOpen={isMenuOpen}
-      onChange={closeMenu}
-      menuPosition={"right"}
-      bounceBackOnOverdraw={false}
-      animationFunction={(prop, value) =>
-        Animated.spring(prop, {
-          toValue: value,
-          // friction: 10,
-          overshootClamping: true,
-          useNativeDriver: true,
-          bounciness: 0,
-          // stiffness: 1,
-        })
-      }
-    >
-      <View style={styles(activeTheme).container}>
+    <View style={styles(activeTheme).container}>
+      {data !== undefined ? (
+        <SideMenu
+          menu={menuWeekList}
+          isOpen={isMenuOpen}
+          onChange={closeMenu}
+          menuPosition={"right"}
+          bounceBackOnOverdraw={false}
+          animationFunction={(prop, value) =>
+            Animated.spring(prop, {
+              toValue: value,
+              // friction: 10,
+              overshootClamping: true,
+              useNativeDriver: true,
+              bounciness: 0,
+              // stiffness: 1,
+            })
+          }
+        >
+          <View style={styles(activeTheme).container}>
 
-        <TopTabBar
-          setFirstTab={selectedWeek}
-          selectDay={setSelectedDay}
-          days={data?.trainingProgram[selectedWeek]?.week?.length}
-          isProgramPage={true}
-        />
+            <TopTabBar
+              setFirstTab={selectedWeek}
+              selectDay={setSelectedDay}
+              days={data?.trainingProgram[selectedWeek]?.week?.length}
+              isProgramPage={true}
+            />
 
-        <FlatList
-          data={data?.trainingProgram[selectedWeek]?.week[selectedDay]?.day}
-          renderItem={flatListRenderItem}
-          keyExtractor={(item, index) => item.exerciseName + "" + index}
-        />
+            <FlatList
+              data={data?.trainingProgram[selectedWeek]?.week[selectedDay]?.day}
+              renderItem={flatListRenderItem}
+              keyExtractor={(item, index) => item.exerciseName + "" + index}
+            />
 
-      </View>
-    </SideMenu>
+          </View>
+        </SideMenu>
+      ) : (
+        <View style={styles(activeTheme).noActiveProgramTextContainer}>
+          <Text style={styles(activeTheme).noActiveProgramTextTitle}>
+            {selectedLocale.programPage.noActiveProgramTextTitle}
+          </Text>
+          <Text style={styles(activeTheme).noActiveProgramTextSubtitle}>
+            {selectedLocale.programPage.noActiveProgramTextSubtitle}
+          </Text>
+        </View>
+      )}
+    </View>
   );
 }
 

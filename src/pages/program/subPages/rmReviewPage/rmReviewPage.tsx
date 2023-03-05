@@ -6,7 +6,12 @@ import styles from './rmReviewPageStyles';
 import { useAtom } from 'jotai';
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
-const RMReviewPage = (props) => {
+interface Props {
+  onermOBJ: any;
+  weightUnit: any;
+}
+
+const RMReviewPage = (props: Props) => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
@@ -16,7 +21,7 @@ const RMReviewPage = (props) => {
 
   return (
     <ScrollView style={styles(activeTheme).container} overScrollMode="never">
-      {onermOBJ.map((item, index) => {
+      {onermOBJ?.map((item, index) => {
         return (
           <View key={index} style={styles(activeTheme).item}>
             {item.name ? <Text style={styles(activeTheme).title}>{item.name}</Text> : null}

@@ -62,7 +62,7 @@
 
 # settings page
   - about? - separate page for this?
-  - Weights are rounded to 2.5kg so that it's easier on the head mid training session, and it's applied in every screen. In the future, it will be added a toggle so that you can disable this behavior.
+  - "Weights are rounded to 2.5kg so that it's easier on the head mid training session, and it's applied in every screen. In the future, it will be added a toggle so that you can disable this behavior."
   - add switch for absolute percentage instead of rounding
 
 # PR Tracker page

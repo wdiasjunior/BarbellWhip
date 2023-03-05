@@ -10,6 +10,13 @@ import { deepClone } from "../../../../../helpers/deepClone";
 
 import styles from './exerciseEditorPageStyles';
 
+// interface Props {
+//   oneRMweight: any; // never used? check this
+//   oneRMname: any;
+//   exerciseType: any;
+//   exerciseIndex: any;
+// }
+
 const ExerciseEditorPage = (props) => {
 
   // TODO - add "discard" icon to header ?
@@ -27,6 +34,8 @@ const ExerciseEditorPage = (props) => {
   const exerciseType = props.route.params.exerciseType;
   const oneRMweight = programEditorData.oneRMs.find((el) => el.id === exerciseData.RMid);
   const oneRMname = props.route.params.oneRMname;
+
+  const weightRoundingFactor = programEditorData.weightUnit === "kg" ? 2.5 : 5;
 
   const addExerciseSubSet = () => {
     let auxAtom = deepClone(programEditorData);
@@ -147,7 +156,7 @@ const ExerciseEditorPage = (props) => {
                   <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.weightLabel}</Text>
                   <Text style={styles(activeTheme).weightText}>
                     {isNaN(oneRMweight?.weight * item.percentage / 100) ? "" :
-                      Math.ceil((oneRMweight?.weight * (item.percentage / 100) / 2.5)) * 2.5 } {!isNaN(oneRMweight?.weight * item.percentage / 100) ? programEditorData.weightUnit : "0 " + programEditorData.weightUnit}
+                      Math.ceil((oneRMweight?.weight * (item.percentage / 100) / weightRoundingFactor)) * weightRoundingFactor } {!isNaN(oneRMweight?.weight * item.percentage / 100) ? programEditorData.weightUnit : "0 " + programEditorData.weightUnit}
                   </Text>
                 </View>
               </View>
