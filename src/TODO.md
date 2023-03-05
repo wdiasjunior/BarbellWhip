@@ -1,10 +1,8 @@
 - jotai - change this `const [, setValue] = useAtom(valueAtom)` to useSetAtom to increase performance
   - https://jotai.org/docs/api/core#use-set-atom
 
+- add logo to splash screen and app icon
 - reduce splash screen time
-
-- make text responsive?
-  - `<Text adjustsFontSizeToFit style={styles(activeTheme).text}>teste</Text>`
 
 # calculator page
   - unify calculator page and program page math
@@ -75,3 +73,5 @@
   - ph3
   - strengthVx
   - jamal deadlift
+- make text responsive everywhere?
+  - `<Text adjustsFontSizeToFit style={styles(activeTheme).text}>teste</Text>`
