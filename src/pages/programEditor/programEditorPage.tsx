@@ -6,6 +6,8 @@ import Share from 'react-native-share';
 import DocumentPicker from 'react-native-document-picker';
 import { useIsFocused } from '@react-navigation/native';
 
+Ionicons.loadFont().then();
+
 import Header from "../../sharedComponents/header/header";
 
 import { writeToJSON, copyJSON, deleteJSON } from "../../db/fileSystem/fsWrite";

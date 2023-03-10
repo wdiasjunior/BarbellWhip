@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect, } from "react";
 import { Text, View, FlatList, Button, ScrollView, TouchableOpacity, } from 'react-native';
 
 import styles from './weightRackPageStyles';
@@ -6,10 +6,23 @@ import styles from './weightRackPageStyles';
 import { useAtom } from 'jotai';
 import { activeThemeAtom, selectedLocaleAtom } from "../../../helpers/jotai/atomsWithStorage";
 
-const WeightRackPage = () => {
+const WeightRackPage = ({ navigation }) => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+
+  const onScreenLoad = () => {
+    navigation.setOptions({ headerTitle: () =>
+                  <Header
+                    title={selectedLocale.plateMathPage.weightRackPage.title}
+                    backButton={true}
+                  />
+              });
+  }
+
+  useLayoutEffect(() => {
+    onScreenLoad();
+  }, [])
 
   return (
     <View style={styles(activeTheme).container}>

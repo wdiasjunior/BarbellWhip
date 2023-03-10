@@ -9,7 +9,7 @@ Built with React Native, and currently only supported on Android.
 
 <img src="appOverview.gif" alt="appOverview" width="300"/>
 
-## How to run
+## How to run on Android
 
 Using node version `v18.12.1` install the dependencies by running `npm i`.
 
@@ -25,7 +25,7 @@ And in another terminal run the following commands
 
 `npx react-native run-android`
 
-## How to build (debug apk)
+## How to build for Android (debug apk)
 
 Run the command below in the project's root directory
 
@@ -38,3 +38,19 @@ Then run the commands below in the `/android` directory
 `export ANDROID_SDK_ROOT='/home/$USER/Android/Sdk'`
 
 `./gradlew assembleDebug`
+
+## How to run on iOS
+
+Using node version `v18.12.1` install the dependencies by running `npm i`
+
+`cd ios`
+
+`pod install`
+
+`brew install watchman`
+
+`npx react-native run-ios`
+
+or
+
+`npx react-native run-ios --simulator='iPhone 14 Pro (16.0)'`

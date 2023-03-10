@@ -4,6 +4,9 @@ import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 
+Ionicons.loadFont().then();
+Entypo.loadFont().then();
+
 import styles from './headerStyles';
 
 import { writeToJSON } from "../../db/fileSystem/fsWrite";

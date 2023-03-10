@@ -49,7 +49,7 @@ const ProgramPage = ({ navigation }) => {
     setIsMenuOpen(!isMenuOpen);
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={data !== undefined ? data?.programName + ' - ' + selectedLocale.programPage.week + ' ' + (index + 1) : selectedLocale.programPage.defaultTitle}
+                    title={data.trainingProgram ? data?.programName + ' - ' + selectedLocale.programPage.week + ' ' + (index + 1) : selectedLocale.programPage.defaultTitle}
                     isMenuOpen={isMenuOpen}
                     setIsMenuOpen={setIsMenuOpen}
                     menu={data !== undefined}
@@ -60,10 +60,10 @@ const ProgramPage = ({ navigation }) => {
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={data !== undefined ? data?.programName + ' - ' + selectedLocale.programPage.week + ' ' + (selectedWeek + 1) : selectedLocale.programPage.defaultTitle}
+                    title={data.trainingProgram ? data?.programName + ' - ' + selectedLocale.programPage.week + ' ' + (selectedWeek + 1) : selectedLocale.programPage.defaultTitle}
                     isMenuOpen={isMenuOpen}
                     setIsMenuOpen={setIsMenuOpen}
-                    menu={data !== undefined}
+                    menu={data.trainingProgram}
                   />
               });
   }
@@ -133,7 +133,7 @@ const ProgramPage = ({ navigation }) => {
 
   return (
     <View style={styles(activeTheme).container}>
-      {data !== undefined ? (
+      {data.trainingProgram ? (
         <SideMenu
           menu={menuWeekList}
           isOpen={isMenuOpen}

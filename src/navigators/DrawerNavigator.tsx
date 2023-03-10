@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+Ionicons.loadFont().then();
+
 import { BottomTabProgramPageNavigator, BottomTabProgramEditorPageNavigator } from "./TabNavigator";
 import { ProgramPageStack, ProgramEditorPageStack } from "./StackNavigator";
 // import PRTrackerPage from '../pages/prTracker/prTrackerPage';
@@ -103,6 +105,7 @@ const DrawerNavigator = () => {
             elevation: 0,
             shadowOpacity: 0,
           },
+          headerLeft: () => null,
           headerTintColor: activeTheme.text,
           cardStyle: {
             backgroundColor: activeTheme.backgroundPrimary,

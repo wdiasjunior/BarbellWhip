@@ -6,6 +6,9 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
+Ionicons.loadFont().then();
+MaterialIcons.loadFont().then();
+
 import { useAtom } from 'jotai';
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
@@ -60,6 +63,9 @@ const StepThree = ({ navigation }) => {
           percentage: "",
           rpe: "",
           tempo: "",
+          rest: "",
+          altExercise1: "",
+          altExercise2: "",
           description: ""
         }
       ]

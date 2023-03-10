@@ -6,10 +6,12 @@ const styles = (theme) => {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
       paddingHorizontal: 20,
+      paddingTop: 10,
     },
     setList: {
       flex: 1,
       paddingTop: 10,
+      paddingBottom: 60,
     },
     inputLabel: {
       color: theme.text,

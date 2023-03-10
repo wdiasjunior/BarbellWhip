@@ -1,6 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, KeyboardAvoidingView, TextInput, } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
+
+Ionicons.loadFont().then();
 
 import { useAtom } from 'jotai';
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../../../../helpers/jotai/programEditorAtoms";
@@ -20,6 +23,7 @@ import styles from './exerciseEditorPageStyles';
 const ExerciseEditorPage = (props) => {
 
   // TODO - add "discard" icon to header ?
+  const navigation = useNavigation();
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
@@ -27,6 +31,19 @@ const ExerciseEditorPage = (props) => {
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
   const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
   const [selectedDay, setSelectedDay] = useAtom(selectedDayAtom);
+
+  const onScreenLoad = () => {
+    navigation.setOptions({ headerTitle: () =>
+                  <Header
+                    title={selectedLocale.programEditorPage.exerciseEditorPage.title}
+                    backButton={true}
+                  />
+              });
+  }
+
+  useLayoutEffect(() => {
+    onScreenLoad();
+  }, [])
 
   const exerciseIndex = props.route.params.exerciseIndex;
   const length = programEditorData.trainingProgram[selectedWeek].week[selectedDay].day.length - 1;

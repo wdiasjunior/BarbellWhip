@@ -71,7 +71,10 @@ const ProgramEditorDayPageStack = () => {
           animationEnabled: false,
           headerStyle:{
             backgroundColor: activeTheme.backgroundSecondary,
+            elevation: 0,
+            shadowOpacity: 0,
           },
+          headerLeft: () => null,
           headerTintColor: activeTheme.text,
           cardStyle: {
             backgroundColor: activeTheme.backgroundPrimary,
@@ -305,6 +308,7 @@ const PlateMathPageStack = () => {
             elevation: 0,
             shadowOpacity: 0,
           },
+          headerLeft: () => null,
           headerTintColor: activeTheme.text,
         }}
       />

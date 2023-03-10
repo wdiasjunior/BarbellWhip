@@ -4,6 +4,8 @@ import DraggableFlatList, { ScaleDecorator } from "react-native-draggable-flatli
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+Ionicons.loadFont().then();
+
 import { useAtom } from 'jotai';
 import { programEditorDataAtom, selectedWeekAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";

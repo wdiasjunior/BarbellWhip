@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+Ionicons.loadFont().then();
+
 import CalculatorPage from "../pages/calculator/calculatorPage";
 // import ProgramPage from "../pages/program/programPage";
 // import PlateMathPage from '../pages/plateMath/plateMathPage';

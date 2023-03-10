@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect, } from "react";
 import { Text, View, TouchableOpacity, } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+Ionicons.loadFont().then();
 
 import styles from './numberInputStyles';
 
@@ -74,7 +76,7 @@ const NumberInput = (props: Props) => {
     <View style={styles(activeTheme).container}>
       <View style={styles(activeTheme).input}>
         <Text style={styles(activeTheme).inputText}>{weightString} <Text style={styles(activeTheme).inputTextLabel}>{props.inputLabel}</Text></Text>
-        <Icon
+        <Ionicons
           name="backspace"
           size={30}
           style={styles(activeTheme).icon}

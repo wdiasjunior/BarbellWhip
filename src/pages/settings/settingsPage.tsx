@@ -2,6 +2,8 @@ import React, { useState, useEffect, useLayoutEffect, } from "react";
 import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+Ionicons.loadFont().then();
+
 import styles from './settingsPageStyles';
 
 import { useAtom } from 'jotai';
@@ -17,6 +19,16 @@ const SettingsPage = ({ navigation }) => {
 
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
   const [selectedLocaleId, setSelectedLocaleId] = useAtom(selectedLocaleIdAtom);
+
+  const onScreenLoad = () => {
+    navigation.setOptions({ headerTitle: () =>
+                  <Header title={selectedLocale.settingsPage.title} menu={false} />
+              });
+  }
+
+  useLayoutEffect(() => {
+    onScreenLoad();
+  }, [])
 
   return (
     <View style={styles(activeTheme).container}>

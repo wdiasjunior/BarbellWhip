@@ -2,6 +2,8 @@ import React, { useState, useEffect, useLayoutEffect } from "react"; // , useRef
 import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, KeyboardAvoidingView, TextInput, } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+Ionicons.loadFont().then();
+
 import { useAtom } from 'jotai';
 import { programEditorDataAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
@@ -106,7 +108,7 @@ const StepOne = ({ navigation }) => {
           <Switch
             trackColor={{ false: activeTheme.active, true: activeTheme.active }}
             thumbColor={"#f4f3f4"}
-            ios_backgroundColor="#3e3e3e"
+            ios_backgroundColor={activeTheme.active}
             onValueChange={toggleWeightUnitSwitch}
             value={weightUnit}
             style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }] }}

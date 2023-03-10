@@ -3,6 +3,8 @@ import { Text, View, TouchableOpacity, } from 'react-native';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 
+// Ionicons.loadFont().then();
+
 import { useAtom } from 'jotai';
 import { activeThemeAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
