@@ -11,6 +11,6 @@ const colors = {
   statusBar: "light",
 }
 
-// revise this
+// TODO - revise this
 
 export default colors;

@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 const styles = (theme) => {
   return StyleSheet.create({
@@ -6,13 +6,13 @@ const styles = (theme) => {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
       paddingHorizontal: 20,
-      // alignItems: 'center',
-      // justifyContent: 'center',
+      // alignItems: "center",
+      // justifyContent: "center",
     },
     title: {
       color: theme.textHighlight,
       fontSize: 20,
-      fontWeight: 'bold',
+      fontWeight: "bold",
     },
     subtitle: {
       color: theme.text,
@@ -25,13 +25,13 @@ const styles = (theme) => {
     },
     themeSelectorTitle: {
       color: theme.textHighlight,
-      fontWeight: 'bold',
+      fontWeight: "bold",
       fontSize: 18,
       marginBottom: 10,
     },
     themeSelectorItem: {
       flexDirection: "row",
-      alignItems: 'center',
+      alignItems: "center",
       height: 46,
       marginBottom: 6,
       borderBottomWidth: 1,

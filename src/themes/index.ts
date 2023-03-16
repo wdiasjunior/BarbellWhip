@@ -1,33 +1,33 @@
-import light from './light';
-import dark from './dark';
-import nordDark from './nordDark';
-// import nordLight from './nordLight';
-import chakraUI from './chakraUI';
+import light from "./light";
+import dark from "./dark";
+import nordDark from "./nordDark";
+// import nordLight from "./nordLight";
+import chakraUI from "./chakraUI";
 
 export const themes = [
   {
-    id: 'light',
-    name: 'Default Light',
+    id: "light",
+    name: "Default Light",
     theme: light
   },
   {
-    id: 'dark',
-    name: 'Default Dark',
+    id: "dark",
+    name: "Default Dark",
     theme: dark
   },
   {
-    id: 'nordDark',
-    name: 'Nord Dark',
+    id: "nordDark",
+    name: "Nord Dark",
     theme: nordDark
   },
   // {
-  //   id: 'nordLight',
-  //   name: 'Nord Light',
+  //   id: "nordLight",
+  //   name: "Nord Light",
   //   theme: nordLight
   // },
   {
-    id: 'chakraUI',
-    name: 'Chakra UI',
+    id: "chakraUI",
+    name: "Chakra UI",
     theme: chakraUI
   },
 ];

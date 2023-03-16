@@ -53,6 +53,7 @@ const WeightCalc = {
     const plates = weightRack.map((a) => !a.isBumper ? a.plate : 0).sort((a, b) => a.plate - b.plate).reverse();
     // console.log("----------plates", plates);
     // funtion kinda broken after adding bumper plates rack funcitonality
+    // TODO - fix this? decided to set the size manually and seems to work fine
     const min = Math.min.apply(null, plates);
     const max = Math.max.apply(null, plates);
     const size =  (weight.plate - min) / (max - min);

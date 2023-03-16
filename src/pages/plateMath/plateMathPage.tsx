@@ -1,15 +1,13 @@
 import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
-import { Text, View, FlatList, Button, ScrollView, TouchableOpacity, Switch } from 'react-native';
-import Modal from "react-native-modal";
 
 import Header from "../../sharedComponents/header/header";
-import WeightView from './components/weightView/weightView';
-import NumberInput from '../../sharedComponents/numberInput/numberInput';
-import WeightCalc from './utils/WeightCalc';
+import WeightView from "./components/weightView/weightView";
+import NumberInput from "../../sharedComponents/numberInput/numberInput";
+import WeightCalc from "./utils/WeightCalc";
 
-import styles from './plateMathPageStyles';
+import styles from "./plateMathPageStyles";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
 
 const PlateMathPage = ({ navigation }) => {
@@ -107,13 +105,14 @@ const PlateMathPage = ({ navigation }) => {
   }
 
 	const toggleModal = (weight: string) => {
-    if(typeof weight === 'string' || weight instanceof String) {
+    if(typeof weight === "string" || weight instanceof String) {
       const weightUpdated = parseFloat(weight);
       setCurrentWeight(weightUpdated);
     }
     setModalWeightInputVisible(!isModalWeightInputVisible);
   };
 
+  // TODO
   // juggernaut plate math page structure
   // weight unit toggle
   // weight input
@@ -206,21 +205,21 @@ const PlateMathPage = ({ navigation }) => {
   );
 }
 
-// // import React from 'react';
-// // import {StyleSheet} from 'react-native';
+// // import React from "react";
+// // import {StyleSheet} from "react-native";
 // // // @ts-ignore
-// // import Modal from 'react-native-modal';
-// // import ModalBaseScene from '../utils/ModalBaseScene';
-// // import DefaultModalContent from '../utils/DefaultModalContent';
+// // import Modal from "react-native-modal";
+// // import ModalBaseScene from "../utils/ModalBaseScene";
+// // import DefaultModalContent from "../utils/DefaultModalContent";
 // //
 // // class BottomHalfModal extends ModalBaseScene {
 // //   renderModal(): React.ReactElement<any> {
 // //     return (
 // //       <Modal
-// //         testID={'modal'}
+// //         testID={"modal"}
 // //         isVisible={this.isVisible()}
 // //         onSwipeComplete={this.close}
-// //         swipeDirection={['up', 'left', 'right', 'down']}
+// //         swipeDirection={["up", "left", "right", "down"]}
 // //         style={styles(activeTheme).view}>
 // //         <DefaultModalContent onPress={this.close} />
 // //       </Modal>
@@ -230,7 +229,7 @@ const PlateMathPage = ({ navigation }) => {
 // //
 // // const styles = StyleSheet.create({
 // //   view: {
-// //     justifyContent: 'flex-end',
+// //     justifyContent: "flex-end",
 // //     margin: 0,
 // //   },
 // // });

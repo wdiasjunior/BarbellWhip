@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React from "react";
+import { View, Text } from "react-native";
 
-import { styles, plateColors } from './plateStyles';
+import { styles, plateColors } from "./plateStyles";
 
 interface Props {
   weight: any;
@@ -12,10 +12,11 @@ interface Props {
 
 const Plate = (props: Props) => {
   // I don't like this gambiarra for the plate size, but I guess we'll have to
-  // roll with this since WeightCalc.getPlatePercentOfMax is broken
+  // roll with this since WeightCalc.getPlatePercentOfMax is kinda broken
   const plateDimensions = {
-    // TODO - find some good colors for the other plates based on those from nord theme?
-    // don't really like how they look with the rest of the app theme
+    // TODO - find some good colors for the other plates that match the overall theme
+    // don't really like how they look with the rest of the app
+    // I really need a designer helping with this
     kg: {
       50: {
         size: 1.25,

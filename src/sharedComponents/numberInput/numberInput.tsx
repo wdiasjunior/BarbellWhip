@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect, } from "react";
-import { Text, View, TouchableOpacity, } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Text, View, TouchableOpacity, } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 
-import styles from './numberInputStyles';
+import styles from "./numberInputStyles";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
 
 interface Props {

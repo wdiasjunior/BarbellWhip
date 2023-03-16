@@ -1,14 +1,14 @@
 import React from "react";
-import { Text, View, FlatList, Button, ScrollView, TouchableOpacity, } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Entypo from 'react-native-vector-icons/Entypo';
+import { Text, View, FlatList, ScrollView, TouchableOpacity, } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import Entypo from "react-native-vector-icons/Entypo";
 
-import styles from './headerStyles';
+import styles from "./headerStyles";
 
 import { writeToJSON } from "../../db/fileSystem/fsWrite";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { programEditorDataAtom } from "../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
 
@@ -53,7 +53,7 @@ export default Header = (props: Props) => {
 
   const saveButton = async () => {
     // TODO
-    // - add loading indicator on save
+    // - add loading indicator overlay on save
     // - remove empty days and empty weeks on save
     await saveProgram();
   }
@@ -104,7 +104,7 @@ export default Header = (props: Props) => {
             name="settings-sharp"
             size={24}
             style={styles(activeTheme).iconRight}
-            onPress={() => navigation.push('WeightRackPage')}
+            onPress={() => navigation.push("WeightRackPage")}
           />
         }
         {props.import &&

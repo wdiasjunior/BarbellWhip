@@ -1,9 +1,9 @@
 import React from "react";
-import { Text, View, ScrollView, TouchableOpacity, } from 'react-native';
+import { Text, View, ScrollView, TouchableOpacity, } from "react-native";
 
-import styles from './rmReviewPageStyles';
+import styles from "./rmReviewPageStyles";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
 interface Props {

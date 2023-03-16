@@ -1,21 +1,21 @@
 import React, { useState, useLayoutEffect, } from "react";
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, AsyncStorage, ActivityIndicator, } from 'react-native';
+import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, AsyncStorage, ActivityIndicator, } from "react-native";
 import Modal from "react-native-modal";
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Share from 'react-native-share';
-import DocumentPicker from 'react-native-document-picker';
-import { useIsFocused } from '@react-navigation/native';
+import Ionicons from "react-native-vector-icons/Ionicons";
+import Share from "react-native-share";
+import DocumentPicker from "react-native-document-picker";
+import { useIsFocused } from "@react-navigation/native";
 
 import Header from "../../sharedComponents/header/header";
 
 import { writeToJSON, copyJSON, deleteJSON } from "../../db/fileSystem/fsWrite";
 import { readJSON, readImportedJSON, readDirectory, returnFileURL } from "../../db/fileSystem/fsRead";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom, activeProgramAtom, activeProgramNameAtom, programPageSelectedDayAtom, programPageSelectedWeekAtom } from "../../helpers/jotai/atomsWithStorage";
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../helpers/jotai/programEditorAtoms";
 
-import styles from './programEditorPageStyles';
+import styles from "./programEditorPageStyles";
 
 const ProgramEditorPage = ({ navigation }) => {
 
@@ -85,14 +85,14 @@ const ProgramEditorPage = ({ navigation }) => {
   }
 
   const importProgram = async () => {
-    // readDIR();
+    // readDIR(); // TODO - why is this here lol
     // TODO - write a test to check if the selected program is valid?
     const file = await DocumentPicker.pick();
 
     // if(file[0].type === "application/json") {
     // this apparently does not work in some older android versions for whatever
     // reason and returns type: "application/octet-stream". so I'm checking the file name
-    // GoHorse just doing it's thing I guess
+    // GoHorse is just doing it's thing I guess
     if(file[0].name.includes(".json")) {
       const fileContent = await readImportedJSON(file[0].uri);
       await saveProgram(file[0].name, JSON.parse(fileContent));
@@ -153,6 +153,7 @@ const ProgramEditorPage = ({ navigation }) => {
     }
   }
 
+  // TODO
   // fix overflow not spacing items correctly if program list fills the screen.
   // fab button covers action items. maybe hide it on scroll threshold
 

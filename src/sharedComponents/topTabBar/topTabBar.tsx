@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Text, View, ScrollView, TouchableOpacity, } from 'react-native';
-import styles from './topTabBarStyles';
+import React, { useState, useEffect, useRef } from "react";
+import { Text, View, ScrollView, TouchableOpacity, } from "react-native";
+import styles from "./topTabBarStyles";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { programPageSelectedDayAtom } from "../../helpers/jotai/atomsWithStorage";
 import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
 

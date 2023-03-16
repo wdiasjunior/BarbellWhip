@@ -3,13 +3,13 @@ import pt from "./pt.json";
 
 export const locales = [
   {
-    id: 'english',
-    name: 'English',
+    id: "english",
+    name: "English",
     locale: en
   },
   {
-    id: 'portuguese',
-    name: 'Português',
+    id: "portuguese",
+    name: "Português",
     locale: pt
   },
 ];

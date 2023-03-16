@@ -1,13 +1,13 @@
 import React, { useState, useLayoutEffect } from "react";
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from 'react-native';
+import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from "react-native";
 import Modal from "react-native-modal";
 
-import oneRMCalc from './math';
-import styles from './calculatorPageStyles';
-import NumberInput from '../../sharedComponents/numberInput/numberInput';
+import oneRMCalc from "./math";
+import styles from "./calculatorPageStyles";
+import NumberInput from "../../sharedComponents/numberInput/numberInput";
 import Header from "../../sharedComponents/header/header";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom, calculatorPageRepsAtom, calculatorPageWeightAtom, calculatorPageWeightUnitAtom } from "../../helpers/jotai/atomsWithStorage";
 
 const CalculatorPage = ({ navigation }) => {
@@ -71,7 +71,7 @@ const CalculatorPage = ({ navigation }) => {
 
   const toggleModal = (value: string, label: string) => {
     if(label == "REPS") {
-      if(typeof value === 'string' || value instanceof String) {
+      if(typeof value === "string" || value instanceof String) {
         const repsUpdated = parseInt(value);
         if(value !== "0" && parseInt(value) <= 20) {
           setRepsPerformed(repsUpdated);
@@ -79,7 +79,7 @@ const CalculatorPage = ({ navigation }) => {
         setInputLabel("REPS");
       }
     } else {
-      if(typeof value === 'string' || value instanceof String) {
+      if(typeof value === "string" || value instanceof String) {
         const weightUpdated = parseFloat(value);
         if(value !== "0" && parseFloat(value) <= 2000) {
           setWeightLifted(weightUpdated);

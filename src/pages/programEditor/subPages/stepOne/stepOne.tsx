@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useLayoutEffect } from "react"; // , useRef
-import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, KeyboardAvoidingView, TextInput, } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, KeyboardAvoidingView, TextInput, } from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { programEditorDataAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
@@ -11,9 +11,10 @@ import { randomUUID } from "../../../../helpers/randomUUID";
 
 import Header from "../../../../sharedComponents/header/header";
 
-import styles from './stepOneStyles';
+import styles from "./stepOneStyles";
 
 /*
+  TODO
   custom header for this stack to control go back button?
   save icon in header?
   info icon in header open modal quick tutorial for each page?

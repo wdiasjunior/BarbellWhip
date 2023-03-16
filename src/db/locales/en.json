@@ -65,7 +65,7 @@
       "title": "Create Program",
       "tabTitle": "Weeks",
       "addWeekButton": "ADD WEEK",
-      "week": "Week",
+      "week": "Week"
     },
     "programEditorStep3": {
       "title": "Create Program",
@@ -92,7 +92,7 @@
   "settingsPage": {
     "title": "Settings",
     "themeSelectorTitle": "Theme",
-    "languageSelectorTitle": "Language",
+    "languageSelectorTitle": "Language"
   },
   "numberInputModal": {
     "cancelButtonLabel": "CANCEL"

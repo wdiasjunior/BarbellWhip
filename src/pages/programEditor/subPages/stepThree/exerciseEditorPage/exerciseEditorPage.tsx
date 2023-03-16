@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, KeyboardAvoidingView, TextInput, } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, KeyboardAvoidingView, TextInput, } from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../../helpers/jotai/atomsWithStorage";
 
 import { deepClone } from "../../../../../helpers/deepClone";
 
-import styles from './exerciseEditorPageStyles';
+import styles from "./exerciseEditorPageStyles";
 
 // interface Props {
-//   oneRMweight: any; // never used? check this
+//   oneRMweight: any; // TODO - never used? check this
 //   oneRMname: any;
 //   exerciseType: any;
 //   exerciseIndex: any;
@@ -32,7 +32,7 @@ const ExerciseEditorPage = (props) => {
   const length = programEditorData.trainingProgram[selectedWeek].week[selectedDay].day.length - 1;
   const exerciseData = exerciseIndex === "add" ? deepClone(programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[length]) : deepClone(programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex]);
   const exerciseType = props.route.params.exerciseType;
-  const oneRMweight = programEditorData.oneRMs.find((el) => el.id === exerciseData.RMid);
+  const oneRMweight = programEditorData.oneRMs.find((el) => el.id === exerciseData.RMid); // TODO - check this - should probably just use the data from route.params
   const oneRMname = props.route.params.oneRMname;
 
   const weightRoundingFactor = programEditorData.weightUnit === "kg" ? 2.5 : 5;
@@ -235,7 +235,7 @@ const ExerciseEditorPage = (props) => {
               <View style={styles(activeTheme).col}>
                 <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.description}</Text>
                 <TextInput
-                  style={[styles(activeTheme).input, { height: 'auto', flex: 0 }]}
+                  style={[styles(activeTheme).input, { height: "auto", flex: 0 }]}
                   placeholderTextColor={activeTheme.placeholderText}
                   cursorColor={activeTheme.active}
                   onChangeText={(input) => editExerciseField("description", input, index)}

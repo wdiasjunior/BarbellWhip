@@ -1,14 +1,15 @@
-import React, { useLayoutEffect, } from 'react';
-import { Text, View, ScrollView, } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React, { useLayoutEffect, } from "react";
+import { Text, View, ScrollView, } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import Header from "../../../../sharedComponents/header/header";
 
-import styles from './exerciseItemPageStyles';
+import styles from "./exerciseItemPageStyles";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
+// TODO - make this work for props.route.params
 // interface Props {
 //   exerciseName: any;
 //   onermOBJ: any;
@@ -42,7 +43,7 @@ const ExerciseItemPage = (props) => {
   const rmId = props.route.params.rmId;
   const weightUnit = props.route.params.weightUnit;
   const weightRoundingFactor = weightUnit === "kg" ? 2.5 : 5;
-  const oneRMweight = onermOBJ.find((el) => el.id === rmId) ?? 0; // check this
+  const oneRMweight = onermOBJ.find((el) => el.id === rmId) ?? 0; // TODO - check this. not really needed since I can just pass the 1rm as a route.param
 
   return (
     <ScrollView style={styles(activeTheme).container} overScrollMode="never">

@@ -3,6 +3,7 @@
 
 - add logo to splash screen and app icon
 - reduce splash screen time
+- double check // TODO comments
 
 # calculator page
   - unify calculator page and program page math
@@ -75,3 +76,16 @@
   - jamal deadlift
 - make text responsive everywhere?
   - `<Text adjustsFontSizeToFit style={styles(activeTheme).text}>teste</Text>`
+
+
+# add contributing guidelines
+- auto formmating/prettier/eslint settings? I don't even use this shit
+  - please don't go using prettier and breaking all of the formmating around the code base
+  - if a line needs to be long leave it long
+  -
+- 2 space tabs
+- double quotes for strings
+- single quotes for chars
+- don't be afraid of big files, no need to split a component in 15 different files and directories, have some common sense
+-
+- and last but more importantly: make use of goHorse whenever necessary

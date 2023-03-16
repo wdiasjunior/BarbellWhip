@@ -65,7 +65,7 @@
       "title": "Criar Treino",
       "tabTitle": "Semanas",
       "addWeekButton": "ADD SEMANA",
-      "week": "Semana",
+      "week": "Semana"
     },
     "programEditorStep3": {
       "title": "Criar Treino",
@@ -92,7 +92,7 @@
   "settingsPage": {
     "title": "Configurações",
     "themeSelectorTitle": "Tema",
-    "languageSelectorTitle": "Idioma",
+    "languageSelectorTitle": "Idioma"
   },
   "numberInputModal": {
     "cancelButtonLabel": "CANCELAR"

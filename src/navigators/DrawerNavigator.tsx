@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { BottomTabProgramPageNavigator, BottomTabProgramEditorPageNavigator } from "./TabNavigator";
 import { ProgramPageStack, ProgramEditorPageStack } from "./StackNavigator";
-// import PRTrackerPage from '../pages/prTracker/prTrackerPage';
+// import PRTrackerPage from "../pages/prTracker/prTrackerPage";
 import SettingsPage from "../pages/settings/settingsPage";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
 
 import { useInitialRender } from "../helpers/useInitialRender";
@@ -27,14 +27,14 @@ const DrawerNavigator = () => {
       screenOptions={({ route }) => ({
         drawerIcon: ({ focused, color, size }) => {
           let iconName;
-          if (route.name === 'ProgramDrawer') {
-            iconName = focused ? 'barbell-sharp' : 'barbell-sharp';
-          } else if (route.name === 'Program Editor') {
-            iconName = focused ? 'file-tray-full' : 'file-tray-full-outline';
-          // } else if (route.name === 'PR Tracker') {
-          //   iconName = focused ? 'bar-chart' : 'bar-chart-outline';
-          } else if (route.name === 'Settings') {
-            iconName = focused ? 'settings' : 'settings-outline';
+          if (route.name === "ProgramDrawer") {
+            iconName = focused ? "barbell-sharp" : "barbell-sharp";
+          } else if (route.name === "Program Editor") {
+            iconName = focused ? "file-tray-full" : "file-tray-full-outline";
+          // } else if (route.name === "PR Tracker") {
+          //   iconName = focused ? "bar-chart" : "bar-chart-outline";
+        } else if (route.name === "Settings") {
+            iconName = focused ? "settings" : "settings-outline";
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },

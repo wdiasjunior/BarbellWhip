@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useLayoutEffect, useRef, } from "react";
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from 'react-native';
+import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from "react-native";
 import Modal from "react-native-modal";
 import DraggableFlatList, { ScaleDecorator } from "react-native-draggable-flatlist";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Ionicons from "react-native-vector-icons/Ionicons";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
@@ -15,7 +15,7 @@ import { deepClone } from "../../../../helpers/deepClone";
 import TopTabBar from "../../../../sharedComponents/topTabBar/topTabBar";
 import Header from "../../../../sharedComponents/header/header";
 
-import styles from './stepThreeStyles';
+import styles from "./stepThreeStyles";
 
 const StepThree = ({ navigation }) => {
 
@@ -68,14 +68,14 @@ const StepThree = ({ navigation }) => {
 
     if(data === "simple") {
       setModalOpen(false);
-      navigation.push('ExerciseEditorPage', {
-        oneRMweight: 0, // never used? check this
+      navigation.push("ExerciseEditorPage", {
+        oneRMweight: 0, // TODO - never used? check this
         exerciseIndex: "add",
       });
     } else {
       setModalOpen(false);
-      navigation.push('ExerciseEditorPage', {
-        oneRMweight: data.weight, // never used? check this
+      navigation.push("ExerciseEditorPage", {
+        oneRMweight: data.weight, // TODO - never used? check this
         oneRMname: data.name,
         exerciseIndex: "add",
       });
@@ -83,7 +83,7 @@ const StepThree = ({ navigation }) => {
   }
 
   const editExercise = (index) => {
-    navigation.push('ExerciseEditorPage', {
+    navigation.push("ExerciseEditorPage", {
       exerciseIndex: index,
     });
   }
@@ -94,6 +94,7 @@ const StepThree = ({ navigation }) => {
     setProgramEditorData(auxAtom);
   }
 
+  // TODO check if callback should be used again, since it's used in stepTwo
   // const renderDayExerciseItems = useCallback(({item, index, drag}) => {
   const renderDayExerciseItems = ({item, index, drag}) => {
 
@@ -127,7 +128,6 @@ const StepThree = ({ navigation }) => {
   }
   // }, [programEditorData.trainingProgram[selectedWeek].week[selectedDay].day, addExercise, reorder, selectedDay, selectedWeek]); // not sure if this array should have all of this
 
-  // setFirstTab={context.weekSelected}
   return (
     <View style={styles(activeTheme).container}>
       <TopTabBar

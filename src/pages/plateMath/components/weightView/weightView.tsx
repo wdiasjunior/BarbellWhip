@@ -1,10 +1,10 @@
-import React from 'react';
-import { View } from 'react-native';
+import React from "react";
+import { View } from "react-native";
 
-import WeightCalc from '../../utils/WeightCalc'
-import Plate from '../plate/plate';
+import WeightCalc from "../../utils/WeightCalc"
+import Plate from "../plate/plate";
 
-import styles from './weightViewStyles';
+import styles from "./weightViewStyles";
 
 interface Props {
   // weightRack: any;

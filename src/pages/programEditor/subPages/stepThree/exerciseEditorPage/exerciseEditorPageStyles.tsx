@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 const styles = (theme) => {
   return StyleSheet.create({
@@ -20,7 +20,7 @@ const styles = (theme) => {
       color: theme.textHighlight,
       fontSize: 20,
       lineHeight: 30,
-      fontWeight: 'bold',
+      fontWeight: "bold",
     },
 
     input: {
@@ -37,7 +37,7 @@ const styles = (theme) => {
       color: theme.text,
       fontSize: 20,
       lineHeight: 30,
-      fontWeight: 'bold',
+      fontWeight: "bold",
     },
     inputExerciseVariationName: {
       backgroundColor: theme.backgroundSecondary,
@@ -52,7 +52,7 @@ const styles = (theme) => {
       color: theme.text,
       fontSize: 20,
       lineHeight: 30,
-      fontWeight: 'bold',
+      fontWeight: "bold",
     },
 
     exerciseItem: {
@@ -90,14 +90,14 @@ const styles = (theme) => {
       borderRadius: 10,
       marginVertical: 12,
       // marginHorizontal: 20,
-      justifyContent: 'center',
-      alignItems: 'center',
+      justifyContent: "center",
+      alignItems: "center",
     },
     AddExerciseButtonText: {
       color: theme.text,
       fontSize: 16,
       lineHeight: 35,
-      fontWeight: 'bold',
+      fontWeight: "bold",
     },
   });
 }

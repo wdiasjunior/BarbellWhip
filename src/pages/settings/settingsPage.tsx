@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useLayoutEffect, } from "react";
-import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, } from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-import styles from './settingsPageStyles';
+import styles from "./settingsPageStyles";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { activeThemeIdAtom, activeThemeAtom, selectedLocaleIdAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
 
 import { themes } from "../../themes/";
@@ -18,10 +18,13 @@ const SettingsPage = ({ navigation }) => {
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
   const [selectedLocaleId, setSelectedLocaleId] = useAtom(selectedLocaleIdAtom);
 
+  // TODO
+
   return (
     <View style={styles(activeTheme).container}>
         {/*<Text style={styles(activeTheme).title}>Settings Page</Text>*/}
 
+        {/* TODO */}
         {/*<Text style={styles(activeTheme).subtitle}>
           Weights are rounded to 2.5kg so that it's easier on the head mid training session, and it's applied in every screen.
           In the future, it will be added a toggle so that you can disable this behaviour.
@@ -29,7 +32,7 @@ const SettingsPage = ({ navigation }) => {
 
         {/*<Text style={styles(activeTheme).subtitle}>Calculation Formulas - Select the formulas used to calculate your 1RM</Text>*/}
 
-        {/* theme picker disabled until I find a way to change the Suspense fallback View's background color with the color theme */}
+        {/* TODO - theme picker disabled until I find a way to change the Suspense fallback View's background color with the color theme */}
         {/*<View style={styles(activeTheme).themeSelectorContainer}>
           <Text style={styles(activeTheme).themeSelectorTitle}>Theme:</Text>
           {themes.map((theme, index) => {
@@ -55,6 +58,7 @@ const SettingsPage = ({ navigation }) => {
         </View>*/}
 
         {/*
+          TODO
           enable rounding of 1rm estimates and 1rm percentages?
           1 switch of each per page?
         */}
@@ -86,7 +90,7 @@ const SettingsPage = ({ navigation }) => {
   );
 }
 
-// About
+// old About from first prototype from a few years ago
 //
 //   <div id="container">
 //   <strong>By powerlifters, to powerlifters.</strong><br><br>
