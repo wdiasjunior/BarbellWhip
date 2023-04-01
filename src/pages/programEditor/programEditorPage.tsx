@@ -173,7 +173,7 @@ const ProgramEditorPage = ({ navigation }) => {
                   return (
                     <View
                       style={activeProgramName === item.name ? styles(activeTheme).programItemSelected : styles(activeTheme).programItem}
-                      key={index}
+                      key={"ProgramEditorPage_ProgramListItem" + index}
                     >
                       <Text adjustsFontSizeToFit style={styles(activeTheme).programItemText}>{item.name.replace(".json", "")}</Text>
                       <Ionicons

@@ -86,7 +86,7 @@ const NumberInput = (props: Props) => {
         {buttons.map((value, index) => {
           return (
             <TouchableOpacity
-              key={index}
+              key={"NumberInput_NumpadItem" + index}
               style={styles(activeTheme).numpadButton}
               onPress={() => handleInput(value)}
             >

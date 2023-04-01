@@ -23,11 +23,11 @@ const RMReviewPage = (props: Props) => {
     <ScrollView style={styles(activeTheme).container} overScrollMode="never">
       {onermOBJ?.map((item, index) => {
         return (
-          <View key={index} style={styles(activeTheme).item}>
+          <View key={"RMItem" + index} style={styles(activeTheme).item}>
             {item.name ? <Text style={styles(activeTheme).title}>{item.name}</Text> : null}
             {item.weight ?
               <Text style={styles(activeTheme).subTitle}>
-                {selectedLocale.programPage.rmReviewWeightLable}: <Text style={styles(activeTheme).weight}>{item.weight}{weightUnit}</Text>
+                {selectedLocale.programPage.rmReviewWeightLabel}: <Text style={styles(activeTheme).weight}>{item.weight}{weightUnit}</Text>
               </Text>
               :
               null

@@ -1,4 +1,6 @@
 import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
+import { Text, View, FlatList, Button, ScrollView, TouchableOpacity, Switch } from 'react-native';
+import Modal from "react-native-modal";
 
 import Header from "../../sharedComponents/header/header";
 import WeightView from "./components/weightView/weightView";

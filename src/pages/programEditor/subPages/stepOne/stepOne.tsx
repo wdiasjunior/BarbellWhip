@@ -117,7 +117,7 @@ const StepOne = ({ navigation }) => {
 
         {programEditorData.oneRMs.map((item, index) => {
           return (
-            <View style={[styles(activeTheme).onermItem, styles(activeTheme).shadowProp]} key={index} >
+            <View style={[styles(activeTheme).onermItem, styles(activeTheme).shadowProp]} key={"ProgramEditorPage_StepOne_RMItem" + index} >
               <TextInput
                 placeholder={selectedLocale.programEditorPage.programEditorStep1.RMexercise}
                 placeholderTextColor={activeTheme.placeholderText}

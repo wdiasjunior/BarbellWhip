@@ -7,6 +7,7 @@ const styles = (theme) => {
       // width: "100%",
       flexDirection: "row",
       marginBottom: 10,
+      scrollPadding: 80,
     },
     tabItem: {
       backgroundColor: theme.backgroundSecondary,

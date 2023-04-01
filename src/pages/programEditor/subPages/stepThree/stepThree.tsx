@@ -60,7 +60,10 @@ const StepThree = ({ navigation }) => {
           percentage: "",
           rpe: "",
           tempo: "",
-          description: ""
+          rest: "",
+          altExercise1: "",
+          altExercise2: "",
+          description: "",
         }
       ]
     });
@@ -105,8 +108,8 @@ const StepThree = ({ navigation }) => {
     }
 
     return (
-      <ScaleDecorator>
-        <View style={styles(activeTheme).exerciseItem} key={index}>
+      <ScaleDecorator key={"ProgramEditorPage_StepThree_ExerciseItem" + index}>
+        <View style={styles(activeTheme).exerciseItem}>
           <TouchableOpacity style={{width: 36, height: 30}} onLongPress={drag} delayLongPress={50}>
             <Ionicons name="reorder-three-outline" size={30} style={styles(activeTheme).exerciseItemIcon} />
           </TouchableOpacity>
@@ -176,7 +179,7 @@ const StepThree = ({ navigation }) => {
         <View style={styles(activeTheme).modalContent}>
           {programEditorData.oneRMs.length > 0 && programEditorData.oneRMs.map((item, index) => {
             return (
-              <TouchableOpacity style={styles(activeTheme).modalItem} key={index} onPress={() => addExercise(item)}>
+              <TouchableOpacity style={styles(activeTheme).modalItem} key={"ProgramEditorPage_StepThree_ModalItem" + index} onPress={() => addExercise(item)}>
                 <Text style={styles(activeTheme).modalItemText}>{item.name}</Text>
               </TouchableOpacity>
             )

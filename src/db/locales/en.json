@@ -5,7 +5,7 @@
     "week": "Week",
     "day": "Day",
     "rmReviewTitle": "1RM Review",
-    "rmReviewWeightLable": "Weight",
+    "rmReviewWeightLabel": "Weight",
     "weekSelectorTitle": "Week Selector",
     "noActiveProgramTextTitle": "No program loaded.",
     "noActiveProgramTextSubtitle": "Go to Program Editor Page to create or import one and set it as active.",

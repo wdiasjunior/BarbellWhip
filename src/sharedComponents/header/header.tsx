@@ -25,7 +25,7 @@ interface Props {
   importProgram(): any;
 }
 
-export default Header = (props: Props) => {
+const Header = (props: Props) => {
 
   const navigation = useNavigation();
 
@@ -127,3 +127,5 @@ export default Header = (props: Props) => {
     </View>
   );
 }
+
+export default Header;

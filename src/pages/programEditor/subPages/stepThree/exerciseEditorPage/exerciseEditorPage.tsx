@@ -92,7 +92,7 @@ const ExerciseEditorPage = (props) => {
 
         {exerciseData.set.map((item, index) => {
           return (
-            <View style={styles(activeTheme).exerciseItem} key={index}>
+            <View style={styles(activeTheme).exerciseItem} key={"ExerciseEditorPage_SetListExercise" + index}>
 
             <View style={styles(activeTheme).col}>
               <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.exerciseVariation}</Text>

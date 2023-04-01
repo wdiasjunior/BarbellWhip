@@ -6,6 +6,7 @@ const colors = {
   textFaded: "#ECEFF4",
   placeholderText: "#ECEFF4",
   active: "#88C0D0",
+  activeTransparent: "#88C0D021",
   inactive: "#88C0D0",
   statusBar: "dark",
 }

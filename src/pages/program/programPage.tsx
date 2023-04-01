@@ -49,10 +49,10 @@ const ProgramPage = ({ navigation }) => {
     setIsMenuOpen(!isMenuOpen);
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={data !== undefined ? data?.programName + " - " + selectedLocale.programPage.week + " " + (index + 1) : selectedLocale.programPage.defaultTitle}
+                    title={data?.programName ? data?.programName + " - " + selectedLocale.programPage.week + " " + (index + 1) : selectedLocale.programPage.defaultTitle}
                     isMenuOpen={isMenuOpen}
                     setIsMenuOpen={setIsMenuOpen}
-                    menu={data !== undefined}
+                    menu={data?.programName ? true : false}
                   />
               });
   }
@@ -60,10 +60,10 @@ const ProgramPage = ({ navigation }) => {
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={data !== undefined ? data?.programName + " - " + selectedLocale.programPage.week + " " + (selectedWeek + 1) : selectedLocale.programPage.defaultTitle}
+                    title={data?.programName ? data?.programName + " - " + selectedLocale.programPage.week + " " + (selectedWeek + 1) : selectedLocale.programPage.defaultTitle}
                     isMenuOpen={isMenuOpen}
                     setIsMenuOpen={setIsMenuOpen}
-                    menu={data !== undefined}
+                    menu={data?.programName ? true : false}
                   />
               });
   }
@@ -78,8 +78,7 @@ const ProgramPage = ({ navigation }) => {
 
   const MenuWeekList = () => (
     <View style={styles(activeTheme).containerDrawer}>
-
-      <View style={styles(activeTheme).rmInputContainer}>
+      <View style={styles(activeTheme).rmReviewContainer}>
         <TouchableOpacity
           style={styles(activeTheme).item}
           onPress={() => {
@@ -96,7 +95,8 @@ const ProgramPage = ({ navigation }) => {
         <ScrollView persistentScrollbar={true} overScrollMode="never">
           {data?.trainingProgram?.map((item, index) => {
             return (
-              <TouchableOpacity key={index}
+              <TouchableOpacity
+                key={"MenuWeekListItem" + index}
                 style={(index == selectedWeek) ? styles(activeTheme).drawerItemSelected : styles(activeTheme).drawerItem}
                 onPress={() => selectWeek({index})}
               >
@@ -108,7 +108,6 @@ const ProgramPage = ({ navigation }) => {
           })}
         </ScrollView>
       </View>
-
     </View>
   );
   const menuWeekList = <MenuWeekList />
@@ -135,7 +134,9 @@ const ProgramPage = ({ navigation }) => {
 
   return (
     <View style={styles(activeTheme).container}>
-      {data !== undefined ? (
+
+      {/* should definitely change this "data?.programName" to something else. maybe data?.trainingProgram.length */}
+      {data?.programName ? (
         <SideMenu
           menu={menuWeekList}
           isOpen={isMenuOpen}
