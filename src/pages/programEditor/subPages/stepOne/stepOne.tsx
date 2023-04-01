@@ -124,7 +124,7 @@ const StepOne = ({ navigation }) => {
                 cursorColor={activeTheme.active}
                 style={styles(activeTheme).oneRMTextInput}
                 value={item.name}
-                returnKeyType={"done"}
+                returnKeyType="done"
                 onChangeText={(input) => editRMname(input, index)}
               />
               <View style={styles(activeTheme).onermItem_InputRow} >
@@ -136,7 +136,7 @@ const StepOne = ({ navigation }) => {
                   style={styles(activeTheme).oneRMNumberInput}
                   value={item.weight+""}
                   onChangeText={(input) => editRMweight(input, index)}
-                  returnKeyType={"done"}
+                  returnKeyType="done"
                 />
                 <TouchableOpacity style={styles(activeTheme).onermItemIconContainer} onPress={() => remove1rm(index)}>
                   <Ionicons name="trash-outline" size={30} style={styles(activeTheme).onermItemIcon} />

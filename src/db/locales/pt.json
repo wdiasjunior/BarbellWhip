@@ -35,10 +35,13 @@
     "currentBarWeightLabel": "Peso da barra atual",
     "bumperToggleLabel": "Anilhas Bumper",
     "weightRackPage": {
-      "title": "weightRackPageTitle",
-      "priorityRackTitle": "priorityRackTitle",
-      "rackTitle": "rackTitle",
-      "barsTitle": "barsTitle"
+      "title": "Plate Math Settings",
+      "weightUnitLabel": "Unidade de Peso",
+      "barWeightTitle": "Peso da Barra",
+      "plateRackTitle": "Rack de Anilhas (qtd. por anilha)",
+      "bumperPlatesRackTitle": "Rack de Anilhas Bumper (qtd. por anilha)",
+      "colorCodedPlatesTitle": "Anilhas Coloridas",
+      "collarsSwitchTitle": "2.5kg Collars"
     }
   },
   "programEditorPage": {

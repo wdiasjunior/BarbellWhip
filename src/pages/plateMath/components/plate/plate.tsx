@@ -67,7 +67,7 @@ const Plate = (props: Props) => {
         color: plateColors[props.weightUnit]["0.5"],
       },
     },
-    lb: {
+    lbs: {
       100: {
         size: 1.25,
         color: plateColors[props.weightUnit]["100"],

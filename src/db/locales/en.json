@@ -35,10 +35,13 @@
     "currentBarWeightLabel": "Current Bar Weight",
     "bumperToggleLabel": "Bumper Plates",
     "weightRackPage": {
-      "title": "weightRackPageTitle",
-      "priorityRackTitle": "priorityRackTitle",
-      "rackTitle": "rackTitle",
-      "barsTitle": "barsTitle"
+      "title": "Plate Math Settings",
+      "weightUnitLabel": "Weight Unit",
+      "barWeightTitle": "Bar Weight",
+      "plateRackTitle": "Plate Rack (quantity per plate)",
+      "bumperPlatesRackTitle": "Bumper Plate Rack (quantity per plate)",
+      "colorCodedPlatesTitle": "Color Coded Plates",
+      "collarsSwitchTitle": "2.5kg Collars"
     }
   },
   "programEditorPage": {

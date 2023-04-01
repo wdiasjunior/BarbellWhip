@@ -81,7 +81,7 @@ const ExerciseEditorPage = (props) => {
           placeholderTextColor={activeTheme.placeholderText}
           cursorColor={activeTheme.active}
           onChangeText={(input) => editExerciseField("parentExerciseName", input)}
-          returnKeyType={"done"}
+          returnKeyType="done"
           editable={oneRMname ? false : true}
           value={exerciseData.exerciseName+""}
         />
@@ -103,7 +103,7 @@ const ExerciseEditorPage = (props) => {
                   cursorColor={activeTheme.active}
                   onChangeText={(input) => editExerciseField("exerciseName", input, index)}
                   value={item.exerciseName+""}
-                  returnKeyType={"done"}
+                  returnKeyType="done"
                 />
                 <TouchableOpacity style={styles(activeTheme).exerciseItemRemoveIconContainer}  onPress={() => removeExerciseSubSet(index)}>
                   <Ionicons name="trash-outline" size={25} style={styles(activeTheme).exerciseItemRemoveIcon} />
@@ -121,7 +121,7 @@ const ExerciseEditorPage = (props) => {
                     cursorColor={activeTheme.active}
                     onChangeText={(input) => editExerciseField("sets", input, index)}
                     value={item.sets+""}
-                    returnKeyType={"done"}
+                    returnKeyType="done"
                   />
                 </View>
 
@@ -134,7 +134,7 @@ const ExerciseEditorPage = (props) => {
                     cursorColor={activeTheme.active}
                     onChangeText={(input) => editExerciseField("reps", input, index)}
                     value={item.reps+""}
-                    returnKeyType={"done"}
+                    returnKeyType="done"
                   />
                 </View>
               </View>
@@ -149,7 +149,7 @@ const ExerciseEditorPage = (props) => {
                     cursorColor={activeTheme.active}
                     onChangeText={(input) => editExerciseField("percentage", input, index)}
                     value={item.percentage+""}
-                    returnKeyType={"done"}
+                    returnKeyType="done"
                   />
                 </View>
                 <View style={styles(activeTheme).colWeight}>
@@ -171,7 +171,7 @@ const ExerciseEditorPage = (props) => {
                     cursorColor={activeTheme.active}
                     onChangeText={(input) => editExerciseField("rpe", input, index)}
                     value={item.rpe+""}
-                    returnKeyType={"done"}
+                    returnKeyType="done"
                   />
                 </View>
 
@@ -184,7 +184,7 @@ const ExerciseEditorPage = (props) => {
                     cursorColor={activeTheme.active}
                     onChangeText={(input) => editExerciseField("tempo", input, index)}
                     value={item.tempo+""}
-                    returnKeyType={"done"}
+                    returnKeyType="done"
                   />
                 </View>
               </View>
@@ -199,7 +199,7 @@ const ExerciseEditorPage = (props) => {
                     cursorColor={activeTheme.active}
                     onChangeText={(input) => editExerciseField("rest", input, index)}
                     value={item.rest+""}
-                    returnKeyType={"done"}
+                    returnKeyType="done"
                   />
                 </View>
               </View>
@@ -214,7 +214,7 @@ const ExerciseEditorPage = (props) => {
                     cursorColor={activeTheme.active}
                     onChangeText={(input) => editExerciseField("altExercise1", input, index)}
                     value={item.altExercise1+""}
-                    returnKeyType={"done"}
+                    returnKeyType="done"
                   />
                 </View>
 
@@ -227,7 +227,7 @@ const ExerciseEditorPage = (props) => {
                     cursorColor={activeTheme.active}
                     onChangeText={(input) => editExerciseField("altExercise2", input, index)}
                     value={item.altExercise2+""}
-                    returnKeyType={"done"}
+                    returnKeyType="done"
                   />
                 </View>
               </View>
@@ -240,7 +240,7 @@ const ExerciseEditorPage = (props) => {
                   cursorColor={activeTheme.active}
                   onChangeText={(input) => editExerciseField("description", input, index)}
                   value={item.description+""}
-                  returnKeyType={"done"}
+                  returnKeyType="done"
                   multiline
                 />
               </View>

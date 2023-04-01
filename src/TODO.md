@@ -15,13 +15,10 @@
   - calculator tab screen - add topTabBar to switch between RPE and RM? (example on juggernaut app)
 
 # plate math page
-  - persistence
-    - import and export file for plate rack and bar configs?
-  - settings page
-    - weight rack and custom bars weight input
-    - change weight unit
-    - kg - lbs switch
-    - switch to set color depending on plate weight?
+  - import and export file for plate rack and bar configs?
+  - change weight unit
+  - kg - lbs switch (does not change anything yet)
+  - switch to set color depending on plate weight?
   - fix warning about weights that are not round or don't finish with 0 or 5
   - get inspiration from juggernaut
 
