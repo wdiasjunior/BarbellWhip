@@ -66,7 +66,7 @@ export const plateColors = {
     1    : "#8c8c8c", // TODO - find colors for these
     0.5  : "#8c8c8c", // TODO - find colors for these
   },
-  lb: {
+  lbs: {
     100  : "#8c8c8c", // TODO - find colors for these
     55   : "#FF9999",
     45   : "#588dff",

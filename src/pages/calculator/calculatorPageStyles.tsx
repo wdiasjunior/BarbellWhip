@@ -70,6 +70,16 @@ const styles = (theme) => {
       fontSize: 24,
       margin: 20,
     },
+    weight: {
+      color: theme.text,
+      fontSize: 24,
+      textAlign: "center",
+    },
+    weightConverted: {
+      color: theme.text,
+      fontSize: 12,
+      textAlign: "center",
+    },
 
     card1RM: {
       backgroundColor: theme.backgroundSecondary,

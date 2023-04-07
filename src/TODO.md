@@ -16,10 +16,7 @@
 
 # plate math page
   - import and export file for plate rack and bar configs?
-  - change weight unit
-  - kg - lbs switch (does not change anything yet)
   - switch to set color depending on plate weight?
-  - fix warning about weights that are not round or don't finish with 0 or 5
   - get inspiration from juggernaut
 
 # program page
@@ -39,7 +36,7 @@
   - prevent saving empty exercise
   - share api - share json from other apps and import programs
   - if active program was edited and saved - set active again to reload program page? or does jotai handle this automatically?
-  - replace navigation.replace("ProgramEditorStack"); with navigation reset? and prevent android back button on program editing
+  - replace `navigation.replace("ProgramEditorStack");` with navigation reset? and prevent android back button on program editing
   - keyboard avoiding view not pushing content up and glitching bottomTabBar every time it opens
   - copy and paste function? - similar to how whatsapp lets you forward a message to multiple chats, do this for exercise items in day section?
   - add spinner overlay on save
@@ -64,12 +61,11 @@
 - web/desktop program view and editor
 - json checker
 - notes input for days/exercises on the program page ? (where/how would I save this ?)
-- create some kind of community hub / github repo with programs and make a page to download from there ?
 - write documentation for the code, program .json schema, and how to use the app.
 - include a few programs loaded by default in programEditorPage
   - phat
   - ph3
-  - strengthVx
+  - strengthV4
   - jamal deadlift
 - make text responsive everywhere?
   - `<Text adjustsFontSizeToFit style={styles(activeTheme).text}>teste</Text>`

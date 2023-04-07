@@ -115,15 +115,16 @@ const ProgramEditorPage = ({ navigation }) => {
 
   const programOptionModal = async (action) => {
     const programData = await readProgram(programNameForAction);
-    console.log(programData.oneRMs);
-
     switch(action) {
       case "setActive":
         setActiveProgramData(programData);
-        setActiveProgramName(programNameForAction);
         setProgramPageSelectedDay(0);
         setProgramPageSelectedWeek(0);
-        setSelectedDay(0);
+        if(activeProgramName !== programNameForAction) {
+          setActiveProgramName(programNameForAction);
+          setSelectedDay(0);
+          setSelectedWeek(0);
+        }
         setModalOpen(false);
         break;
       case "edit":

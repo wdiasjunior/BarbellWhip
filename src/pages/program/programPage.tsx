@@ -1,4 +1,4 @@
-import React, { useRef, useState, useLayoutEffect, } from "react";
+import React, { useState, useLayoutEffect, } from "react";
 import { Text, View, FlatList, ScrollView, TouchableOpacity, Animated } from "react-native";
 import SideMenu from "react-native-side-menu-updated";
 
@@ -14,7 +14,7 @@ import { useInitialRender } from "../../helpers/useInitialRender";
 
 import styles from "./programPageStyles";
 
-import defaultProgramData from "../../db/programs/strengthV4.json";
+// import defaultProgramData from "../../db/programs/strengthV4.json";
 
 const ProgramPage = ({ navigation }) => {
 
@@ -23,9 +23,9 @@ const ProgramPage = ({ navigation }) => {
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
-  const [activeProgramData, setActiveProgramData] = useAtom(activeProgramAtom);
-  // const data = activeProgramData.trainingProgram ? activeProgramData : defaultProgramData; // TODO - change this so it doesn't break depending on the program that's loaded
-  const data = activeProgramData;
+  const [activeProgram, ] = useAtom(activeProgramAtom);
+  // const activeProgram = activeProgramData.trainingProgram ? activeProgramData : defaultProgramData; // TODO - change this so it doesn't break depending on the program that's loaded
+  // const activeProgram = activeProgramData;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const openMenu = () => {
@@ -49,10 +49,10 @@ const ProgramPage = ({ navigation }) => {
     setIsMenuOpen(!isMenuOpen);
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={data?.programName ? data?.programName + " - " + selectedLocale.programPage.week + " " + (index + 1) : selectedLocale.programPage.defaultTitle}
+                    title={activeProgram?.programName ? activeProgram?.programName + " - " + selectedLocale.programPage.week + " " + (index + 1) : selectedLocale.programPage.defaultTitle}
                     isMenuOpen={isMenuOpen}
                     setIsMenuOpen={setIsMenuOpen}
-                    menu={data?.programName ? true : false}
+                    menu={activeProgram?.programName ? true : false}
                   />
               });
   }
@@ -60,10 +60,10 @@ const ProgramPage = ({ navigation }) => {
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={data?.programName ? data?.programName + " - " + selectedLocale.programPage.week + " " + (selectedWeek + 1) : selectedLocale.programPage.defaultTitle}
+                    title={activeProgram?.programName ? activeProgram?.programName + " - " + selectedLocale.programPage.week + " " + (selectedWeek + 1) : selectedLocale.programPage.defaultTitle}
                     isMenuOpen={isMenuOpen}
                     setIsMenuOpen={setIsMenuOpen}
-                    menu={data?.programName ? true : false}
+                    menu={activeProgram?.programName ? true : false}
                   />
               });
   }
@@ -74,7 +74,7 @@ const ProgramPage = ({ navigation }) => {
 
   useLayoutEffect(() => {
     onScreenLoad();
-  }, [activeProgramData])
+  }, [activeProgram])
 
   const MenuWeekList = () => (
     <View style={styles(activeTheme).containerDrawer}>
@@ -83,7 +83,7 @@ const ProgramPage = ({ navigation }) => {
           style={styles(activeTheme).item}
           onPress={() => {
             setIsMenuOpen(!isMenuOpen);
-            navigation.push("RMReviewPage", {onermOBJ: data?.oneRMs, weightUnit: data?.weightUnit});
+            navigation.push("RMReviewPage", {onermOBJ: activeProgram?.oneRMs, weightUnit: activeProgram?.weightUnit});
           }}
         >
           <Text style={styles(activeTheme).RMReview}>{selectedLocale.programPage.rmReviewTitle}</Text>
@@ -93,7 +93,7 @@ const ProgramPage = ({ navigation }) => {
       <View style={styles(activeTheme).weekSelectorContainer}>
         <Text style={styles(activeTheme).titleWeekDrawer}>{selectedLocale.programPage.weekSelectorTitle}</Text>
         <ScrollView persistentScrollbar={true} overScrollMode="never">
-          {data?.trainingProgram?.map((item, index) => {
+          {activeProgram?.trainingProgram?.map((item, index) => {
             return (
               <TouchableOpacity
                 key={"MenuWeekListItem" + index}
@@ -114,12 +114,12 @@ const ProgramPage = ({ navigation }) => {
 
   const flatListRenderItem = ({ item }) => (
     <ExerciseItem
-      onermOBJ={data?.oneRMs}
+      onermOBJ={activeProgram?.oneRMs}
       rmId={item.RMid}
-      weightUnit={data.weightUnit}
+      weightUnit={activeProgram.weightUnit}
       navigation={navigation}
       exerciseName={item.exerciseName}
-      data={item}
+      exerciseOBJ={item}
     />
   );
 
@@ -135,8 +135,8 @@ const ProgramPage = ({ navigation }) => {
   return (
     <View style={styles(activeTheme).container}>
 
-      {/* should definitely change this "data?.programName" to something else. maybe data?.trainingProgram.length */}
-      {data?.programName ? (
+      {/* should definitely change this "activeProgram?.programName" to something else. maybe activeProgram?.trainingProgram.length */}
+      {activeProgram?.programName ? (
         <SideMenu
           menu={menuWeekList}
           isOpen={isMenuOpen}
@@ -159,12 +159,12 @@ const ProgramPage = ({ navigation }) => {
             <TopTabBar
               setFirstTab={selectedWeek}
               selectDay={setSelectedDay}
-              days={data?.trainingProgram[selectedWeek]?.week?.length}
+              days={activeProgram?.trainingProgram[selectedWeek]?.week?.length}
               isProgramPage={true}
             />
 
             <FlatList
-              data={data?.trainingProgram[selectedWeek]?.week[selectedDay]?.day}
+              data={activeProgram?.trainingProgram[selectedWeek]?.week[selectedDay]?.day}
               renderItem={flatListRenderItem}
               keyExtractor={(item, index) => item.exerciseName + "" + index}
             />

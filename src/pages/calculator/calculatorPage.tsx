@@ -7,6 +7,8 @@ import styles from "./calculatorPageStyles";
 import NumberInput from "../../sharedComponents/numberInput/numberInput";
 import Header from "../../sharedComponents/header/header";
 
+import { weightConversion } from "../../helpers/weightConversion";
+
 import { useAtom } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom, calculatorPageRepsAtom, calculatorPageWeightAtom, calculatorPageWeightUnitAtom } from "../../helpers/jotai/atomsWithStorage";
 
@@ -18,7 +20,7 @@ const CalculatorPage = ({ navigation }) => {
   const [repsPerformed, setRepsPerformed] = useAtom(calculatorPageRepsAtom);
   const [weightLifted, setWeightLifted] = useAtom(calculatorPageWeightAtom);
   const [showWarning, setShowWarning] = useState(false);
-  const [weightUnit, setWeightUnit] = useAtom(calculatorPageWeightUnitAtom); // "kg" || "lbs"
+  const [weightUnit, setWeightUnit] = useAtom(calculatorPageWeightUnitAtom); // false == kg == left, true == lbs == right
   const [inputLabel, setInputLabel] = useState("");
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
 
@@ -106,7 +108,8 @@ const CalculatorPage = ({ navigation }) => {
               </TouchableOpacity>
 
               <TouchableOpacity onPress={() => toggleModal("0", weightUnit)}>
-                <Text style={styles(activeTheme).repsSets}>{weightLifted}</Text>
+                <Text style={styles(activeTheme).weight}>{weightLifted} {weightUnit}</Text>
+                <Text style={styles(activeTheme).weightConverted}>{weightConversion(weightLifted, weightUnit === "kg")} {weightUnit === "kg" ? "lbs" : "kg"}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity onPress={incrementWeight}>

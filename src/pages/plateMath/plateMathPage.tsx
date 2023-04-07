@@ -9,6 +9,8 @@ import WeightCalc from "./utils/WeightCalc";
 
 import styles from "./plateMathPageStyles";
 
+import { weightConversion } from "../../helpers/weightConversion";
+
 import { useAtom } from "jotai";
 import {
   activeThemeAtom,
@@ -26,14 +28,12 @@ const PlateMathPage = ({ navigation }) => {
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
   const [currentWeight, setCurrentWeight] = useAtom(plateMathPageWeight);
-  const [weightUnit, setWeightUnit] = useState(false); // false == kg == left, true == lbs == right
-  // const [weightUnit, setWeightUnit] = useAtom(plateMathWeightUnit); // false == kg == left, true == lbs == right
+  const [weightUnit, setWeightUnit] = useAtom(plateMathWeightUnit); // false == kg == left, true == lbs == right
   const [showBumper, setShowBumper] = useAtom(plateMathShowBumper);
   const [barWeight, ] = useAtom(plateMathBarWeight);
   const [weightRack, ] = useAtom(plateMathWeightRack);
   const [bumperPlatesRack, ] = useAtom(plateMathBumperPlatesRack);
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
-  // const [showWarning, setShowWarning] = useState(false);
   const currentPlates = showBumper ? WeightCalc.getPlates(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"], bumperPlatesRack[weightUnit ? "lbs" : "kg"]) : WeightCalc.getPlates(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"]);
 
   const onScreenLoad = () => {
@@ -45,15 +45,6 @@ const PlateMathPage = ({ navigation }) => {
   useLayoutEffect(() => {
     onScreenLoad();
   }, [])
-
-  // useEffect(() => { //  if currentWeight > weightRack[weightUnit ? "lbs" : "kg"] total + bar -> show warning
-  //   if(currentWeight <= WeightCalc.getClosestAvailableWeight(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"])) {
-  //     setShowWarning(false);
-  //   }
-  //   if(currentWeight > WeightCalc.getClosestAvailableWeight(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"])) {
-  //     setShowWarning(true);
-  //   }
-  // }, [currentWeight])
 
   const decrementWeight = () => {
     if((currentWeight - 5) < 0) {
@@ -105,7 +96,8 @@ const PlateMathPage = ({ navigation }) => {
               </TouchableOpacity>
 
               <TouchableOpacity onPress={toggleModal}>
-                <Text style={styles(activeTheme).weight}>{currentWeight}</Text>
+                <Text style={styles(activeTheme).weight}>{currentWeight} {weightUnit ? "lbs" : "kg"}</Text>
+                <Text style={styles(activeTheme).weightConverted}>{weightConversion(currentWeight, !weightUnit)} {!weightUnit ? "lbs" : "kg"}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity onPress={incrementWeight}>
@@ -133,12 +125,6 @@ const PlateMathPage = ({ navigation }) => {
             style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginTop: 10, }}
           />
         </View>
-
-        {/*{showWarning &&
-          <View style={styles(activeTheme).cardWarning}>
-            <Text style={styles(activeTheme).textWarning}>WARNING. The weight entered exceeds the total in your rack.</Text>
-          </View>
-        }*/}
       </View>
 
       <WeightView
@@ -171,36 +157,4 @@ const PlateMathPage = ({ navigation }) => {
   );
 }
 
-// // import React from "react";
-// // import {StyleSheet} from "react-native";
-// // // @ts-ignore
-// // import Modal from "react-native-modal";
-// // import ModalBaseScene from "../utils/ModalBaseScene";
-// // import DefaultModalContent from "../utils/DefaultModalContent";
-// //
-// // class BottomHalfModal extends ModalBaseScene {
-// //   renderModal(): React.ReactElement<any> {
-// //     return (
-// //       <Modal
-// //         testID={"modal"}
-// //         isVisible={this.isVisible()}
-// //         onSwipeComplete={this.close}
-// //         swipeDirection={["up", "left", "right", "down"]}
-// //         style={styles(activeTheme).view}>
-// //         <DefaultModalContent onPress={this.close} />
-// //       </Modal>
-// //     );
-// //   }
-// // }
-// //
-// // const styles = StyleSheet.create({
-// //   view: {
-// //     justifyContent: "flex-end",
-// //     margin: 0,
-// //   },
-// // });
-// //
-// // export default BottomHalfModal;
-
-// export default React.memo(PlateMathPage);
 export default PlateMathPage;

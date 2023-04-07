@@ -4,6 +4,7 @@ import { Text, View, Switch, ScrollView, TextInput, } from "react-native";
 import styles from "./weightRackPageStyles";
 
 import { deepClone } from "../../../helpers/deepClone";
+import { weightConversion } from "../../../helpers/weightConversion";
 
 import { useAtom } from "jotai";
 import {
@@ -27,6 +28,12 @@ const WeightRackPage = () => {
   const [barWeight, setBarWeight ] = useAtom(plateMathBarWeight);
   const [weightRack, setWeightRack ] = useAtom(plateMathWeightRack);
   const [bumperPlatesRack, setBumperPlatesRack ] = useAtom(plateMathBumperPlatesRack);
+
+  const handleWeightUnitChange = (e) => {
+    const _convertedWeight = weightConversion(currentWeight, e);
+    setCurrentWeight(_convertedWeight);
+    setWeightUnit(e);
+  }
 
   const editWeightRack = (_input, _field, _weightUnit) => {
     const auxWeightRack = deepClone(weightRack);
@@ -57,12 +64,11 @@ const WeightRackPage = () => {
               trackColor={{ false: activeTheme.inactive, true: activeTheme.active }}
               thumbColor={"#f4f3f4"}
               ios_backgroundColor="#3e3e3e"
-              onValueChange={setWeightUnit}
+              onValueChange={handleWeightUnitChange}
               value={weightUnit}
               style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginHorizontal: 18, }}
             />
             <Text style={styles(activeTheme).weightUnitLabel}>lbs</Text>
-            <Text style={styles(activeTheme).weightUnitLabel}> TODO - does nothing yet</Text>
           </View>
         </View>
 

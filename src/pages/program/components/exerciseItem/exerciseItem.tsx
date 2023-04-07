@@ -16,7 +16,7 @@ interface Props {
   weightUnit: any;
   navigation: any;
   exerciseName: any;
-  data: any;
+  exerciseOBJ: any;
 }
 
 const ExerciseItem = (props: Props) => {
@@ -34,7 +34,7 @@ const ExerciseItem = (props: Props) => {
             exerciseName: props.exerciseName,
             onermOBJ: props.onermOBJ,
             rmId: props.rmId,
-            exerciseOBJ: props.data,
+            exerciseOBJ: props.exerciseOBJ,
             weightUnit: props.weightUnit
           });
         }}
@@ -45,4 +45,4 @@ const ExerciseItem = (props: Props) => {
   )
 }
 
-export default ExerciseItem;
+export default React.memo(ExerciseItem);

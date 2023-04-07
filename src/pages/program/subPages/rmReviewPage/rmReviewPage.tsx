@@ -39,4 +39,4 @@ const RMReviewPage = (props: Props) => {
   )
 }
 
-export default RMReviewPage;
+export default React.memo(RMReviewPage);

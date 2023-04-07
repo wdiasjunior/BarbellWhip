@@ -61,6 +61,11 @@ const styles = (theme) => {
       fontSize: 24,
       textAlign: "center",
     },
+    weightConverted: {
+      color: theme.text,
+      fontSize: 12,
+      textAlign: "center",
+    },
     info: {
       color: theme.text,
       fontSize: 18,

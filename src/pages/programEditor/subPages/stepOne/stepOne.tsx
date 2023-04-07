@@ -69,7 +69,7 @@ const StepOne = ({ navigation }) => {
   }
   const editRMweight = (e, index) => {
     let auxAtom = deepClone(programEditorData);
-    auxAtom.oneRMs[index].weight = +e;
+    auxAtom.oneRMs[index].weight = e;
     setProgramEditorData(auxAtom);
   }
 
