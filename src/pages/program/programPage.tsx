@@ -68,9 +68,9 @@ const ProgramPage = ({ navigation }) => {
               });
   }
 
-  useLayoutEffect(() => {
-    onScreenLoad();
-  }, [])
+  // useLayoutEffect(() => {
+  //   onScreenLoad();
+  // }, [])
 
   useLayoutEffect(() => {
     onScreenLoad();
