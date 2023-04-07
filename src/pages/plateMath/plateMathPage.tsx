@@ -53,6 +53,7 @@ const PlateMathPage = ({ navigation }) => {
       setCurrentWeight(currentWeight - 5);
     }
   }
+
   const incrementWeight = () => {
     if((currentWeight + 5) > 2000) {
       setCurrentWeight(2000);

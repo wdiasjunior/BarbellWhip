@@ -48,6 +48,7 @@ const CalculatorPage = ({ navigation }) => {
       setShowWarning(false);
     }
   }
+
   const incrementReps = () => {
     if(repsPerformed < 20) {
       setRepsPerformed(repsPerformed + 1);
@@ -56,6 +57,7 @@ const CalculatorPage = ({ navigation }) => {
       setShowWarning(true);
     }
   }
+
   const decrementWeight = () => {
     if((weightLifted - 5) < 0) {
       setWeightLifted(0);
@@ -63,6 +65,7 @@ const CalculatorPage = ({ navigation }) => {
       setWeightLifted(weightLifted - 5);
     }
   }
+
   const incrementWeight = () => {
     if((weightLifted + 5) > 2000) {
       setWeightLifted(2000);
@@ -90,7 +93,7 @@ const CalculatorPage = ({ navigation }) => {
       }
     }
     setModalWeightInputVisible(!isModalWeightInputVisible);
-  };
+  }
 
   return (
     <SafeAreaView style={styles(activeTheme).container}>
