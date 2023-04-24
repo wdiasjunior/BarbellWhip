@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Text, View, ScrollView, TouchableOpacity, } from 'react-native';
-import styles from './topTabBarStyles';
+import React, { useState, useEffect, useRef } from "react";
+import { Text, View, ScrollView, TouchableOpacity, } from "react-native";
+import styles from "./topTabBarStyles";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { programPageSelectedDayAtom } from "../../helpers/jotai/atomsWithStorage";
 import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
 
@@ -21,7 +21,6 @@ const TopTabBar = (props: Props) => {
 
   const days = Array.from(Array(props.days).keys());
 
-  const [scrollToIndex, setScrollToIndex] = useState(0);
   const [dataSourceCords, setDataSourceCords] = useState([]);
   const ref = useRef();
   const [selected, setSelected] = useState(0);
@@ -76,7 +75,7 @@ const TopTabBar = (props: Props) => {
         {days.map((item, index) => {
           return (
             <TouchableOpacity
-              key={index}
+              key={"TopTabBar" + index}
               style={(index == selected) ? styles(activeTheme).tabItemSelected : styles(activeTheme).tabItem}
               onPress={() => selectTab(index)}
               onLayout={(event) => {

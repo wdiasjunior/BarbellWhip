@@ -1,11 +1,14 @@
 {
   "programPage": {
+    "defaultTitle": "Treino",
     "title": "Treino",
     "week": "Semana",
     "day": "Dia",
     "rmReviewTitle": "1RM Review",
-    "rmReviewWeightLable": "Peso",
+    "rmReviewWeightLabel": "Peso",
     "weekSelectorTitle": "Seletor de semanas",
+    "noActiveProgramTextTitle": "Nenhum treino ativo encontrado.",
+    "noActiveProgramTextSubtitle": "Crie ou importe um na página Editor de Treinos para ativa-lo.",
     "exerciseInfo" : {
       "title": "Informações do Exercício",
       "sets": "Séries",
@@ -29,10 +32,23 @@
   "plateMathPage": {
     "title": "Calculadora de Anilhas",
     "weightLabel": "Peso",
-    "currentBarWeightLabel": "Peso da barra atual"
+    "currentBarWeightLabel": "Peso da barra atual",
+    "bumperToggleLabel": "Anilhas Bumper",
+    "weightRackPage": {
+      "title": "Plate Math Settings",
+      "weightUnitLabel": "Unidade de Peso",
+      "barWeightTitle": "Peso da Barra",
+      "plateRackTitle": "Rack de Anilhas (qtd. por anilha)",
+      "bumperPlatesRackTitle": "Rack de Anilhas Bumper (qtd. por anilha)",
+      "colorCodedPlatesTitle": "Anilhas Coloridas",
+      "collarsSwitchTitle": "2.5kg Collars"
+    }
   },
   "programEditorPage": {
     "title": "Editor de Treinos",
+    "noProgramListTextTitle": "Nenhum treino encontrado.",
+    "noProgramListTextSubtitle": "Crie ou importe um.",
+    "importErrorMessage": "Tipo de arquivo inválido.",
     "modal": {
       "setActive": "Ativar",
       "edit": "Editar",
@@ -42,6 +58,7 @@
     },
     "programEditorStep1": {
       "title": "Criar Treino",
+      "title2": "Editar Treino",
       "tabTitle": "Info",
       "programName": "Nome do Treino",
       "add1RMexerciseButton": "ADD EXERCÍCIO 1RM",
@@ -50,12 +67,14 @@
     },
     "programEditorStep2": {
       "title": "Criar Treino",
+      "title2": "Editar Treino",
       "tabTitle": "Semanas",
       "addWeekButton": "ADD SEMANA",
-      "week": "Semana",
+      "week": "Semana"
     },
     "programEditorStep3": {
       "title": "Criar Treino",
+      "title2": "Editar Treino",
       "tabTitle": "Dias",
       "emptyDayInfo": "Deixe o dia vazio para marca-lo como dia de descanso",
       "addExerciseButton": "ADD EXERCÍCIO",
@@ -64,7 +83,7 @@
     "exerciseEditorPage": {
       "title": "Editor de Exercício",
       "exerciseNameInfo": "Nome do Exercício exibido na lista do dia",
-      "exerciseVariation": "Nome do Exercício/Variação",
+      "exerciseVariation": "Nome do Exercício/Variação (opcional)",
       "sets": "Séries",
       "reps": "Repetições",
       "percentage": "Porcetagem",
@@ -79,7 +98,7 @@
   "settingsPage": {
     "title": "Configurações",
     "themeSelectorTitle": "Tema",
-    "languageSelectorTitle": "Idioma",
+    "languageSelectorTitle": "Idioma"
   },
   "numberInputModal": {
     "cancelButtonLabel": "CANCELAR"

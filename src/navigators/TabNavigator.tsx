@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 import CalculatorPage from "../pages/calculator/calculatorPage";
-import ProgramPage from "../pages/program/programPage";
-import PlateMathPage from '../pages/plateMath/plateMathPage';
-import Loading from '../sharedComponents/loading/loading';
+// import ProgramPage from "../pages/program/programPage";
+// import PlateMathPage from "../pages/plateMath/plateMathPage";
+import Loading from "../sharedComponents/loading/loading";
 
-import { ProgramPageStack } from "./StackNavigator";
+import { ProgramPageStack, PlateMathPageStack } from "./StackNavigator";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
 
 import { useInitialRender } from "../helpers/useInitialRender";
@@ -28,13 +28,13 @@ const BottomTabProgramPageNavigator = () => {
         tabBarHideOnKeyboard: true,
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
-          if (route.name === '1RM Calculator') {
-            iconName = focused ? 'calculator' : 'calculator-outline';
-          } else if (route.name === 'ProgramTab') {
-            iconName = focused ? 'list' : 'list-outline';
+          if (route.name === "1RM Calculator") {
+            iconName = focused ? "calculator" : "calculator-outline";
+          } else if (route.name === "ProgramTab") {
+            iconName = focused ? "list" : "list-outline";
           }
-          else if (route.name === 'Plate Math') {
-            iconName = focused ? 'barbell-sharp' : 'barbell-sharp';
+          else if (route.name === "Plate Math") {
+            iconName = focused ? "barbell-sharp" : "barbell-sharp";
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
@@ -90,9 +90,9 @@ const BottomTabProgramPageNavigator = () => {
       />
       <Tab.Screen
         name="Plate Math"
-        component={PlateMathPage}
+        component={PlateMathPageStack}
         options={{
-          headerShown: true,
+          headerShown: false,
           title: selectedLocale.plateMathPage.title,
           headerStyle:{
             backgroundColor: activeTheme.backgroundSecondary,

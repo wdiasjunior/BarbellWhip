@@ -1,26 +1,52 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 const styles = (theme) => {
   return StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
-      alignItems: 'flex-start',
-      justifyContent: 'flex-start',
       paddingTop: 12,
+      // paddingBottom: 102,
+      alignItems: "center",
+      alignContent: "center",
+      justifyContent: "center",
     },
+    wrapperLoading: {
+      flex: 1,
+      alignItems: "center",
+      alignContent: "center",
+      justifyContent: "center",
+    },
+    wrapper: {
+      flex: 1,
+    },
+
+    noProgramListTextContainer: {
+      justifyContent: "center",
+      alignItems: "center",
+      width: "100%",
+      height: "100%",
+      flex: 1,
+    },
+    noProgramListText: {
+      color: theme.text,
+      fontWeight: "bold",
+      fontSize: 24,
+      textAlign: "center",
+    },
+
     shadowProp: {
       elevation: 3,
-      shadowColor: '#171717',
+      shadowColor: "#171717",
     },
     FabButton: {
       backgroundColor: theme.active,
       borderRadius: 80,
       width: 60,
       height: 60,
-      justifyContent: 'center',
-      alignItems: 'center',
-      position: 'absolute',
+      justifyContent: "center",
+      alignItems: "center",
+      position: "absolute",
       bottom: 20,
       right: 20,
       zIndex: 999999,
@@ -36,6 +62,10 @@ const styles = (theme) => {
       height: "100%",
       flex: 1,
     },
+    programListWrapper: {
+      flex: 1,
+      paddingBottom: 90,
+    },
     programItem: {
       marginHorizontal: 20,
       backgroundColor: theme.backgroundSecondary,
@@ -44,9 +74,9 @@ const styles = (theme) => {
       marginVertical: 5,
       borderRadius: 10,
       height: 56,
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      flexDirection: 'row',
+      justifyContent: "space-between",
+      alignItems: "center",
+      flexDirection: "row",
     },
     programItemSelected: {
       marginHorizontal: 20,
@@ -56,15 +86,15 @@ const styles = (theme) => {
       marginVertical: 5,
       borderRadius: 10,
       height: 56,
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      flexDirection: 'row',
+      justifyContent: "space-between",
+      alignItems: "center",
+      flexDirection: "row",
     },
     programItemText: {
       color: theme.text,
       fontSize: 20,
       lineHeight: 30,
-      fontWeight: 'bold',
+      fontWeight: "bold",
     },
     iconRight: {
       width: 36,
@@ -72,8 +102,8 @@ const styles = (theme) => {
     },
 
     modalContent: {
-      justifyContent: 'center',
-      alignItems: 'center',
+      justifyContent: "center",
+      alignItems: "center",
       backgroundColor: theme.backgroundPrimary,
       borderRadius: 10,
       paddingHorizontal: 20,
@@ -81,17 +111,17 @@ const styles = (theme) => {
     },
     modalItem: {
       backgroundColor: theme.backgroundSecondary,
-      justifyContent: 'center',
-      alignItems: 'center',
+      justifyContent: "center",
+      alignItems: "center",
       borderRadius: 10,
-      width: '100%',
+      width: "100%",
       height: 50,
       marginVertical: 5,
     },
     modalItemText: {
       color: theme.text,
       fontSize: 20,
-      fontWeight: 'bold',
+      fontWeight: "bold",
     },
   });
 }

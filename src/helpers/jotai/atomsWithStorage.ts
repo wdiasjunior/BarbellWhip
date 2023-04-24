@@ -1,6 +1,6 @@
-import { atom } from 'jotai';
-import { atomWithStorage, createJSONStorage } from 'jotai/utils';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { atom } from "jotai";
+import { atomWithStorage, createJSONStorage } from "jotai/utils";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { themes } from "../../themes/";
 import { locales } from "../../db/locales/";
@@ -21,12 +21,58 @@ const calculatorPageWeightAtom = atomWithStorage("calculatorPageWeight", 150, st
 const calculatorPageWeightUnitAtom = atomWithStorage("calculatorPageWeightUnit", "kg", storage);
 
 // Plate Math Page
-// const plateMathPageWeight = atomWithStorage("plateMathPageWeight", 150, storage);
-// const plateMathWeightUnit = atomWithStorage("plateMathWeightUnit", "kg", storage);
-// const plateMathSelectedBar = atomWithStorage("plateMathSelectedBar", 1, storage);
-// const plateMathWeightRack = atomWithStorage("plateMathWeightRack", 1, storage);
+const plateMathPageWeight = atomWithStorage("plateMathPageWeight", 150, storage);
+const plateMathWeightUnit = atomWithStorage("plateMathWeightUnit", false, storage); // false == kg == left, true == lbs == right
+const plateMathShowBumper = atomWithStorage("plateMathShowBumper", true, storage);
+const plateMathBarWeight = atomWithStorage("plateMathBarWeight", {
+  lbs: 45,
+  kg: 20,
+}, storage);
+const plateMathWeightRack = atomWithStorage("plateMathWeightRack", {
+  kg: {
+    50   : 0,
+    25   : 0,
+    20   : 6,
+    15   : 2,
+    10   : 2,
+    5    : 2,
+    2.5  : 2,
+    2    : 0,
+    1.5  : 0,
+    1.25 : 2,
+    1    : 0,
+    0.5  : 0,
+  },
+  lbs: {
+    100  : 0,
+    55   : 0,
+    45   : 6,
+    35   : 2,
+    25   : 2,
+    10   : 2,
+    5    : 2,
+    2.5  : 2,
+    1.25 : 2,
+  }
+}, storage);
+const plateMathBumperPlatesRack = atomWithStorage("plateMathBumperPlatesRack", {
+  kg: {
+    25 : 0,
+    20 : 0,
+    15 : 2,
+    10 : 2,
+    5  : 2
+  },
+  lbs: {
+    55 : 0,
+    45 : 0,
+    35 : 2,
+    25 : 2,
+    10 : 2
+  },
+}, storage);
 
-// Settings Page
+// Settings Page - for future reference only
 // const settingsPageWeightRoundAtom = atomWithStorage("settingsPageWeightRound", true, storage);
 // object with keys for every calc funtion and every value is true by defalut
 // const settingsPage1RMCalculationFormulasAtom = atomWithStorage("settingsPage1RMCalculationFormulas", {}, storage);
@@ -63,8 +109,14 @@ export {
   calculatorPageRepsAtom,
   calculatorPageWeightAtom,
   calculatorPageWeightUnitAtom,
+  plateMathPageWeight,
+  plateMathWeightUnit,
+  plateMathShowBumper,
+  plateMathBarWeight,
+  plateMathWeightRack,
+  plateMathBumperPlatesRack,
   activeThemeIdAtom,
   activeThemeAtom,
   selectedLocaleIdAtom,
-  selectedLocaleAtom
+  selectedLocaleAtom,
 };

@@ -6,11 +6,12 @@ const colors = {
   textFaded: "#ECEFF4",
   placeholderText: "#ffffff3d",
   active: "#94fff2",
-  activeFaded: "#1f3534",
+  // activeFaded: "#1f3534",
+  activeTransparent: "#94fff221",
   inactive: "#cbd5e0",
   statusBar: "light",
 }
 
-// revise this
+// TODO - revise this
 
 export default colors;

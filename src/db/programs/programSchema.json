@@ -5,7 +5,7 @@
     {
       "id": "ec03f7b7-ac43-43d9-af22-885cc8557926",
       "name": "Squat",
-      "weight": 150
+      "weight": "150"
     }
   ],
   "trainingProgram": [

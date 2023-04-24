@@ -5,17 +5,17 @@
     {
       "id": "1",
       "name": "Squat",
-      "weight": 155
+      "weight": "160"
     },
     {
       "id": "2",
       "name": "Bench Press",
-      "weight": 125
+      "weight": "125"
     },
     {
       "id": "3",
       "name": "Deadlift",
-      "weight": 185
+      "weight": "185"
     }
   ],
   "trainingProgram": [
@@ -1528,7 +1528,7 @@
               "exerciseName": "Bench Press",
               "set": [
                 {
-                  "exerciseName": "Tempo Bench Press",
+                  "exerciseName": "Bench Press",
                   "sets": "1",
                   "reps": "2",
                   "percentage": "90",

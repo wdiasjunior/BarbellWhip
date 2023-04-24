@@ -1,22 +1,25 @@
-import { createStackNavigator } from '@react-navigation/stack';
-import { useNavigation } from '@react-navigation/native';
+import { createStackNavigator } from "@react-navigation/stack";
+import { useNavigation } from "@react-navigation/native";
 
 import ProgramPage from "../pages/program/programPage";
 import ExerciseItemPage from "../pages/program/subPages/exerciseItemPage/exerciseItemPage";
 import RMReviewPage from "../pages/program/subPages/rmReviewPage/rmReviewPage";
+
+import PlateMathPage from "../pages/plateMath/plateMathPage";
+import WeightRackPage from "../pages/plateMath/weightRackPage/weightRackPage";
 
 import ProgramEditorPage from "../pages/programEditor/programEditorPage";
 // import { BottomTabProgramEditorPageNavigator } from "./TabNavigator";
 
 const Stack = createStackNavigator();
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import StepOne from '../pages/programEditor/subPages/stepOne/stepOne';
-import StepTwo from '../pages/programEditor/subPages/stepTwo/stepTwo';
-import StepThree from '../pages/programEditor/subPages/stepThree/stepThree';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import StepOne from "../pages/programEditor/subPages/stepOne/stepOne";
+import StepTwo from "../pages/programEditor/subPages/stepTwo/stepTwo";
+import StepThree from "../pages/programEditor/subPages/stepThree/stepThree";
 import ExerciseEditorPage from "../pages/programEditor/subPages/stepThree/exerciseEditorPage/exerciseEditorPage";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
 
 const ProgramEditorDayPageStack = () => {
@@ -59,11 +62,11 @@ const ProgramEditorDayPageStack = () => {
         }}
       />
       <Stack.Screen
-        name='ExerciseEditorPage'
+        name="ExerciseEditorPage"
         component={ExerciseEditorPage}
         options={{
           headerShown: true,
-          presentation: 'modal',
+          presentation: "modal",
           headerTitle: selectedLocale.programEditorPage.exerciseEditorPage.title,
           animationEnabled: false,
           headerStyle:{
@@ -92,8 +95,8 @@ const BottomTabProgramEditorPageNavigator = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarHideOnKeyboard: true,
-        tabBarActiveTintColor: '#3da9db',
-        tabBarInactiveTintColor: '#808080',
+        tabBarActiveTintColor: "#3da9db",
+        tabBarInactiveTintColor: "#808080",
         tabBarIconStyle: { display: "none" },
         tabBarLabelPosition: "beside-icon",
         tabBarLabelStyle: {
@@ -103,7 +106,7 @@ const BottomTabProgramEditorPageNavigator = () => {
           left: -10,
         },
         tabBarStyle: {
-          display: (navigation?.getState()?.routes[1]?.state?.routes[2]?.state?.routes[1]?.name === "ExerciseEditorPage") ? 'none' : 'flex',
+          display: (navigation?.getState()?.routes[1]?.state?.routes[2]?.state?.routes[1]?.name === "ExerciseEditorPage") ? "none" : "flex",
           backgroundColor: activeTheme.backgroundSecondary,
           borderTopWidth: 0,
         },
@@ -192,7 +195,7 @@ const ProgramPageStack = () => {
       }}
     >
       <Stack.Screen
-        name='ProgramStack'
+        name="ProgramStack"
         component={ProgramPage}
         options={{
           headerShown: true,
@@ -210,11 +213,12 @@ const ProgramPageStack = () => {
         }}
       />
       <Stack.Screen
-        name='ExerciseItemPage'
+        name="ExerciseItemPage"
         component={ExerciseItemPage}
         options={{
           headerShown: true,
-          presentation: 'modal',
+          headerLeft: () => null,
+          presentation: "modal",
           detachPreviousScreen: false,
           headerTitle: selectedLocale.programPage.exerciseInfo.title,
           animationEnabled: false,
@@ -227,13 +231,74 @@ const ProgramPageStack = () => {
         }}
       />
       <Stack.Screen
-        name='RMReviewPage'
+        name="RMReviewPage"
         component={RMReviewPage}
         options={{
           headerShown: true,
-          presentation: 'modal',
+          presentation: "modal",
           detachPreviousScreen: false,
           headerTitle: selectedLocale.programPage.rmReviewTitle,
+          animationEnabled: false,
+          headerStyle: {
+            backgroundColor: activeTheme.backgroundSecondary,
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+          headerTintColor: activeTheme.text,
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+const PlateMathPageStack = () => {
+
+  const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+
+  const navigation = useNavigation();
+
+  return (
+    <Stack.Navigator
+      screenOptions={({ route }) => ({
+        cardStyle: {
+          backgroundColor: activeTheme.backgroundPrimary,
+          opacity: 1,
+        },
+        sceneContainerStyle: {
+          backgroundColor: activeTheme.backgroundPrimary,
+        },
+      })}
+      sceneContainerStyle={{
+        backgroundColor: activeTheme.backgroundPrimary,
+      }}
+    >
+      <Stack.Screen
+        name="PlateMathPage"
+        component={PlateMathPage}
+        options={{
+          headerShown: true,
+          title: selectedLocale.plateMathPage.title,
+          headerStyle: {
+            backgroundColor: activeTheme.backgroundSecondary,
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+          headerTintColor: activeTheme.text,
+          cardStyle: {
+            backgroundColor: activeTheme.backgroundPrimary,
+            opacity: 1,
+          },
+        }}
+      />
+      <Stack.Screen
+        name="WeightRackPage"
+        component={WeightRackPage}
+        options={{
+          headerShown: true,
+          presentation: "modal",
+          detachPreviousScreen: false,
+          headerTitle: selectedLocale.plateMathPage.weightRackPage.title,
           animationEnabled: false,
           headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
@@ -270,7 +335,7 @@ const ProgramEditorPageStack = () => {
       }}
     >
       <Stack.Screen
-        name='ProgramEditorStack'
+        name="ProgramEditorStack"
         component={ProgramEditorPage}
         options={{
           headerShown: true,
@@ -290,13 +355,13 @@ const ProgramEditorPageStack = () => {
         }}
       />
       <Stack.Screen
-        name='StepsTabs'
+        name="StepsTabs"
         component={BottomTabProgramEditorPageNavigator}
         options={({ route }) => {
           return {
             // headerShown: navigation?.getState()?.routes[1]?.state?.routes[1]?.state?.routes[2]?.state?.routes[1]?.name !== "ExerciseEditorPage",
             headerShown: false,
-            presentation: 'modal',
+            presentation: "modal",
             headerTitle: selectedLocale.programEditorPage.programEditorStep1.title,
             animationEnabled: false,
             headerStyle:{
@@ -316,4 +381,4 @@ const ProgramEditorPageStack = () => {
   );
 }
 
-export { ProgramPageStack, ProgramEditorPageStack };
+export { ProgramPageStack, ProgramEditorPageStack, PlateMathPageStack };

@@ -1,4 +1,4 @@
-import RNFS from 'react-native-fs';
+import RNFS from "react-native-fs";
 
 const writeToJSON = async (programName, programJSON) => {
   const fileUri = programName.includes(".json") ? RNFS.ExternalDirectoryPath + "/" + programName : RNFS.ExternalDirectoryPath + "/" + programName + ".json";
@@ -25,7 +25,7 @@ const copyJSON = async (programName, programURL) => {
 
 const deleteJSON = async (programURL) => {
   try {
-    await RNFS.unlink(programURL); // ?
+    await RNFS.unlink(programURL);
   } catch(error) {
     alert("Error deleting file.");
   }

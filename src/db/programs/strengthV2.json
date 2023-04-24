@@ -5,17 +5,17 @@
     {
       "id": "0",
       "name": "Squat",
-      "weight": 150
+      "weight": "150"
     },
     {
       "id": "1",
       "name": "Bench Press",
-      "weight": 122.5
+      "weight": "122.5"
     },
     {
       "id": "2",
       "name": "Deadlift",
-      "weight": 175
+      "weight": "175"
     }
   ],
   "trainingProgram": [

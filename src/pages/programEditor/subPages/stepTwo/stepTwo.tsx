@@ -1,32 +1,37 @@
 import React, { useState, useEffect, useLayoutEffect, useRef, useCallback, } from "react";
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from 'react-native';
+import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from "react-native";
 import DraggableFlatList, { ScaleDecorator } from "react-native-draggable-flatlist";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { useAtom } from 'jotai';
-import { programEditorDataAtom, selectedWeekAtom } from "../../../../helpers/jotai/programEditorAtoms";
+import { useAtom } from "jotai";
+import { programEditorDataAtom, selectedWeekAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
+import { useInitialRender } from "../../../../helpers/useInitialRender";
 
 import { deepClone } from "../../../../helpers/deepClone";
 
 import Header from "../../../../sharedComponents/header/header";
+import Loading from "../../../../sharedComponents/loading/loading";
 
-import styles from './stepTwoStyles';
+import styles from "./stepTwoStyles";
 
 const StepTwo = ({ navigation }) => {
+
+  const isInitialRender = useInitialRender();
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
   const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
+  const [programEditorMode, ] = useAtom(programEditorModeAtom);
   const weekRef = useRef(null);
 
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={selectedLocale.programEditorPage.programEditorStep2.title}
+                    title={programEditorMode === "Create" ? selectedLocale.programEditorPage.programEditorStep2.title : selectedLocale.programEditorPage.programEditorStep2.title2}
                     menu={false}
                     saveButton={true}
                     backButton={true}
@@ -35,7 +40,7 @@ const StepTwo = ({ navigation }) => {
   }
 
   useLayoutEffect(() => {
-    onScreenLoad();
+    if(isInitialRender) onScreenLoad();
   }, [])
 
   const addWeek = () => {
@@ -105,28 +110,32 @@ const StepTwo = ({ navigation }) => {
         </TouchableOpacity>
       </ScaleDecorator>
     )
-  }, [programEditorData.trainingProgram, addWeek, reorder, selectWeek, duplicateWeek]); // not sure if this array should have all of this
+  }, [programEditorData.trainingProgram, addWeek, reorder, selectWeek, duplicateWeek]); // TODO - check this - not sure if this array should have all of this
 
   return (
     <View style={styles(activeTheme).container}>
-      <View style={styles(activeTheme).weekList}>
-        <GestureHandlerRootView>
-          <DraggableFlatList
-            ref={weekRef}
-            data={programEditorData.trainingProgram}
-            keyExtractor={(item, index) => index}
-            onDragEnd={({data, from, to}) => reorder(data, from, to)}
-            renderItem={renderWeekItem}
-            ListFooterComponent={() => {
-              return (
-                <TouchableOpacity onPress={addWeek} style={styles(activeTheme).AddWeekButton}>
-                  <Text style={styles(activeTheme).AddWeekButtonText}>{selectedLocale.programEditorPage.programEditorStep2.addWeekButton}</Text>
-                </TouchableOpacity>
-              )
-            }}
-          />
-        </GestureHandlerRootView>
-      </View>
+      {!isInitialRender ? (
+        <View style={styles(activeTheme).weekList}>
+          <GestureHandlerRootView>
+            <DraggableFlatList
+              ref={weekRef}
+              data={programEditorData.trainingProgram}
+              keyExtractor={(item, index) => index}
+              onDragEnd={({data, from, to}) => reorder(data, from, to)}
+              renderItem={renderWeekItem}
+              ListFooterComponent={() => {
+                return (
+                  <TouchableOpacity onPress={addWeek} style={styles(activeTheme).AddWeekButton}>
+                    <Text style={styles(activeTheme).AddWeekButtonText}>{selectedLocale.programEditorPage.programEditorStep2.addWeekButton}</Text>
+                  </TouchableOpacity>
+                )
+              }}
+            />
+          </GestureHandlerRootView>
+        </View>
+      ) : (
+        <Loading />
+      )}
     </View>
   );
 }

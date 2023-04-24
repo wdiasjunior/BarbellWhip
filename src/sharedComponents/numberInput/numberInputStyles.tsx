@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 const styles = (theme) => {
   return StyleSheet.create({
@@ -10,18 +10,18 @@ const styles = (theme) => {
       height: 355,
     },
     input: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
       borderColor: theme.textFaded,
       borderBottomWidth: 2,
       height: 50,
-      width: '100%',
+      width: "100%",
       marginBottom: 30,
     },
     inputText: {
-      textAlign: 'center',
-      fontWeight: 'bold',
+      textAlign: "center",
+      fontWeight: "bold",
       fontSize: 24,
       lineHeight: 24,
       color: theme.text,
@@ -29,25 +29,25 @@ const styles = (theme) => {
     },
     numpad: {
       flex: 1,
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+      flexDirection: "row",
+      flexWrap: "wrap",
+      alignItems: "center",
+      justifyContent: "space-between",
     },
     numpadButton: {
       padding: 10,
       height: 50,
-      width: '33%',
+      width: "33%",
     },
     numpadButtonText: {
-      textAlign: 'center',
+      textAlign: "center",
       fontSize: 30,
       lineHeight: 30,
       color: theme.text,
     },
     bottomButtonsRow: {
-      flexDirection: 'row',
-      justifyContent: 'flex-end',
+      flexDirection: "row",
+      justifyContent: "flex-end",
     },
     bottomButtonsText: {
       fontSize: 20,

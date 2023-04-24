@@ -1,11 +1,14 @@
 {
   "programPage": {
+    "defaultTitle": "Program Page",
     "title": "Program",
     "week": "Week",
     "day": "Day",
     "rmReviewTitle": "1RM Review",
-    "rmReviewWeightLable": "Weight",
+    "rmReviewWeightLabel": "Weight",
     "weekSelectorTitle": "Week Selector",
+    "noActiveProgramTextTitle": "No program loaded.",
+    "noActiveProgramTextSubtitle": "Go to Program Editor Page to create or import one and set it as active.",
     "exerciseInfo" : {
       "title": "Exercise Info",
       "sets": "Sets",
@@ -29,10 +32,23 @@
   "plateMathPage": {
     "title": "Plate Math",
     "weightLabel": "Weight",
-    "currentBarWeightLabel": "Current Bar Weight"
+    "currentBarWeightLabel": "Current Bar Weight",
+    "bumperToggleLabel": "Bumper Plates",
+    "weightRackPage": {
+      "title": "Plate Math Settings",
+      "weightUnitLabel": "Weight Unit",
+      "barWeightTitle": "Bar Weight",
+      "plateRackTitle": "Plate Rack (quantity per plate)",
+      "bumperPlatesRackTitle": "Bumper Plate Rack (quantity per plate)",
+      "colorCodedPlatesTitle": "Color Coded Plates",
+      "collarsSwitchTitle": "2.5kg Collars"
+    }
   },
   "programEditorPage": {
     "title": "Program Editor",
+    "noProgramListTextTitle": "No programs found.",
+    "noProgramListTextSubtitle": "Create or import one.",
+    "importErrorMessage": "Invalid file type.",
     "modal": {
       "setActive": "Set Active",
       "edit": "Edit",
@@ -42,6 +58,7 @@
     },
     "programEditorStep1": {
       "title": "Create Program",
+      "title2": "Edit Program",
       "tabTitle": "Info",
       "programName": "Program Name",
       "add1RMexerciseButton": "ADD 1RM EXERCISE",
@@ -50,12 +67,14 @@
     },
     "programEditorStep2": {
       "title": "Create Program",
+      "title2": "Edit Program",
       "tabTitle": "Weeks",
       "addWeekButton": "ADD WEEK",
-      "week": "Week",
+      "week": "Week"
     },
     "programEditorStep3": {
       "title": "Create Program",
+      "title2": "Edit Program",
       "tabTitle": "Days",
       "emptyDayInfo": "Leave day empty to mark it as a rest day",
       "addExerciseButton": "ADD EXERCISE",
@@ -64,7 +83,7 @@
     "exerciseEditorPage": {
       "title": "Exercise Editor",
       "exerciseNameInfo": "Exercise name displayed on day list",
-      "exerciseVariation": "Exercise/Variation name",
+      "exerciseVariation": "Exercise/Variation name (optional)",
       "sets": "Sets",
       "reps": "Reps",
       "percentage": "Percentage",
@@ -79,7 +98,7 @@
   "settingsPage": {
     "title": "Settings",
     "themeSelectorTitle": "Theme",
-    "languageSelectorTitle": "Language",
+    "languageSelectorTitle": "Language"
   },
   "numberInputModal": {
     "cancelButtonLabel": "CANCEL"

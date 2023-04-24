@@ -1,25 +1,41 @@
 import React, { useState, useLayoutEffect, } from "react";
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, AsyncStorage, ActivityIndicator, } from 'react-native';
+import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, ActivityIndicator, LayoutAnimation, UIManager } from "react-native";
 import Modal from "react-native-modal";
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Share from 'react-native-share';
-import DocumentPicker from 'react-native-document-picker';
-import { useIsFocused } from '@react-navigation/native';
+import Ionicons from "react-native-vector-icons/Ionicons";
+import Share from "react-native-share";
+import DocumentPicker from "react-native-document-picker";
+import { useIsFocused } from "@react-navigation/native";
 
 import Header from "../../sharedComponents/header/header";
+import Loading from "../../sharedComponents/loading/loading";
 
 import { writeToJSON, copyJSON, deleteJSON } from "../../db/fileSystem/fsWrite";
 import { readJSON, readImportedJSON, readDirectory, returnFileURL } from "../../db/fileSystem/fsRead";
 
-import { useAtom } from 'jotai';
-import { activeThemeAtom, selectedLocaleAtom, activeProgramAtom, activeProgramNameAtom, programPageSelectedDayAtom, programPageSelectedWeekAtom } from "../../helpers/jotai/atomsWithStorage";
-import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../helpers/jotai/programEditorAtoms";
+import { useAtom } from "jotai";
+import {
+  activeThemeAtom,
+  selectedLocaleAtom,
+  activeProgramAtom,
+  activeProgramNameAtom,
+  programPageSelectedDayAtom,
+  programPageSelectedWeekAtom,
+} from "../../helpers/jotai/atomsWithStorage";
+import {
+  programEditorDataAtom,
+  selectedWeekAtom,
+  selectedDayAtom,
+  programEditorModeAtom,
+} from "../../helpers/jotai/programEditorAtoms";
+import { useInitialRender } from "../../helpers/useInitialRender";
 
-import styles from './programEditorPageStyles';
+import styles from "./programEditorPageStyles";
 
 const ProgramEditorPage = ({ navigation }) => {
 
   const isFocused = useIsFocused();
+
+  const isInitialRender = useInitialRender();
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
@@ -29,10 +45,13 @@ const ProgramEditorPage = ({ navigation }) => {
   const [programList, setProgramList] = useState([]);
   const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
   const [selectedDay, setSelectedDay] = useAtom(selectedDayAtom);
+  const [programEditorMode, setProgramEditorMode] = useAtom(programEditorModeAtom);
   const [programPageSelectedDay, setProgramPageSelectedDay] = useAtom(programPageSelectedDayAtom);
   const [programPageSelectedWeek, setProgramPageSelectedWeek] = useAtom(programPageSelectedWeekAtom);
 
   const [modalOpen, setModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [showFabButton, setShowFabButton] = useState(true);
   const [programNameForAction, setProgramNameForAction] = useState("");
   const [activeProgramName, setActiveProgramName] = useAtom(activeProgramNameAtom);
 
@@ -47,8 +66,10 @@ const ProgramEditorPage = ({ navigation }) => {
   }
 
   useLayoutEffect(() => {
-    onScreenLoad();
-    readDIR();
+    if(isInitialRender) {
+      onScreenLoad();
+      readDIR();
+    }
   }, [])
 
   useLayoutEffect(() => {
@@ -74,8 +95,10 @@ const ProgramEditorPage = ({ navigation }) => {
   }
 
   const readDIR = async () => {
+    setLoading(true);
     const aux = await readDirectory();
     setProgramList(aux);
+    setLoading(false);
   }
 
   const copyProgram = async (fileName: string) => {
@@ -85,18 +108,23 @@ const ProgramEditorPage = ({ navigation }) => {
   }
 
   const importProgram = async () => {
-    // readDIR();
     // TODO - write a test to check if the selected program is valid?
     const file = await DocumentPicker.pick();
-    if(file[0].type === "application/json") {
+
+    // if(file[0].type === "application/json") {
+    // this apparently does not work in some older android versions for whatever
+    // reason and returns type: "application/octet-stream". so I'm checking the file name
+    // GoHorse is just doing it's thing I guess
+    if(file[0].name.includes(".json")) {
       const fileContent = await readImportedJSON(file[0].uri);
       await saveProgram(file[0].name, JSON.parse(fileContent));
     } else {
-      alert("Invalid file type.");
+      alert(selectedLocale.programEditorPage.importErrorMessage);
     }
   }
 
-  const fabButtonFunction = () => {
+  const handleFabButtonClick = () => {
+    setProgramEditorMode("Create");
     navigation.push("StepsTabs");
     setSelectedWeek(0);
     setSelectedDay(0);
@@ -110,14 +138,16 @@ const ProgramEditorPage = ({ navigation }) => {
 
   const programOptionModal = async (action) => {
     const programData = await readProgram(programNameForAction);
-
     switch(action) {
       case "setActive":
         setActiveProgramData(programData);
-        setActiveProgramName(programNameForAction);
         setProgramPageSelectedDay(0);
         setProgramPageSelectedWeek(0);
-        setSelectedDay(0);
+        if(activeProgramName !== programNameForAction) {
+          setActiveProgramName(programNameForAction);
+          setSelectedDay(0);
+          setSelectedWeek(0);
+        }
         setModalOpen(false);
         break;
       case "edit":
@@ -125,6 +155,7 @@ const ProgramEditorPage = ({ navigation }) => {
         setSelectedDay(0);
         setProgramEditorData(programData);
         setModalOpen(false);
+        setProgramEditorMode("Edit");
         navigation.push("StepsTabs");
         break;
       case "share":
@@ -150,35 +181,51 @@ const ProgramEditorPage = ({ navigation }) => {
   return (
       <View style={styles(activeTheme).container}>
 
-        <TouchableOpacity onPress={fabButtonFunction} style={[styles(activeTheme).FabButton, styles(activeTheme).shadowProp]}>
-          <Text style={styles(activeTheme).FabButtonText}>+</Text>
-        </TouchableOpacity>
+        {showFabButton &&
+          <TouchableOpacity onPress={handleFabButtonClick} style={[styles(activeTheme).FabButton, styles(activeTheme).shadowProp]}>
+            <Text style={styles(activeTheme).FabButtonText}>+</Text>
+          </TouchableOpacity>
+        }
 
-        <View style={styles(activeTheme).programList}>
-          <ScrollView overScrollMode="never">
-          {/*<ActivityIndicator size="large" color="#3da9db"/>*/}
-            {(programList?.length > 0) &&
-              (programList?.map((item, index) => {
-                if(item.name.includes(".json")) {
-                  return (
-                    <View
-                      style={activeProgramName === item.name ? styles(activeTheme).programItemSelected : styles(activeTheme).programItem}
-                      key={index}
-                    >
-                      <Text adjustsFontSizeToFit style={styles(activeTheme).programItemText}>{item.name.replace(".json", "")}</Text>
-                      <Ionicons
-                        name="ellipsis-vertical"
-                        size={24}
-                        style={styles(activeTheme).iconRight}
-                        onPress={() => { setModalOpen(true); setProgramNameForAction(item.name); }}
-                      />
-                    </View>
-                  )
-                }
-              }))
-            }
-          </ScrollView>
-        </View>
+        {loading ? (
+          <Loading />
+        ) : (
+          <View style={styles(activeTheme).programList}>
+            {programList?.length > 0 ? (
+              <ScrollView style={styles(activeTheme).programListWrapper} overScrollMode="never">
+                <View style={styles(activeTheme).programListWrapper}>
+                  {programList?.map((item, index) => {
+                    if(item.name.includes(".json")) {
+                      return (
+                        <View
+                          style={activeProgramName === item.name ? styles(activeTheme).programItemSelected : styles(activeTheme).programItem}
+                          key={"ProgramEditorPage_ProgramListItem" + index}
+                        >
+                          <Text adjustsFontSizeToFit style={styles(activeTheme).programItemText}>{item.name.replace(".json", "")}</Text>
+                          <Ionicons
+                            name="ellipsis-vertical"
+                            size={24}
+                            style={styles(activeTheme).iconRight}
+                            onPress={() => { setModalOpen(true); setProgramNameForAction(item.name); }}
+                          />
+                        </View>
+                      )
+                    }
+                  })}
+                </View>
+              </ScrollView>
+            ) : (
+              <View style={styles(activeTheme).noProgramListTextContainer}>
+                <Text style={styles(activeTheme).noProgramListText}>
+                  {selectedLocale.programEditorPage.noProgramListTextTitle}
+                </Text>
+                <Text style={styles(activeTheme).noProgramListText}>
+                  {selectedLocale.programEditorPage.noProgramListTextSubtitle}
+                </Text>
+              </View>
+            )}
+          </View>
+        )}
 
         <Modal
           isVisible={modalOpen}

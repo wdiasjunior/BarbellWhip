@@ -1,51 +1,135 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React from "react";
+import { View, Text } from "react-native";
 
-import styles from './plateStyles';
+import { styles, plateColors } from "./plateStyles";
 
-const Plate = (props) => {
+interface Props {
+  weight: any;
+  // size: any;
+  activeTheme: any;
+  weightUnit: any;
+}
+
+const Plate = (props: Props) => {
+  // I don't like this gambiarra for the plate size, but I guess we'll have to
+  // roll with this since WeightCalc.getPlatePercentOfMax is kinda broken
+  const plateDimensions = {
+    // TODO - find some good colors for the other plates that match the overall theme
+    // don't really like how they look with the rest of the app
+    // I really need a designer helping with this
+    kg: {
+      50: {
+        size: 1.25,
+        color: plateColors[props.weightUnit]["50"],
+      },
+      25: {
+        size: 1,
+        color: plateColors[props.weightUnit]["25"],
+      },
+      20: {
+        size: 1,
+        color: plateColors[props.weightUnit]["20"],
+      },
+      15: {
+        size: 0.75,
+        color: plateColors[props.weightUnit]["15"],
+      },
+      10: {
+        size: 0.5,
+        color: plateColors[props.weightUnit]["10"],
+      },
+      5: {
+        size: 0.25,
+        color: plateColors[props.weightUnit]["5"],
+      },
+      2.5: {
+        size: 0.125,
+        color: plateColors[props.weightUnit]["2.5"],
+      },
+      2: {
+        size: 0.125,
+        color: plateColors[props.weightUnit]["2"],
+      },
+      1.5: {
+        size: 0.0625,
+        color: plateColors[props.weightUnit]["1.5"],
+      },
+      1.25: {
+        size: 0.0625,
+        color: plateColors[props.weightUnit]["1.25"],
+      },
+      1: {
+        size: 0.0625,
+        color: plateColors[props.weightUnit]["1"],
+      },
+      0.5: {
+        size: 0.05,
+        color: plateColors[props.weightUnit]["0.5"],
+      },
+    },
+    lbs: {
+      100: {
+        size: 1.25,
+        color: plateColors[props.weightUnit]["100"],
+      },
+      55: {
+        size: 1,
+        color: plateColors[props.weightUnit]["55"],
+      },
+      45: {
+        size: 1,
+        color: plateColors[props.weightUnit]["45"],
+      },
+      35: {
+        size: 0.75,
+        color: plateColors[props.weightUnit]["35"],
+      },
+      25: {
+        size: 0.5,
+        color: plateColors[props.weightUnit]["25"],
+      },
+      10: {
+        size: 0.25,
+        color: plateColors[props.weightUnit]["10"],
+      },
+      5: {
+        size: 0.125,
+        color: plateColors[props.weightUnit]["5"],
+      },
+      2.5: {
+        size: 0.0625,
+        color: plateColors[props.weightUnit]["2.5"],
+      },
+      1.25: {
+        size: 0.0625,
+        color: plateColors[props.weightUnit]["1.25"],
+      },
+    }
+  }
 
   const computePlateStyle = () => {
-    const hScale = 0.5 + (0.5 * props.size);
-    const wScale = 0.7 + (0.3 * props.size);
-    return Object.assign({
-      ...styles(props.activeTheme).plate}, {
-        width: styles(props.activeTheme).plate.width * wScale,
-        height: styles(props.activeTheme).plate.height * hScale
-      });
+    if(props.weight.isBumper) {
+      // add conditional for color coded plates input
+      return Object.assign({...styles(props.activeTheme).bumperPlate});
+    } else {
+      const hScale = 0.5 + (0.5 * plateDimensions[props.weightUnit][props.weight.plate].size);
+      const wScale = 0.7 + (0.3 * plateDimensions[props.weightUnit][props.weight.plate].size);
+      return Object.assign({
+          ...styles(props.activeTheme).plate}, {
+          width: styles(props.activeTheme).plate.width * wScale,
+          height: styles(props.activeTheme).plate.height * hScale,
+          // add conditional for color coded plates input
+          // backgroundColor: plateDimensions[props.weightUnit][props.weight.plate].color,
+          // borderColor: plateDimensions[props.weightUnit][props.weight.plate].color,
+        });
+    }
   }
 
   return (
-    <View style={computePlateStyle(props.size)}>
-      <Text adjustsFontSizeToFit style={styles(props.activeTheme).text}>{props.weight}</Text>
+    <View style={computePlateStyle()}>
+      <Text adjustsFontSizeToFit style={styles(props.activeTheme).text}>{props.weight.plate}</Text>
     </View>
   );
 }
 
 export default Plate;
-
-// // animation
-// UNSAFE_componentWillUpdate() {
-//   // UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental( true );
-//   // LayoutAnimation.spring();
-//   var CustomLayoutSpring = {
-//     duration: 500,
-//     create: {
-//       type: LayoutAnimation.Types.spring,
-//       property: LayoutAnimation.Properties.scaleXY,
-//       springDamping: .8,
-//     },
-//     update: {
-//       type: LayoutAnimation.Types.spring,
-//       springDamping: 0.7,
-//     },
-//     delete: {
-//       type: LayoutAnimation.Types.spring,
-//     property: LayoutAnimation.Properties.scaleXY,
-//     springDamping: 1,
-//     initialVelocity: 0,
-//     },
-//   };
-//
-//   LayoutAnimation.configureNext( CustomLayoutSpring );
-// }

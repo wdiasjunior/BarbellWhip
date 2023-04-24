@@ -1,4 +1,4 @@
-import RNFS from 'react-native-fs';
+import RNFS from "react-native-fs";
 
 const readJSON = async (programName) => {
   const fileUri = RNFS.ExternalDirectoryPath + "/" + programName + ".json";

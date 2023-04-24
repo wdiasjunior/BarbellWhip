@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 const styles = (theme) => {
   return StyleSheet.create({
@@ -10,7 +10,7 @@ const styles = (theme) => {
     exerciseList: {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
-      justifyContent: 'flex-start',
+      justifyContent: "flex-start",
       // paddingHorizontal: 20,
     },
     exerciseItem: {
@@ -20,15 +20,15 @@ const styles = (theme) => {
       marginHorizontal: 20,
       borderRadius: 10,
       height: 56,
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      flexDirection: 'row',
+      justifyContent: "space-between",
+      alignItems: "center",
+      flexDirection: "row",
     },
     exerciseItemText: {
       color: theme.text,
       fontSize: 20,
       lineHeight: 30,
-      fontWeight: 'bold',
+      fontWeight: "bold",
       flex:1
     },
     exerciseItemIcon: {
@@ -41,34 +41,34 @@ const styles = (theme) => {
       borderRadius: 10,
       marginVertical: 12,
       marginHorizontal: 20,
-      justifyContent: 'center',
-      alignItems: 'center',
+      justifyContent: "center",
+      alignItems: "center",
     },
     AddExerciseButtonText: {
       color: theme.text,
       fontSize: 16,
       lineHeight: 35,
-      fontWeight: 'bold',
+      fontWeight: "bold",
     },
 
     RestDayText: {
       color: theme.text,
       fontSize: 20,
       lineHeight: 33,
-      fontWeight: 'bold',
+      fontWeight: "bold",
       marginHorizontal: 20,
-      textAlign: 'center'
+      textAlign: "center"
     },
 
     title: {
       color: theme.textHighlight,
       fontSize: 20,
-      fontWeight: 'bold',
+      fontWeight: "bold",
     },
 
     modalContent: {
-      justifyContent: 'center',
-      alignItems: 'center',
+      justifyContent: "center",
+      alignItems: "center",
       backgroundColor: theme.backgroundPrimary,
       borderRadius: 10,
       paddingHorizontal: 20,
@@ -76,17 +76,17 @@ const styles = (theme) => {
     },
     modalItem: {
       backgroundColor: theme.backgroundSecondary,
-      justifyContent: 'center',
-      alignItems: 'center',
+      justifyContent: "center",
+      alignItems: "center",
       borderRadius: 10,
-      width: '100%',
+      width: "100%",
       height: 50,
       marginVertical: 5,
     },
     modalItemText: {
       color: theme.text,
       fontSize: 20,
-      fontWeight: 'bold',
+      fontWeight: "bold",
     },
   });
 }

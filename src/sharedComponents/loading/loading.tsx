@@ -1,9 +1,9 @@
 import React from "react";
-import { Text, View, ActivityIndicator } from 'react-native';
+import { Text, View, ActivityIndicator } from "react-native";
 
-import styles from './loadingStyles';
+import styles from "./loadingStyles";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
 
 const Loading = ({ navigation }) => {

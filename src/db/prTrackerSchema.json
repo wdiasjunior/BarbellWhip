@@ -5,8 +5,8 @@
       "exerciseId": "ec03f7b7-ac43-43d9-af22-885cc8557926"
       "lifts": [
         {
-          "bodyWeight": 92,
-          "weight": 150
+          "bodyWeight": "92",
+          "weight": "150"
           "weightUnit": "kg",
           "date": "09/12/2021"
         }

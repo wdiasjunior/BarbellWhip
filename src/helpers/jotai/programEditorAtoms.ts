@@ -1,4 +1,4 @@
-import { atom } from 'jotai';
+import { atom } from "jotai";
 
 const programEditorDataAtom = atom({
   programName: "",
@@ -11,4 +11,6 @@ const selectedDayAtom = atom(0);
 
 const selectedWeekAtom = atom(0);
 
-export { programEditorDataAtom, selectedDayAtom, selectedWeekAtom };
+const programEditorModeAtom = atom("Create");
+
+export { programEditorDataAtom, selectedDayAtom, selectedWeekAtom, programEditorModeAtom };
