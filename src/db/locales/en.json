@@ -58,6 +58,7 @@
     },
     "programEditorStep1": {
       "title": "Create Program",
+      "title2": "Edit Program",
       "tabTitle": "Info",
       "programName": "Program Name",
       "add1RMexerciseButton": "ADD 1RM EXERCISE",
@@ -66,12 +67,14 @@
     },
     "programEditorStep2": {
       "title": "Create Program",
+      "title2": "Edit Program",
       "tabTitle": "Weeks",
       "addWeekButton": "ADD WEEK",
       "week": "Week"
     },
     "programEditorStep3": {
       "title": "Create Program",
+      "title2": "Edit Program",
       "tabTitle": "Days",
       "emptyDayInfo": "Leave day empty to mark it as a rest day",
       "addExerciseButton": "ADD EXERCISE",

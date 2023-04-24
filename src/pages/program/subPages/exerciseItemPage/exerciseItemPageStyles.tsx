@@ -5,11 +5,10 @@ const styles = (theme) => {
     container: {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
-      paddingHorizontal: 20,
     },
-    content: {
+    wrapper: {
       flex: 1,
-      paddingTop: 10,
+      paddingHorizontal: 20,
     },
     setList: {
       flex: 1,

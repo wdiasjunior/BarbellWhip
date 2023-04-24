@@ -7,17 +7,21 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 import { useAtom } from "jotai";
-import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../../../helpers/jotai/programEditorAtoms";
+import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
+import { useInitialRender } from "../../../../helpers/useInitialRender";
 
 import { deepClone } from "../../../../helpers/deepClone";
 
 import TopTabBar from "../../../../sharedComponents/topTabBar/topTabBar";
 import Header from "../../../../sharedComponents/header/header";
+import Loading from "../../../../sharedComponents/loading/loading";
 
 import styles from "./stepThreeStyles";
 
 const StepThree = ({ navigation }) => {
+
+  const isInitialRender = useInitialRender();
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
@@ -25,12 +29,13 @@ const StepThree = ({ navigation }) => {
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
   const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
   const [selectedDay, setSelectedDay] = useAtom(selectedDayAtom);
+  const [programEditorMode, ] = useAtom(programEditorModeAtom);
   const [modalOpen, setModalOpen] = useState(false);
 
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={selectedLocale.programEditorPage.programEditorStep3.title}
+                    title={programEditorMode === "Create" ? selectedLocale.programEditorPage.programEditorStep3.title : selectedLocale.programEditorPage.programEditorStep3.title2}
                     menu={false}
                     saveButton={true}
                     backButton={true}
@@ -39,7 +44,7 @@ const StepThree = ({ navigation }) => {
   }
 
   useLayoutEffect(() => {
-    onScreenLoad();
+    if(isInitialRender) onScreenLoad();
   }, [])
 
   const dayRef = useRef(null);
@@ -97,7 +102,7 @@ const StepThree = ({ navigation }) => {
     setProgramEditorData(auxAtom);
   }
 
-  // TODO check if callback should be used again, since it's used in stepTwo
+  // TODO check if useCallback should be used again, since it's used in stepTwo
   // const renderDayExerciseItems = useCallback(({item, index, drag}) => {
   const renderDayExerciseItems = ({item, index, drag}) => {
 
@@ -139,31 +144,33 @@ const StepThree = ({ navigation }) => {
         days={programEditorData.trainingProgram[selectedWeek].week.length}
         isProgramPage={false}
       />
-
-      <View style={styles(activeTheme).exerciseList}>{/*<ScrollView overScrollMode="never">*/}
-
-        <GestureHandlerRootView>
-          <DraggableFlatList
-            ref={dayRef}
-            data={programEditorData.trainingProgram[selectedWeek].week[selectedDay].day}
-            keyExtractor={(item, index) => item.exerciseName + "" + index}
-            onDragEnd={({data}) => reorder(data)}
-            renderItem={renderDayExerciseItems}
-            ListFooterComponent={() => {
-              return (
-                <>
-                  {programEditorData.trainingProgram[selectedWeek].week[selectedDay].day.length === 0 &&
-                    <Text style={styles(activeTheme).RestDayText}>{selectedLocale.programEditorPage.programEditorStep3.emptyDayInfo}</Text>
-                  }
-                  <TouchableOpacity onPress={() => setModalOpen(true)} style={styles(activeTheme).AddExerciseButton}>
-                    <Text style={styles(activeTheme).AddExerciseButtonText}>{selectedLocale.programEditorPage.programEditorStep3.addExerciseButton}</Text>
-                  </TouchableOpacity>
-                </>
-              )
-            }}
-          />
-        </GestureHandlerRootView>
-      </View>
+      {!isInitialRender ? (
+        <View style={styles(activeTheme).exerciseList}>
+          <GestureHandlerRootView>
+            <DraggableFlatList
+              ref={dayRef}
+              data={programEditorData.trainingProgram[selectedWeek].week[selectedDay].day}
+              keyExtractor={(item, index) => item.exerciseName + "" + index}
+              onDragEnd={({data}) => reorder(data)}
+              renderItem={renderDayExerciseItems}
+              ListFooterComponent={() => {
+                return (
+                  <>
+                    {programEditorData.trainingProgram[selectedWeek].week[selectedDay].day.length === 0 &&
+                      <Text style={styles(activeTheme).RestDayText}>{selectedLocale.programEditorPage.programEditorStep3.emptyDayInfo}</Text>
+                    }
+                    <TouchableOpacity onPress={() => setModalOpen(true)} style={styles(activeTheme).AddExerciseButton}>
+                      <Text style={styles(activeTheme).AddExerciseButtonText}>{selectedLocale.programEditorPage.programEditorStep3.addExerciseButton}</Text>
+                    </TouchableOpacity>
+                  </>
+                )
+              }}
+            />
+          </GestureHandlerRootView>
+        </View>
+      ) : (
+        <Loading />
+      )}
 
       <Modal
         isVisible={modalOpen}

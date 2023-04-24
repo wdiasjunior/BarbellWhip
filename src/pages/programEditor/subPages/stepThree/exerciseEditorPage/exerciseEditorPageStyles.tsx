@@ -5,6 +5,9 @@ const styles = (theme) => {
     container: {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
+    },
+    wrapper: {
+      flex: 1,
       paddingHorizontal: 20,
     },
     setList: {

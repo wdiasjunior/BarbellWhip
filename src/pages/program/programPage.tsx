@@ -10,7 +10,7 @@ import ExerciseItem from "./components/exerciseItem/exerciseItem";
 import { useAtom } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom, activeProgramAtom, programPageSelectedDayAtom, programPageSelectedWeekAtom } from "../../helpers/jotai/atomsWithStorage";
 
-import { useInitialRender } from "../../helpers/useInitialRender";
+// import { useInitialRender } from "../../helpers/useInitialRender";
 
 import styles from "./programPageStyles";
 
@@ -18,7 +18,7 @@ import styles from "./programPageStyles";
 
 const ProgramPage = ({ navigation }) => {
 
-  const isInitialRender = useInitialRender();
+  // const isInitialRender = useInitialRender();
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);

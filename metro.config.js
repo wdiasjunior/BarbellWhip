@@ -15,7 +15,7 @@ module.exports = {
     }),
   },
   // copied from a github issue - the code below supposedly fixes a bug that causes
-  // the react navigaion's default header's menu icon to not be displayed
+  // the react navigation's default header's menu icon to not be displayed
   // server: {
   //   ...defaultConfig.server,
   //   enhanceMiddleware: (middleware) => {

@@ -3,6 +3,7 @@ import { Text, View, FlatList, Button, ScrollView, TouchableOpacity, Switch } fr
 import Modal from "react-native-modal";
 
 import Header from "../../sharedComponents/header/header";
+import Loading from "../../sharedComponents/loading/loading";
 import WeightView from "./components/weightView/weightView";
 import NumberInput from "../../sharedComponents/numberInput/numberInput";
 import WeightCalc from "./utils/WeightCalc";
@@ -23,7 +24,11 @@ import {
   plateMathBumperPlatesRack,
 } from "../../helpers/jotai/atomsWithStorage";
 
+import { useInitialRender } from "../../helpers/useInitialRender";
+
 const PlateMathPage = ({ navigation }) => {
+
+  const isInitialRender = useInitialRender();
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
@@ -43,7 +48,7 @@ const PlateMathPage = ({ navigation }) => {
   }
 
   useLayoutEffect(() => {
-    onScreenLoad();
+    if(isInitialRender) onScreenLoad();
   }, [])
 
   const decrementWeight = () => {
@@ -83,78 +88,83 @@ const PlateMathPage = ({ navigation }) => {
   // color coded plates? toggle to turn it on and off?
 
   return (
-    <ScrollView style={styles(activeTheme).container} overScrollMode="never">
-      <View style={styles(activeTheme).controlsContainer}>
+    <View style={styles(activeTheme).container}>
+      {!isInitialRender ? (
+        <ScrollView style={styles(activeTheme).wrapper} overScrollMode="never">
+          <View style={styles(activeTheme).controlsContainer}>
 
-        <View style={styles(activeTheme).cardIncrement}>
-          <View style={styles(activeTheme).rowWrapper}>
-            <Text style={styles(activeTheme).title}>{selectedLocale.plateMathPage.weightLabel}</Text>
-            <View style={styles(activeTheme).row}>
-              <TouchableOpacity onPress={decrementWeight}>
-                <View style={styles(activeTheme).incrementWrapper}>
-                  <Text style={styles(activeTheme).incrementText}>-</Text>
+            <View style={styles(activeTheme).cardIncrement}>
+              <View style={styles(activeTheme).rowWrapper}>
+                <Text style={styles(activeTheme).title}>{selectedLocale.plateMathPage.weightLabel}</Text>
+                <View style={styles(activeTheme).row}>
+                  <TouchableOpacity onPress={decrementWeight}>
+                    <View style={styles(activeTheme).incrementWrapper}>
+                      <Text style={styles(activeTheme).incrementText}>-</Text>
+                    </View>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity onPress={toggleModal}>
+                    <Text style={styles(activeTheme).weight}>{currentWeight} {weightUnit ? "lbs" : "kg"}</Text>
+                    <Text style={styles(activeTheme).weightConverted}>{weightConversion(currentWeight, !weightUnit)} {!weightUnit ? "lbs" : "kg"}</Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity onPress={incrementWeight}>
+                    <View style={styles(activeTheme).incrementWrapper}>
+                      <Text style={styles(activeTheme).incrementText}>+</Text>
+                    </View>
+                  </TouchableOpacity>
                 </View>
-              </TouchableOpacity>
+              </View>
 
-              <TouchableOpacity onPress={toggleModal}>
-                <Text style={styles(activeTheme).weight}>{currentWeight} {weightUnit ? "lbs" : "kg"}</Text>
-                <Text style={styles(activeTheme).weightConverted}>{weightConversion(currentWeight, !weightUnit)} {!weightUnit ? "lbs" : "kg"}</Text>
-              </TouchableOpacity>
+              <Text style={styles(activeTheme).info}>{selectedLocale.plateMathPage.currentBarWeightLabel}:
+                <Text style={styles(activeTheme).infoWeight}> {barWeight[weightUnit ? "lbs" : "kg"]}{weightUnit ? "lbs" : "kg"}</Text>
+              </Text>
+              {/*<Text style={styles(activeTheme).info}>Current Weight on the Bar:
+                <Text style={styles(activeTheme).infoWeight}> {WeightCalc.getClosestAvailableWeight(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"])}{weightUnit}</Text>
+              </Text>*/}
 
-              <TouchableOpacity onPress={incrementWeight}>
-                <View style={styles(activeTheme).incrementWrapper}>
-                  <Text style={styles(activeTheme).incrementText}>+</Text>
-                </View>
-              </TouchableOpacity>
+              <Text style={styles(activeTheme).bumperLabel}>{selectedLocale.plateMathPage.bumperToggleLabel}</Text>
+              <Switch
+                trackColor={{ false: activeTheme.inactive, true: activeTheme.active }}
+                thumbColor={"#f4f3f4"}
+                ios_backgroundColor="#3e3e3e"
+                onValueChange={setShowBumper}
+                value={showBumper}
+                style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginTop: 10, }}
+              />
             </View>
           </View>
 
-          <Text style={styles(activeTheme).info}>{selectedLocale.plateMathPage.currentBarWeightLabel}:
-            <Text style={styles(activeTheme).infoWeight}> {barWeight[weightUnit ? "lbs" : "kg"]}{weightUnit ? "lbs" : "kg"}</Text>
-          </Text>
-          {/*<Text style={styles(activeTheme).info}>Current Weight on the Bar:
-            <Text style={styles(activeTheme).infoWeight}> {WeightCalc.getClosestAvailableWeight(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"])}{weightUnit}</Text>
-          </Text>*/}
-
-          <Text style={styles(activeTheme).bumperLabel}>{selectedLocale.plateMathPage.bumperToggleLabel}</Text>
-          <Switch
-            trackColor={{ false: activeTheme.inactive, true: activeTheme.active }}
-            thumbColor={"#f4f3f4"}
-            ios_backgroundColor="#3e3e3e"
-            onValueChange={setShowBumper}
-            value={showBumper}
-            style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginTop: 10, }}
+          <WeightView
+            weightRack={weightRack[weightUnit ? "lbs" : "kg"]}
+            barWeight={barWeight[weightUnit ? "lbs" : "kg"]}
+            weight={currentWeight}
+            plates={currentPlates}
+            activeTheme={activeTheme}
+            bumperRack={bumperPlatesRack[weightUnit ? "lbs" : "kg"]}
+            weightUnit={weightUnit ? "lbs" : "kg"}
           />
-        </View>
-      </View>
 
-      <WeightView
-        weightRack={weightRack[weightUnit ? "lbs" : "kg"]}
-        barWeight={barWeight[weightUnit ? "lbs" : "kg"]}
-        weight={currentWeight}
-        plates={currentPlates}
-        activeTheme={activeTheme}
-        bumperRack={bumperPlatesRack[weightUnit ? "lbs" : "kg"]}
-        weightUnit={weightUnit ? "lbs" : "kg"}
-      />
-
-      <Modal
-        isVisible={isModalWeightInputVisible}
-        onBackButtonPress={() => setModalWeightInputVisible(false)}
-        onBackdropPress={() => setModalWeightInputVisible(false)}
-        useNativeDriver={true}
-        hideModalContentWhileAnimating={true}
-        animationInTiming={100}
-        animationOutTiming={1}
-        backdropTransitionInTiming={100}
-        backdropTransitionOutTiming={1}
-      >
-        <View style={styles(activeTheme).modalContent}>
-          <NumberInput weightUnit={weightUnit ? "lbs" : "kg"} toggleModal={toggleModal} inputLabel={weightUnit ? "lbs" : "kg"}/>
-        </View>
-      </Modal>
-
-    </ScrollView>
+          <Modal
+            isVisible={isModalWeightInputVisible}
+            onBackButtonPress={() => setModalWeightInputVisible(false)}
+            onBackdropPress={() => setModalWeightInputVisible(false)}
+            useNativeDriver={true}
+            hideModalContentWhileAnimating={true}
+            animationInTiming={100}
+            animationOutTiming={1}
+            backdropTransitionInTiming={100}
+            backdropTransitionOutTiming={1}
+          >
+            <View style={styles(activeTheme).modalContent}>
+              <NumberInput weightUnit={weightUnit ? "lbs" : "kg"} toggleModal={toggleModal} inputLabel={weightUnit ? "lbs" : "kg"}/>
+            </View>
+          </Modal>
+        </ScrollView>
+      ) : (
+        <Loading />
+      )}
+    </View>
   );
 }
 

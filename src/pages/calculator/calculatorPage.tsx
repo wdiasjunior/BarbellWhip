@@ -1,18 +1,29 @@
 import React, { useState, useLayoutEffect } from "react";
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from "react-native";
+import { Text, View, TouchableOpacity, ScrollView, } from "react-native";
 import Modal from "react-native-modal";
 
 import oneRMCalc from "./math";
 import styles from "./calculatorPageStyles";
 import NumberInput from "../../sharedComponents/numberInput/numberInput";
 import Header from "../../sharedComponents/header/header";
+import Loading from "../../sharedComponents/loading/loading";
 
 import { weightConversion } from "../../helpers/weightConversion";
 
 import { useAtom } from "jotai";
-import { activeThemeAtom, selectedLocaleAtom, calculatorPageRepsAtom, calculatorPageWeightAtom, calculatorPageWeightUnitAtom } from "../../helpers/jotai/atomsWithStorage";
+import {
+  activeThemeAtom,
+  selectedLocaleAtom,
+  calculatorPageRepsAtom,
+  calculatorPageWeightAtom,
+  calculatorPageWeightUnitAtom,
+} from "../../helpers/jotai/atomsWithStorage";
+
+import { useInitialRender } from "../../helpers/useInitialRender";
 
 const CalculatorPage = ({ navigation }) => {
+
+  const isInitialRender = useInitialRender();
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
@@ -37,7 +48,7 @@ const CalculatorPage = ({ navigation }) => {
   }
 
   useLayoutEffect(() => {
-    onScreenLoad();
+    if(isInitialRender) onScreenLoad();
   }, [])
 
   const decrementReps = () => {
@@ -96,155 +107,159 @@ const CalculatorPage = ({ navigation }) => {
   }
 
   return (
-    <SafeAreaView style={styles(activeTheme).container}>
-      <ScrollView overScrollMode="never">
+    <View style={styles(activeTheme).container}>
+      {!isInitialRender ? (
+        <ScrollView overScrollMode="never">
 
-        <View style={styles(activeTheme).cardIncrement}>
+          <View style={styles(activeTheme).cardIncrement}>
 
-          <View style={styles(activeTheme).rowWrapper}>
-            <Text style={styles(activeTheme).title}>{selectedLocale.calculatorPage.weightLifted}</Text>
-            <View style={styles(activeTheme).row}>
-              <TouchableOpacity onPress={decrementWeight}>
-                <View style={styles(activeTheme).incrementWrapper}>
-                  <Text style={styles(activeTheme).incrementText}>-</Text>
-                </View>
-              </TouchableOpacity>
-
-              <TouchableOpacity onPress={() => toggleModal("0", weightUnit)}>
-                <Text style={styles(activeTheme).weight}>{weightLifted} {weightUnit}</Text>
-                <Text style={styles(activeTheme).weightConverted}>{weightConversion(weightLifted, weightUnit === "kg")} {weightUnit === "kg" ? "lbs" : "kg"}</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity onPress={incrementWeight}>
-                <View style={styles(activeTheme).incrementWrapper}>
-                  <Text style={styles(activeTheme).incrementText}>+</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          </View>
-
-          <View style={styles(activeTheme).rowWrapper}>
-            <Text style={styles(activeTheme).title}>{selectedLocale.calculatorPage.repsPerformed}</Text>
-            <View style={styles(activeTheme).row}>
-              <TouchableOpacity onPress={decrementReps}>
-                <View style={styles(activeTheme).incrementWrapper}>
-                  <Text style={styles(activeTheme).incrementText}>-</Text>
-                </View>
-              </TouchableOpacity>
-
-              <TouchableOpacity onPress={() => toggleModal("0", "REPS")}>
-                <Text style={styles(activeTheme).repsSets}>{repsPerformed}</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity onPress={incrementReps}>
-                <View style={styles(activeTheme).incrementWrapper}>
-                  <Text style={styles(activeTheme).incrementText}>+</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-
-        {repsPerformed > 12 &&
-          <View style={styles(activeTheme).cardWarning}>
-            <Text style={styles(activeTheme).textWarning}>{selectedLocale.calculatorPage.textWarning}</Text>
-          </View>
-        }
-
-        <View style={styles(activeTheme).card1RM}>
-          <Text style={styles(activeTheme).title1RM}>{selectedLocale.calculatorPage.rmTitle}</Text>
-
-          <View style={styles(activeTheme).card1RMRow1}>
-            <View style={styles(activeTheme).card1RMCol}>
-              <Text style={styles(activeTheme).weightTop}>{oneRMCalc(weightLifted, repsPerformed, 1)} {weightUnit}</Text>
-              <Text style={styles(activeTheme).weightSubTop}>1RM</Text>
-            </View>
-            <View style={styles(activeTheme).card1RMCol}>
-              <Text style={styles(activeTheme).weightTop}>{oneRMCalc(weightLifted, repsPerformed, 5)} {weightUnit}</Text>
-              <Text style={styles(activeTheme).weightSubTop}>5RM</Text>
-            </View>
-          </View>
-
-          <View style={styles(activeTheme).card1RMRow2}>
-            <View style={styles(activeTheme).card1RMCol}>
-              {rmCol1.map((item, index) => {
-                return (
-                  <View style={styles(activeTheme).card1RMColContentRow} key={"key-rmCol1-"+index}>
-                    <Text style={styles(activeTheme).weightSubBottom}>{item}RM</Text>
-                    <Text style={styles(activeTheme).weightBottom}>{oneRMCalc(weightLifted, repsPerformed, item)} {weightUnit}</Text>
+            <View style={styles(activeTheme).rowWrapper}>
+              <Text style={styles(activeTheme).title}>{selectedLocale.calculatorPage.weightLifted}</Text>
+              <View style={styles(activeTheme).row}>
+                <TouchableOpacity onPress={decrementWeight}>
+                  <View style={styles(activeTheme).incrementWrapper}>
+                    <Text style={styles(activeTheme).incrementText}>-</Text>
                   </View>
-                )
-              })}
-            </View>
-            <View style={styles(activeTheme).card1RMCol}>
-              {rmCol2.map((item, index) => {
-                return (
-                  <View style={styles(activeTheme).card1RMColContentRow} key={"key-rmCol2-"+index}>
-                    <Text style={styles(activeTheme).weightSubBottom}>{item}RM</Text>
-                    <Text style={styles(activeTheme).weightBottom}>{oneRMCalc(weightLifted, repsPerformed, item)} {weightUnit}</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => toggleModal("0", weightUnit)}>
+                  <Text style={styles(activeTheme).weight}>{weightLifted} {weightUnit}</Text>
+                  <Text style={styles(activeTheme).weightConverted}>{weightConversion(weightLifted, weightUnit === "kg")} {weightUnit === "kg" ? "lbs" : "kg"}</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={incrementWeight}>
+                  <View style={styles(activeTheme).incrementWrapper}>
+                    <Text style={styles(activeTheme).incrementText}>+</Text>
                   </View>
-                )
-              })}
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
-        </View>
 
-        <View style={styles(activeTheme).cardPercentage}>
-          <Text style={styles(activeTheme).title1RM}>{selectedLocale.calculatorPage.rmPercentageTitle}</Text>
-
-          <View style={styles(activeTheme).card1RMRow1}>
-            <View style={styles(activeTheme).card1RMCol}>
-              <Text style={styles(activeTheme).weightTop}>{Math.floor(weightLifted * 1.05)} {weightUnit}</Text>
-              <Text style={styles(activeTheme).weightSubTop}>105%</Text>
-            </View>
-            <View style={styles(activeTheme).card1RMCol}>
-              <Text style={styles(activeTheme).weightTop}>{Math.floor(weightLifted * 1.025)} {weightUnit}</Text>
-              <Text style={styles(activeTheme).weightSubTop}>102.5%</Text>
-            </View>
-          </View>
-
-          <View style={styles(activeTheme).card1RMRow2}>
-            <View style={styles(activeTheme).card1RMCol}>
-              {percentCol1.map((item, index) => {
-                return (
-                  <View style={styles(activeTheme).card1RMColContentRow} key={"key-percentageCol1-"+index}>
-                    <Text style={styles(activeTheme).weightSubBottom}>{percentLabel(item)}%</Text>
-                    <Text style={styles(activeTheme).weightBottom}>{Math.floor(weightLifted * item)} {weightUnit}</Text>
+            <View style={styles(activeTheme).rowWrapper}>
+              <Text style={styles(activeTheme).title}>{selectedLocale.calculatorPage.repsPerformed}</Text>
+              <View style={styles(activeTheme).row}>
+                <TouchableOpacity onPress={decrementReps}>
+                  <View style={styles(activeTheme).incrementWrapper}>
+                    <Text style={styles(activeTheme).incrementText}>-</Text>
                   </View>
-                )
-              })}
-            </View>
-            <View style={styles(activeTheme).card1RMCol}>
-              {percentCol2.map((item, index) => {
-                return (
-                  <View style={styles(activeTheme).card1RMColContentRow} key={"key-percentageCol2-" + index}>
-                    <Text style={styles(activeTheme).weightSubBottom}>{percentLabel(item)}%</Text>
-                    <Text style={styles(activeTheme).weightBottom}>{Math.floor(weightLifted * item)} {weightUnit}</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => toggleModal("0", "REPS")}>
+                  <Text style={styles(activeTheme).repsSets}>{repsPerformed}</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={incrementReps}>
+                  <View style={styles(activeTheme).incrementWrapper}>
+                    <Text style={styles(activeTheme).incrementText}>+</Text>
                   </View>
-                )
-              })}
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
-        </View>
 
-        <Modal
-          isVisible={isModalWeightInputVisible}
-          onBackButtonPress={() => setModalWeightInputVisible(false)}
-          onBackdropPress={() => setModalWeightInputVisible(false)}
-          useNativeDriver={true}
-          hideModalContentWhileAnimating={true}
-          animationInTiming={100}
-          animationOutTiming={1}
-          backdropTransitionInTiming={100}
-          backdropTransitionOutTiming={1}
-        >
-          <View style={styles(activeTheme).modalContent}>
-            <NumberInput toggleModal={toggleModal} inputLabel={inputLabel}/>
+          {repsPerformed > 12 &&
+            <View style={styles(activeTheme).cardWarning}>
+              <Text style={styles(activeTheme).textWarning}>{selectedLocale.calculatorPage.textWarning}</Text>
+            </View>
+          }
+
+          <View style={styles(activeTheme).card1RM}>
+            <Text style={styles(activeTheme).title1RM}>{selectedLocale.calculatorPage.rmTitle}</Text>
+
+            <View style={styles(activeTheme).card1RMRow1}>
+              <View style={styles(activeTheme).card1RMCol}>
+                <Text style={styles(activeTheme).weightTop}>{oneRMCalc(weightLifted, repsPerformed, 1)} {weightUnit}</Text>
+                <Text style={styles(activeTheme).weightSubTop}>1RM</Text>
+              </View>
+              <View style={styles(activeTheme).card1RMCol}>
+                <Text style={styles(activeTheme).weightTop}>{oneRMCalc(weightLifted, repsPerformed, 5)} {weightUnit}</Text>
+                <Text style={styles(activeTheme).weightSubTop}>5RM</Text>
+              </View>
+            </View>
+
+            <View style={styles(activeTheme).card1RMRow2}>
+              <View style={styles(activeTheme).card1RMCol}>
+                {rmCol1.map((item, index) => {
+                  return (
+                    <View style={styles(activeTheme).card1RMColContentRow} key={"key-rmCol1-"+index}>
+                      <Text style={styles(activeTheme).weightSubBottom}>{item}RM</Text>
+                      <Text style={styles(activeTheme).weightBottom}>{oneRMCalc(weightLifted, repsPerformed, item)} {weightUnit}</Text>
+                    </View>
+                  )
+                })}
+              </View>
+              <View style={styles(activeTheme).card1RMCol}>
+                {rmCol2.map((item, index) => {
+                  return (
+                    <View style={styles(activeTheme).card1RMColContentRow} key={"key-rmCol2-"+index}>
+                      <Text style={styles(activeTheme).weightSubBottom}>{item}RM</Text>
+                      <Text style={styles(activeTheme).weightBottom}>{oneRMCalc(weightLifted, repsPerformed, item)} {weightUnit}</Text>
+                    </View>
+                  )
+                })}
+              </View>
+            </View>
           </View>
-        </Modal>
 
-      </ScrollView>
-    </SafeAreaView>
+          <View style={styles(activeTheme).cardPercentage}>
+            <Text style={styles(activeTheme).title1RM}>{selectedLocale.calculatorPage.rmPercentageTitle}</Text>
+
+            <View style={styles(activeTheme).card1RMRow1}>
+              <View style={styles(activeTheme).card1RMCol}>
+                <Text style={styles(activeTheme).weightTop}>{Math.floor(weightLifted * 1.05)} {weightUnit}</Text>
+                <Text style={styles(activeTheme).weightSubTop}>105%</Text>
+              </View>
+              <View style={styles(activeTheme).card1RMCol}>
+                <Text style={styles(activeTheme).weightTop}>{Math.floor(weightLifted * 1.025)} {weightUnit}</Text>
+                <Text style={styles(activeTheme).weightSubTop}>102.5%</Text>
+              </View>
+            </View>
+
+            <View style={styles(activeTheme).card1RMRow2}>
+              <View style={styles(activeTheme).card1RMCol}>
+                {percentCol1.map((item, index) => {
+                  return (
+                    <View style={styles(activeTheme).card1RMColContentRow} key={"key-percentageCol1-"+index}>
+                      <Text style={styles(activeTheme).weightSubBottom}>{percentLabel(item)}%</Text>
+                      <Text style={styles(activeTheme).weightBottom}>{Math.floor(weightLifted * item)} {weightUnit}</Text>
+                    </View>
+                  )
+                })}
+              </View>
+              <View style={styles(activeTheme).card1RMCol}>
+                {percentCol2.map((item, index) => {
+                  return (
+                    <View style={styles(activeTheme).card1RMColContentRow} key={"key-percentageCol2-" + index}>
+                      <Text style={styles(activeTheme).weightSubBottom}>{percentLabel(item)}%</Text>
+                      <Text style={styles(activeTheme).weightBottom}>{Math.floor(weightLifted * item)} {weightUnit}</Text>
+                    </View>
+                  )
+                })}
+              </View>
+            </View>
+          </View>
+
+          <Modal
+            isVisible={isModalWeightInputVisible}
+            onBackButtonPress={() => setModalWeightInputVisible(false)}
+            onBackdropPress={() => setModalWeightInputVisible(false)}
+            useNativeDriver={true}
+            hideModalContentWhileAnimating={true}
+            animationInTiming={100}
+            animationOutTiming={1}
+            backdropTransitionInTiming={100}
+            backdropTransitionOutTiming={1}
+          >
+            <View style={styles(activeTheme).modalContent}>
+              <NumberInput toggleModal={toggleModal} inputLabel={inputLabel}/>
+            </View>
+          </Modal>
+
+        </ScrollView>
+      ) : (
+        <Loading />
+      )}
+    </View>
   );
 }
 

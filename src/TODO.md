@@ -82,3 +82,26 @@
 - don't be afraid of big files, no need to split a component in 15 different files and directories, have some common sense
 -
 - and last but more importantly: make use of goHorse whenever necessary
+
+
+---
+
+
+//   old About Page from the first app prototype from a few years ago
+//
+//   <div id="container">
+//   <strong>By powerlifters, to powerlifters.</strong><br><br>
+//
+//   {/*<Text style={styles(activeTheme).subtitle}>User Guide (link)</Text>*/}
+//
+//   <p>To report bugs, suggest new features</p>
+//   <p>or if want to contribute to the project</p>
+//   <p>access the link below.</p><br>
+//   <p><a style="color: #3dc2ff;" href="https://github.com/" target="_blank">GitHub Repository</a></p><br>
+//
+//   <p>This app is ad free.<br>If you feel like it, please support the developer.</p><br>
+//   <p><a style="color: #3dc2ff;" href="https://paypal.com/" target="_blank">Donate</a></p><br><br><br>
+//   <p style="color: #ffffff">Created by Wellington Junior.</p>
+//   </div>
+//
+//   {/*<Text style={styles(activeTheme).subtitle}>Version Number</Text>*/}

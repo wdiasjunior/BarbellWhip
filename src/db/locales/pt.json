@@ -58,6 +58,7 @@
     },
     "programEditorStep1": {
       "title": "Criar Treino",
+      "title2": "Editar Treino",
       "tabTitle": "Info",
       "programName": "Nome do Treino",
       "add1RMexerciseButton": "ADD EXERCÍCIO 1RM",
@@ -66,12 +67,14 @@
     },
     "programEditorStep2": {
       "title": "Criar Treino",
+      "title2": "Editar Treino",
       "tabTitle": "Semanas",
       "addWeekButton": "ADD SEMANA",
       "week": "Semana"
     },
     "programEditorStep3": {
       "title": "Criar Treino",
+      "title2": "Editar Treino",
       "tabTitle": "Dias",
       "emptyDayInfo": "Deixe o dia vazio para marca-lo como dia de descanso",
       "addExerciseButton": "ADD EXERCÍCIO",

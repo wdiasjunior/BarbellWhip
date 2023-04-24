@@ -5,9 +5,20 @@ const styles = (theme) => {
     container: {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
-      alignItems: "flex-start",
-      justifyContent: "flex-start",
       paddingTop: 12,
+      // paddingBottom: 102,
+      alignItems: "center",
+      alignContent: "center",
+      justifyContent: "center",
+    },
+    wrapperLoading: {
+      flex: 1,
+      alignItems: "center",
+      alignContent: "center",
+      justifyContent: "center",
+    },
+    wrapper: {
+      flex: 1,
     },
 
     noProgramListTextContainer: {
@@ -50,6 +61,10 @@ const styles = (theme) => {
       width: "100%",
       height: "100%",
       flex: 1,
+    },
+    programListWrapper: {
+      flex: 1,
+      paddingBottom: 90,
     },
     programItem: {
       marginHorizontal: 20,

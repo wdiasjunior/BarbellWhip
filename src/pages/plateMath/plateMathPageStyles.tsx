@@ -6,6 +6,9 @@ const styles = (theme) => {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
     },
+    wrapper: {
+      flex: 1,
+    },
     controlsContainer: {
       flex: 1,
       paddingHorizontal: 20,
