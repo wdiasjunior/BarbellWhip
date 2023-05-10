@@ -19,7 +19,7 @@ In one terminal run the command below
 
 And in another terminal run the following commands
 
-`export JAVA_HOME='/usr/lib/jvm/java-11-openjdk/'`
+`export JAVA_HOME='/usr/lib/jvm/java-11-openjdk'`
 
 `export ANDROID_SDK_ROOT='/home/$USER/Android/Sdk'`
 
@@ -33,7 +33,7 @@ Run the command below in the project's root directory
 
 Then run the commands below in the `/android` directory
 
-`export JAVA_HOME='/usr/lib/jvm/java-11-openjdk/'`
+`export JAVA_HOME='/usr/lib/jvm/java-11-openjdk'`
 
 `export ANDROID_SDK_ROOT='/home/$USER/Android/Sdk'`
 
