@@ -7,6 +7,8 @@ plate calculators and a program editor.
 
 Built with React Native, and currently only supported on Android.
 
+For iOS users or whoever wants to test the app without downloading it, there's an experimental web version available at https://web.barbellwhip.com/, and the source code for it is available [here](https://github.com/wdiasjunior/barbellwhip-web).
+
 <img src="appOverview.gif" alt="appOverview" width="300"/>
 
 ## How to run
