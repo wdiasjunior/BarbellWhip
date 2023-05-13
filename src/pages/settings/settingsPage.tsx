@@ -58,7 +58,7 @@ const SettingsPage = ({ navigation }) => {
         </View>
 
         <View style={styles(activeTheme).themeSelectorContainer}>
-          <Text style={styles(activeTheme).themeSelectorTitle}>Theme:</Text>
+          <Text style={styles(activeTheme).themeSelectorTitle}>{selectedLocale.settingsPage.themeSelectorTitle}:</Text>
           {themes.map((theme, index) => {
             return (
               <TouchableOpacity
