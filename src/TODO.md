@@ -70,20 +70,6 @@
 - make text responsive everywhere?
   - `<Text adjustsFontSizeToFit style={styles(activeTheme).text}>teste</Text>`
 
-
-# add contributing guidelines
-- auto formmating/prettier/eslint settings? I don't even use this shit
-  - please don't go using prettier and breaking all of the formmating around the code base
-  - if a line needs to be long leave it long
-  -
-- 2 space tabs
-- double quotes for strings
-- single quotes for chars
-- don't be afraid of big files, no need to split a component in 15 different files and directories, have some common sense
--
-- and last but more importantly: make use of goHorse whenever necessary
-
-
 ---
 
 
@@ -105,3 +91,59 @@
 //   </div>
 //
 //   {/*<Text style={styles(activeTheme).subtitle}>Version Number</Text>*/}
+
+
+
+barbellwhip app bug on deleting last week in stepTwo, won't select last item after deletion
+
+change program editor program data to atom with storage in both apps? prevent accidental discard of progress
+
+prevent adding empty days (rest days) and empty exercises to the saved file?
+does program page have a rest day info text?
+
+update warning/modal info
+
+fix other bugs
+
+barbellwhip
+
+release current features and bug fixes
+worry about performance later?
+
+check todos and unused variables/find in objects
+check for rerenders
+weightRackPage Object. map's fucking up performance?
+remake week menu list without animations?
+
+console.time
+console.timeEnd
+
+react native native module rust parser
+look up takuya dev as a life c++ encryption module for inspo?
+
+app update notifications?
+make a getto "api" with the barbellwhip website and check on load if version in a atom with storage is different from the version in the website
+dont show again
+download to temp?
+settings check for update button
+
+ios? web?
+
+mongodb react native performance vs big json files
+realm.io sdk
+https://github.com/mrousavy/react-native-mmkv
+
+ci cd build bot?
+
+---
+
+prototype barbellwhip logic with pseudo code?
+
+per exercise set entry notes
+
+and think of a way to extend the schema to allow for auto regulation logic with reps and weight 1rm estimation
+
+---
+
+https://tamagui.dev/
+try this on barbellwhip and have only one codebase?

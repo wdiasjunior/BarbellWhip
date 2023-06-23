@@ -104,7 +104,7 @@ const StepTwo = ({ navigation }) => {
             <Ionicons onPress={() => duplicateWeek(index)} name="copy-outline" size={20} style={styles(activeTheme).weekItemIcon} />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles(activeTheme).weekItemIconContainer}  onPress={() => deleteWeek(index)} >
+          <TouchableOpacity style={styles(activeTheme).weekItemIconContainer}  onPress={() => deleteWeek()} >
             <Ionicons name="trash-outline" size={20} style={styles(activeTheme).weekItemIcon} />
           </TouchableOpacity>
         </TouchableOpacity>
