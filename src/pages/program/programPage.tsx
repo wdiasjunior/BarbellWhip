@@ -47,6 +47,7 @@ const ProgramPage = ({ navigation }) => {
     }
     setSelectedWeek(index);
     setIsMenuOpen(!isMenuOpen);
+    // barbellwhip header program page show week if trainingProgram.length > 1
     navigation.setOptions({ headerTitle: () =>
                   <Header
                     title={activeProgram?.programName ? activeProgram?.programName + " - " + selectedLocale.programPage.week + " " + (index + 1) : selectedLocale.programPage.defaultTitle}
@@ -58,6 +59,7 @@ const ProgramPage = ({ navigation }) => {
   }
 
   const onScreenLoad = () => {
+    // barbellwhip header program page show week if trainingProgram.length > 1
     navigation.setOptions({ headerTitle: () =>
                   <Header
                     title={activeProgram?.programName ? activeProgram?.programName + " - " + selectedLocale.programPage.week + " " + (selectedWeek + 1) : selectedLocale.programPage.defaultTitle}

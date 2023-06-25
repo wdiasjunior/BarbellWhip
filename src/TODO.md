@@ -93,6 +93,7 @@
 //   {/*<Text style={styles(activeTheme).subtitle}>Version Number</Text>*/}
 
 
+program page glitch - test without useeffects?
 
 barbellwhip app bug on deleting last week in stepTwo, won't select last item after deletion
 
