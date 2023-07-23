@@ -95,14 +95,20 @@
 
 program page glitch - test without useeffects?
 
+when program is active and there was an edit then set active -> week was set to 1 again
+
+prevent screen rotation
+
 barbellwhip app bug on deleting last week in stepTwo, won't select last item after deletion
 
 change program editor program data to atom with storage in both apps? prevent accidental discard of progress
 
+on save program check if file with the same bame already exists
 prevent adding empty days (rest days) and empty exercises to the saved file?
 does program page have a rest day info text?
 
 update warning/modal info
+import { version } from './package.json';
 
 fix other bugs
 
@@ -148,3 +154,10 @@ and think of a way to extend the schema to allow for auto regulation logic with 
 
 https://tamagui.dev/
 try this on barbellwhip and have only one codebase?
+
+---
+
+build release apk instead of debug
+https://gist.github.com/wdiasjunior/26c7f0b701c9fd8c184c1ebd92a5d986
+https://reactnative.dev/docs/signed-apk-android.html
+https://instamobile.io/android-development/generate-react-native-release-build-android/
