@@ -9,20 +9,24 @@ import { useAtom } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
 
+import type { OneRMs } from "../../../../db/programs/programTypings";
+
 interface Props {
-  onermOBJ: any;
-  weightUnit: any;
+  onermOBJ: OneRMs[];
+  weightUnit: string;
 }
 
-const RMReviewPage = (props: Props) => {
+const RMReviewPage = (_props: Props) => {
+
+  const props: Props = _props.route.params;
 
   const isInitialRender = useInitialRender();
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
-  const onermOBJ = props.route.params.onermOBJ;
-  const weightUnit = props.route.params.weightUnit;
+  const onermOBJ = props.onermOBJ;
+  const weightUnit = props.weightUnit;
 
   return (
     <View style={styles(activeTheme).container}>

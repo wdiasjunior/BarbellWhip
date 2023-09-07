@@ -6,9 +6,6 @@ const styles = (theme) => {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
     },
-    containerDrawer: {
-      justifyContent: "center",
-    },
     text1: {
       color: theme.text,
       fontSize: 24,
@@ -20,6 +17,7 @@ const styles = (theme) => {
     containerDrawer: {
       flex: 1,
       backgroundColor: theme.backgroundSecondary,
+      justifyContent: "center",
     },
     drawerItemSelected: {
       marginHorizontal: 15,

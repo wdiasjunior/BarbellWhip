@@ -1,9 +1,11 @@
+import { IPlates } from "../components/plate/plate";
+
 const WeightCalc = {
-  getPlates(weight, barWeight, weightRack, bumperRack) {
+  getPlates(weight: number, barWeight: number, weightRack: any, bumperRack?: any) {
     const weightOfSingleSidePlates = (weight - barWeight) / 2;
 
-    let platesAux = []; // keeps track of all plates weights - only used for math
-    let plates = []; // array of objets that keeps track of bumper data
+    let platesAux: number[] = []; // keeps track of all plates weights - only used for math
+    let plates: IPlates[] = []; // array of objets that keeps track of bumper data
 
     if(bumperRack) { // adds bumper plates at beginning of the array
       const bumperPlatesAvailable = this.getPlatesAvailableFromRack(bumperRack);
@@ -45,35 +47,36 @@ const WeightCalc = {
     return plates;
   },
 
-  getPlatesAvailableFromRack(weightRack) {
+  getPlatesAvailableFromRack(weightRack: any) {
     return Object.keys(weightRack).map((a) => parseFloat(a)).sort((a, b) => a - b).reverse();
   },
 
-  getPlatePercentOfMax(weight, weightRack) {
+  getPlatePercentOfMax(plate: IPlates, weightRack: any) {
     const plates = weightRack.map((a) => !a.isBumper ? a.plate : 0).sort((a, b) => a.plate - b.plate).reverse();
     // console.log("----------plates", plates);
     // funtion kinda broken after adding bumper plates rack funcitonality
     // TODO - fix this? decided to set the size manually and seems to work fine
     const min = Math.min.apply(null, plates);
     const max = Math.max.apply(null, plates);
-    const size =  (weight.plate - min) / (max - min);
+    const size =  (plate.plate - min) / (max - min);
 
     return isNaN(size) ? 1 : size; // 180kg returns NaN wtf?
   },
 
-  getClosestAvailableWeight(weight, barWeight, weightRack) {
+  getClosestAvailableWeight(weight: number, barWeight: number, weightRack: any) {
     return this.getTotalWeight(this.getPlates(weight, barWeight, weightRack), barWeight);
   },
 
-  getTotalWeight(plates, barWeight) {
+  getTotalWeight(plates: IPlates[], barWeight: number) {
+    // return (plates.length * 2) + barWeight; // TODO - does this also work?
     return (this.sum(plates) * 2) + barWeight;
   },
 
-  sum(arr) {
+  sum(arr: any[]) {
     if(arr.length === 0) {
       return 0;
     }
-    return arr.reduce((acc, val) => acc + val);
+    return arr.reduce((acc, val) => acc + val); // TODO - test if this won't break. my guess is no since it works alread and I just added type annotations
   }
 }
 

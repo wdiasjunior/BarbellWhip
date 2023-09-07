@@ -8,8 +8,8 @@ import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWi
 
 interface Props {
   days: number;
-  selectDay(): any;
-  setFirstTab(): any;
+  selectDay: (day: number) => void;
+  setFirstTab: number;
   isProgramPage: boolean;
 }
 
@@ -17,11 +17,11 @@ const TopTabBar = (props: Props) => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
-  const [selectedDay, setSelectedDay] = useAtom(programPageSelectedDayAtom);
+  const [selectedDay, setSelectedDay] = useAtom<number>(programPageSelectedDayAtom);
 
   const days = Array.from(Array(props.days).keys());
 
-  const [dataSourceCords, setDataSourceCords] = useState([]);
+  const [dataSourceCords, setDataSourceCords] = useState<Array<number>>([]);
   const ref = useRef();
   const [selected, setSelected] = useState(0);
   const selectTab = (index) => {

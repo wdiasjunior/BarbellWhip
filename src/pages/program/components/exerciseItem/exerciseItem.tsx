@@ -6,17 +6,16 @@ import { useNavigation } from "@react-navigation/native";
 import { useAtom } from "jotai";
 import { activeThemeAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
+import type { OneRMs, DayExercises } from "../../../../db/programs/programTypings";
+
 import styles from "./exerciseItemStyles";
 
-// TODO - does this component even need to be in a separate file?
-
 interface Props {
-  onermOBJ: any;
-  rmId: any;
-  weightUnit: any;
-  navigation: any;
-  exerciseName: any;
-  exerciseOBJ: any;
+  onermOBJ: OneRMs[];
+  rmId: string;
+  weightUnit: string;
+  exerciseName: string;
+  exerciseOBJ: DayExercises;
 }
 
 const ExerciseItem = (props: Props) => {

@@ -1,8 +1,8 @@
 import RNFS from "react-native-fs";
 
-const readJSON = async (programName) => {
+const readJSON = async (programName: string) => {
   const fileUri = RNFS.ExternalDirectoryPath + "/" + programName + ".json";
-  let data = null;
+  let data: any = null;
   try {
     data = await RNFS.readFile(fileUri);
   } catch(error) {
@@ -11,8 +11,8 @@ const readJSON = async (programName) => {
   return data;
 }
 
-const readImportedJSON = async (fileUri) => {
-  let data = null;
+const readImportedJSON = async (fileUri: string) => {
+  let data: any = null;
   try {
     data = await RNFS.readFile(fileUri);
   } catch(error) {
@@ -21,9 +21,9 @@ const readImportedJSON = async (fileUri) => {
   return data;
 }
 
-const returnFileURL = async (programName) => {
+const returnFileURL = async (programName: string) => {
   const fileUri = RNFS.ExternalDirectoryPath + "/" + programName;
-  let data = null;
+  let data: any = null;
   try {
     data = await RNFS.readFile(fileUri);
   } catch(error) {
@@ -34,7 +34,7 @@ const returnFileURL = async (programName) => {
 
 const readDirectory = async () => {
   const fileUri = RNFS.ExternalDirectoryPath;
-  let data = null;
+  let data: any = null;
   try {
     data = await RNFS.readDir(fileUri);
   } catch(error) {

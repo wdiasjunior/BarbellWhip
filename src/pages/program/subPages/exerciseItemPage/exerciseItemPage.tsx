@@ -5,22 +5,25 @@ import { useNavigation } from "@react-navigation/native";
 import Header from "../../../../sharedComponents/header/header";
 import Loading from "../../../../sharedComponents/loading/loading";
 
+import type { OneRMs, DayExercises } from "../../../../db/programs/programTypings";
+
 import styles from "./exerciseItemPageStyles";
 
 import { useAtom } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
 
-// TODO - make this work for props.route.params
-// interface Props {
-//   exerciseName: any;
-//   onermOBJ: any;
-//   rmId: any;
-//   exerciseOBJ: any;
-//   weightUnit: any;
-// }
+interface Props {
+  exerciseName: string;
+  onermOBJ: OneRMs[];
+  rmId: string;
+  exerciseOBJ: DayExercises;
+  weightUnit: string;
+}
 
-const ExerciseItemPage = (props) => {
+const ExerciseItemPage = (_props: any) => {
+
+  const props: Props = _props.route.params;
 
   const navigation = useNavigation();
 
@@ -32,20 +35,22 @@ const ExerciseItemPage = (props) => {
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={props.route.params.exerciseName}
+                    title={props.exerciseName}
                     backButton={true}
                   />
               });
   }
 
   useLayoutEffect(() => {
-    if(isInitialRender) onScreenLoad();
+    if(isInitialRender) {
+      onScreenLoad();
+    }
   }, [])
 
-  const setsList = props.route.params.exerciseOBJ.set;
-  const onermOBJ = props.route.params.onermOBJ;
-  const rmId = props.route.params.rmId;
-  const weightUnit = props.route.params.weightUnit;
+  const setsList = props.exerciseOBJ.set;
+  const onermOBJ = props.onermOBJ;
+  const rmId = props.rmId;
+  const weightUnit = props.weightUnit;
   const weightRoundingFactor = weightUnit === "kg" ? 2.5 : 5;
   const oneRMweight = onermOBJ.find((el) => el.id === rmId) ?? 0; // TODO - check this. not really needed since I can just pass the 1rm as a route.param
 

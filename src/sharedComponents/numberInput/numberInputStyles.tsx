@@ -27,6 +27,14 @@ const styles = (theme) => {
       color: theme.text,
       marginLeft: 25,
     },
+    inputTextLabel: {
+      textAlign: "center",
+      fontWeight: "bold",
+      fontSize: 24,
+      lineHeight: 24,
+      color: theme.text,
+      marginLeft: 25,
+    },
     numpad: {
       flex: 1,
       flexDirection: "row",

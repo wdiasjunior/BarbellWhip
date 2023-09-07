@@ -39,7 +39,9 @@ const PlateMathPage = ({ navigation }) => {
   const [weightRack, ] = useAtom(plateMathWeightRack);
   const [bumperPlatesRack, ] = useAtom(plateMathBumperPlatesRack);
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
-  const currentPlates = showBumper ? WeightCalc.getPlates(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"], bumperPlatesRack[weightUnit ? "lbs" : "kg"]) : WeightCalc.getPlates(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"]);
+  const currentPlates = showBumper
+                          ? WeightCalc.getPlates(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"], bumperPlatesRack[weightUnit ? "lbs" : "kg"])
+                          : WeightCalc.getPlates(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"]);
 
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
@@ -48,7 +50,9 @@ const PlateMathPage = ({ navigation }) => {
   }
 
   useLayoutEffect(() => {
-    if(isInitialRender) onScreenLoad();
+    if(isInitialRender) {
+      onScreenLoad();
+    }
   }, [])
 
   const decrementWeight = () => {
@@ -67,7 +71,7 @@ const PlateMathPage = ({ navigation }) => {
     }
   }
 
-	const toggleModal = (weight: string) => {
+	const toggleModal = (weight?: string) => {
     if(typeof weight === "string" || weight instanceof String) {
       const weightUpdated = parseFloat(weight);
       setCurrentWeight(weightUpdated);
@@ -136,12 +140,8 @@ const PlateMathPage = ({ navigation }) => {
           </View>
 
           <WeightView
-            weightRack={weightRack[weightUnit ? "lbs" : "kg"]}
-            barWeight={barWeight[weightUnit ? "lbs" : "kg"]}
-            weight={currentWeight}
             plates={currentPlates}
             activeTheme={activeTheme}
-            bumperRack={bumperPlatesRack[weightUnit ? "lbs" : "kg"]}
             weightUnit={weightUnit ? "lbs" : "kg"}
           />
 
@@ -157,7 +157,7 @@ const PlateMathPage = ({ navigation }) => {
             backdropTransitionOutTiming={1}
           >
             <View style={styles(activeTheme).modalContent}>
-              <NumberInput weightUnit={weightUnit ? "lbs" : "kg"} toggleModal={toggleModal} inputLabel={weightUnit ? "lbs" : "kg"}/>
+              <NumberInput toggleModal={toggleModal} inputLabel={weightUnit ? "lbs" : "kg"}/>
             </View>
           </Modal>
         </ScrollView>

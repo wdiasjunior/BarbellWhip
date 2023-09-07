@@ -35,25 +35,25 @@ const WeightRackPage = () => {
   const [weightRack, setWeightRack ] = useAtom(plateMathWeightRack);
   const [bumperPlatesRack, setBumperPlatesRack ] = useAtom(plateMathBumperPlatesRack);
 
-  const handleWeightUnitChange = (e) => {
-    const _convertedWeight = weightConversion(currentWeight, e);
+  const handleWeightUnitChange = (_weightUnit: boolean) => {
+    const _convertedWeight = weightConversion(currentWeight, _weightUnit);
     setCurrentWeight(_convertedWeight);
-    setWeightUnit(e);
+    setWeightUnit(_weightUnit);
   }
 
-  const editWeightRack = (_input, _field, _weightUnit) => {
+  const editWeightRack = (_input: string, _field: string, _weightUnit: boolean) => {
     const auxWeightRack = deepClone(weightRack);
     auxWeightRack[_weightUnit][_field] = _input;
     setWeightRack(auxWeightRack);
   }
 
-  const editBumperPlateRack = (_input, _field, _weightUnit) => {
+  const editBumperPlateRack = (_input: string, _field: string, _weightUnit: boolean) => {
     const auxBumperPlatesRack = deepClone(bumperPlatesRack);
     auxBumperPlatesRack[_weightUnit][_field] = _input;
     setBumperPlatesRack(auxBumperPlatesRack);
   }
 
-  const editBarWeight = (_input, _weightUnit) => {
+  const editBarWeight = (_input: string, _weightUnit: boolean) => {
     const auxBarWeight = deepClone(barWeight);
     auxBarWeight[_weightUnit] = _input;
     setBarWeight(auxBarWeight);

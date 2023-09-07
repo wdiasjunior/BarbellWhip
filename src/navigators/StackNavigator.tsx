@@ -9,7 +9,6 @@ import PlateMathPage from "../pages/plateMath/plateMathPage";
 import WeightRackPage from "../pages/plateMath/weightRackPage/weightRackPage";
 
 import ProgramEditorPage from "../pages/programEditor/programEditorPage";
-// import { BottomTabProgramEditorPageNavigator } from "./TabNavigator";
 
 const Stack = createStackNavigator();
 

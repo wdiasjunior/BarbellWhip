@@ -13,6 +13,8 @@ import { randomUUID } from "../../../../helpers/randomUUID";
 import Header from "../../../../sharedComponents/header/header";
 import Loading from "../../../../sharedComponents/loading/loading";
 
+import type { TrainingProgramFile } from "../../../../db/programs/programTypings";
+
 import styles from "./stepOneStyles";
 
 /*
@@ -34,7 +36,7 @@ const StepOne = ({ navigation }) => {
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
-  const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
+  const [programEditorData, setProgramEditorData] = useAtom<TrainingProgramFile>(programEditorDataAtom);
   const [programEditorMode, ] = useAtom(programEditorModeAtom);
   const [weightUnit, setWeightUnit] = useState(programEditorData.weightUnit === "kg" ? false : true); // false == kg == left, true == lbs == right
   const toggleWeightUnitSwitch = () => setWeightUnit(previousState => !previousState);
@@ -53,7 +55,9 @@ const StepOne = ({ navigation }) => {
   }
 
   useLayoutEffect(() => {
-    if(isInitialRender) onScreenLoad();
+    if(isInitialRender) {
+      onScreenLoad();
+    }
   }, [])
 
   useEffect(() => {
@@ -62,19 +66,19 @@ const StepOne = ({ navigation }) => {
     setProgramEditorData(auxAtom);
   }, [weightUnit])
 
-  const editProgramName = (e) => {
+  const editProgramName = (input: string) => {
     let auxAtom = deepClone(programEditorData);
-    auxAtom.programName = e;
+    auxAtom.programName = input;
     setProgramEditorData(auxAtom);
   }
-  const editRMname = (e, index) => {
+  const editRMname = (input: string, index: number) => {
     let auxAtom = deepClone(programEditorData);
-    auxAtom.oneRMs[index].name = e;
+    auxAtom.oneRMs[index].name = input;
     setProgramEditorData(auxAtom);
   }
-  const editRMweight = (e, index) => {
+  const editRMweight = (input: string, index: number) => {
     let auxAtom = deepClone(programEditorData);
-    auxAtom.oneRMs[index].weight = e;
+    auxAtom.oneRMs[index].weight = input;
     setProgramEditorData(auxAtom);
   }
 
@@ -89,7 +93,7 @@ const StepOne = ({ navigation }) => {
     setProgramEditorData(auxAtom);
   }
 
-  const remove1rm = (index) => {
+  const remove1rm = (index: number) => {
     let auxAtom = deepClone(programEditorData);
     auxAtom.oneRMs.splice(index, 1);
     setProgramEditorData(auxAtom);

@@ -1,7 +1,8 @@
 import { deepClone } from "./deepClone";
+import type { TrainingProgramFile } from "../db/programs/programTypings"
 
-export function trainingProgramCleanUp(obj) {
-  let cleanObj = deepClone(obj);
+export function trainingProgramCleanUp(obj: TrainingProgramFile) {
+  let cleanObj: TrainingProgramFile = deepClone(obj);
 
   if(cleanObj.oneRMs.length > 0) {
     cleanObj.oneRMs = cleanObj.oneRMs.filter(oneRM => oneRM.name !== "" && oneRM.weight !== "");

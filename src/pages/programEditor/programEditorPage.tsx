@@ -96,8 +96,8 @@ const ProgramEditorPage = ({ navigation }) => {
 
   const readDIR = async () => {
     setLoading(true);
-    const aux = await readDirectory();
-    setProgramList(aux);
+    const _programList = await readDirectory();
+    setProgramList(_programList);
     setLoading(false);
   }
 
@@ -136,7 +136,7 @@ const ProgramEditorPage = ({ navigation }) => {
     });
   }
 
-  const programOptionModal = async (action) => {
+  const programOptionModal = async (action: string) => {
     const programData = await readProgram(programNameForAction);
     switch(action) {
       case "setActive":

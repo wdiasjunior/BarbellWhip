@@ -15,14 +15,14 @@ import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
 import { deepClone } from "../../helpers/deepClone";
 
 interface Props {
-  setIsMenuOpen(): any;
+  setIsMenuOpen?: (isOpen: boolean) => void;
   title: string;
-  menu: boolean;
-  weightRack: boolean;
-  saveButton: boolean;
-  backButton: boolean;
-  import: boolean;
-  importProgram(): any;
+  menu?: boolean;
+  weightRack?: boolean;
+  saveButton?: boolean;
+  backButton?: boolean;
+  import?: boolean;
+  importProgram?: () => void;
 }
 
 const Header = (props: Props) => {
@@ -44,11 +44,19 @@ const Header = (props: Props) => {
   }
 
   const importProgram = () => {
-    props.importProgram();
+    if (props.importProgram) {
+      props.importProgram();
+    } else {
+      console.log("could not import program");
+    }
   }
 
   const setMenuOpenFromHeader = () => {
-    props.setIsMenuOpen(prev => !prev);
+    if (props.setIsMenuOpen) {
+      props.setIsMenuOpen(prev => !prev);
+    } else {
+      console.log("could not set menu open");
+    }
   }
 
   const saveButton = async () => {

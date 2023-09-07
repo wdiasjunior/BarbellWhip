@@ -1,4 +1,4 @@
-export function deepClone(l) {
+export function deepClone(l: any): any {
   let n, u;
   if("object" != typeof l) return l;
   if(!l) return l;
@@ -10,6 +10,6 @@ export function deepClone(l) {
   return n;
 }
 
-export function jsonClone(object) {
+export function jsonClone(object: any) {
   return JSON.parse(JSON.stringify(object));
 }

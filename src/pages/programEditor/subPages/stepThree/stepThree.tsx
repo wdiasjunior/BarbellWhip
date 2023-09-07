@@ -11,6 +11,8 @@ import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom, programEditor
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
 
+import type { TrainingProgramFile } from "../../../../db/programs/programTypings";
+
 import { deepClone } from "../../../../helpers/deepClone";
 
 import TopTabBar from "../../../../sharedComponents/topTabBar/topTabBar";
@@ -26,9 +28,9 @@ const StepThree = ({ navigation }) => {
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
-  const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
-  const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
-  const [selectedDay, setSelectedDay] = useAtom(selectedDayAtom);
+  const [programEditorData, setProgramEditorData] = useAtom<TrainingProgramFile>(programEditorDataAtom);
+  const [selectedWeek, setSelectedWeek] = useAtom<number>(selectedWeekAtom);
+  const [selectedDay, setSelectedDay] = useAtom<number>(selectedDayAtom);
   const [programEditorMode, ] = useAtom(programEditorModeAtom);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -44,11 +46,13 @@ const StepThree = ({ navigation }) => {
   }
 
   useLayoutEffect(() => {
-    if(isInitialRender) onScreenLoad();
+    if(isInitialRender) {
+      onScreenLoad();
+    }
   }, [])
 
   const dayRef = useRef(null);
-  const selectDay = (day) => {
+  const selectDay = (day: number) => {
     setSelectedDay(day);
   }
 
@@ -96,7 +100,7 @@ const StepThree = ({ navigation }) => {
     });
   }
 
-  const reorder = (data, from, to) => {
+  const reorder = (data?:any, from?:any, to?:any) => {
     let auxAtom = deepClone(programEditorData);
     auxAtom.trainingProgram[selectedWeek].week[selectedDay].day = data;
     setProgramEditorData(auxAtom);

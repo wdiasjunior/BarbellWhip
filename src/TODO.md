@@ -1,3 +1,6 @@
+# TODO
+# review last commit changes, finish the TODOs and test the app
+
 - jotai - change this `const [, setValue] = useAtom(valueAtom)` to useSetAtom to increase performance
   - https://jotai.org/docs/api/core#use-set-atom
 

@@ -28,10 +28,10 @@ const CalculatorPage = ({ navigation }) => {
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
-  const [repsPerformed, setRepsPerformed] = useAtom(calculatorPageRepsAtom);
-  const [weightLifted, setWeightLifted] = useAtom(calculatorPageWeightAtom);
+  const [repsPerformed, setRepsPerformed] = useAtom<number>(calculatorPageRepsAtom);
+  const [weightLifted, setWeightLifted] = useAtom<number>(calculatorPageWeightAtom);
   const [showWarning, setShowWarning] = useState(false);
-  const [weightUnit, setWeightUnit] = useAtom(calculatorPageWeightUnitAtom); // false == kg == left, true == lbs == right
+  const [weightUnit, setWeightUnit] = useAtom<string>(calculatorPageWeightUnitAtom);
   const [inputLabel, setInputLabel] = useState("");
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
 
@@ -48,7 +48,9 @@ const CalculatorPage = ({ navigation }) => {
   }
 
   useLayoutEffect(() => {
-    if(isInitialRender) onScreenLoad();
+    if(isInitialRender) {
+      onScreenLoad();
+    }
   }, [])
 
   const decrementReps = () => {

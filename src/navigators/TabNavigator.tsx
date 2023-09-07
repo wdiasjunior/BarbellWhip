@@ -48,6 +48,7 @@ const BottomTabProgramPageNavigator = () => {
         cardStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
+          flex: 1,
         },
       })}
     >
@@ -66,8 +67,9 @@ const BottomTabProgramPageNavigator = () => {
           cardStyle: {
             backgroundColor: activeTheme.backgroundPrimary,
             opacity: 1,
+            flex: 1,
           },
-          lazy: true,
+          // lazy: true,
         }}
       />
       <Tab.Screen

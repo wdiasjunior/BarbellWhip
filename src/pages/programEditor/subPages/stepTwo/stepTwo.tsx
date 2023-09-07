@@ -40,7 +40,9 @@ const StepTwo = ({ navigation }) => {
   }
 
   useLayoutEffect(() => {
-    if(isInitialRender) onScreenLoad();
+    if(isInitialRender) {
+      onScreenLoad();
+    }
   }, [])
 
   const addWeek = () => {
@@ -49,11 +51,11 @@ const StepTwo = ({ navigation }) => {
     setProgramEditorData(auxAtom);
   }
 
-  const selectWeek = (index) => {
+  const selectWeek = (index: number) => {
     setSelectedWeek(index);
   }
 
-  const duplicateWeek = (index) => {
+  const duplicateWeek = (index: number) => {
     let auxAtom = deepClone(programEditorData);
     let weekToDuplicate = programEditorData.trainingProgram[index];
     auxAtom.trainingProgram.splice(index + 1, 0, weekToDuplicate);
@@ -120,7 +122,7 @@ const StepTwo = ({ navigation }) => {
             <DraggableFlatList
               ref={weekRef}
               data={programEditorData.trainingProgram}
-              keyExtractor={(item, index) => index}
+              keyExtractor={(_, index) => "ProgramEditorPage_WeekList_Item" + index} // TODO - test if this is OK
               onDragEnd={({data, from, to}) => reorder(data, from, to)}
               renderItem={renderWeekItem}
               ListFooterComponent={() => {

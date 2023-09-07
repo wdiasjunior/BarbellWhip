@@ -4,10 +4,14 @@ import { View, Text } from "react-native";
 import { styles, plateColors } from "./plateStyles";
 
 interface Props {
-  weight: any;
-  // size: any;
+  plate: IPlates;
   activeTheme: any;
-  weightUnit: any;
+  weightUnit: string;
+}
+
+export interface IPlates {
+  plate: number;
+  isBumper: boolean;
 }
 
 const Plate = (props: Props) => {
@@ -108,12 +112,12 @@ const Plate = (props: Props) => {
   }
 
   const computePlateStyle = () => {
-    if(props.weight.isBumper) {
+    if(props.plate.isBumper) {
       // add conditional for color coded plates input
       return Object.assign({...styles(props.activeTheme).bumperPlate});
     } else {
-      const hScale = 0.5 + (0.5 * plateDimensions[props.weightUnit][props.weight.plate].size);
-      const wScale = 0.7 + (0.3 * plateDimensions[props.weightUnit][props.weight.plate].size);
+      const hScale = 0.5 + (0.5 * plateDimensions[props.weightUnit][props.plate.plate].size);
+      const wScale = 0.7 + (0.3 * plateDimensions[props.weightUnit][props.plate.plate].size);
       return Object.assign({
           ...styles(props.activeTheme).plate}, {
           width: styles(props.activeTheme).plate.width * wScale,
@@ -127,7 +131,7 @@ const Plate = (props: Props) => {
 
   return (
     <View style={computePlateStyle()}>
-      <Text adjustsFontSizeToFit style={styles(props.activeTheme).text}>{props.weight.plate}</Text>
+      <Text adjustsFontSizeToFit style={styles(props.activeTheme).text}>{props.plate.plate}</Text>
     </View>
   );
 }

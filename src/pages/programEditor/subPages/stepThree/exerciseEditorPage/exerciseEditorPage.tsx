@@ -10,17 +10,20 @@ import { useInitialRender } from "../../../../../helpers/useInitialRender";
 import Loading from "../../../../../sharedComponents/loading/loading";
 
 import { deepClone } from "../../../../../helpers/deepClone";
+import type { TrainingProgramFile, OneRMs, DayExercises } from "../../../../../db/programs/programTypings";
 
 import styles from "./exerciseEditorPageStyles";
 
-// interface Props {
-//   oneRMweight: any; // TODO - never used? check this
-//   oneRMname: any;
-//   exerciseType: any;
-//   exerciseIndex: any;
-// }
+interface Props {
+  oneRMweight: number; // TODO - never used? check this
+  oneRMname: string;
+  exerciseType: any; // TODO - never used? check this
+  exerciseIndex?: "add" | number;
+}
 
-const ExerciseEditorPage = (props) => {
+const ExerciseEditorPage = (_props: any) => {
+
+  const props: Props = _props;
 
   const isInitialRender = useInitialRender();
 
@@ -29,16 +32,16 @@ const ExerciseEditorPage = (props) => {
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
-  const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
+  const [programEditorData, setProgramEditorData] = useAtom<TrainingProgramFile>(programEditorDataAtom);
   const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
   const [selectedDay, setSelectedDay] = useAtom(selectedDayAtom);
 
-  const exerciseIndex = props.route.params.exerciseIndex;
+  const exerciseIndex = props.exerciseIndex;
   const length = programEditorData.trainingProgram[selectedWeek].week[selectedDay].day.length - 1;
   const exerciseData = exerciseIndex === "add" ? deepClone(programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[length]) : deepClone(programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex]);
-  const exerciseType = props.route.params.exerciseType;
-  const oneRMweight = programEditorData.oneRMs.find((el) => el.id === exerciseData.RMid); // TODO - check this - should probably just use the data from route.params
-  const oneRMname = props.route.params.oneRMname;
+  const exerciseType = props.exerciseType;
+  const oneRMweight = programEditorData.oneRMs.find((el) => el.id === exerciseData.RMid); // TODO - check this - should probably just use the data from props.oneRMweight
+  const oneRMname = props.oneRMname;
 
   const weightRoundingFactor = programEditorData.weightUnit === "kg" ? 2.5 : 5;
 
@@ -59,18 +62,18 @@ const ExerciseEditorPage = (props) => {
     setProgramEditorData(auxAtom);
   }
 
-  const editExerciseField = (field, e, index) => {
+  const editExerciseField = (field: string, input: string, index: number) => {
     let auxAtom = deepClone(programEditorData);
     const auxExerciseIndex = exerciseIndex === "add" ? length : exerciseIndex;
     if(field === "parentExerciseName") {
-      auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[auxExerciseIndex].exerciseName = e;
+      auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[auxExerciseIndex].exerciseName = input;
     } else {
-      auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[auxExerciseIndex].set[index][field] = e;
+      auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[auxExerciseIndex].set[index][field] = input;
     }
     setProgramEditorData(auxAtom);
   }
 
-  const removeExerciseSubSet = (index) => {
+  const removeExerciseSubSet = (index: number) => {
     let auxAtom = deepClone(programEditorData);
     auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex === "add" ? length : exerciseIndex].set.splice(index, 1);
     setProgramEditorData(auxAtom);

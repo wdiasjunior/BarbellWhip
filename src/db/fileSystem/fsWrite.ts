@@ -1,6 +1,6 @@
 import RNFS from "react-native-fs";
 
-const writeToJSON = async (programName, programJSON) => {
+const writeToJSON = async (programName: string, programJSON: any) => {
   const fileUri = programName.includes(".json") ? RNFS.ExternalDirectoryPath + "/" + programName : RNFS.ExternalDirectoryPath + "/" + programName + ".json";
   const contents = JSON.stringify(programJSON, null, 2);
   try {
@@ -10,7 +10,7 @@ const writeToJSON = async (programName, programJSON) => {
   }
 }
 
-const copyJSON = async (programName, programURL) => {
+const copyJSON = async (programName: string, programURL: string) => {
   const copyFileUri = RNFS.ExternalDirectoryPath + "/" + programName.replace(".json", "- copy.json");
   const options = {
     from: programURL,
@@ -23,7 +23,7 @@ const copyJSON = async (programName, programURL) => {
   }
 }
 
-const deleteJSON = async (programURL) => {
+const deleteJSON = async (programURL: string) => {
   try {
     await RNFS.unlink(programURL);
   } catch(error) {

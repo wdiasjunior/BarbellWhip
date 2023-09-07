@@ -8,13 +8,18 @@ import TopTabBar from "../../sharedComponents/topTabBar/topTabBar";
 import ExerciseItem from "./components/exerciseItem/exerciseItem";
 
 import { useAtom } from "jotai";
-import { activeThemeAtom, selectedLocaleAtom, activeProgramAtom, programPageSelectedDayAtom, programPageSelectedWeekAtom } from "../../helpers/jotai/atomsWithStorage";
+import {
+  activeThemeAtom,
+  selectedLocaleAtom,
+  activeProgramAtom,
+  programPageSelectedDayAtom,
+  programPageSelectedWeekAtom
+} from "../../helpers/jotai/atomsWithStorage";
 
 // import { useInitialRender } from "../../helpers/useInitialRender";
 
 import styles from "./programPageStyles";
-
-// import defaultProgramData from "../../db/programs/strengthV4.json";
+import type { TrainingProgramFile } from "../../db/programs/programTypings";
 
 const ProgramPage = ({ navigation }) => {
 
@@ -23,9 +28,7 @@ const ProgramPage = ({ navigation }) => {
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
-  const [activeProgram, ] = useAtom(activeProgramAtom);
-  // const activeProgram = activeProgramData.trainingProgram ? activeProgramData : defaultProgramData; // TODO - change this so it doesn't break depending on the program that's loaded
-  // const activeProgram = activeProgramData;
+  const [activeProgram, ] = useAtom<TrainingProgramFile>(activeProgramAtom);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const openMenu = () => {
@@ -35,10 +38,10 @@ const ProgramPage = ({ navigation }) => {
     setIsMenuOpen(isOpen);
   }
 
-  const [selectedDay, setSelectedDay] = useAtom(programPageSelectedDayAtom);
-  const [selectedWeek, setSelectedWeek] = useAtom(programPageSelectedWeekAtom);
+  const [selectedDay, setSelectedDay] = useAtom<number>(programPageSelectedDayAtom);
+  const [selectedWeek, setSelectedWeek] = useAtom<number>(programPageSelectedWeekAtom);
 
-  const selectDay = (day) => {
+  const selectDay = (day: number) => {
     setSelectedDay(day);
   }
   const selectWeek = ({ index }) => {
@@ -47,11 +50,10 @@ const ProgramPage = ({ navigation }) => {
     }
     setSelectedWeek(index);
     setIsMenuOpen(!isMenuOpen);
-    // barbellwhip header program page show week if trainingProgram.length > 1
+    // TODO - barbellwhip header program page - only show week if trainingProgram.length > 1
     navigation.setOptions({ headerTitle: () =>
                   <Header
                     title={activeProgram?.programName ? activeProgram?.programName + " - " + selectedLocale.programPage.week + " " + (index + 1) : selectedLocale.programPage.defaultTitle}
-                    isMenuOpen={isMenuOpen}
                     setIsMenuOpen={setIsMenuOpen}
                     menu={activeProgram?.programName ? true : false}
                   />
@@ -59,20 +61,15 @@ const ProgramPage = ({ navigation }) => {
   }
 
   const onScreenLoad = () => {
-    // barbellwhip header program page show week if trainingProgram.length > 1
+    // TODO - barbellwhip header program page - only show week if trainingProgram.length > 1
     navigation.setOptions({ headerTitle: () =>
                   <Header
                     title={activeProgram?.programName ? activeProgram?.programName + " - " + selectedLocale.programPage.week + " " + (selectedWeek + 1) : selectedLocale.programPage.defaultTitle}
-                    isMenuOpen={isMenuOpen}
                     setIsMenuOpen={setIsMenuOpen}
                     menu={activeProgram?.programName ? true : false}
                   />
               });
   }
-
-  // useLayoutEffect(() => {
-  //   onScreenLoad();
-  // }, [])
 
   useLayoutEffect(() => {
     onScreenLoad();
@@ -80,9 +77,9 @@ const ProgramPage = ({ navigation }) => {
 
   const MenuWeekList = () => (
     <View style={styles(activeTheme).containerDrawer}>
-      <View style={styles(activeTheme).rmReviewContainer}>
+      <View style={styles(activeTheme).rmReviewContainer}> // TODO - check this
         <TouchableOpacity
-          style={styles(activeTheme).item}
+          style={styles(activeTheme).item} // TODO - check this
           onPress={() => {
             setIsMenuOpen(!isMenuOpen);
             navigation.push("RMReviewPage", {onermOBJ: activeProgram?.oneRMs, weightUnit: activeProgram?.weightUnit});
@@ -119,7 +116,6 @@ const ProgramPage = ({ navigation }) => {
       onermOBJ={activeProgram?.oneRMs}
       rmId={item.RMid}
       weightUnit={activeProgram.weightUnit}
-      navigation={navigation}
       exerciseName={item.exerciseName}
       exerciseOBJ={item}
     />
@@ -137,7 +133,7 @@ const ProgramPage = ({ navigation }) => {
   return (
     <View style={styles(activeTheme).container}>
 
-      {/* should definitely change this "activeProgram?.programName" to something else. maybe activeProgram?.trainingProgram.length */}
+      {/* TODO - should definitely change this "activeProgram?.programName" to something else. maybe activeProgram?.trainingProgram.length */}
       {activeProgram?.programName ? (
         <SideMenu
           menu={menuWeekList}
@@ -160,7 +156,7 @@ const ProgramPage = ({ navigation }) => {
 
             <TopTabBar
               setFirstTab={selectedWeek}
-              selectDay={setSelectedDay}
+              selectDay={selectDay}
               days={activeProgram?.trainingProgram[selectedWeek]?.week?.length}
               isProgramPage={true}
             />

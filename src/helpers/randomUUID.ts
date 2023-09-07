@@ -1,4 +1,4 @@
-export function randomUUID() {
+export function randomUUID(): string {
   let dt = new Date().getTime();
   let uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
     let r = (dt + Math.random() * 16) % 16 | 0;

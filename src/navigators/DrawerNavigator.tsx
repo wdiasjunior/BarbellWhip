@@ -91,7 +91,6 @@ const DrawerNavigator = () => {
           },
         }}
       />
-      {/*<Drawer.Screen name="Home" component={HomePage} />*/}
       {/*<Drawer.Screen name="PR Tracker" component={PRTrackerPage} />*/}
       <Drawer.Screen
         name="Settings"

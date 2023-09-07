@@ -2,27 +2,24 @@ import React from "react";
 import { View } from "react-native";
 
 import WeightCalc from "../../utils/WeightCalc"
-import Plate from "../plate/plate";
+import Plate, { IPlates } from "../plate/plate";
 
 import styles from "./weightViewStyles";
 
 interface Props {
-  // weightRack: any;
-  // barWeight: any;
-  // weight: any;
-  plates: any;
+  plates: IPlates[];
   activeTheme: any;
-  weightUnit: any;
+  weightUnit: string;
 }
 
 const WeightView = (props: Props) => {
   return (
       <View style={styles(props.activeTheme).plateWrap}>
         {
-          props.plates.map((weight, index) => {
+          props.plates.map((plate, index) => {
             return (
               <Plate
-                weight={weight}
+                plate={plate}
                 key={`keyPlate${index}`}
                 activeTheme={props.activeTheme}
                 weightUnit={props.weightUnit}
@@ -32,6 +29,5 @@ const WeightView = (props: Props) => {
       </View>
   );
 }
-// size={WeightCalc.getPlatePercentOfMax(weight, props.plates)}
 
 export default WeightView;
