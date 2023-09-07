@@ -23,4 +23,6 @@
  *  This app was built in the most eXtreme Go Horse way possible.
  *  Live with it.
  *
+ *  https://gohorseprocess.com.br/extreme-go-horse-xgh/
+ *
  */

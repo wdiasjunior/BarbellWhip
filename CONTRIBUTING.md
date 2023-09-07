@@ -1,15 +1,31 @@
 # CONTRIBUTING
 
-this project uses typecript only for the benefits of the syntax type annotations, otherwise I would just use JSDoc because I find ts a pain in the ass. I do not use linting eslint and whatever else, so yeah. it is what it is
+This is a hobby project that started out just for personal use and has grown into something I'd like to share with everyone.
 
-# add contributing guidelines
-- auto formmating/prettier/eslint settings? I don't even use this shit
-  - please don't go using prettier and breaking all of the formmating around the code base
-  - if a line needs to be long leave it long
-  -
-- 2 space tabs
-- double quotes for strings
-- single quotes for chars
-- don't be afraid of big files, no need to split a component in 15 different files and directories, have some common sense
--
-- and last but more importantly: make use of goHorse whenever necessary
+If you found a bug, fell free to open an issue/and or a PR straight away.
+
+Please open an issue to discuss new features and/or feature behavior changes before submitting a pull request.
+
+---
+
+This project uses TypeScript only for the benefits of the syntax type annotations, otherwise I would just use JSDoc, since I personally find TypeScript to a pain in the ass whenever types get too complex and prop drilling happens.
+
+I do not use a linter or Prettier. Because of this you might find a bunch of squiggly lines. It is what it is. I have added some types here and there for the parts that are a bit more complicated and to remove some of the errors your editor might throw at you, but its mainly for documentation. So don't take them too seriously.
+
+## Guidelines
+
+Before submitting a PR make sure that your Prettier configs did not format any of the already existing code.
+
+Use 2 space tabs.
+
+Use double quotes for strings, and single quotes for chars.
+
+If a line needs to be long, it's ok, let it be long.
+
+Don't be afraid of big files/functions, no need to split a component into 15 different files and directories. Let your commom sense guide you.
+
+Comments are appreciated. If you think a piece of code got way too complex, try to refactor it first, then if there really is no other way around it, leave some words of wisdom to the next person.
+
+Keep politics of any kind away from this project. I just want to lift some weights.
+
+And lastly but most importantly: make use of eXtreme Go Horse whenever necessary.

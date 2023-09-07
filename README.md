@@ -40,3 +40,7 @@ Then run the commands below in the `/android` directory
 `export ANDROID_SDK_ROOT='/home/$USER/Android/Sdk'`
 
 `./gradlew assembleDebug`
+
+## Contributing
+
+Read the contributing guide [here](CONTRIBUTING.md).
