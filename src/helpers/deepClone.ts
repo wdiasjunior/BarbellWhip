@@ -10,6 +10,6 @@ export function deepClone(l: any): any {
   return n;
 }
 
-export function jsonClone(object: any) {
+export function jsonClone(object: any): any {
   return JSON.parse(JSON.stringify(object));
 }

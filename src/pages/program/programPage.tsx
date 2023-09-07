@@ -75,9 +75,11 @@ const ProgramPage = ({ navigation }) => {
     onScreenLoad();
   }, [activeProgram])
 
+
+  // TODO - test if putting this in another files fixes the render glitch
   const MenuWeekList = () => (
     <View style={styles(activeTheme).containerDrawer}>
-      <View style={styles(activeTheme).rmReviewContainer}> // TODO - check this
+      <View style={styles(activeTheme).rmReviewContainer}>{/* // TODO - check this*/}
         <TouchableOpacity
           style={styles(activeTheme).item} // TODO - check this
           onPress={() => {
@@ -133,7 +135,7 @@ const ProgramPage = ({ navigation }) => {
   return (
     <View style={styles(activeTheme).container}>
 
-      {/* TODO - should definitely change this "activeProgram?.programName" to something else. maybe activeProgram?.trainingProgram.length */}
+      {/* TODO - should probably change this "activeProgram?.programName" to something else. maybe activeProgram?.trainingProgram.length ? */}
       {activeProgram?.programName ? (
         <SideMenu
           menu={menuWeekList}
@@ -155,7 +157,7 @@ const ProgramPage = ({ navigation }) => {
           <View style={styles(activeTheme).container}>
 
             <TopTabBar
-              setFirstTab={selectedWeek}
+              selectedWeek={selectedWeek}
               selectDay={selectDay}
               days={activeProgram?.trainingProgram[selectedWeek]?.week?.length}
               isProgramPage={true}

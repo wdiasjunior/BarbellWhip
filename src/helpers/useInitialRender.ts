@@ -4,7 +4,7 @@ import { useState } from "react";
 // navigation where it would not load the first screen of the app properly and
 // would flicker the drawer on the first load.
 
-export const useInitialRender = () => {
+export function useInitialRender(): boolean {
   const [isInitialRender, setIsInitialRender] = useState(false);
   if(!isInitialRender) {
     setTimeout(() => setIsInitialRender(true), 1);

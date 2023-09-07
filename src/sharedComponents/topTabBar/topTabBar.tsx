@@ -9,7 +9,7 @@ import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWi
 interface Props {
   days: number;
   selectDay: (day: number) => void;
-  setFirstTab: number;
+  selectedWeek: number;
   isProgramPage: boolean;
 }
 
@@ -40,7 +40,7 @@ const TopTabBar = (props: Props) => {
         ref.current.scrollTo({x: dataSourceCords[0 - 1], y: 0, animated: true});
       }
     }
-  }, [props.setFirstTab])
+  }, [props.selectedWeek])
 
   useEffect(() => {
     setSelected(!props.isProgramPage ? 0 : selectedDay);

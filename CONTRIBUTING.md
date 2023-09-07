@@ -10,7 +10,7 @@ Please open an issue to discuss new features and/or feature behavior changes bef
 
 This project uses TypeScript only for the benefits of the syntax type annotations, otherwise I would just use JSDoc, since I personally find TypeScript to a pain in the ass whenever types get too complex and prop drilling happens.
 
-I do not use a linter or Prettier. Because of this you might find a bunch of squiggly lines. It is what it is. I have added some types here and there for the parts that are a bit more complicated and to remove some of the errors your editor might throw at you, but its mainly for documentation. So don't take them too seriously.
+I do not use a linter or Prettier. Because of this you might find a bunch of squiggly lines around the codebase. It is what it is. I have added some types here and there for the parts that are a bit more complicated and to remove some of the errors your editor might throw at you, but its mainly for documentation. So don't expect much and don't take them too seriously.
 
 ## Guidelines
 

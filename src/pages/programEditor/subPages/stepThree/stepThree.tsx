@@ -143,7 +143,7 @@ const StepThree = ({ navigation }) => {
   return (
     <View style={styles(activeTheme).container}>
       <TopTabBar
-        setFirstTab={selectedWeek}
+        selectedWeek={selectedWeek}
         selectDay={selectDay}
         days={programEditorData.trainingProgram[selectedWeek].week.length}
         isProgramPage={false}
