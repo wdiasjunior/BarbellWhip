@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const styles = (theme) => {
+const styles = (theme: Theme) => {
   return StyleSheet.create({
     container: {
       flex: 1,
@@ -11,7 +11,6 @@ const styles = (theme) => {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
       justifyContent: "flex-start",
-      // paddingHorizontal: 20,
     },
     exerciseItem: {
       backgroundColor: theme.backgroundSecondary,

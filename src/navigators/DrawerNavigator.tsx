@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { BottomTabProgramPageNavigator, BottomTabProgramEditorPageNavigator } from "./TabNavigator";
-import { ProgramPageStack, ProgramEditorPageStack } from "./StackNavigator";
+import { BottomTabProgramPageNavigator } from "./TabNavigator";
+import { ProgramEditorPageStack, } from "./StackNavigator";
 // import PRTrackerPage from "../pages/prTracker/prTrackerPage";
 import SettingsPage from "../pages/settings/settingsPage";
 
@@ -44,7 +44,7 @@ const DrawerNavigator = () => {
         lazy: true,
         drawerStyle: {
           backgroundColor: activeTheme.backgroundSecondary,
-          width: isInitialRender ? null : "75%",
+          width: isInitialRender ? undefined : "75%", // TODO - check this. was null
         },
         cardStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
@@ -67,7 +67,7 @@ const DrawerNavigator = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
+          cardStyle: { // TODO - does this even make a difference?
             backgroundColor: activeTheme.backgroundPrimary,
             opacity: 1,
           },
@@ -85,7 +85,7 @@ const DrawerNavigator = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
+          cardStyle: { // TODO - does this even make a difference?
             backgroundColor: activeTheme.backgroundPrimary,
             opacity: 1,
           },
@@ -103,7 +103,7 @@ const DrawerNavigator = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
+          cardStyle: { // TODO - does this even make a difference?
             backgroundColor: activeTheme.backgroundPrimary,
             opacity: 1,
           },

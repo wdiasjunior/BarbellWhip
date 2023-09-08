@@ -1,5 +1,4 @@
 import { deepClone } from "./deepClone";
-import type { TrainingProgramFile } from "../db/programs/programTypings"
 
 export function trainingProgramCleanUp(obj: TrainingProgramFile): TrainingProgramFile {
   let cleanObj: TrainingProgramFile = deepClone(obj);

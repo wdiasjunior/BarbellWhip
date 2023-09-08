@@ -30,8 +30,7 @@ const CalculatorPage = ({ navigation }) => {
 
   const [repsPerformed, setRepsPerformed] = useAtom<number>(calculatorPageRepsAtom);
   const [weightLifted, setWeightLifted] = useAtom<number>(calculatorPageWeightAtom);
-  const [showWarning, setShowWarning] = useState(false);
-  const [weightUnit, setWeightUnit] = useAtom<string>(calculatorPageWeightUnitAtom);
+  const [weightUnit, ] = useAtom<string>(calculatorPageWeightUnitAtom);
   const [inputLabel, setInputLabel] = useState("");
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
 
@@ -57,17 +56,11 @@ const CalculatorPage = ({ navigation }) => {
     if(repsPerformed > 1) {
       setRepsPerformed(repsPerformed - 1);
     }
-    if(repsPerformed <= 12) {
-      setShowWarning(false);
-    }
   }
 
   const incrementReps = () => {
     if(repsPerformed < 20) {
       setRepsPerformed(repsPerformed + 1);
-    }
-    if(repsPerformed > 12) {
-      setShowWarning(true);
     }
   }
 

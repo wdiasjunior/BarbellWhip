@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const styles = (theme) => {
+const styles = (theme: Theme) => {
   return StyleSheet.create({
     container: {
       flex: 1,
@@ -92,7 +92,6 @@ const styles = (theme) => {
       backgroundColor: theme.active,
       borderRadius: 10,
       marginVertical: 12,
-      // marginHorizontal: 20,
       justifyContent: "center",
       alignItems: "center",
     },

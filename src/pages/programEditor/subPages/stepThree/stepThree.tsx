@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useLayoutEffect, useRef, } from "react";
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from "react-native";
+import React, { useState, useLayoutEffect, useRef, } from "react";
+import { Text, View, TouchableOpacity, } from "react-native";
 import Modal from "react-native-modal";
 import DraggableFlatList, { ScaleDecorator } from "react-native-draggable-flatlist";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -10,8 +10,6 @@ import { useAtom } from "jotai";
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
-
-import type { TrainingProgramFile } from "../../../../db/programs/programTypings";
 
 import { deepClone } from "../../../../helpers/deepClone";
 
@@ -28,9 +26,9 @@ const StepThree = ({ navigation }) => {
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
-  const [programEditorData, setProgramEditorData] = useAtom<TrainingProgramFile>(programEditorDataAtom);
-  const [selectedWeek, setSelectedWeek] = useAtom<number>(selectedWeekAtom);
-  const [selectedDay, setSelectedDay] = useAtom<number>(selectedDayAtom);
+  const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
+  const [selectedWeek, ] = useAtom(selectedWeekAtom);
+  const [selectedDay, setSelectedDay] = useAtom(selectedDayAtom);
   const [programEditorMode, ] = useAtom(programEditorModeAtom);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -131,7 +129,7 @@ const StepThree = ({ navigation }) => {
             <MaterialIcons name="edit" size={20} style={styles(activeTheme).exerciseItemIcon} />
           </TouchableOpacity>
 
-          <TouchableOpacity style={{width: 20, height: 20}} onPress={() => deleteExercise(index)} >
+          <TouchableOpacity style={{width: 20, height: 20}} onPress={() => deleteExercise()} >
             <Ionicons name="trash-outline" size={20} style={styles(activeTheme).exerciseItemIcon} />
           </TouchableOpacity>
         </View>
@@ -188,7 +186,7 @@ const StepThree = ({ navigation }) => {
         backdropTransitionOutTiming={1}
       >
         <View style={styles(activeTheme).modalContent}>
-          {programEditorData.oneRMs.length > 0 && programEditorData.oneRMs.map((item, index) => {
+          {programEditorData.oneRMs.length > 0 && programEditorData.oneRMs.map((item: OneRMs, index) => {
             return (
               <TouchableOpacity style={styles(activeTheme).modalItem} key={"ProgramEditorPage_StepThree_ModalItem" + index} onPress={() => addExercise(item)}>
                 <Text style={styles(activeTheme).modalItemText}>{item.name}</Text>

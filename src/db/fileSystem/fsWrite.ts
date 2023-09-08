@@ -12,12 +12,13 @@ const writeToJSON = async (programName: string, programJSON: any) => {
 
 const copyJSON = async (programName: string, programURL: string) => {
   const copyFileUri = RNFS.ExternalDirectoryPath + "/" + programName.replace(".json", "- copy.json");
-  const options = {
-    from: programURL,
-    to: copyFileUri
-  };
+  // const options = {
+  //   from: programURL,
+  //   to: copyFileUri
+  // };
   try {
-    await RNFS.copyFile(options);
+    // await RNFS.copyFile(options); // TODO - check this
+    await RNFS.copyFile(copyFileUri, copyFileUri); // TODO - check this
   } catch(error) {
     alert("Error duplicating file.");
   }

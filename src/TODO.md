@@ -6,11 +6,13 @@
 
 - add logo to splash screen and app icon
 - reduce splash screen time (it's probably just my phone that's slow)
-- go through TODO comments
+- check TODOs and unused variables
+- add typings folder with types for the major stuff
+  - check any around the codebase
 
 ## calculator page
-  - kg - lbs switch
   - add settings screen (?)
+    - kg - lbs switch
     - checkboxes to choose which formulas to calculate 1rm from (?)
   - implement rpe calculator ? https://www.rpecalculator.com/ (?)
   - get inspiration from the juggernaut app
@@ -26,7 +28,8 @@
     - add checkboxes to track how many sets were done(?)
     - header - add weight unit toggle for weight conversion(?)
   - setSelected next day workout on dateNow change (compare with atomsWithStorage lastDay?) (?)
-  - oneRMs atom with storage object for semi persistent data that takes priority over the object in the json file for the percentage math(?)
+  - rm review page
+    - oneRMs atom with storage object for semi persistent data that takes priority over the object in the json file for the percentage math(?)
 
 ## program management / program editor page
   - create 4th step on program editor (screen / modal options) (?)
@@ -87,6 +90,7 @@
 # BUGS
 
 - program page glitch - test without useEffects?
+  - remake week menu list without animations?
 
 - when program is active and there was an edit then set active -> week was set to 1 again. should remain where it was
 
@@ -98,13 +102,8 @@
 
 - on save program - check if file with the same name already exists
 
-- check TODOs and unused variables
-
-- weightRackPage Object. map's fucking up performance?
-
-- remake week menu list without animations?
-
 - optimize performance
+  - weightRackPage Object.map is fucking up performance?
   - check for rerenders
   - console.time
   - console.timeEnd

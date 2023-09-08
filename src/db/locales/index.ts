@@ -1,7 +1,7 @@
 import en from "./en.json";
 import pt from "./pt.json";
 
-export const locales = [
+export const locales: Locales[] = [
   {
     id: "english",
     name: "English",

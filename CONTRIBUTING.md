@@ -2,15 +2,13 @@
 
 This is a hobby project that started out just for personal use and has grown into something I'd like to share with everyone.
 
-If you found a bug, fell free to open an issue/and or a PR straight away.
+If you found a bug, feel free to open an issue/and or a PR straight away.
 
 Please open an issue to discuss new features and/or feature behavior changes before submitting a pull request.
 
 ---
 
-This project uses TypeScript only for the benefits of the syntax type annotations, otherwise I would just use JSDoc, since I personally find TypeScript to a pain in the ass whenever types get too complex and prop drilling happens.
-
-I do not use a linter or Prettier. Because of this you might find a bunch of squiggly lines around the codebase. It is what it is. I have added some types here and there for the parts that are a bit more complicated and to remove some of the errors your editor might throw at you, but its mainly for documentation. So don't expect much and don't take them too seriously.
+I used TypeScript for this project mainly for the benefits of the syntax type annotations and self documented code, since I personally find it to be a pain to work with whenever types get too complex. That being said, I've typed most of the stuff that I judged necessary, but don't expect exquisite types with generics and all that stuff. Because of this you might find squiggly lines around the codebase, so don't worry too much about it.
 
 ## Guidelines
 

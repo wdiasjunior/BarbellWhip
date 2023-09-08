@@ -268,7 +268,7 @@ const PlateMathPageStack = () => {
           backgroundColor: activeTheme.backgroundPrimary,
         },
       })}
-      sceneContainerStyle={{
+      sceneContainerStyle={{ // TODO - does this even make a difference
         backgroundColor: activeTheme.backgroundPrimary,
       }}
     >
@@ -338,7 +338,7 @@ const ProgramEditorPageStack = () => {
         component={ProgramEditorPage}
         options={{
           headerShown: true,
-          headerLeft: null,
+          headerLeft: undefined, // TODO - test this. was null
           title: selectedLocale.programEditorPage.title,
           headerTitle: selectedLocale.programEditorPage.title,
           headerStyle:{

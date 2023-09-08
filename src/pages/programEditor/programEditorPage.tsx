@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect, } from "react";
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, ActivityIndicator, LayoutAnimation, UIManager } from "react-native";
+import { Text, View, TouchableOpacity, ScrollView, } from "react-native";
 import Modal from "react-native-modal";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Share from "react-native-share";
@@ -12,7 +12,7 @@ import Loading from "../../sharedComponents/loading/loading";
 import { writeToJSON, copyJSON, deleteJSON } from "../../db/fileSystem/fsWrite";
 import { readJSON, readImportedJSON, readDirectory, returnFileURL } from "../../db/fileSystem/fsRead";
 
-import { useAtom } from "jotai";
+import { useAtom, useSetAtom } from "jotai";
 import {
   activeThemeAtom,
   selectedLocaleAtom,
@@ -40,18 +40,17 @@ const ProgramEditorPage = ({ navigation }) => {
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
-  const [activeProgramData, setActiveProgramData] = useAtom(activeProgramAtom);
-  const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
+  const setActiveProgramData = useSetAtom(activeProgramAtom); // TODO - test if useSetAtom works
+  const setProgramEditorData = useSetAtom(programEditorDataAtom); // TODO - test if useSetAtom works
   const [programList, setProgramList] = useState([]);
-  const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
-  const [selectedDay, setSelectedDay] = useAtom(selectedDayAtom);
-  const [programEditorMode, setProgramEditorMode] = useAtom(programEditorModeAtom);
-  const [programPageSelectedDay, setProgramPageSelectedDay] = useAtom(programPageSelectedDayAtom);
-  const [programPageSelectedWeek, setProgramPageSelectedWeek] = useAtom(programPageSelectedWeekAtom);
+  const setSelectedWeek = useSetAtom(selectedWeekAtom); // TODO - test if useSetAtom works
+  const setSelectedDay = useSetAtom(selectedDayAtom); // TODO - test if useSetAtom works
+  const setProgramEditorMode = useSetAtom(programEditorModeAtom); // TODO - test if useSetAtom works
+  const setProgramPageSelectedDay = useSetAtom(programPageSelectedDayAtom); // TODO - test if useSetAtom works
+  const setProgramPageSelectedWeek = useSetAtom(programPageSelectedWeekAtom); // TODO - test if useSetAtom works
 
   const [modalOpen, setModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [showFabButton, setShowFabButton] = useState(true);
   const [programNameForAction, setProgramNameForAction] = useState("");
   const [activeProgramName, setActiveProgramName] = useAtom(activeProgramNameAtom);
 
@@ -181,11 +180,9 @@ const ProgramEditorPage = ({ navigation }) => {
   return (
       <View style={styles(activeTheme).container}>
 
-        {showFabButton &&
-          <TouchableOpacity onPress={handleFabButtonClick} style={[styles(activeTheme).FabButton, styles(activeTheme).shadowProp]}>
-            <Text style={styles(activeTheme).FabButtonText}>+</Text>
-          </TouchableOpacity>
-        }
+        <TouchableOpacity onPress={handleFabButtonClick} style={[styles(activeTheme).FabButton, styles(activeTheme).shadowProp]}>
+          <Text style={styles(activeTheme).FabButtonText}>+</Text>
+        </TouchableOpacity>
 
         {loading ? (
           <Loading />
@@ -194,7 +191,7 @@ const ProgramEditorPage = ({ navigation }) => {
             {programList?.length > 0 ? (
               <ScrollView style={styles(activeTheme).programListWrapper} overScrollMode="never">
                 <View style={styles(activeTheme).programListWrapper}>
-                  {programList?.map((item, index) => {
+                  {programList?.map((item, index) => { // TODO - add types?
                     if(item.name.includes(".json")) {
                       return (
                         <View

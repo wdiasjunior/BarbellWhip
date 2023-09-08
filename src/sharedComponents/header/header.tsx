@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, FlatList, ScrollView, TouchableOpacity, } from "react-native";
+import { Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Entypo from "react-native-vector-icons/Entypo";
@@ -30,7 +30,7 @@ const Header = (props: Props) => {
   const navigation = useNavigation();
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
+  const [programEditorData, ] = useAtom(programEditorDataAtom);
 
   const saveProgram = async () => {
     const fileName = programEditorData.programName;

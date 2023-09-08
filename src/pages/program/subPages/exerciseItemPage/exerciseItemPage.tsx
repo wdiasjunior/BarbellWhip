@@ -5,8 +5,6 @@ import { useNavigation } from "@react-navigation/native";
 import Header from "../../../../sharedComponents/header/header";
 import Loading from "../../../../sharedComponents/loading/loading";
 
-import type { OneRMs, DayExercises } from "../../../../db/programs/programTypings";
-
 import styles from "./exerciseItemPageStyles";
 
 import { useAtom } from "jotai";
@@ -52,7 +50,7 @@ const ExerciseItemPage = (_props: any) => {
   const rmId = props.rmId;
   const weightUnit = props.weightUnit;
   const weightRoundingFactor = weightUnit === "kg" ? 2.5 : 5;
-  const oneRMweight = onermOBJ.find((el) => el.id === rmId) ?? 0; // TODO - check this. not really needed since I can just pass the 1rm as a route.param
+  const oneRMweight: OneRMs | any = onermOBJ.find((el) => el.id === rmId) ?? 0; // TODO - check this. not really needed since I can just pass the 1rm as a route.param
 
   return (
     <View style={styles(activeTheme).container}>

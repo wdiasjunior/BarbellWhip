@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, ScrollView, TouchableOpacity, } from "react-native";
+import { Text, View, ScrollView, } from "react-native";
 
 import styles from "./rmReviewPageStyles";
 
@@ -9,14 +9,12 @@ import { useAtom } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
 
-import type { OneRMs } from "../../../../db/programs/programTypings";
-
 interface Props {
   onermOBJ: OneRMs[];
   weightUnit: string;
 }
 
-const RMReviewPage = (_props: Props) => {
+const RMReviewPage = (_props: any) => {
 
   const props: Props = _props.route.params;
 
@@ -54,4 +52,4 @@ const RMReviewPage = (_props: Props) => {
   )
 }
 
-export default React.memo(RMReviewPage);
+export default React.memo(RMReviewPage); // TODO - remove this?

@@ -3,8 +3,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import CalculatorPage from "../pages/calculator/calculatorPage";
-// import ProgramPage from "../pages/program/programPage";
-// import PlateMathPage from "../pages/plateMath/plateMathPage";
 import Loading from "../sharedComponents/loading/loading";
 
 import { ProgramPageStack, PlateMathPageStack } from "./StackNavigator";
@@ -64,12 +62,12 @@ const BottomTabProgramPageNavigator = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
+          cardStyle: { // TODO - does this even make a difference?
             backgroundColor: activeTheme.backgroundPrimary,
             opacity: 1,
             flex: 1,
           },
-          // lazy: true,
+          // lazy: true,  // TODO - does this even make a difference?
         }}
       />
       <Tab.Screen
@@ -84,7 +82,7 @@ const BottomTabProgramPageNavigator = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
+          cardStyle: { // TODO - does this even make a difference?
             backgroundColor: activeTheme.backgroundPrimary,
             opacity: 1,
           },
@@ -102,7 +100,7 @@ const BottomTabProgramPageNavigator = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
+          cardStyle: { // TODO - does this even make a difference?
             backgroundColor: activeTheme.backgroundPrimary,
             opacity: 1,
           },

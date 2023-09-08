@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useLayoutEffect, useRef, useCallback, } from "react";
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from "react-native";
+import React, { useLayoutEffect, useRef, useCallback, } from "react";
+import { Text, View, TouchableOpacity, } from "react-native";
 import DraggableFlatList, { ScaleDecorator } from "react-native-draggable-flatlist";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -23,15 +23,16 @@ const StepTwo = ({ navigation }) => {
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
-  const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
+  const [programEditorData, setProgramEditorData] = useAtom<TrainingProgramFile>(programEditorDataAtom);
   const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
   const [programEditorMode, ] = useAtom(programEditorModeAtom);
   const weekRef = useRef(null);
 
   const onScreenLoad = () => {
+    const title = programEditorMode === "Create" ? selectedLocale.programEditorPage.programEditorStep2.title : selectedLocale.programEditorPage.programEditorStep2.title2
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={programEditorMode === "Create" ? selectedLocale.programEditorPage.programEditorStep2.title : selectedLocale.programEditorPage.programEditorStep2.title2}
+                    title={title}
                     menu={false}
                     saveButton={true}
                     backButton={true}

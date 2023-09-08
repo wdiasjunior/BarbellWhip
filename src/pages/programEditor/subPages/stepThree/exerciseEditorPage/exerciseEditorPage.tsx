@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, KeyboardAvoidingView, TextInput, } from "react-native";
+import React from "react";
+import { Text, View, TouchableOpacity, ScrollView, TextInput, } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { useAtom } from "jotai";
@@ -10,7 +10,6 @@ import { useInitialRender } from "../../../../../helpers/useInitialRender";
 import Loading from "../../../../../sharedComponents/loading/loading";
 
 import { deepClone } from "../../../../../helpers/deepClone";
-import type { TrainingProgramFile, OneRMs, DayExercises } from "../../../../../db/programs/programTypings";
 
 import styles from "./exerciseEditorPageStyles";
 
@@ -32,22 +31,22 @@ const ExerciseEditorPage = (_props: any) => {
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
-  const [programEditorData, setProgramEditorData] = useAtom<TrainingProgramFile>(programEditorDataAtom);
-  const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
-  const [selectedDay, setSelectedDay] = useAtom(selectedDayAtom);
+  const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
+  const [selectedWeek, ] = useAtom(selectedWeekAtom);
+  const [selectedDay, ] = useAtom(selectedDayAtom);
 
   const exerciseIndex = props.exerciseIndex;
   const length = programEditorData.trainingProgram[selectedWeek].week[selectedDay].day.length - 1;
   const exerciseData = exerciseIndex === "add" ? deepClone(programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[length]) : deepClone(programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex]);
-  const exerciseType = props.exerciseType;
-  const oneRMweight = programEditorData.oneRMs.find((el) => el.id === exerciseData.RMid); // TODO - check this - should probably just use the data from props.oneRMweight
+  const exerciseType = props.exerciseType; // TODO - never used
+  const oneRMweight: OneRMs | any = programEditorData.oneRMs.find((el: OneRMs) => el.id === exerciseData.RMid); // TODO - check this - should probably just use the data from props.oneRMweight
   const oneRMname = props.oneRMname;
 
   const weightRoundingFactor = programEditorData.weightUnit === "kg" ? 2.5 : 5;
 
   const addExerciseSubSet = () => {
     let auxAtom = deepClone(programEditorData);
-    auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex === "add" ? length : exerciseIndex].set.push({
+    auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex === "add" ? length : exerciseIndex].set.push({ // TODO - refactor exerciseIndex to be only a number and add to be an action
       exerciseName: "",
       sets: "",
       reps: "",
@@ -62,7 +61,7 @@ const ExerciseEditorPage = (_props: any) => {
     setProgramEditorData(auxAtom);
   }
 
-  const editExerciseField = (field: string, input: string, index: number) => {
+  const editExerciseField = (field: string, input: string, index?: number) => {
     let auxAtom = deepClone(programEditorData);
     const auxExerciseIndex = exerciseIndex === "add" ? length : exerciseIndex;
     if(field === "parentExerciseName") {
@@ -100,7 +99,7 @@ const ExerciseEditorPage = (_props: any) => {
 
           <View style={styles(activeTheme).setList}>
 
-            {exerciseData.set.map((item, index) => {
+            {exerciseData.set.map((item: ExerciseSet, index: number) => {
               return (
                 <View style={styles(activeTheme).exerciseItem} key={"ExerciseEditorPage_SetListExercise" + index}>
 

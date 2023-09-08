@@ -1,5 +1,5 @@
-import React, { Suspense } from "react";
-import { View, ActivityIndicator, StatusBar } from 'react-native';
+import React from "react";
+import { StatusBar } from 'react-native';
 
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import DrawerNavigator from '../navigators/DrawerNavigator';

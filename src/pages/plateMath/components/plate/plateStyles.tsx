@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const styles = (theme) => {
+export const styles = (theme: Theme) => {
   return StyleSheet.create({
     bar: {
       height: 30,

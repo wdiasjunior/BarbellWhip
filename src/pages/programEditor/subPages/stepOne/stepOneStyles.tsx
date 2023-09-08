@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const styles = (theme) => {
+const styles = (theme: Theme) => {
   return StyleSheet.create({
     container: {
       flex: 1,
@@ -16,7 +16,6 @@ const styles = (theme) => {
     programNameTextInput: {
       backgroundColor: theme.backgroundSecondary,
       height: 50,
-      // width: "100%",
       borderColor: theme.backgroundSecondary,
       borderWidth: 1,
       borderRadius: 15,

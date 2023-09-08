@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useLayoutEffect, } from "react";
-import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, } from "react-native";
+import React from "react";
+import { Text, View, TouchableOpacity, } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import styles from "./settingsPageStyles";
@@ -10,7 +10,7 @@ import { activeThemeIdAtom, activeThemeAtom, selectedLocaleIdAtom, selectedLocal
 import { themes } from "../../themes/";
 import { locales } from "../../db/locales/";
 
-const SettingsPage = ({ navigation }) => {
+const SettingsPage = () => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [activeThemeId, setActiveThemeId] = useAtom(activeThemeIdAtom);

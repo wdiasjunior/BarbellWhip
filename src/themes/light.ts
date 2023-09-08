@@ -1,4 +1,4 @@
-const colors  = {
+const colors: Theme  = {
   backgroundPrimary: "#E8EAED",
   backgroundSecondary: "#FFFFFF",
   text: "#000000",

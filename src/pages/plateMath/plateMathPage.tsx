@@ -32,12 +32,12 @@ const PlateMathPage = ({ navigation }) => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
-  const [currentWeight, setCurrentWeight] = useAtom(plateMathPageWeight);
-  const [weightUnit, setWeightUnit] = useAtom(plateMathWeightUnit); // false == kg == left, true == lbs == right
-  const [showBumper, setShowBumper] = useAtom(plateMathShowBumper);
-  const [barWeight, ] = useAtom(plateMathBarWeight);
-  const [weightRack, ] = useAtom(plateMathWeightRack);
-  const [bumperPlatesRack, ] = useAtom(plateMathBumperPlatesRack);
+  const [currentWeight, setCurrentWeight] = useAtom<number>(plateMathPageWeight);
+  const [weightUnit, ] = useAtom<boolean>(plateMathWeightUnit); // false == kg == left, true == lbs == right
+  const [showBumper, setShowBumper] = useAtom<boolean>(plateMathShowBumper);
+  const [barWeight,] = useAtom<BarWeight>(plateMathBarWeight);
+  const [weightRack,] = useAtom<WeightRack>(plateMathWeightRack);
+  const [bumperPlatesRack,] = useAtom<BumperRack>(plateMathBumperPlatesRack);
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
   const currentPlates = showBumper
                           ? WeightCalc.getPlates(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"], bumperPlatesRack[weightUnit ? "lbs" : "kg"])
@@ -107,7 +107,7 @@ const PlateMathPage = ({ navigation }) => {
                     </View>
                   </TouchableOpacity>
 
-                  <TouchableOpacity onPress={toggleModal}>
+                  <TouchableOpacity onPress={() => toggleModal()}> {/* TODO - check this */}
                     <Text style={styles(activeTheme).weight}>{currentWeight} {weightUnit ? "lbs" : "kg"}</Text>
                     <Text style={styles(activeTheme).weightConverted}>{weightConversion(currentWeight, !weightUnit)} {!weightUnit ? "lbs" : "kg"}</Text>
                   </TouchableOpacity>
@@ -123,9 +123,6 @@ const PlateMathPage = ({ navigation }) => {
               <Text style={styles(activeTheme).info}>{selectedLocale.plateMathPage.currentBarWeightLabel}:
                 <Text style={styles(activeTheme).infoWeight}> {barWeight[weightUnit ? "lbs" : "kg"]}{weightUnit ? "lbs" : "kg"}</Text>
               </Text>
-              {/*<Text style={styles(activeTheme).info}>Current Weight on the Bar:
-                <Text style={styles(activeTheme).infoWeight}> {WeightCalc.getClosestAvailableWeight(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"])}{weightUnit}</Text>
-              </Text>*/}
 
               <Text style={styles(activeTheme).bumperLabel}>{selectedLocale.plateMathPage.bumperToggleLabel}</Text>
               <Switch

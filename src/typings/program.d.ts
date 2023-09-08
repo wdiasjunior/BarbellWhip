@@ -1,31 +1,31 @@
-export interface TrainingProgramFile {
+interface TrainingProgramFile {
   programName: string;
   weightUnit: string;
   oneRMs: OneRMs[],
-  trainingProgram: TrainingProgramData[]
+  trainingProgram: TrainingProgram[]
 }
 
-export interface OneRMs {
+interface OneRMs {
   id: string;
   name: string;
   weight: string;
 }
 
-export interface TrainingProgramData {
+interface TrainingProgram {
   week: Week[]
 }
 
-export interface Week {
+interface Week {
   day: DayExercises[];
 }
 
-export interface DayExercises {
+interface DayExercises {
   RMid: string;
   exerciseName: string;
   set: ExerciseSet[];
 }
 
-export interface ExerciseSet {
+interface ExerciseSet {
   exerciseName: string;
   sets: string;
   reps: string;

@@ -1,13 +1,11 @@
-import { IPlates } from "../components/plate/plate";
-
 const WeightCalc = {
   getPlates(weight: number, barWeight: number, weightRack: any, bumperRack?: any) {
     const weightOfSingleSidePlates = (weight - barWeight) / 2;
 
     let platesAux: number[] = []; // keeps track of all plates weights - only used for math
-    let plates: IPlates[] = []; // array of objets that keeps track of bumper data
+    let plates: Plates[] = []; // array of objets to keeps track of isBumper
 
-    if(bumperRack) { // adds bumper plates at beginning of the array
+    if(bumperRack) { // adds bumper plates before metal plates
       const bumperPlatesAvailable = this.getPlatesAvailableFromRack(bumperRack);
       bumperPlatesAvailable.forEach((plate) => {
         let numPlates = Math.floor(bumperRack[plate] / 2);
@@ -51,23 +49,20 @@ const WeightCalc = {
     return Object.keys(weightRack).map((a) => parseFloat(a)).sort((a, b) => a - b).reverse();
   },
 
-  getPlatePercentOfMax(plate: IPlates, weightRack: any) {
+  getPlatePercentOfMax(plate: Plates, weightRack: any) {
     const plates = weightRack.map((a) => !a.isBumper ? a.plate : 0).sort((a, b) => a.plate - b.plate).reverse();
-    // console.log("----------plates", plates);
-    // funtion kinda broken after adding bumper plates rack funcitonality
-    // TODO - fix this? decided to set the size manually and seems to work fine
     const min = Math.min.apply(null, plates);
     const max = Math.max.apply(null, plates);
     const size =  (plate.plate - min) / (max - min);
 
-    return isNaN(size) ? 1 : size; // 180kg returns NaN wtf?
+    return isNaN(size) ? 1 : size;
   },
 
   getClosestAvailableWeight(weight: number, barWeight: number, weightRack: any) {
     return this.getTotalWeight(this.getPlates(weight, barWeight, weightRack), barWeight);
   },
 
-  getTotalWeight(plates: IPlates[], barWeight: number) {
+  getTotalWeight(plates: Plates[], barWeight: number) {
     // return (plates.length * 2) + barWeight; // TODO - does this also work?
     return (this.sum(plates) * 2) + barWeight;
   },

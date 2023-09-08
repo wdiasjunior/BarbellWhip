@@ -15,9 +15,9 @@ interface Props {
 
 const TopTabBar = (props: Props) => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
+  const [activeTheme,] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
-  const [selectedDay, setSelectedDay] = useAtom<number>(programPageSelectedDayAtom);
+  const [selectedDay, ] = useAtom(programPageSelectedDayAtom);
 
   const days = Array.from(Array(props.days).keys());
 
@@ -72,7 +72,7 @@ const TopTabBar = (props: Props) => {
         onContentSizeChange={scrollToTabOnLoad}
         overScrollMode="never"
       >
-        {days.map((item, index) => {
+        {days.map((_, index) => {
           return (
             <TouchableOpacity
               key={"TopTabBar" + index}

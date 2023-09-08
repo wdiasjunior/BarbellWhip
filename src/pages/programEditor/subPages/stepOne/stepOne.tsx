@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useLayoutEffect } from "react"; // , useRef
-import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, KeyboardAvoidingView, TextInput, } from "react-native";
+import React, { useState, useEffect, useLayoutEffect } from "react";
+import { Text, View, Switch, TouchableOpacity, ScrollView, TextInput, } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { useAtom } from "jotai";
@@ -12,8 +12,6 @@ import { randomUUID } from "../../../../helpers/randomUUID";
 
 import Header from "../../../../sharedComponents/header/header";
 import Loading from "../../../../sharedComponents/loading/loading";
-
-import type { TrainingProgramFile } from "../../../../db/programs/programTypings";
 
 import styles from "./stepOneStyles";
 
@@ -36,12 +34,10 @@ const StepOne = ({ navigation }) => {
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
 
-  const [programEditorData, setProgramEditorData] = useAtom<TrainingProgramFile>(programEditorDataAtom);
+  const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
   const [programEditorMode, ] = useAtom(programEditorModeAtom);
   const [weightUnit, setWeightUnit] = useState(programEditorData.weightUnit === "kg" ? false : true); // false == kg == left, true == lbs == right
   const toggleWeightUnitSwitch = () => setWeightUnit(previousState => !previousState);
-
-  // const refInputRMName, refInputRMWeight = useRef();
 
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
@@ -71,11 +67,13 @@ const StepOne = ({ navigation }) => {
     auxAtom.programName = input;
     setProgramEditorData(auxAtom);
   }
+
   const editRMname = (input: string, index: number) => {
     let auxAtom = deepClone(programEditorData);
     auxAtom.oneRMs[index].name = input;
     setProgramEditorData(auxAtom);
   }
+
   const editRMweight = (input: string, index: number) => {
     let auxAtom = deepClone(programEditorData);
     auxAtom.oneRMs[index].weight = input;
@@ -125,7 +123,7 @@ const StepOne = ({ navigation }) => {
             <Text style={styles(activeTheme).weightUnitText}>lbs</Text>
           </View>
 
-          {programEditorData.oneRMs.map((item, index) => {
+          {programEditorData.oneRMs.map((item: OneRMs, index) => {
             return (
               <View style={[styles(activeTheme).onermItem, styles(activeTheme).shadowProp]} key={"ProgramEditorPage_StepOne_RMItem" + index} >
                 <TextInput

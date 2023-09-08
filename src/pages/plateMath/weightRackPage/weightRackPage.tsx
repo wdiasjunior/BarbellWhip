@@ -14,7 +14,6 @@ import {
   selectedLocaleAtom,
   plateMathPageWeight,
   plateMathWeightUnit,
-  plateMathShowBumper,
   plateMathBarWeight,
   plateMathWeightRack,
   plateMathBumperPlatesRack,
@@ -28,12 +27,11 @@ const WeightRackPage = () => {
 
   const [activeTheme, ] = useAtom(activeThemeAtom);
   const [selectedLocale, ] = useAtom(selectedLocaleAtom);
-  const [currentWeight, setCurrentWeight] = useAtom(plateMathPageWeight);
-  const [weightUnit, setWeightUnit] = useAtom(plateMathWeightUnit); // false == kg == left, true == lbs == right
-  const [showBumper, setShowBumper] = useAtom(plateMathShowBumper);
-  const [barWeight, setBarWeight ] = useAtom(plateMathBarWeight);
-  const [weightRack, setWeightRack ] = useAtom(plateMathWeightRack);
-  const [bumperPlatesRack, setBumperPlatesRack ] = useAtom(plateMathBumperPlatesRack);
+  const [currentWeight, setCurrentWeight] = useAtom<number>(plateMathPageWeight);
+  const [weightUnit, setWeightUnit] = useAtom<boolean>(plateMathWeightUnit); // false == kg == left, true == lbs == right
+  const [barWeight, setBarWeight] = useAtom<BarWeight>(plateMathBarWeight);
+  const [weightRack, setWeightRack] = useAtom<WeightRack>(plateMathWeightRack);
+  const [bumperPlatesRack, setBumperPlatesRack] = useAtom<BumperRack>(plateMathBumperPlatesRack);
 
   const handleWeightUnitChange = (_weightUnit: boolean) => {
     const _convertedWeight = weightConversion(currentWeight, _weightUnit);
@@ -41,19 +39,19 @@ const WeightRackPage = () => {
     setWeightUnit(_weightUnit);
   }
 
-  const editWeightRack = (_input: string, _field: string, _weightUnit: boolean) => {
+  const editWeightRack = (_input: string, _field: string, _weightUnit: string) => {
     const auxWeightRack = deepClone(weightRack);
     auxWeightRack[_weightUnit][_field] = _input;
     setWeightRack(auxWeightRack);
   }
 
-  const editBumperPlateRack = (_input: string, _field: string, _weightUnit: boolean) => {
+  const editBumperPlateRack = (_input: string, _field: string, _weightUnit: string) => {
     const auxBumperPlatesRack = deepClone(bumperPlatesRack);
     auxBumperPlatesRack[_weightUnit][_field] = _input;
     setBumperPlatesRack(auxBumperPlatesRack);
   }
 
-  const editBarWeight = (_input: string, _weightUnit: boolean) => {
+  const editBarWeight = (_input: string, _weightUnit: string) => {
     const auxBarWeight = deepClone(barWeight);
     auxBarWeight[_weightUnit] = _input;
     setBarWeight(auxBarWeight);

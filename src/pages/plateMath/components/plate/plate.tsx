@@ -4,14 +4,9 @@ import { View, Text } from "react-native";
 import { styles, plateColors } from "./plateStyles";
 
 interface Props {
-  plate: IPlates;
+  plate: Plates;
   activeTheme: any;
   weightUnit: string;
-}
-
-export interface IPlates {
-  plate: number;
-  isBumper: boolean;
 }
 
 const Plate = (props: Props) => {
