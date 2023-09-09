@@ -40,9 +40,12 @@ const StepOne = ({ navigation }) => {
   const toggleWeightUnitSwitch = () => setWeightUnit(previousState => !previousState);
 
   const onScreenLoad = () => {
+    const title = programEditorMode === "Create"
+                    ? selectedLocale.programEditorPage.programEditorStep1.title
+                    : selectedLocale.programEditorPage.programEditorStep1.title2;
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={programEditorMode === "Create" ? selectedLocale.programEditorPage.programEditorStep1.title : selectedLocale.programEditorPage.programEditorStep1.title2}
+                    title={title}
                     menu={false}
                     saveButton={true}
                     backButton={true}

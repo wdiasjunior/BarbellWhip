@@ -31,7 +31,7 @@ const StepTwo = ({ navigation }) => {
   const onScreenLoad = () => {
     const title = programEditorMode === "Create"
                     ? selectedLocale.programEditorPage.programEditorStep2.title
-                    : selectedLocale.programEditorPage.programEditorStep2.title2
+                    : selectedLocale.programEditorPage.programEditorStep2.title2;
     navigation.setOptions({ headerTitle: () =>
                   <Header
                     title={title}
