@@ -28,7 +28,7 @@ const ProgramEditorDayPageStack = () => {
 
   return (
     <Stack.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={() => ({
         cardStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
@@ -43,8 +43,8 @@ const ProgramEditorDayPageStack = () => {
         component={StepThree}
         options={{
           headerShown: true,
-          headerLeft: undefined,
-          headerStyle:{
+          headerLeft: () => null,
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
@@ -63,7 +63,7 @@ const ProgramEditorDayPageStack = () => {
           presentation: "modal",
           headerTitle: selectedLocale.programEditorPage.exerciseEditorPage.title,
           animationEnabled: false,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
           },
           headerTintColor: activeTheme.text,
@@ -87,7 +87,7 @@ const BottomTabProgramEditorPageNavigator = () => {
 
   return (
     <Tab.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={() => ({
         tabBarHideOnKeyboard: true,
         tabBarActiveTintColor: activeTheme.active,
         tabBarInactiveTintColor: activeTheme.inactive,
@@ -159,7 +159,7 @@ const ProgramPageStack = () => {
 
   return (
     <Stack.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={() => ({
         cardStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
@@ -233,7 +233,7 @@ const PlateMathPageStack = () => {
 
   return (
     <Stack.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={() => ({
         cardStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
@@ -289,7 +289,7 @@ const ProgramEditorPageStack = () => {
 
   return (
     <Stack.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={() => ({
         cardStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
@@ -304,10 +304,10 @@ const ProgramEditorPageStack = () => {
         component={ProgramEditorPage}
         options={{
           headerShown: true,
-          headerLeft: undefined,
+          headerLeft: () => null,
           title: selectedLocale.programEditorPage.title,
           headerTitle: selectedLocale.programEditorPage.title,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
@@ -322,13 +322,13 @@ const ProgramEditorPageStack = () => {
       <Stack.Screen
         name="StepsTabs"
         component={BottomTabProgramEditorPageNavigator}
-        options={({ route }) => {
+        options={() => {
           return {
             headerShown: false,
             presentation: "modal",
             headerTitle: selectedLocale.programEditorPage.programEditorStep1.title,
             animationEnabled: false,
-            headerStyle:{
+            headerStyle: {
               backgroundColor: activeTheme.backgroundSecondary,
               elevation: 0,
               shadowOpacity: 0,

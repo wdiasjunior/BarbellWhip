@@ -8,10 +8,10 @@ const styles = (theme: Theme) => {
     },
     container: {
       backgroundColor: theme.backgroundPrimary,
-      flex: 1,
       justifyContent: "center",
       alignContent: "center",
       alignItems: "center",
+      height: 300,
     },
     text: {
       textAlign: "center",

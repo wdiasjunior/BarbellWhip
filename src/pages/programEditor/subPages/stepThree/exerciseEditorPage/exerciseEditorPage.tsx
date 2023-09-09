@@ -22,7 +22,7 @@ interface Props {
 
 const ExerciseEditorPage = (_props: any) => {
 
-  const props: Props = _props;
+  const props: Props = _props.route.params;
 
   const isInitialRender = useInitialRender();
 

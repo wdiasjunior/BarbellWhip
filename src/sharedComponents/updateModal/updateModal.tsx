@@ -10,6 +10,8 @@ import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
 interface Props {
   isUpdateModalVisible: boolean;
   setUpdateModalVisible: (isVisible: boolean) => void;
+  currentVersion: string
+  appVersionGithub: string | null
 }
 
 const UpdateModal = (props: Props) => {
@@ -17,6 +19,10 @@ const UpdateModal = (props: Props) => {
   const activeTheme = useAtomValue(activeThemeAtom);
 
   // TODO - add spinner on request
+
+  const handleDownloadUpdate = () => {
+    const url = `https://github.com/wdiasjunior/BarbellWhip/releases/download/v${appVersionGithub}/BarbellWhip_${appVersionGithub}.apk`
+  }
 
   return (
     <Modal
@@ -32,6 +38,8 @@ const UpdateModal = (props: Props) => {
     >
       <View style={styles(activeTheme).container}>
         <Text style={styles(activeTheme).text}>UpdateModal</Text>
+        <Text style={styles(activeTheme).text}>{props.currentVersion}</Text>
+        <Text style={styles(activeTheme).text}>{props.appVersionGithub}</Text>
       </View>
     </Modal>
   );

@@ -1,4 +1,4 @@
-import React, { useState, } from "react";
+import React, { useState, useEffect, } from "react";
 import { Text, View, TouchableOpacity, } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import UpdateModal from "../../sharedComponents/updateModal/updateModal";
@@ -16,7 +16,7 @@ import {
 import { themes } from "../../themes/";
 import { locales } from "../../db/locales/";
 
-import { version } from '../../../package.json';
+import { version as currentAppVersion } from '../../../package.json';
 
 const SettingsPage = () => {
 
@@ -34,19 +34,21 @@ const SettingsPage = () => {
             .then(response => response.json())
             .then(json => setAppVersionGithub(json.version))
             .catch(error => console.error(error));
-  };
-
+  }
 
   const handleUpdateModal = () => {
     setUpdateModalVisible(true);
     getAppVersionGithub();
-    if(appVersionGithub !== version) {
+  }
+
+  useEffect(() => {
+    if(appVersionGithub !== null && appVersionGithub !== currentAppVersion) {
       console.log("Update Available");
     } else {
       console.log("github version", appVersionGithub);
-      console.log("current version", version);
+      console.log("current version", currentAppVersion);
     }
-  }
+  }, [appVersionGithub])
 
   return (
     <View style={styles(activeTheme).container}>
@@ -122,6 +124,8 @@ const SettingsPage = () => {
         <UpdateModal
           isUpdateModalVisible={isUpdateModalVisible}
           setUpdateModalVisible={setUpdateModalVisible}
+          currentVersion={currentAppVersion}
+          appVersionGithub={appVersionGithub}
         />
     </View>
   );

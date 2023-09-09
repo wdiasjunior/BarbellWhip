@@ -61,7 +61,7 @@ const DrawerNavigator = () => {
         options={{
           headerShown: false,
           title: selectedLocale.programPage.title,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
@@ -75,7 +75,7 @@ const DrawerNavigator = () => {
         options={{
           headerShown: false,
           title: selectedLocale.programEditorPage.title,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
@@ -89,7 +89,7 @@ const DrawerNavigator = () => {
         component={SettingsPage}
         options={{
           title: selectedLocale.settingsPage.title,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,

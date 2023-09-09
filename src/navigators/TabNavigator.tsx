@@ -56,7 +56,7 @@ const BottomTabProgramPageNavigator = () => {
         options={{
           headerShown: false,
           title: selectedLocale.programPage.title,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
@@ -70,7 +70,7 @@ const BottomTabProgramPageNavigator = () => {
         options={{
           headerShown: true,
           title: selectedLocale.calculatorPage.title,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
@@ -84,7 +84,7 @@ const BottomTabProgramPageNavigator = () => {
         options={{
           headerShown: false,
           title: selectedLocale.plateMathPage.title,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
