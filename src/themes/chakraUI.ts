@@ -8,7 +8,7 @@ const colors: Theme = {
   active: "#38b2ac",
   activeTransparent: "#38b2ac21",
   inactive: "#cbd5e0",
-  statusBar: "light",
+  statusBar: "light-content",
 }
 
 export default colors;

@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, TouchableOpacity, ScrollView, TextInput, } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue, } from "jotai";
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../../helpers/useInitialRender";
@@ -28,17 +28,17 @@ const ExerciseEditorPage = (_props: any) => {
 
   // TODO - add "discard" icon to header ?
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
-  const [selectedWeek, ] = useAtom(selectedWeekAtom);
-  const [selectedDay, ] = useAtom(selectedDayAtom);
+  const selectedWeek = useAtomValue(selectedWeekAtom);
+  const selectedDay = useAtomValue(selectedDayAtom);
 
   const exerciseIndex = props.exerciseIndex;
   const length = programEditorData.trainingProgram[selectedWeek].week[selectedDay].day.length - 1;
   const exerciseData = exerciseIndex === "add" ? deepClone(programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[length]) : deepClone(programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex]);
-  const exerciseType = props.exerciseType; // TODO - never used
+  const exerciseType = props.exerciseType; // TODO - never used?
   const oneRMweight: OneRMs | any = programEditorData.oneRMs.find((el: OneRMs) => el.id === exerciseData.RMid); // TODO - check this - should probably just use the data from props.oneRMweight
   const oneRMname = props.oneRMname;
 
@@ -46,7 +46,7 @@ const ExerciseEditorPage = (_props: any) => {
 
   const addExerciseSubSet = () => {
     let auxAtom = deepClone(programEditorData);
-    auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex === "add" ? length : exerciseIndex].set.push({ // TODO - refactor exerciseIndex to be only a number and add to be an action
+    auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex === "add" ? length : exerciseIndex].set.push({ // TODO - refactor exerciseIndex to be only a number and "add" to be an action
       exerciseName: "",
       sets: "",
       reps: "",

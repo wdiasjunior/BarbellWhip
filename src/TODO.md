@@ -1,14 +1,12 @@
 # TODO
 ## review last commits changes, finish the TODOs and test the app
 
-- jotai - change this `const [, setValue] = useAtom(valueAtom)` to useSetAtom to increase performance (does this even make a difference)
-  - https://jotai.org/docs/api/core#use-set-atom
-
 - add logo to splash screen and app icon
 - reduce splash screen time (it's probably just my phone that's slow)
 - check TODOs and unused variables
 - add typings folder with types for the major stuff
   - check any around the codebase
+  - try to fix jotai atom type errors
 
 ## calculator page
   - add settings screen (?)
@@ -64,11 +62,10 @@
     - Created by Wellington Junior
   - "Weights are rounded to 2.5kg and 5lbs so that it's easier on the head and load the bar mid training session, and it's applied in every screen. In the future, it will be added a toggle so that you can disable this behavior."
   - add switch to disable rounding and show actual weight after percentage calculation
-  - update warning/modal info - `import { version } from './package.json';`
-    - make a getto "api" with the barbellwhip website and check on load if version in a atom with storage is different from the version in the website
-    - dont show again
+  - update warning/modal info
+    - "dont show again" option on auto check
     - download to temp?
-    - settings check for update button
+    - settings check button for update modal
 
 ## misc
   - excel conversion to json? - spreadsheet template? (sort of done for a few programs)
@@ -89,7 +86,7 @@
 
 # BUGS
 
-- program page glitch - test without useEffects?
+- program page glitch
   - remake week menu list without animations?
 
 - when program is active and there was an edit then set active -> week was set to 1 again. should remain where it was
@@ -101,12 +98,6 @@
 - change program editor program data to atom with storage in both apps (?) to prevent from accidental discard of progress (kinda redundant if there's a warning on go back)
 
 - on save program - check if file with the same name already exists
-
-- optimize performance
-  - weightRackPage Object.map is fucking up performance?
-  - check for rerenders
-  - console.time
-  - console.timeEnd
 
 ---
 

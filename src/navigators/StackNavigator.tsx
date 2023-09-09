@@ -18,15 +18,13 @@ import StepTwo from "../pages/programEditor/subPages/stepTwo/stepTwo";
 import StepThree from "../pages/programEditor/subPages/stepThree/stepThree";
 import ExerciseEditorPage from "../pages/programEditor/subPages/stepThree/exerciseEditorPage/exerciseEditorPage";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
 
 const ProgramEditorDayPageStack = () => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
-
-  const navigation = useNavigation();
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   return (
     <Stack.Navigator
@@ -39,16 +37,13 @@ const ProgramEditorDayPageStack = () => {
           backgroundColor: activeTheme.backgroundPrimary,
         },
       })}
-      sceneContainerStyle={{
-        backgroundColor: activeTheme.backgroundPrimary,
-      }}
     >
       <Stack.Screen
         name="DaysStack"
         component={StepThree}
         options={{
           headerShown: true,
-          headerLeft: null,
+          headerLeft: undefined,
           headerStyle:{
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
@@ -85,8 +80,8 @@ const ProgramEditorDayPageStack = () => {
 const Tab = createBottomTabNavigator();
 const BottomTabProgramEditorPageNavigator = () => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const navigation = useNavigation();
 
@@ -94,8 +89,8 @@ const BottomTabProgramEditorPageNavigator = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarHideOnKeyboard: true,
-        tabBarActiveTintColor: "#3da9db",
-        tabBarInactiveTintColor: "#808080",
+        tabBarActiveTintColor: activeTheme.active,
+        tabBarInactiveTintColor: activeTheme.inactive,
         tabBarIconStyle: { display: "none" },
         tabBarLabelPosition: "beside-icon",
         tabBarLabelStyle: {
@@ -109,8 +104,6 @@ const BottomTabProgramEditorPageNavigator = () => {
           backgroundColor: activeTheme.backgroundSecondary,
           borderTopWidth: 0,
         },
-        tabBarActiveTintColor: activeTheme.active,
-        tabBarInactiveTintColor: activeTheme.inactive,
       })}
       sceneContainerStyle={{
         backgroundColor: activeTheme.backgroundPrimary,
@@ -127,10 +120,6 @@ const BottomTabProgramEditorPageNavigator = () => {
             elevation: 0,
             shadowOpacity: 0,
           },
-          cardStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
         }}
       />
       <Tab.Screen
@@ -143,10 +132,6 @@ const BottomTabProgramEditorPageNavigator = () => {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
-          },
-          cardStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
           },
         }}
       />
@@ -161,10 +146,6 @@ const BottomTabProgramEditorPageNavigator = () => {
             elevation: 0,
             shadowOpacity: 0,
           },
-          cardStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
         }}
       />
     </Tab.Navigator>
@@ -173,10 +154,8 @@ const BottomTabProgramEditorPageNavigator = () => {
 
 const ProgramPageStack = () => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
-
-  const navigation = useNavigation();
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   return (
     <Stack.Navigator
@@ -189,9 +168,6 @@ const ProgramPageStack = () => {
           backgroundColor: activeTheme.backgroundPrimary,
         },
       })}
-      sceneContainerStyle={{
-        backgroundColor: activeTheme.backgroundPrimary,
-      }}
     >
       <Stack.Screen
         name="ProgramStack"
@@ -252,10 +228,8 @@ const ProgramPageStack = () => {
 
 const PlateMathPageStack = () => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
-
-  const navigation = useNavigation();
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   return (
     <Stack.Navigator
@@ -268,9 +242,6 @@ const PlateMathPageStack = () => {
           backgroundColor: activeTheme.backgroundPrimary,
         },
       })}
-      sceneContainerStyle={{ // TODO - does this even make a difference
-        backgroundColor: activeTheme.backgroundPrimary,
-      }}
     >
       <Stack.Screen
         name="PlateMathPage"
@@ -313,10 +284,8 @@ const PlateMathPageStack = () => {
 
 const ProgramEditorPageStack = () => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
-
-  const navigation = useNavigation();
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   return (
     <Stack.Navigator
@@ -329,16 +298,13 @@ const ProgramEditorPageStack = () => {
           backgroundColor: activeTheme.backgroundPrimary,
         },
       })}
-      sceneContainerStyle={{
-        backgroundColor: activeTheme.backgroundPrimary,
-      }}
     >
       <Stack.Screen
         name="ProgramEditorStack"
         component={ProgramEditorPage}
         options={{
           headerShown: true,
-          headerLeft: undefined, // TODO - test this. was null
+          headerLeft: undefined,
           title: selectedLocale.programEditorPage.title,
           headerTitle: selectedLocale.programEditorPage.title,
           headerStyle:{
@@ -358,7 +324,6 @@ const ProgramEditorPageStack = () => {
         component={BottomTabProgramEditorPageNavigator}
         options={({ route }) => {
           return {
-            // headerShown: navigation?.getState()?.routes[1]?.state?.routes[1]?.state?.routes[2]?.state?.routes[1]?.name !== "ExerciseEditorPage",
             headerShown: false,
             presentation: "modal",
             headerTitle: selectedLocale.programEditorPage.programEditorStep1.title,

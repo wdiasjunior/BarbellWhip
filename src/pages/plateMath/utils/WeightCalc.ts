@@ -49,29 +49,11 @@ const WeightCalc = {
     return Object.keys(weightRack).map((a) => parseFloat(a)).sort((a, b) => a - b).reverse();
   },
 
-  getPlatePercentOfMax(plate: Plates, weightRack: any) {
-    const plates = weightRack.map((a) => !a.isBumper ? a.plate : 0).sort((a, b) => a.plate - b.plate).reverse();
-    const min = Math.min.apply(null, plates);
-    const max = Math.max.apply(null, plates);
-    const size =  (plate.plate - min) / (max - min);
-
-    return isNaN(size) ? 1 : size;
-  },
-
-  getClosestAvailableWeight(weight: number, barWeight: number, weightRack: any) {
-    return this.getTotalWeight(this.getPlates(weight, barWeight, weightRack), barWeight);
-  },
-
-  getTotalWeight(plates: Plates[], barWeight: number) {
-    // return (plates.length * 2) + barWeight; // TODO - does this also work?
-    return (this.sum(plates) * 2) + barWeight;
-  },
-
   sum(arr: any[]) {
     if(arr.length === 0) {
       return 0;
     }
-    return arr.reduce((acc, val) => acc + val); // TODO - test if this won't break. my guess is no since it works alread and I just added type annotations
+    return arr.reduce((acc, val) => acc + val);
   }
 }
 

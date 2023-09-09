@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
@@ -7,7 +7,7 @@ import Loading from "../sharedComponents/loading/loading";
 
 import { ProgramPageStack, PlateMathPageStack } from "./StackNavigator";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
 
 import { useInitialRender } from "../helpers/useInitialRender";
@@ -17,8 +17,8 @@ const Tab = createBottomTabNavigator();
 const BottomTabProgramPageNavigator = () => {
 
   const isInitialRender = useInitialRender();
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   return (
     <Tab.Navigator
@@ -62,12 +62,6 @@ const BottomTabProgramPageNavigator = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: { // TODO - does this even make a difference?
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-            flex: 1,
-          },
-          // lazy: true,  // TODO - does this even make a difference?
         }}
       />
       <Tab.Screen
@@ -82,10 +76,6 @@ const BottomTabProgramPageNavigator = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: { // TODO - does this even make a difference?
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
         }}
       />
       <Tab.Screen
@@ -100,10 +90,6 @@ const BottomTabProgramPageNavigator = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: { // TODO - does this even make a difference?
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
         }}
       />
     </Tab.Navigator>

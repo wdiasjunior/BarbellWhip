@@ -7,7 +7,7 @@ import { ProgramEditorPageStack, } from "./StackNavigator";
 // import PRTrackerPage from "../pages/prTracker/prTrackerPage";
 import SettingsPage from "../pages/settings/settingsPage";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
 
 import { useInitialRender } from "../helpers/useInitialRender";
@@ -17,8 +17,8 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigator = () => {
 
   const isInitialRender = useInitialRender();
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   return (
     <Drawer.Navigator
@@ -44,7 +44,7 @@ const DrawerNavigator = () => {
         lazy: true,
         drawerStyle: {
           backgroundColor: activeTheme.backgroundSecondary,
-          width: isInitialRender ? undefined : "75%", // TODO - check this. was null
+          width: isInitialRender ? undefined : "75%",
         },
         cardStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
@@ -67,10 +67,6 @@ const DrawerNavigator = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: { // TODO - does this even make a difference?
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
         }}
       />
       <Drawer.Screen
@@ -85,10 +81,6 @@ const DrawerNavigator = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: { // TODO - does this even make a difference?
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
         }}
       />
       {/*<Drawer.Screen name="PR Tracker" component={PRTrackerPage} />*/}
@@ -103,10 +95,6 @@ const DrawerNavigator = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: { // TODO - does this even make a difference?
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
         }}
       />
     </Drawer.Navigator>

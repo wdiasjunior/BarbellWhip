@@ -5,7 +5,7 @@ import styles from "./rmReviewPageStyles";
 
 import Loading from "../../../../sharedComponents/loading/loading";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
 
@@ -20,8 +20,8 @@ const RMReviewPage = (_props: any) => {
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const onermOBJ = props.onermOBJ;
   const weightUnit = props.weightUnit;
@@ -52,4 +52,4 @@ const RMReviewPage = (_props: any) => {
   )
 }
 
-export default React.memo(RMReviewPage); // TODO - remove this?
+export default React.memo(RMReviewPage);

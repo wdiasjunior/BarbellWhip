@@ -14,5 +14,5 @@ interface Theme {
   active: string;
   activeTransparent: string;
   inactive: string;
-  statusBar: string;
+  statusBar: "light-content" | "dark-content";
 }

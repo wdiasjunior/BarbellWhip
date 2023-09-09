@@ -2,6 +2,10 @@ import { StyleSheet } from "react-native";
 
 const styles = (theme: Theme) => {
   return StyleSheet.create({
+    modalContent: {
+      justifyContent: "center",
+      alignItems: "center",
+    },
     container: {
       backgroundColor: theme.backgroundSecondary,
       padding: 16,

@@ -6,7 +6,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue, } from "jotai";
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
@@ -23,19 +23,22 @@ const StepThree = ({ navigation }) => {
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
-  const [selectedWeek, ] = useAtom(selectedWeekAtom);
+  const selectedWeek = useAtomValue(selectedWeekAtom);
   const [selectedDay, setSelectedDay] = useAtom(selectedDayAtom);
-  const [programEditorMode, ] = useAtom(programEditorModeAtom);
+  const programEditorMode = useAtomValue(programEditorModeAtom);
   const [modalOpen, setModalOpen] = useState(false);
 
   const onScreenLoad = () => {
+    const title = programEditorMode === "Create"
+                    ? selectedLocale.programEditorPage.programEditorStep3.title
+                    : selectedLocale.programEditorPage.programEditorStep3.title2
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={programEditorMode === "Create" ? selectedLocale.programEditorPage.programEditorStep3.title : selectedLocale.programEditorPage.programEditorStep3.title2}
+                    title={title}
                     menu={false}
                     saveButton={true}
                     backButton={true}
@@ -104,9 +107,7 @@ const StepThree = ({ navigation }) => {
     setProgramEditorData(auxAtom);
   }
 
-  // TODO check if useCallback should be used again, since it's used in stepTwo
-  // const renderDayExerciseItems = useCallback(({item, index, drag}) => {
-  const renderDayExerciseItems = ({item, index, drag}) => {
+  const renderDayExerciseItems = ({ item, index, drag }) => {
 
     const deleteExercise = () => {
       let auxAtom = deepClone(programEditorData);
@@ -136,7 +137,6 @@ const StepThree = ({ navigation }) => {
       </ScaleDecorator>
     )
   }
-  // }, [programEditorData.trainingProgram[selectedWeek].week[selectedDay].day, addExercise, reorder, selectedDay, selectedWeek]); // not sure if this array should have all of this
 
   return (
     <View style={styles(activeTheme).container}>

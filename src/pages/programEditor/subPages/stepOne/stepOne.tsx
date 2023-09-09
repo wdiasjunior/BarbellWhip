@@ -2,7 +2,7 @@ import React, { useState, useEffect, useLayoutEffect } from "react";
 import { Text, View, Switch, TouchableOpacity, ScrollView, TextInput, } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue, } from "jotai";
 import { programEditorDataAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
@@ -31,11 +31,11 @@ const StepOne = ({ navigation }) => {
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
-  const [programEditorMode, ] = useAtom(programEditorModeAtom);
+  const programEditorMode = useAtomValue(programEditorModeAtom);
   const [weightUnit, setWeightUnit] = useState(programEditorData.weightUnit === "kg" ? false : true); // false == kg == left, true == lbs == right
   const toggleWeightUnitSwitch = () => setWeightUnit(previousState => !previousState);
 

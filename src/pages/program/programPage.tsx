@@ -7,7 +7,7 @@ import TopTabBar from "../../sharedComponents/topTabBar/topTabBar";
 import ExerciseItem from "./components/exerciseItem/exerciseItem";
 import MenuWeekList from "./components/menuWeekList/menuWeekList";
 
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import {
   activeThemeAtom,
   selectedLocaleAtom,
@@ -20,10 +20,10 @@ import styles from "./programPageStyles";
 
 const ProgramPage = ({ navigation }) => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
-  const [activeProgram,] = useAtom<TrainingProgramFile>(activeProgramAtom);
+  const activeProgram = useAtomValue<TrainingProgramFile>(activeProgramAtom);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -35,7 +35,9 @@ const ProgramPage = ({ navigation }) => {
   const [selectedWeek, setSelectedWeek] = useAtom<number>(programPageSelectedWeekAtom);
 
   const headerTitle = (week: number): string => {
-    const title = activeProgram.trainingProgram.length > 1 ? activeProgram?.programName : activeProgram?.programName + " - " + selectedLocale.programPage.week + " " + week
+    const title = activeProgram.trainingProgram.length > 1
+                    ? activeProgram?.programName + " - " + selectedLocale.programPage.week + " " + week
+                    : activeProgram?.programName
     return activeProgram.trainingProgram.length > 0 ? title : selectedLocale.programPage.defaultTitle
   }
 
@@ -53,7 +55,7 @@ const ProgramPage = ({ navigation }) => {
     setSelectedDay(day);
   }
 
-  const selectWeek = (index) => {
+  const selectWeek = (index: number) => {
     if(selectedWeek != index) {
       setSelectedDay(0);
     }
@@ -88,9 +90,7 @@ const ProgramPage = ({ navigation }) => {
 
   return (
     <View style={styles(activeTheme).container}>
-
-      {/* TODO - should probably change this "activeProgram?.programName" to something else. maybe activeProgram?.trainingProgram.length ? */}
-      {activeProgram?.programName ? (
+      {activeProgram?.trainingProgram.length > 0 ? (
         <SideMenu
           menu={menuWeekList}
           isOpen={isMenuOpen}

@@ -8,7 +8,7 @@ import { weightConversion } from "../../../helpers/weightConversion";
 
 import Loading from "../../../sharedComponents/loading/loading";
 
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue, } from "jotai";
 import {
   activeThemeAtom,
   selectedLocaleAtom,
@@ -25,8 +25,8 @@ const WeightRackPage = () => {
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
   const [currentWeight, setCurrentWeight] = useAtom<number>(plateMathPageWeight);
   const [weightUnit, setWeightUnit] = useAtom<boolean>(plateMathWeightUnit); // false == kg == left, true == lbs == right
   const [barWeight, setBarWeight] = useAtom<BarWeight>(plateMathBarWeight);

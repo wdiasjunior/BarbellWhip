@@ -2,7 +2,7 @@ import React from "react";
 import { Text, TouchableOpacity, } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { activeThemeAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
 import styles from "./exerciseItemStyles";
@@ -17,7 +17,7 @@ interface Props {
 
 const ExerciseItem = (props: Props) => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
 
   const navigation = useNavigation();
 
@@ -39,4 +39,4 @@ const ExerciseItem = (props: Props) => {
   )
 }
 
-export default React.memo(ExerciseItem); // TODO - remove this?
+export default ExerciseItem;

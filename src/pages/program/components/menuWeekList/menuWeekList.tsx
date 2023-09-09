@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, ScrollView, TouchableOpacity, } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
 import styles from "./menuWeekListStyles";
@@ -17,27 +17,25 @@ interface Props {
 
 const MenuWeekList = (props: Props) => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const navigation = useNavigation();
 
   return (
     <View style={styles(activeTheme).containerDrawer}>
-      <View style={styles(activeTheme).rmReviewContainer}>{/* // TODO - check this*/}
-        <TouchableOpacity
-          style={styles(activeTheme).item} // TODO - check this
-          onPress={() => {
-            props.setIsMenuOpen(!props.isMenuOpen);
-            navigation.push("RMReviewPage", {
-                onermOBJ: props.activeProgram?.oneRMs,
-                weightUnit: props.activeProgram?.weightUnit
-              });
-          }}
-        >
-          <Text style={styles(activeTheme).rmReview}>{selectedLocale.programPage.rmReviewTitle}</Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+        style={styles(activeTheme).rmReviewContainer}
+        onPress={() => {
+          props.setIsMenuOpen(!props.isMenuOpen);
+          navigation.push("RMReviewPage", {
+              onermOBJ: props.activeProgram?.oneRMs,
+              weightUnit: props.activeProgram?.weightUnit
+            });
+        }}
+      >
+        <Text style={styles(activeTheme).rmReview}>{selectedLocale.programPage.rmReviewTitle}</Text>
+      </TouchableOpacity>
 
       <View style={styles(activeTheme).weekSelectorContainer}>
         <Text style={styles(activeTheme).titleWeekDrawer}>{selectedLocale.programPage.weekSelectorTitle}</Text>
@@ -50,7 +48,7 @@ const MenuWeekList = (props: Props) => {
                 onPress={() => props.selectWeek(index)}
               >
                 <Text style={(index == props.selectedWeek) ? styles(activeTheme).drawerTextSelected : styles(activeTheme).drawerText}>
-                  {selectedLocale.programPage.week} {JSON.stringify(index + 1)} {/* TODO - why is this even a thing? */}
+                  {selectedLocale.programPage.week} {index + 1}
                 </Text>
               </TouchableOpacity>
             )
@@ -61,4 +59,4 @@ const MenuWeekList = (props: Props) => {
   );
 }
 
-export default React.memo(MenuWeekList); // TODO - remove this?
+export default React.memo(MenuWeekList);

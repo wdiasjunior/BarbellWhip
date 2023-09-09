@@ -1,25 +1,63 @@
-import React from "react";
+import React, { useState, } from "react";
 import { Text, View, TouchableOpacity, } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import UpdateModal from "../../sharedComponents/updateModal/updateModal";
 
 import styles from "./settingsPageStyles";
 
-import { useAtom } from "jotai";
-import { activeThemeIdAtom, activeThemeAtom, selectedLocaleIdAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
+import { useAtom, useAtomValue, } from "jotai";
+import {
+  activeThemeIdAtom,
+  activeThemeAtom,
+  selectedLocaleIdAtom,
+  selectedLocaleAtom,
+} from "../../helpers/jotai/atomsWithStorage";
 
 import { themes } from "../../themes/";
 import { locales } from "../../db/locales/";
 
+import { version } from '../../../package.json';
+
 const SettingsPage = () => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
   const [activeThemeId, setActiveThemeId] = useAtom(activeThemeIdAtom);
 
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
   const [selectedLocaleId, setSelectedLocaleId] = useAtom(selectedLocaleIdAtom);
+
+  const [appVersionGithub, setAppVersionGithub] = useState<null | string>(null);
+  const [isUpdateModalVisible, setUpdateModalVisible] = useState(false);
+
+  const getAppVersionGithub = () => {
+    return fetch('https://raw.githubusercontent.com/wdiasjunior/BarbellWhip/main/package.json')
+            .then(response => response.json())
+            .then(json => setAppVersionGithub(json.version))
+            .catch(error => console.error(error));
+  };
+
+
+  const handleUpdateModal = () => {
+    setUpdateModalVisible(true);
+    getAppVersionGithub();
+    if(appVersionGithub !== version) {
+      console.log("Update Available");
+    } else {
+      console.log("github version", appVersionGithub);
+      console.log("current version", version);
+    }
+  }
 
   return (
     <View style={styles(activeTheme).container}>
+
+      <TouchableOpacity
+        style={styles(activeTheme).updateCheckerButton}
+        onPress={() => handleUpdateModal()}
+      >
+        <Text style={styles(activeTheme).updateCheckerButtonText}>Check for updates</Text>
+      </TouchableOpacity>
+
         {/*<Text style={styles(activeTheme).title}>Settings Page</Text>*/}
 
         {/* TODO */}
@@ -80,6 +118,11 @@ const SettingsPage = () => {
             )
           })}
         </View>
+
+        <UpdateModal
+          isUpdateModalVisible={isUpdateModalVisible}
+          setUpdateModalVisible={setUpdateModalVisible}
+        />
     </View>
   );
 }

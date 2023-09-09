@@ -12,7 +12,7 @@ import Loading from "../../sharedComponents/loading/loading";
 import { writeToJSON, copyJSON, deleteJSON } from "../../db/fileSystem/fsWrite";
 import { readJSON, readImportedJSON, readDirectory, returnFileURL } from "../../db/fileSystem/fsRead";
 
-import { useAtom, useSetAtom } from "jotai";
+import { useAtom, useSetAtom, useAtomValue } from "jotai";
 import {
   activeThemeAtom,
   selectedLocaleAtom,
@@ -37,17 +37,17 @@ const ProgramEditorPage = ({ navigation }) => {
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
-  const setActiveProgramData = useSetAtom(activeProgramAtom); // TODO - test if useSetAtom works
-  const setProgramEditorData = useSetAtom(programEditorDataAtom); // TODO - test if useSetAtom works
+  const setActiveProgramData = useSetAtom(activeProgramAtom);
+  const setProgramEditorData = useSetAtom(programEditorDataAtom);
   const [programList, setProgramList] = useState([]);
-  const setSelectedWeek = useSetAtom(selectedWeekAtom); // TODO - test if useSetAtom works
-  const setSelectedDay = useSetAtom(selectedDayAtom); // TODO - test if useSetAtom works
-  const setProgramEditorMode = useSetAtom(programEditorModeAtom); // TODO - test if useSetAtom works
-  const setProgramPageSelectedDay = useSetAtom(programPageSelectedDayAtom); // TODO - test if useSetAtom works
-  const setProgramPageSelectedWeek = useSetAtom(programPageSelectedWeekAtom); // TODO - test if useSetAtom works
+  const setSelectedWeek = useSetAtom(selectedWeekAtom);
+  const setSelectedDay = useSetAtom(selectedDayAtom);
+  const setProgramEditorMode = useSetAtom(programEditorModeAtom);
+  const setProgramPageSelectedDay = useSetAtom(programPageSelectedDayAtom);
+  const setProgramPageSelectedWeek = useSetAtom(programPageSelectedWeekAtom);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -73,7 +73,6 @@ const ProgramEditorPage = ({ navigation }) => {
 
   useLayoutEffect(() => {
     if(isFocused) {
-      // TODO - reset navigation stack after leaving program editor stack?
       readDIR();
     }
   }, [isFocused])
@@ -108,7 +107,7 @@ const ProgramEditorPage = ({ navigation }) => {
 
   const importProgram = async () => {
     // TODO - write a test to check if the selected program is valid?
-    const file = await DocumentPicker.pick();
+    const file: any = await DocumentPicker.pick();
 
     // if(file[0].type === "application/json") {
     // this apparently does not work in some older android versions for whatever
@@ -191,7 +190,7 @@ const ProgramEditorPage = ({ navigation }) => {
             {programList?.length > 0 ? (
               <ScrollView style={styles(activeTheme).programListWrapper} overScrollMode="never">
                 <View style={styles(activeTheme).programListWrapper}>
-                  {programList?.map((item, index) => { // TODO - add types?
+                  {programList?.map((item: any, index: number) => {
                     if(item.name.includes(".json")) {
                       return (
                         <View

@@ -7,12 +7,9 @@ const styles = (theme: Theme) => {
       backgroundColor: theme.backgroundSecondary,
       justifyContent: "center",
     },
-    // rmReviewContainer: {
-    //
-    // },
-    // item: {
-    //
-    // },
+    rmReviewContainer: {
+      justifyContent: "center",
+    },
     rmReview: {
       color: theme.textHighlight,
       fontSize: 24,

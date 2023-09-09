@@ -46,6 +46,17 @@ const styles = (theme: Theme) => {
       fontSize: 16,
       color: theme.text,
     },
+    updateCheckerButton: { // TODO - add proper styling
+      justifyContent: "center",
+      height: 46,
+      marginBottom: 6,
+      borderWidth: 1,
+      borderColor: theme.textFaded,
+    },
+    updateCheckerButtonText: {
+      fontSize: 16,
+      color: theme.text,
+    },
   });
 }
 

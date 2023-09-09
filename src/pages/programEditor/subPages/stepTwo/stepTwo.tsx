@@ -4,7 +4,7 @@ import DraggableFlatList, { ScaleDecorator } from "react-native-draggable-flatli
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue, } from "jotai";
 import { programEditorDataAtom, selectedWeekAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
@@ -20,16 +20,18 @@ const StepTwo = ({ navigation }) => {
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
-  const [programEditorData, setProgramEditorData] = useAtom<TrainingProgramFile>(programEditorDataAtom);
+  const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
   const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
-  const [programEditorMode, ] = useAtom(programEditorModeAtom);
+  const programEditorMode = useAtomValue(programEditorModeAtom);
   const weekRef = useRef(null);
 
   const onScreenLoad = () => {
-    const title = programEditorMode === "Create" ? selectedLocale.programEditorPage.programEditorStep2.title : selectedLocale.programEditorPage.programEditorStep2.title2
+    const title = programEditorMode === "Create"
+                    ? selectedLocale.programEditorPage.programEditorStep2.title
+                    : selectedLocale.programEditorPage.programEditorStep2.title2
     navigation.setOptions({ headerTitle: () =>
                   <Header
                     title={title}
@@ -77,7 +79,7 @@ const StepTwo = ({ navigation }) => {
     }
   }
 
-  const renderWeekItem = useCallback(({item, index, drag}) => {
+  const renderWeekItem = ({ item, index, drag }) => {
 
     const deleteWeek = () => {
       if(programEditorData.trainingProgram.length > 1) {
@@ -113,7 +115,7 @@ const StepTwo = ({ navigation }) => {
         </TouchableOpacity>
       </ScaleDecorator>
     )
-  }, [programEditorData.trainingProgram, addWeek, reorder, selectWeek, duplicateWeek]); // TODO - check this - not sure if this array should have all of this
+  }
 
   return (
     <View style={styles(activeTheme).container}>
@@ -123,7 +125,7 @@ const StepTwo = ({ navigation }) => {
             <DraggableFlatList
               ref={weekRef}
               data={programEditorData.trainingProgram}
-              keyExtractor={(_, index) => "ProgramEditorPage_WeekList_Item" + index} // TODO - test if this is OK
+              keyExtractor={(_, index) => "ProgramEditorPage_WeekList_Item" + index}
               onDragEnd={({data, from, to}) => reorder(data, from, to)}
               renderItem={renderWeekItem}
               ListFooterComponent={() => {

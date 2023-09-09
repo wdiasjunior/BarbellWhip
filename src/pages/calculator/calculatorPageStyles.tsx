@@ -31,9 +31,8 @@ const styles = (theme: Theme) => {
       marginHorizontal: 20,
       borderRadius: 10,
       height: 240,
-      justifyContent: "center", // TODO - check this
       alignItems: "center",
-      justifyContent: "space-between", // TODO - check this
+      justifyContent: "space-between",
     },
     title: {
       color: theme.text,
@@ -146,10 +145,6 @@ const styles = (theme: Theme) => {
     weightSubBottom: {
       marginRight: 10,
       color: theme.text,
-    },
-    modalContent: {
-      justifyContent: "center",
-      alignItems: "center",
     },
   });
 }

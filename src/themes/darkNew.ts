@@ -9,9 +9,7 @@ const colors: Theme = {
   // activeFaded: "#1f3534",
   activeTransparent: "#94fff221",
   inactive: "#cbd5e0",
-  statusBar: "light",
+  statusBar: "light-content",
 }
-
-// TODO - revise this
 
 export default colors;

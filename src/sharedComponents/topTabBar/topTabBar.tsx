@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Text, View, ScrollView, TouchableOpacity, } from "react-native";
 import styles from "./topTabBarStyles";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { programPageSelectedDayAtom } from "../../helpers/jotai/atomsWithStorage";
 import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
 
@@ -15,9 +15,9 @@ interface Props {
 
 const TopTabBar = (props: Props) => {
 
-  const [activeTheme,] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
-  const [selectedDay, ] = useAtom(programPageSelectedDayAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
+  const selectedDay = useAtomValue<number>(programPageSelectedDayAtom);
 
   const days = Array.from(Array(props.days).keys());
 

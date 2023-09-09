@@ -1,6 +1,5 @@
 import React, { useState, useLayoutEffect } from "react";
 import { Text, View, TouchableOpacity, ScrollView, } from "react-native";
-import Modal from "react-native-modal";
 
 import oneRMCalc from "./math";
 import styles from "./calculatorPageStyles";
@@ -10,7 +9,7 @@ import Loading from "../../sharedComponents/loading/loading";
 
 import { weightConversion } from "../../helpers/weightConversion";
 
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue, } from "jotai";
 import {
   activeThemeAtom,
   selectedLocaleAtom,
@@ -25,12 +24,12 @@ const CalculatorPage = ({ navigation }) => {
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const [repsPerformed, setRepsPerformed] = useAtom<number>(calculatorPageRepsAtom);
   const [weightLifted, setWeightLifted] = useAtom<number>(calculatorPageWeightAtom);
-  const [weightUnit, ] = useAtom<string>(calculatorPageWeightUnitAtom);
+  const weightUnit = useAtomValue<string>(calculatorPageWeightUnitAtom);
   const [inputLabel, setInputLabel] = useState("");
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
 
@@ -42,7 +41,10 @@ const CalculatorPage = ({ navigation }) => {
 
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
-                  <Header title={selectedLocale.calculatorPage.title} menu={false} />
+                  <Header
+                    title={selectedLocale.calculatorPage.title}
+                    menu={false}
+                  />
               });
   }
 
@@ -234,21 +236,12 @@ const CalculatorPage = ({ navigation }) => {
             </View>
           </View>
 
-          <Modal
-            isVisible={isModalWeightInputVisible}
-            onBackButtonPress={() => setModalWeightInputVisible(false)}
-            onBackdropPress={() => setModalWeightInputVisible(false)}
-            useNativeDriver={true}
-            hideModalContentWhileAnimating={true}
-            animationInTiming={100}
-            animationOutTiming={1}
-            backdropTransitionInTiming={100}
-            backdropTransitionOutTiming={1}
-          >
-            <View style={styles(activeTheme).modalContent}>
-              <NumberInput toggleModal={toggleModal} inputLabel={inputLabel}/>
-            </View>
-          </Modal>
+          <NumberInput
+            toggleModal={toggleModal}
+            inputLabel={inputLabel}
+            isModalWeightInputVisible={isModalWeightInputVisible}
+            setModalWeightInputVisible={setModalWeightInputVisible}
+          />
 
         </ScrollView>
       ) : (

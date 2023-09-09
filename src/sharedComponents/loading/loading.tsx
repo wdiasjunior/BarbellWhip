@@ -3,12 +3,12 @@ import { View, ActivityIndicator } from "react-native";
 
 import styles from "./loadingStyles";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
 
 const Loading = () => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
 
   return (
     <View style={styles(activeTheme).container}>

@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
 import { Text, View, FlatList, Button, ScrollView, TouchableOpacity, Switch } from 'react-native';
-import Modal from "react-native-modal";
 
 import Header from "../../sharedComponents/header/header";
 import Loading from "../../sharedComponents/loading/loading";
@@ -12,7 +11,7 @@ import styles from "./plateMathPageStyles";
 
 import { weightConversion } from "../../helpers/weightConversion";
 
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue, } from "jotai";
 import {
   activeThemeAtom,
   selectedLocaleAtom,
@@ -30,14 +29,14 @@ const PlateMathPage = ({ navigation }) => {
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
   const [currentWeight, setCurrentWeight] = useAtom<number>(plateMathPageWeight);
-  const [weightUnit, ] = useAtom<boolean>(plateMathWeightUnit); // false == kg == left, true == lbs == right
+  const weightUnit = useAtomValue<boolean>(plateMathWeightUnit); // false == kg == left, true == lbs == right
   const [showBumper, setShowBumper] = useAtom<boolean>(plateMathShowBumper);
-  const [barWeight,] = useAtom<BarWeight>(plateMathBarWeight);
-  const [weightRack,] = useAtom<WeightRack>(plateMathWeightRack);
-  const [bumperPlatesRack,] = useAtom<BumperRack>(plateMathBumperPlatesRack);
+  const barWeight = useAtomValue<BarWeight>(plateMathBarWeight);
+  const weightRack = useAtomValue<WeightRack>(plateMathWeightRack);
+  const bumperPlatesRack = useAtomValue<BumperRack>(plateMathBumperPlatesRack);
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
   const currentPlates = showBumper
                           ? WeightCalc.getPlates(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"], bumperPlatesRack[weightUnit ? "lbs" : "kg"])
@@ -106,8 +105,7 @@ const PlateMathPage = ({ navigation }) => {
                       <Text style={styles(activeTheme).incrementText}>-</Text>
                     </View>
                   </TouchableOpacity>
-
-                  <TouchableOpacity onPress={() => toggleModal()}> {/* TODO - check this */}
+                  <TouchableOpacity onPress={() => toggleModal()}>
                     <Text style={styles(activeTheme).weight}>{currentWeight} {weightUnit ? "lbs" : "kg"}</Text>
                     <Text style={styles(activeTheme).weightConverted}>{weightConversion(currentWeight, !weightUnit)} {!weightUnit ? "lbs" : "kg"}</Text>
                   </TouchableOpacity>
@@ -142,21 +140,13 @@ const PlateMathPage = ({ navigation }) => {
             weightUnit={weightUnit ? "lbs" : "kg"}
           />
 
-          <Modal
-            isVisible={isModalWeightInputVisible}
-            onBackButtonPress={() => setModalWeightInputVisible(false)}
-            onBackdropPress={() => setModalWeightInputVisible(false)}
-            useNativeDriver={true}
-            hideModalContentWhileAnimating={true}
-            animationInTiming={100}
-            animationOutTiming={1}
-            backdropTransitionInTiming={100}
-            backdropTransitionOutTiming={1}
-          >
-            <View style={styles(activeTheme).modalContent}>
-              <NumberInput toggleModal={toggleModal} inputLabel={weightUnit ? "lbs" : "kg"}/>
-            </View>
-          </Modal>
+          <NumberInput
+            toggleModal={toggleModal}
+            inputLabel={weightUnit ? "lbs" : "kg"}
+            isModalWeightInputVisible={isModalWeightInputVisible}
+            setModalWeightInputVisible={setModalWeightInputVisible}
+          />
+
         </ScrollView>
       ) : (
         <Loading />

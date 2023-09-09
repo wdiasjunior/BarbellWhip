@@ -8,7 +8,7 @@ import styles from "./headerStyles";
 
 import { writeToJSON } from "../../db/fileSystem/fsWrite";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { programEditorDataAtom } from "../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
 
@@ -29,8 +29,8 @@ const Header = (props: Props) => {
 
   const navigation = useNavigation();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [programEditorData, ] = useAtom(programEditorDataAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const programEditorData = useAtomValue(programEditorDataAtom);
 
   const saveProgram = async () => {
     const fileName = programEditorData.programName;

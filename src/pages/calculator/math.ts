@@ -16,7 +16,7 @@ function round(weight: number, shouldRound?: boolean, weightUnit?: string) {
     return weight;
   }
 
-  // TODO - from settings page - enable/disable rounding in ProgramPage or CalculatorPage
+  // TODO - enable/disable rounding in ProgramPage or CalculatorPage
   const kgRoundingFactor = 2.5;
   const lbsRoundingFactor = 5;
 

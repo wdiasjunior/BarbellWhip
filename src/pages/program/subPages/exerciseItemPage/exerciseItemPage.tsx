@@ -7,7 +7,7 @@ import Loading from "../../../../sharedComponents/loading/loading";
 
 import styles from "./exerciseItemPageStyles";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
 
@@ -27,8 +27,8 @@ const ExerciseItemPage = (_props: any) => {
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
@@ -46,11 +46,10 @@ const ExerciseItemPage = (_props: any) => {
   }, [])
 
   const setsList = props.exerciseOBJ.set;
-  const onermOBJ = props.onermOBJ;
   const rmId = props.rmId;
   const weightUnit = props.weightUnit;
   const weightRoundingFactor = weightUnit === "kg" ? 2.5 : 5;
-  const oneRMweight: OneRMs | any = onermOBJ.find((el) => el.id === rmId) ?? 0; // TODO - check this. not really needed since I can just pass the 1rm as a route.param
+  const oneRMweight: OneRMs | any = props.onermOBJ.find((el) => el.id === rmId) ?? 0;
 
   return (
     <View style={styles(activeTheme).container}>
