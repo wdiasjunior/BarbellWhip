@@ -53,6 +53,7 @@ const SettingsPage = () => {
   return (
     <View style={styles(activeTheme).container}>
 
+      <Text style={styles(activeTheme).updateCheckerButtonText}>Version: {currentAppVersion}</Text>
       <TouchableOpacity
         style={styles(activeTheme).updateCheckerButton}
         onPress={() => handleUpdateModal()}

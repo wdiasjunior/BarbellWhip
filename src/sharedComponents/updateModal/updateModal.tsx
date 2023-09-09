@@ -18,7 +18,11 @@ const UpdateModal = (props: Props) => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
 
-  // TODO - add spinner on request
+  // TODO
+  // - add spinner on request
+  // - "dont show again" option on auto check
+  // - download to temp?
+  //   - https://github.com/joltup/rn-fetch-blob
 
   const handleDownloadUpdate = () => {
     const url = `https://github.com/wdiasjunior/BarbellWhip/releases/download/v${appVersionGithub}/BarbellWhip_${appVersionGithub}.apk`

@@ -1,9 +1,4 @@
 # TODO
-## review last commits changes, finish the TODOs and test the app
-
-- add logo to splash screen and app icon
-- reduce splash screen time (it's probably just my phone that's slow)
-- check TODOs and unused variables
 
 ## calculator page
   - add settings screen (?)
@@ -34,6 +29,7 @@
   - add warning on rm/week/exercise items delete attempt
   - share api - share json from other apps and import programs
   - replace `navigation.replace("ProgramEditorStack");` with navigation reset? and prevent android back button on program editor stack from exiting and losing progress
+  - change program editor program data to atom with storage in both web and native (?) to prevent accidental discard of progress (kinda redundant if there's a warning on go back)
   - keyboard avoiding view not pushing content up and glitching bottomTabBar every time it opens
   - copy and paste function? - similar to how whatsapp lets you forward a message to multiple chats, do this for exercise items in day section(?)
   - add spinner overlay on save
@@ -49,7 +45,6 @@
 
 ## settings page
   - about? - separate page for this (?)
-    - app version
     - link to User Guide
     - "To report bugs, suggest new features, or if want to contribute to the project, access the link below"
     - link to GitHub Repository
@@ -58,12 +53,9 @@
     - Created by Wellington Junior
   - "Weights are rounded to 2.5kg and 5lbs so that it's easier on the head and load the bar mid training session, and it's applied in every screen. In the future, it will be added a toggle so that you can disable this behavior."
   - add switch to disable rounding and show actual weight after percentage calculation
-  - update warning/modal info
-    - "dont show again" option on auto check
-    - download to temp?
-    - settings check button for update modal
 
 ## misc
+  - add logo to splash screen and app icon
   - excel conversion to json? - spreadsheet template? (sort of done for a few programs)
   - web/desktop program view and editor
   - json program validator
@@ -85,9 +77,7 @@
 - program page glitch
   - remake week menu list without animations?
 
-- prevent screen rotation. some devices override (?)
-
-- change program editor program data to atom with storage in both apps (?) to prevent from accidental discard of progress (kinda redundant if there's a warning on go back)
+- prevent screen rotation. some devices override it (?)
 
 - on save program - check if file with the same name already exists
 
