@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, Switch, ScrollView, TextInput, } from "react-native";
+import { Text, View, Switch, ScrollView, TextInput } from "react-native";
 
 import styles from "./weightRackPageStyles";
 
@@ -8,7 +8,7 @@ import { weightConversion } from "../../../helpers/weightConversion";
 
 import Loading from "../../../sharedComponents/loading/loading";
 
-import { useAtom, useAtomValue, } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import {
   activeThemeAtom,
   selectedLocaleAtom,
@@ -71,7 +71,7 @@ const WeightRackPage = () => {
                 ios_backgroundColor="#3e3e3e"
                 onValueChange={handleWeightUnitChange}
                 value={weightUnit}
-                style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginHorizontal: 18, }}
+                style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginHorizontal: 18 }}
               />
               <Text style={styles(activeTheme).weightUnitLabel}>lbs</Text>
             </View>

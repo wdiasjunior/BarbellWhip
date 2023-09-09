@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from "react";
-import { Text, View, TouchableOpacity, ScrollView, } from "react-native";
+import { Text, View, TouchableOpacity, ScrollView } from "react-native";
 
 import oneRMCalc from "./math";
 import styles from "./calculatorPageStyles";
@@ -9,7 +9,7 @@ import Loading from "../../sharedComponents/loading/loading";
 
 import { weightConversion } from "../../helpers/weightConversion";
 
-import { useAtom, useAtomValue, } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import {
   activeThemeAtom,
   selectedLocaleAtom,

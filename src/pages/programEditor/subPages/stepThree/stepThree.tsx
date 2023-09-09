@@ -1,12 +1,12 @@
-import React, { useState, useLayoutEffect, useRef, } from "react";
-import { Text, View, TouchableOpacity, } from "react-native";
+import React, { useState, useLayoutEffect, useRef } from "react";
+import { Text, View, TouchableOpacity } from "react-native";
 import Modal from "react-native-modal";
 import DraggableFlatList, { ScaleDecorator } from "react-native-draggable-flatlist";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-import { useAtom, useAtomValue, } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";

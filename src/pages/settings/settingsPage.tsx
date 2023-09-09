@@ -1,11 +1,11 @@
-import React, { useState, useEffect, } from "react";
-import { Text, View, TouchableOpacity, } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Text, View, TouchableOpacity } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import UpdateModal from "../../sharedComponents/updateModal/updateModal";
 
 import styles from "./settingsPageStyles";
 
-import { useAtom, useAtomValue, } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import {
   activeThemeIdAtom,
   activeThemeAtom,

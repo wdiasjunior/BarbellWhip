@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Text, View, ScrollView, TouchableOpacity, } from "react-native";
+import { Text, View, ScrollView, TouchableOpacity } from "react-native";
 import styles from "./topTabBarStyles";
 
 import { useAtomValue } from "jotai";

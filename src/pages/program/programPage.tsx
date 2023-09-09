@@ -1,5 +1,5 @@
-import React, { useState, useLayoutEffect, } from "react";
-import { Text, View, FlatList, Animated, } from "react-native";
+import React, { useState, useLayoutEffect } from "react";
+import { Text, View, FlatList, Animated } from "react-native";
 import SideMenu from "react-native-side-menu-updated";
 
 import Header from "../../sharedComponents/header/header";

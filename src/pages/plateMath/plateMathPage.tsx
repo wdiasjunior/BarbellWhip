@@ -11,7 +11,7 @@ import styles from "./plateMathPageStyles";
 
 import { weightConversion } from "../../helpers/weightConversion";
 
-import { useAtom, useAtomValue, } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import {
   activeThemeAtom,
   selectedLocaleAtom,
@@ -79,6 +79,7 @@ const PlateMathPage = ({ navigation }) => {
   };
 
   // TODO
+  // add warining message if input weight > total weight in rack
   // juggernaut plate math page structure
   // weight unit toggle
   // weight input
@@ -129,7 +130,7 @@ const PlateMathPage = ({ navigation }) => {
                 ios_backgroundColor="#3e3e3e"
                 onValueChange={setShowBumper}
                 value={showBumper}
-                style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginTop: 10, }}
+                style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginTop: 10 }}
               />
             </View>
           </View>

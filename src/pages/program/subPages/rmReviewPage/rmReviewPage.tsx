@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, ScrollView, } from "react-native";
+import { Text, View, ScrollView } from "react-native";
 
 import styles from "./rmReviewPageStyles";
 

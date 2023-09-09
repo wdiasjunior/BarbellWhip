@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import { Text, View, Switch, TouchableOpacity, ScrollView, TextInput, } from "react-native";
+import { Text, View, Switch, TouchableOpacity, ScrollView, TextInput } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { useAtom, useAtomValue, } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import { programEditorDataAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";

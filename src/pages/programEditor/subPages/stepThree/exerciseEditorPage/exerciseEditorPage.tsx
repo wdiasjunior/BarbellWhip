@@ -1,8 +1,8 @@
 import React from "react";
-import { Text, View, TouchableOpacity, ScrollView, TextInput, } from "react-native";
+import { Text, View, TouchableOpacity, ScrollView, TextInput } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { useAtom, useAtomValue, } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../../helpers/useInitialRender";

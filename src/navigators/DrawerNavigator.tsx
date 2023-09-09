@@ -3,7 +3,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { BottomTabProgramPageNavigator } from "./TabNavigator";
-import { ProgramEditorPageStack, } from "./StackNavigator";
+import { ProgramEditorPageStack } from "./StackNavigator";
 // import PRTrackerPage from "../pages/prTracker/prTrackerPage";
 import SettingsPage from "../pages/settings/settingsPage";
 

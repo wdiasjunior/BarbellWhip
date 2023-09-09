@@ -1,5 +1,5 @@
-import React, { useState, useLayoutEffect, } from "react";
-import { Text, View, TouchableOpacity, ScrollView, } from "react-native";
+import React, { useState, useLayoutEffect } from "react";
+import { Text, View, TouchableOpacity, ScrollView } from "react-native";
 import Modal from "react-native-modal";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Share from "react-native-share";

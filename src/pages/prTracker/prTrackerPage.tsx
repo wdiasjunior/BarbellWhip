@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useLayoutEffect, } from "react";
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from "react-native";
+import React, { useState, useEffect, useLayoutEffect } from "react";
+import { Text, View, TouchableOpacity, SafeAreaView, ScrollView } from "react-native";
 
 import styles from "./prTrackerPageStyles";
 
