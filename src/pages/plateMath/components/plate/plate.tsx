@@ -5,7 +5,7 @@ import { styles, plateColors } from "./plateStyles";
 
 interface Props {
   plate: Plates;
-  activeTheme: any;
+  activeTheme: Theme;
   weightUnit: string;
 }
 

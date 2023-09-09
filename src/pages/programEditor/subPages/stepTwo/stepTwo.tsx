@@ -86,7 +86,7 @@ const StepTwo = ({ navigation }) => {
         let auxAtom = deepClone(programEditorData);
         auxAtom.trainingProgram.splice(index, 1);
         setProgramEditorData(auxAtom);
-        if(selectedWeek === programEditorData.trainingProgram.length) {
+        if(selectedWeek + 1 === programEditorData.trainingProgram.length) {
           selectWeek(selectedWeek - 1);
         } else if(selectedWeek === index || selectedWeek > index) {
           selectWeek(index);

@@ -7,7 +7,7 @@ import styles from "./weightViewStyles";
 
 interface Props {
   plates: Plates[];
-  activeTheme: any;
+  activeTheme: Theme;
   weightUnit: string;
 }
 

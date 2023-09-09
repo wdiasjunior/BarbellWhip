@@ -1,5 +1,5 @@
 const WeightCalc = {
-  getPlates(weight: number, barWeight: number, weightRack: any, bumperRack?: any) {
+  getPlates(weight: number, barWeight: number, weightRack: WeightRack, bumperRack?: BumperRack) {
     const weightOfSingleSidePlates = (weight - barWeight) / 2;
 
     let platesAux: number[] = []; // keeps track of all plates weights - only used for math
@@ -45,11 +45,11 @@ const WeightCalc = {
     return plates;
   },
 
-  getPlatesAvailableFromRack(weightRack: any) {
+  getPlatesAvailableFromRack(weightRack: WeightRack | BumperRack) {
     return Object.keys(weightRack).map((a) => parseFloat(a)).sort((a, b) => a - b).reverse();
   },
 
-  sum(arr: any[]) {
+  sum(arr: number[]) {
     if(arr.length === 0) {
       return 0;
     }

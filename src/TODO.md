@@ -4,9 +4,6 @@
 - add logo to splash screen and app icon
 - reduce splash screen time (it's probably just my phone that's slow)
 - check TODOs and unused variables
-- add typings folder with types for the major stuff
-  - check any around the codebase
-  - try to fix jotai atom type errors
 
 ## calculator page
   - add settings screen (?)
@@ -36,7 +33,6 @@
       - button - show screen for weekly (input amount of weeks(block)) volume / intensity
   - add warning on rm/week/exercise items delete attempt
   - share api - share json from other apps and import programs
-  - if active program was edited and saved - set active again to reload program page? or does jotai handle this automatically?
   - replace `navigation.replace("ProgramEditorStack");` with navigation reset? and prevent android back button on program editing
   - keyboard avoiding view not pushing content up and glitching bottomTabBar every time it opens
   - copy and paste function? - similar to how whatsapp lets you forward a message to multiple chats, do this for exercise items in day section(?)
@@ -92,8 +88,6 @@
 - when program is active and there was an edit then set active -> week was set to 1 again. should remain where it was
 
 - prevent screen rotation. some devices override (?)
-
-- barbellwhip app bug on deleting last week in stepTwo, won't select last item after deletion (?)
 
 - change program editor program data to atom with storage in both apps (?) to prevent from accidental discard of progress (kinda redundant if there's a warning on go back)
 
