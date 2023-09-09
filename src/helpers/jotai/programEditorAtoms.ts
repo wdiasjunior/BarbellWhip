@@ -11,6 +11,14 @@ const selectedDayAtom = atom(0);
 
 const selectedWeekAtom = atom(0);
 
-const programEditorModeAtom = atom("Create");
+const programEditorModeAtom = atom<"Create" | "Edit">("Create");
 
-export { programEditorDataAtom, selectedDayAtom, selectedWeekAtom, programEditorModeAtom };
+const programNameForActionAtom = atom("");
+
+export {
+  programEditorDataAtom,
+  selectedDayAtom,
+  selectedWeekAtom,
+  programEditorModeAtom,
+  programNameForActionAtom,
+};

@@ -6,6 +6,7 @@ const readJSON = async (programName: string) => {
   try {
     data = await RNFS.readFile(fileURI);
   } catch(error) {
+    console.log(error);
     alert("Error reading file.");
   }
   return data;
@@ -16,17 +17,19 @@ const readImportedJSON = async (fileURI: string) => {
   try {
     data = await RNFS.readFile(fileURI);
   } catch(error) {
+    console.log(error);
     alert("Error reading file.");
   }
   return data;
 }
 
-const returnFileURL = async (programName: string) => {
+const getFileURL = async (programName: string) => {
   const fileURI = RNFS.ExternalDirectoryPath + "/" + programName;
   let data: any = null;
   try {
     data = await RNFS.readFile(fileURI);
   } catch(error) {
+    console.log(error);
     alert("Error reading file.");
   }
   return fileURI;
@@ -38,9 +41,10 @@ const readDirectory = async () => {
   try {
     data = await RNFS.readDir(fileURI);
   } catch(error) {
+    console.log(error);
     alert("Error reading file system.");
   }
   return data;
 }
 
-export { readJSON, readImportedJSON, readDirectory, returnFileURL };
+export { readJSON, readImportedJSON, readDirectory, getFileURL };

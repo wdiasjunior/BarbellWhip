@@ -85,8 +85,6 @@
 - program page glitch
   - remake week menu list without animations?
 
-- when program is active and there was an edit then set active -> week was set to 1 again. should remain where it was
-
 - prevent screen rotation. some devices override (?)
 
 - change program editor program data to atom with storage in both apps (?) to prevent from accidental discard of progress (kinda redundant if there's a warning on go back)
