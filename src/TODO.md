@@ -33,7 +33,7 @@
       - button - show screen for weekly (input amount of weeks(block)) volume / intensity
   - add warning on rm/week/exercise items delete attempt
   - share api - share json from other apps and import programs
-  - replace `navigation.replace("ProgramEditorStack");` with navigation reset? and prevent android back button on program editing
+  - replace `navigation.replace("ProgramEditorStack");` with navigation reset? and prevent android back button on program editor stack from exiting and losing progress
   - keyboard avoiding view not pushing content up and glitching bottomTabBar every time it opens
   - copy and paste function? - similar to how whatsapp lets you forward a message to multiple chats, do this for exercise items in day section(?)
   - add spinner overlay on save

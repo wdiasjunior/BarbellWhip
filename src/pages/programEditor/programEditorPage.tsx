@@ -138,6 +138,7 @@ const ProgramEditorPage = ({ navigation }) => {
     const programData = await readProgram(programNameForAction);
     switch(action) {
       case "setActive":
+        // - if active program was edited and saved - set active again to reload program page? or does jotai handle this automatically?
         setActiveProgramData(programData);
         setProgramPageSelectedDay(0);
         setProgramPageSelectedWeek(0);
