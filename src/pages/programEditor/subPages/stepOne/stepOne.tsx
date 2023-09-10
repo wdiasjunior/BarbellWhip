@@ -15,18 +15,6 @@ import Loading from "../../../../sharedComponents/loading/loading";
 
 import styles from "./stepOneStyles";
 
-/*
-  TODO
-  custom header for this stack to control go back button?
-  save icon in header?
-  info icon in header open modal quick tutorial for each page?
-
-  add 1rm -> change into add rm -> add field for reps -> add math for estimated rm if reps > 1
-  if text inputs are left empty, the option in modal on stepThree is also empty. add placeholder and on user interaction delete it?
-
-  keyboard avoiding view not working properly
-*/
-
 const StepOne = ({ navigation }) => {
 
   const isInitialRender = useInitialRender();

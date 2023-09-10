@@ -20,6 +20,10 @@ const styles = (theme: Theme) => {
       borderBottomWidth: 1,
       borderBottomColor: theme.textFaded,
     },
+    setListLastItem: {
+      paddingBottom: 20,
+      marginBottom: 16,
+    },
     setListItemRow: {
       flexDirection: "row",
       justifyContent: "space-between",

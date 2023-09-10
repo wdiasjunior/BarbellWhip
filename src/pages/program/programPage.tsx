@@ -35,10 +35,10 @@ const ProgramPage = ({ navigation }) => {
   const [selectedWeek, setSelectedWeek] = useAtom<number>(programPageSelectedWeekAtom);
 
   const headerTitle = (week: number): string => {
-    const title = activeProgram.trainingProgram.length > 1
+    const title = activeProgram?.trainingProgram?.length > 1
                     ? activeProgram?.programName + " - " + selectedLocale.programPage.week + " " + week
                     : activeProgram?.programName
-    return activeProgram.trainingProgram.length > 0 ? title : selectedLocale.programPage.defaultTitle
+    return activeProgram?.trainingProgram?.length > 0 ? title : selectedLocale.programPage.defaultTitle
   }
 
   const setHeader = (_selectedWeek: number = selectedWeek) => {
@@ -82,7 +82,7 @@ const ProgramPage = ({ navigation }) => {
     <ExerciseItem
       onermOBJ={activeProgram?.oneRMs}
       rmId={item.RMid}
-      weightUnit={activeProgram.weightUnit}
+      weightUnit={activeProgram?.weightUnit}
       exerciseName={item.exerciseName}
       exerciseOBJ={item}
     />
@@ -90,7 +90,7 @@ const ProgramPage = ({ navigation }) => {
 
   return (
     <View style={styles(activeTheme).container}>
-      {activeProgram?.trainingProgram.length > 0 ? (
+      {activeProgram?.trainingProgram?.length > 0 ? (
         <SideMenu
           menu={menuWeekList}
           isOpen={isMenuOpen}

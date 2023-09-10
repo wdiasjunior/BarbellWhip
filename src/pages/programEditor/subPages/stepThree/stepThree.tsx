@@ -82,13 +82,11 @@ const StepThree = ({ navigation }) => {
     if(data === "simple") {
       setModalOpen(false);
       navigation.push("ExerciseEditorPage", {
-        oneRMweight: 0, // TODO - never used? check this
         exerciseIndex: "add",
       });
     } else {
       setModalOpen(false);
       navigation.push("ExerciseEditorPage", {
-        oneRMweight: data.weight, // TODO - never used? check this
         oneRMname: data.name,
         exerciseIndex: "add",
       });
@@ -188,7 +186,11 @@ const StepThree = ({ navigation }) => {
         <View style={styles(activeTheme).modalContent}>
           {programEditorData.oneRMs.length > 0 && programEditorData.oneRMs.map((item: OneRMs, index) => {
             return (
-              <TouchableOpacity style={styles(activeTheme).modalItem} key={"ProgramEditorPage_StepThree_ModalItem" + index} onPress={() => addExercise(item)}>
+              <TouchableOpacity
+                style={styles(activeTheme).modalItem}
+                key={"ProgramEditorPage_StepThree_ModalItem" + index}
+                onPress={() => addExercise(item)}
+              >
                 <Text style={styles(activeTheme).modalItemText}>{item.name}</Text>
               </TouchableOpacity>
             )

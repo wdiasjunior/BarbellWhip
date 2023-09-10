@@ -8,7 +8,7 @@
     "rmReviewWeightLabel": "Weight",
     "weekSelectorTitle": "Week Selector",
     "noActiveProgramTextTitle": "No program loaded.",
-    "noActiveProgramTextSubtitle": "Go to Program Editor Page to create or import one and set it as active.",
+    "noActiveProgramTextSubtitle": "Go to the Program Editor page to create or import one. Then set it as active.",
     "exerciseInfo" : {
       "title": "Exercise Info",
       "sets": "Sets",

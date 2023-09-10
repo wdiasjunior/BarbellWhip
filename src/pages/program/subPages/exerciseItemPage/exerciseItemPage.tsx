@@ -58,7 +58,7 @@ const ExerciseItemPage = (_props: any) => {
           <View style={styles(activeTheme).setList}>
             {setsList.map((item, index) => {
               return (
-                <View key={item.exerciseName + index} style={styles(activeTheme).setListItem}>
+                <View key={item.exerciseName + index} style={setsList.length !== index + 1 ? styles(activeTheme).setListItem : styles(activeTheme).setListLastItem}>
 
                   {item.exerciseName ? <Text style={styles(activeTheme).title}>{item.exerciseName}</Text> : null}
 
