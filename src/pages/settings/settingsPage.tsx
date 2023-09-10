@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
 import UpdateModal from "../../sharedComponents/updateModal/updateModal";
+import ListSelector from "./components/listSelector/listSelector";
 
 import styles from "./settingsPageStyles";
 
@@ -21,10 +21,10 @@ import { version as currentAppVersion } from '../../../package.json';
 const SettingsPage = () => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
-  const [activeThemeId, setActiveThemeId] = useAtom(activeThemeIdAtom);
+  const [activeThemeId, setActiveThemeId] = useAtom<string>(activeThemeIdAtom);
 
   const selectedLocale = useAtomValue(selectedLocaleAtom);
-  const [selectedLocaleId, setSelectedLocaleId] = useAtom(selectedLocaleIdAtom);
+  const [selectedLocaleId, setSelectedLocaleId] = useAtom<string>(selectedLocaleIdAtom);
 
   const [appVersionGithub, setAppVersionGithub] = useState<null | string>(null);
   const [isUpdateModalVisible, setUpdateModalVisible] = useState(false);
@@ -74,53 +74,21 @@ const SettingsPage = () => {
 
         {/*<Text style={styles(activeTheme).subtitle}>Calculation Formulas - Select the formulas used to calculate your 1RM</Text>*/}
 
-        <View style={styles(activeTheme).themeSelectorContainer}>
-          <Text style={styles(activeTheme).themeSelectorTitle}>{selectedLocale.settingsPage.languageSelectorTitle}:</Text>
-          {locales.map((locale, index) => {
-            return (
-              <TouchableOpacity
-                style={styles(activeTheme).themeSelectorItem}
-                key={index + "" + locale.id}
-                onPress={() => setSelectedLocaleId(locale.id)}
-              >
-                <View style={styles(activeTheme).themeSelectorIconContainer}>
-                  {locale.id === selectedLocaleId &&
-                    <Ionicons
-                      name="checkmark-sharp"
-                      size={20}
-                      style={styles(activeTheme).themeSelectorIcon}
-                    />
-                  }
-                </View>
-                <Text style={styles(activeTheme).themeSelectorItemText}>{locale.name}</Text>
-              </TouchableOpacity>
-            )
-          })}
-        </View>
+        <ListSelector
+          title={selectedLocale.settingsPage.languageSelectorTitle}
+          data={locales}
+          setSelected={setSelectedLocaleId}
+          selected={selectedLocaleId}
+          activeTheme={activeTheme}
+        />
 
-        <View style={styles(activeTheme).themeSelectorContainer}>
-          <Text style={styles(activeTheme).themeSelectorTitle}>{selectedLocale.settingsPage.themeSelectorTitle}:</Text>
-          {themes.map((theme, index) => {
-            return (
-              <TouchableOpacity
-                style={styles(activeTheme).themeSelectorItem}
-                key={index + "" + theme.id}
-                onPress={() => setActiveThemeId(theme.id)}
-              >
-                <View style={styles(activeTheme).themeSelectorIconContainer}>
-                  {theme.id === activeThemeId &&
-                    <Ionicons
-                      name="checkmark-sharp"
-                      size={20}
-                      style={styles(activeTheme).themeSelectorIcon}
-                    />
-                  }
-                </View>
-                <Text style={styles(activeTheme).themeSelectorItemText}>{theme.name}</Text>
-              </TouchableOpacity>
-            )
-          })}
-        </View>
+        <ListSelector
+          title={selectedLocale.settingsPage.themeSelectorTitle}
+          data={themes}
+          setSelected={setActiveThemeId}
+          selected={activeThemeId}
+          activeTheme={activeTheme}
+        />
 
         <UpdateModal
           isUpdateModalVisible={isUpdateModalVisible}
