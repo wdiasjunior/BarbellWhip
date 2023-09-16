@@ -4,7 +4,9 @@
   - add settings screen (?)
     - kg - lbs switch
     - checkboxes to choose which formulas to calculate 1rm from (?)
-  - implement rpe calculator ? https://www.rpecalculator.com/ (?)
+  - implement rpe calculator (?)
+    - https://www.rpecalculator.com/
+    - https://articles.reactivetrainingsystems.com/2015/11/29/beginning-rts/
   - get inspiration from the juggernaut app
   - calculator tab screen - add topTabBar to switch between RPE and RM (?) (example on juggernaut app)
 
@@ -60,8 +62,7 @@
 ## misc
   - add logo to splash screen and app icon
   - excel conversion to json? - spreadsheet template? (sort of done for a few programs)
-  - web/desktop program view and editor
-  - json program validator
+  - json program validator on import (?)
   - notes input for days/exercises on the program page ? (where/how would I save/load this ?)
   - write documentation for the code, program .json schema, and how to use the app.
   - make text responsive everywhere (?)
@@ -84,7 +85,10 @@
 
 ---
 
-build release apk instead of debug
-https://gist.github.com/wdiasjunior/26c7f0b701c9fd8c184c1ebd92a5d986
-https://reactnative.dev/docs/signed-apk-android.html
-https://instamobile.io/android-development/generate-react-native-release-build-android/
+- build release apk instead of debug
+  - https://gist.github.com/wdiasjunior/26c7f0b701c9fd8c184c1ebd92a5d986
+  - https://reactnative.dev/docs/signed-apk-android.html
+  - https://instamobile.io/android-development/generate-react-native-release-build-android/
+
+- https://www.obytes.com/blog/react-native-ci-cd-github-action
+- https://github.com/marketplace/actions/react-native-android-build-apk
