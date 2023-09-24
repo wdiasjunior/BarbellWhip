@@ -92,3 +92,14 @@
 
 - https://www.obytes.com/blog/react-native-ci-cd-github-action
 - https://github.com/marketplace/actions/react-native-android-build-apk
+
+---
+
+- program list padding bottom to avoid
+  - FAB button blocking access to action button of program item
+
+- program page - exercise item page
+  - add estimated rpe weight
+  - add switch to turn it on and off
+- calculator page
+  - add rpe math block
