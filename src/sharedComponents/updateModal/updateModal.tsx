@@ -8,6 +8,7 @@ import styles from "./updateModalStyles";
 
 import { useAtomValue } from "jotai";
 import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
+import { hasUpdateAvailable } from "../../helpers/hasUpdateAvailable";
 
 interface Props {
   isUpdateModalVisible: boolean;
@@ -31,6 +32,8 @@ const UpdateModal = (props: Props) => {
   // - "dont show again" option on auto check
   // - download to temp?
   //   - https://github.com/joltup/rn-fetch-blob
+  // - move functions to fsWrite an fsRead?
+  // -
 
   // useEffect(() => {
   //   // Optional: Delete the file if it exists before downloading
@@ -57,7 +60,8 @@ const UpdateModal = (props: Props) => {
     FileOpenerModule.openFile(filePath);
   }
 console.log(parseFloat(props.currentVersion), parseFloat(props.appVersionGithub));
-
+// TODO - if no internet or cant fetch show error message
+// use a set timeout or just await for the version on github
   return (
     <Modal
       isVisible={props.isUpdateModalVisible}
@@ -74,7 +78,9 @@ console.log(parseFloat(props.currentVersion), parseFloat(props.appVersionGithub)
         <Text style={styles(activeTheme).text}>UpdateModal</Text>
         <Text style={styles(activeTheme).text}>{props.currentVersion}</Text>
         <Text style={styles(activeTheme).text}>{props.appVersionGithub}</Text>
-        <Text style={styles(activeTheme).text}>{parseFloat(props.currentVersion) < parseFloat(props.appVersionGithub) ? "update available" : "no update available"}</Text>
+        <Text style={styles(activeTheme).text}>
+          {parseFloat(props.currentVersion) < parseFloat(props.appVersionGithub) ? "update available" : "no update available"}
+        </Text>
 
         <TouchableOpacity
           style={styles(activeTheme).updateCheckerButton}

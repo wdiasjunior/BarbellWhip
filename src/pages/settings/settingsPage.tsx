@@ -36,7 +36,7 @@ const SettingsPage = () => {
             .catch(error => console.error(error));
   }
 
-  const handleUpdateModal = () => {
+  const handleOpenUpdateModal = () => {
     setUpdateModalVisible(true);
     getAppVersionGithub();
   }
@@ -48,6 +48,9 @@ const SettingsPage = () => {
       console.log("github version", appVersionGithub);
       console.log("current version", currentAppVersion);
     }
+    // TODO
+    // - check for major minor and patch individually?
+    // put this in the update modal component
   }, [appVersionGithub])
 
   return (
@@ -56,7 +59,7 @@ const SettingsPage = () => {
       <Text style={styles(activeTheme).updateCheckerButtonText}>Version: {currentAppVersion}</Text>
       <TouchableOpacity
         style={styles(activeTheme).updateCheckerButton}
-        onPress={() => handleUpdateModal()}
+        onPress={() => handleOpenUpdateModal()}
       >
         <Text style={styles(activeTheme).updateCheckerButtonText}>Check for updates</Text>
       </TouchableOpacity>
