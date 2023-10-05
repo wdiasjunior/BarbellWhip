@@ -3,10 +3,10 @@ export function hasUpdateAvailable(installedVersion: string, lastestVersion: str
   const lastestVersionParts = lastestVersion.split('.').map(Number);
 
   for(let i = 0; i < lastestVersionParts.length; i++) {
-    const installedPart = installedVersionParts[i] || 0;
-    const lastestPart = lastestVersionParts[i] || 0;
+    const installedVersionPart = installedVersionParts[i] || 0;
+    const lastestVersionPart = lastestVersionParts[i] || 0;
 
-    if(installedPart < lastestPart) {
+    if(installedVersionPart < lastestVersionPart) {
       return true;
     }
   }
