@@ -7,7 +7,7 @@ import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/a
 
 import styles from "./menuWeekListStyles";
 
-interface Props {
+interface IProps {
   setIsMenuOpen: (isMenuOpen: boolean) => void;
   isMenuOpen: boolean;
   activeProgram: TrainingProgramFile;
@@ -15,7 +15,7 @@ interface Props {
   selectWeek: (weekIndex: number) => void;
 }
 
-const MenuWeekList = (props: Props) => {
+const MenuWeekList = (props: IProps) => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);

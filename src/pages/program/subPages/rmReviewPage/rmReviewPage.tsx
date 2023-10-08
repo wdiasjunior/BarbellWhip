@@ -9,14 +9,14 @@ import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
 
-interface Props {
+interface IProps {
   onermOBJ: OneRMs[];
   weightUnit: string;
 }
 
 const RMReviewPage = (_props: any) => {
 
-  const props: Props = _props.route.params;
+  const props: IProps = _props.route.params;
 
   const isInitialRender = useInitialRender();
 

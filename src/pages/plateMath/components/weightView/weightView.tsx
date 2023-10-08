@@ -5,13 +5,13 @@ import Plate from "../plate/plate";
 
 import styles from "./weightViewStyles";
 
-interface Props {
+interface IProps {
   plates: Plates[];
   activeTheme: Theme;
   weightUnit: string;
 }
 
-const WeightView = (props: Props) => {
+const WeightView = (props: IProps) => {
   return (
     <View style={styles(props.activeTheme).plateWrap}>
       {props.plates.map((plate, index) => {

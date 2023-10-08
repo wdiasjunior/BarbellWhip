@@ -10,14 +10,14 @@ import { useAtomValue } from "jotai";
 import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
 import { hasUpdateAvailable } from "../../helpers/hasUpdateAvailable";
 
-interface Props {
+interface IProps {
   isUpdateModalVisible: boolean;
   setUpdateModalVisible: (isVisible: boolean) => void;
   currentVersion: string
   appVersionGithub: string | null
 }
 
-const UpdateModal = (props: Props) => {
+const UpdateModal = (props: IProps) => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
 

@@ -3,13 +3,13 @@ import { View, Text } from "react-native";
 
 import { styles, plateColors } from "./plateStyles";
 
-interface Props {
+interface IProps {
   plate: Plates;
   activeTheme: Theme;
   weightUnit: string;
 }
 
-const Plate = (props: Props) => {
+const Plate = (props: IProps) => {
   const plateDimensions = {
     kg: {
       50: {

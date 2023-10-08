@@ -8,14 +8,14 @@ import styles from "./numberInputStyles";
 import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
 
-interface Props {
+interface IProps {
   toggleModal: any | ((value?: string, label?: string) => void) | ((value?: string) => void);
   inputLabel: string;
   isModalWeightInputVisible: boolean;
   setModalWeightInputVisible: (isOpen: boolean) => void;
 }
 
-const NumberInput = (props: Props) => {
+const NumberInput = (props: IProps) => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);

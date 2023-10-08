@@ -13,14 +13,14 @@ import { deepClone } from "../../../../../helpers/deepClone";
 
 import styles from "./exerciseEditorPageStyles";
 
-interface Props {
+interface IProps {
   oneRMname: string;
   exerciseIndex?: "add" | number;
 }
 
 const ExerciseEditorPage = (_props: any) => {
 
-  const props: Props = _props.route.params;
+  const props: IProps = _props.route.params;
 
   const isInitialRender = useInitialRender();
 

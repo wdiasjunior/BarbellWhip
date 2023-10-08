@@ -23,7 +23,7 @@ import {
 
 import { deepClone } from "../../helpers/deepClone";
 
-interface Props {
+interface IProps {
   setIsMenuOpen?: (isOpen: boolean) => void;
   title: string;
   menu?: boolean;
@@ -34,7 +34,7 @@ interface Props {
   importProgram?: () => void;
 }
 
-const Header = (props: Props) => {
+const Header = (props: IProps) => {
 
   const navigation = useNavigation();
 

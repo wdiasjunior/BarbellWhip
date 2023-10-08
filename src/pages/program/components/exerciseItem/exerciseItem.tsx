@@ -7,7 +7,7 @@ import { activeThemeAtom } from "../../../../helpers/jotai/atomsWithStorage";
 
 import styles from "./exerciseItemStyles";
 
-interface Props {
+interface IProps {
   onermOBJ: OneRMs[];
   rmId: string;
   weightUnit: string;
@@ -15,7 +15,7 @@ interface Props {
   exerciseOBJ: DayExercises;
 }
 
-const ExerciseItem = (props: Props) => {
+const ExerciseItem = (props: IProps) => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
 

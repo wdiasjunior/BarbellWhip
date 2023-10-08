@@ -6,14 +6,14 @@ import { useAtomValue } from "jotai";
 import { programPageSelectedDayAtom } from "../../helpers/jotai/atomsWithStorage";
 import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
 
-interface Props {
+interface IProps {
   days: number;
   selectDay: (day: number) => void;
   selectedWeek: number;
   isProgramPage: boolean;
 }
 
-const TopTabBar = (props: Props) => {
+const TopTabBar = (props: IProps) => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);

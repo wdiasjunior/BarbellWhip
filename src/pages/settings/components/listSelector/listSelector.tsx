@@ -4,7 +4,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 import styles from "./listSelectorStyles";
 
-interface Props {
+interface IProps {
   title: string;
   data: Themes[] | Locales[];
   setSelected: (id: string) => void;
@@ -12,7 +12,7 @@ interface Props {
   activeTheme: Theme
 }
 
-const ListSelector = (props: Props) => {
+const ListSelector = (props: IProps) => {
   return (
     <View style={styles(props.activeTheme).listSelectorContainer}>
       <Text style={styles(props.activeTheme).listSelectorTitle}>{props.title}:</Text>

@@ -11,7 +11,7 @@ import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
 
-interface Props {
+interface IProps {
   exerciseName: string;
   onermOBJ: OneRMs[];
   rmId: string;
@@ -21,7 +21,7 @@ interface Props {
 
 const ExerciseItemPage = (_props: any) => {
 
-  const props: Props = _props.route.params;
+  const props: IProps = _props.route.params;
 
   const navigation = useNavigation();
 
