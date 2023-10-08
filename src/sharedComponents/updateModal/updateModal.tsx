@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, Text, TouchableOpacity, NativeModules } from "react-native";
+import { View, Text, TouchableOpacity, NativeModules, BackHandler } from "react-native";
 import Modal from "react-native-modal";
 
 import RNFS from 'react-native-fs';
@@ -43,6 +43,8 @@ const UpdateModal = (props: Props) => {
   // }, [props.appVersionGithub])
 
   const handleDownload = () => {
+    BackHandler.addEventListener('hardwareBackPress', function() {return true})
+
     RNFS.downloadFile({
       fromUrl: url,
       toFile: filePath,
