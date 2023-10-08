@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
-  <!-- Define the external storage directory where your files are located. -->
   <external-path
     name="external_files"
     path="." />

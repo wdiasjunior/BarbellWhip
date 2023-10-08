@@ -43,17 +43,17 @@ const UpdateModal = (props: Props) => {
   // }, [props.appVersionGithub])
 
   const handleDownload = () => {
-    // RNFS.downloadFile({
-    //   fromUrl: url,
-    //   toFile: filePath,
-    //   progress: (res) => {
-    //     // Handle download progress updates if needed
-    //     const progress = (res.bytesWritten / res.contentLength) * 100;
-    //     console.log(`Progress: ${progress.toFixed(2)}%`);
-    //   },
-    // })
-    //   .promise.then((response) => console.log('File downloaded!', response))
-    //   .catch((err) => console.log('Download error:', err));
+    RNFS.downloadFile({
+      fromUrl: url,
+      toFile: filePath,
+      progress: (res) => {
+        // Handle download progress updates if needed
+        const progress = (res.bytesWritten / res.contentLength) * 100;
+        console.log(`Progress: ${progress.toFixed(2)}%`);
+      },
+    })
+      .promise.then((response) => console.log('File downloaded!', response))
+      .catch((err) => console.log('Download error:', err));
   }
 
   const handleInstallAPK = () => {
