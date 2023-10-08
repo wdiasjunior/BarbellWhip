@@ -18,6 +18,8 @@ Use 2 space tabs.
 
 Use double quotes for strings, and single quotes for chars.
 
+Use semicolons at the end of the lines.
+
 If a line needs to be long, it's ok, let it be long.
 
 Don't be afraid of big files/functions, no need to split a component into 15 different files and directories. Let your commom sense guide you.
