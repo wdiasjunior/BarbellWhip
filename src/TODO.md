@@ -95,9 +95,6 @@
 
 ---
 
-- program list padding bottom to avoid
-  - FAB button blocking access to action button of program item
-
 - program page - exercise item page
   - add estimated rpe weight
   - add switch to turn it on and off
