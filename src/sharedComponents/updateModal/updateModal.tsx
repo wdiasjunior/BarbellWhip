@@ -14,7 +14,6 @@ interface IProps {
   isUpdateModalVisible: boolean;
   setUpdateModalVisible: (isVisible: boolean) => void;
   currentVersion: string
-  appVersionGithub: string | null
 }
 
 const UpdateModal = (props: IProps) => {
