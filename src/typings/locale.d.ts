@@ -105,6 +105,19 @@ interface Locale {
     title: string;
     themeSelectorTitle: string;
     languageSelectorTitle: string;
+    versionLabel: string;
+    updateCheckerTitle: string;
+    searchingForUpdates: string;
+    updateAvailableMessage: string;
+    newVersionLabel: string;
+    noUpdateAvailableMessage: string;
+    downloadUpdateButton: string;
+    downloadingUpdateMessage: string;
+    downloadCompleteMessage: string;
+    downloadErrorMessage: string;
+    updateCheckErrorMessage: string;
+    installUpdateButton: string;
+    closeModalButtonLabel: string;
   }
   numberInputModal: {
     cancelButtonLabel: string;
