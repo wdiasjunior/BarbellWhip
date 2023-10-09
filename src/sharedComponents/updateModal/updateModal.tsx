@@ -16,6 +16,10 @@ interface IProps {
   currentVersion: string
 }
 
+interface ICloseButton {
+  hasMarginLeft?: boolean
+}
+
 const UpdateModal = (props: IProps) => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
@@ -111,7 +115,7 @@ const UpdateModal = (props: IProps) => {
     setShowDownloadErrorMessage(false);
   }
 
-  const CloseButton = (hasMarginLeft: boolean) => (
+  const CloseButton = ({ hasMarginLeft }: ICloseButton) => (
     <TouchableOpacity
       style={hasMarginLeft ? styles(activeTheme).buttonClose : styles(activeTheme).button}
       onPress={() => handleCloseModal()}
