@@ -26,42 +26,21 @@ const SettingsPage = () => {
   const selectedLocale = useAtomValue(selectedLocaleAtom);
   const [selectedLocaleId, setSelectedLocaleId] = useAtom<string>(selectedLocaleIdAtom);
 
-  const [appVersionGithub, setAppVersionGithub] = useState<null | string>(null);
   const [isUpdateModalVisible, setUpdateModalVisible] = useState(false);
-
-  const getAppVersionGithub = () => {
-    return fetch('https://raw.githubusercontent.com/wdiasjunior/BarbellWhip/main/package.json')
-            .then(response => response.json())
-            .then(json => setAppVersionGithub(json.version))
-            .catch(error => console.error(error));
-  }
-
-  const handleOpenUpdateModal = () => {
-    setUpdateModalVisible(true);
-    getAppVersionGithub();
-  }
-
-  useEffect(() => {
-    if(appVersionGithub !== null && appVersionGithub !== currentAppVersion) {
-      console.log("Update Available");
-    } else {
-      console.log("github version", appVersionGithub);
-      console.log("current version", currentAppVersion);
-    }
-    // TODO
-    // - check for major minor and patch individually?
-    // put this in the update modal component
-  }, [appVersionGithub])
 
   return (
     <View style={styles(activeTheme).container}>
 
-      <Text style={styles(activeTheme).updateCheckerButtonText}>Version: {currentAppVersion}</Text>
       <TouchableOpacity
         style={styles(activeTheme).updateCheckerButton}
-        onPress={() => handleOpenUpdateModal()}
+        onPress={() => setUpdateModalVisible(true)}
       >
-        <Text style={styles(activeTheme).updateCheckerButtonText}>Check for updates</Text>
+        <Text style={styles(activeTheme).appVersionText}>
+          {selectedLocale.settingsPage.versionLabel}: {currentAppVersion}
+        </Text>
+        <Text style={styles(activeTheme).updateCheckerButtonText}>
+          {selectedLocale.settingsPage.updateCheckerTitle}
+        </Text>
       </TouchableOpacity>
 
         {/*<Text style={styles(activeTheme).title}>Settings Page</Text>*/}
@@ -93,12 +72,13 @@ const SettingsPage = () => {
           activeTheme={activeTheme}
         />
 
-        <UpdateModal
-          isUpdateModalVisible={isUpdateModalVisible}
-          setUpdateModalVisible={setUpdateModalVisible}
-          currentVersion={currentAppVersion}
-          appVersionGithub={appVersionGithub}
-        />
+        {isUpdateModalVisible &&
+          <UpdateModal
+            isUpdateModalVisible={isUpdateModalVisible}
+            setUpdateModalVisible={setUpdateModalVisible}
+            currentVersion={currentAppVersion}
+          />
+        }
     </View>
   );
 }

@@ -86,7 +86,7 @@ const ProgramPage = ({ navigation }) => {
       exerciseName={item.exerciseName}
       exerciseOBJ={item}
     />
-  );
+  )
 
   return (
     <View style={styles(activeTheme).container}>

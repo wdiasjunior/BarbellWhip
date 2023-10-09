@@ -11,15 +11,33 @@ const styles = (theme: Theme) => {
       justifyContent: "center",
       alignContent: "center",
       alignItems: "center",
-      height: 300,
+      height: 180,
     },
     text: {
       textAlign: "center",
       fontWeight: "bold",
-      fontSize: 24,
-      lineHeight: 24,
+      fontSize: 22,
+      lineHeight: 22,
       color: theme.text,
     },
+    spinner: {
+      transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }],
+      marginLeft: 12,
+      top: -2,
+      position: "relative"
+    },
+    row: {
+      flexDirection: "row",
+    },
+    buttonRow: {
+      flexDirection: "row",
+      marginTop: 40,
+      justifyContent: "flex-end",
+    },
+    buttonClose: {
+      marginLeft: 30,
+    }
+
   });
 }
 

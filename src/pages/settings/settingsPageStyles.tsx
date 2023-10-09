@@ -17,16 +17,21 @@ const styles = (theme: Theme) => {
       fontSize: 16,
       marginTop: 12,
     },
-    updateCheckerButton: { // TODO - add proper styling
+    updateCheckerButton: {
+      color: theme.text,
       justifyContent: "center",
       height: 46,
+      marginTop: 12,
       marginBottom: 6,
-      borderWidth: 1,
-      borderColor: theme.textFaded,
+    },
+    appVersionText: {
+      fontSize: 14,
+      color: theme.text,
     },
     updateCheckerButtonText: {
-      fontSize: 16,
+      fontSize: 18,
       color: theme.text,
+      fontWeight: "bold",
     },
   });
 }

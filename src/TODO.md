@@ -100,6 +100,3 @@
   - add switch to turn it on and off
 - calculator page
   - add rpe math block
-
-- app wont show up in app list after installed
-  - maybe due to the android xml changes I made?

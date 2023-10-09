@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { View, Text, TouchableOpacity, NativeModules, BackHandler } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Text, TouchableOpacity, ActivityIndicator, NativeModules } from "react-native";
 import Modal from "react-native-modal";
 
 import RNFS from 'react-native-fs';
@@ -7,8 +7,8 @@ import RNFS from 'react-native-fs';
 import styles from "./updateModalStyles";
 
 import { useAtomValue } from "jotai";
-import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
-import { hasUpdateAvailable } from "../../helpers/hasUpdateAvailable";
+import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
+import { updateChecker } from "../../helpers/updateChecker";
 
 interface IProps {
   isUpdateModalVisible: boolean;
@@ -20,55 +20,112 @@ interface IProps {
 const UpdateModal = (props: IProps) => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
+
+  const [showUpdateCheckerSpinner, setShowUpdateCheckerSpinner] = useState(true);
+  const [isGoBackDisabled, setIsGoBackDisabled] = useState(false);
+  const [showDownloadSpinner, setShowDownloadSpinner] = useState(false);
+  const [appVersionGithub, setAppVersionGithub] = useState<null | string>(null);
+  const [hasUpdateAvailable, setHasUpadateAvailable] = useState(false);
+  const [showIsDownloadCompleteMessage, setShowIsDownloadCompleteMessage] = useState(false);
+  const [showDownloadErrorMessage, setShowDownloadErrorMessage] = useState(false);
+  const [showUpdateCheckErrorMessage, setShowUpdateCheckErrorMessage] = useState(false);
 
   const { FileOpenerModule } = NativeModules;
 
+  const url = `https://github.com/wdiasjunior/BarbellWhip/releases/download/v${appVersionGithub}/BarbellWhip_${appVersionGithub}.apk`
+  const filePath = `${RNFS.ExternalCachesDirectoryPath}/BarbellWhip_${appVersionGithub}.apk`;
 
-  const url = `https://github.com/wdiasjunior/BarbellWhip/releases/download/v${props.appVersionGithub}/BarbellWhip_${props.appVersionGithub}.apk`
-  const filePath = `${RNFS.ExternalCachesDirectoryPath}/BarbellWhip_${props.appVersionGithub}.apk`;
+  const getAppVersionGithub = () => {
+    fetch('https://raw.githubusercontent.com/wdiasjunior/BarbellWhip/main/package.json')
+      .then(response => response.json())
+      .then(json => setAppVersionGithub(json.version))
+      .catch(error => console.error(error));
+  }
 
-  // TODO
-  // - add spinner on request
-  // - "dont show again" option on auto check
-  // - download to temp?
-  //   - https://github.com/joltup/rn-fetch-blob
-  // - move functions to fsWrite an fsRead?
-  // -
+  useEffect(() => {
+    if(props.isUpdateModalVisible) {
+      setAppVersionGithub(null);
+      setShowUpdateCheckerSpinner(true);
+      setShowUpdateCheckErrorMessage(false);
+      setShowDownloadErrorMessage(false);
+      getAppVersionGithub();
+    }
+  }, [props.isUpdateModalVisible])
 
-  // useEffect(() => {
-  //   // Optional: Delete the file if it exists before downloading
-  //   RNFS.unlink(filePath)
-  //     .then(() => console.log('Previous file deleted'))
-  //     .catch((err) => console.log(err.message));
-  // }, [props.appVersionGithub])
+  useEffect(() => {
+    if (appVersionGithub !== null) {
+      if(typeof appVersionGithub === "string") {
+        if(updateChecker(props.currentVersion, appVersionGithub)) {
+          setHasUpadateAvailable(true);
+        } else {
+          setHasUpadateAvailable(false);
+        }
+      } else {
+        setShowUpdateCheckErrorMessage(true);
+      }
+      setShowUpdateCheckerSpinner(false);
+    }
+  }, [appVersionGithub])
 
-  const handleDownload = () => {
-    BackHandler.addEventListener('hardwareBackPress', function() {return true})
+  const handleDownload = async () => {
+    setIsGoBackDisabled(true);
+    setShowDownloadSpinner(true);
 
-    RNFS.downloadFile({
-      fromUrl: url,
-      toFile: filePath,
-      progress: (res) => {
-        // Handle download progress updates if needed
-        const progress = (res.bytesWritten / res.contentLength) * 100;
-        console.log(`Progress: ${progress.toFixed(2)}%`);
-      },
-    })
-      .promise.then((response) => console.log('File downloaded!', response))
-      .catch((err) => console.log('Download error:', err));
+    await RNFS.unlink(RNFS.ExternalCachesDirectoryPath)
+            .then(() => console.log('Cache folder deleted'))
+            .catch((err) => console.log(err.message));
+
+    await RNFS.mkdir(RNFS.ExternalCachesDirectoryPath)
+            .then(() => console.log('Cache folder created'))
+            .catch((err) => console.log(err.message));
+
+    await RNFS.downloadFile({
+            fromUrl: url,
+            toFile: filePath,
+            progress: (res) => {
+              const progress = (res.bytesWritten / res.contentLength) * 100;
+              console.log(`Progress: ${progress.toFixed(2)}%`);
+            },
+          }).promise.then((response) => console.log('File downloaded!', response))
+            .catch((err) => {
+              console.log('Download error:', err);
+              setShowDownloadSpinner(false);
+              setShowDownloadErrorMessage(true);
+              setIsGoBackDisabled(false);
+              return;
+            });
+
+    setShowDownloadSpinner(false);
+    setShowIsDownloadCompleteMessage(true);
+    setIsGoBackDisabled(false);
   }
 
   const handleInstallAPK = () => {
     FileOpenerModule.openFile(filePath);
   }
-console.log(parseFloat(props.currentVersion), parseFloat(props.appVersionGithub));
-// TODO - if no internet or cant fetch show error message
-// use a set timeout or just await for the version on github
+
+  const handleCloseModal = () => {
+    props.setUpdateModalVisible(false);
+    setShowIsDownloadCompleteMessage(false);
+    setShowUpdateCheckErrorMessage(false);
+    setShowDownloadErrorMessage(false);
+  }
+
+  const CloseButton = (hasMarginLeft: boolean) => (
+    <TouchableOpacity
+      style={hasMarginLeft ? styles(activeTheme).buttonClose : styles(activeTheme).button}
+      onPress={() => handleCloseModal()}
+    >
+      <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.closeModalButtonLabel}</Text>
+    </TouchableOpacity>
+  )
+
   return (
     <Modal
       isVisible={props.isUpdateModalVisible}
-      onBackButtonPress={() => props.setUpdateModalVisible(false)}
-      onBackdropPress={() => props.setUpdateModalVisible(false)}
+      onBackButtonPress={() => isGoBackDisabled ? false : handleCloseModal()}
+      onBackdropPress={() => isGoBackDisabled ? false : handleCloseModal()}
       useNativeDriver={true}
       hideModalContentWhileAnimating={true}
       animationInTiming={100}
@@ -77,25 +134,92 @@ console.log(parseFloat(props.currentVersion), parseFloat(props.appVersionGithub)
       backdropTransitionOutTiming={1}
     >
       <View style={styles(activeTheme).container}>
-        <Text style={styles(activeTheme).text}>UpdateModal</Text>
-        <Text style={styles(activeTheme).text}>{props.currentVersion}</Text>
-        <Text style={styles(activeTheme).text}>{props.appVersionGithub}</Text>
-        <Text style={styles(activeTheme).text}>
-          {parseFloat(props.currentVersion) < parseFloat(props.appVersionGithub) ? "update available" : "no update available"}
-        </Text>
+        {(showUpdateCheckerSpinner && !showUpdateCheckErrorMessage) &&
+          <View style={styles(activeTheme).row}>
+            <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.searchingForUpdates}</Text>
+            <ActivityIndicator
+            size="small"
+            style={styles(activeTheme).spinner}
+            color={activeTheme.textFaded}
+            />
+          </View>
+        }
 
-        <TouchableOpacity
-          style={styles(activeTheme).updateCheckerButton}
-          onPress={() => handleDownload()}
-        >
-          <Text style={styles(activeTheme).text}>Download update</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles(activeTheme).updateCheckerButton}
-          onPress={() => handleInstallAPK()}
-        >
-          <Text style={styles(activeTheme).text}>Install update</Text>
-        </TouchableOpacity>
+        {(hasUpdateAvailable && !showDownloadSpinner && !showIsDownloadCompleteMessage) &&
+          <View>
+            <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.updateAvailableMessage}</Text>
+            <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.newVersionLabel}: {appVersionGithub}</Text>
+            <View style={styles(activeTheme).buttonRow}>
+              <TouchableOpacity
+                style={styles(activeTheme).button}
+                onPress={() => handleDownload()}
+              >
+                <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.downloadUpdateButton}</Text>
+              </TouchableOpacity>
+              <CloseButton hasMarginLeft />
+            </View>
+          </View>
+        }
+
+        {(typeof appVersionGithub === "string" && !hasUpdateAvailable && !showUpdateCheckErrorMessage) &&
+          <View>
+            <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.noUpdateAvailableMessage}</Text>
+            <View style={styles(activeTheme).buttonRow}>
+              <CloseButton />
+            </View>
+          </View>
+        }
+
+        {showDownloadSpinner &&
+          <View style={styles(activeTheme).row}>
+            <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.downloadingUpdateMessage}</Text>
+            <ActivityIndicator
+              size="small"
+              style={styles(activeTheme).spinner}
+              color={activeTheme.textFaded}
+            />
+          </View>
+        }
+
+        {(showIsDownloadCompleteMessage && !showDownloadSpinner && !showDownloadErrorMessage) &&
+          <View>
+            <Text style={styles(activeTheme).text}>
+              {selectedLocale.settingsPage.downloadCompleteMessage}
+            </Text>
+            <View style={styles(activeTheme).buttonRow}>
+              <TouchableOpacity
+                style={styles(activeTheme).button}
+                onPress={() => handleInstallAPK()}
+              >
+                <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.installUpdateButton}</Text>
+              </TouchableOpacity>
+              <CloseButton hasMarginLeft />
+            </View>
+          </View>
+        }
+
+        {showDownloadErrorMessage &&
+          <View>
+            <Text style={styles(activeTheme).text}>
+              {selectedLocale.settingsPage.downloadErrorMessage}
+            </Text>
+            <View style={styles(activeTheme).buttonRow}>
+              <CloseButton />
+            </View>
+          </View>
+        }
+
+        {showUpdateCheckErrorMessage &&
+          <View>
+            <Text style={styles(activeTheme).text}>
+              {selectedLocale.settingsPage.updateCheckErrorMessage}
+            </Text>
+            <View style={styles(activeTheme).buttonRow}>
+              <CloseButton />
+            </View>
+          </View>
+        }
+
       </View>
     </Modal>
   );

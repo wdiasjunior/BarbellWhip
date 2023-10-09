@@ -98,7 +98,20 @@
   "settingsPage": {
     "title": "Settings",
     "themeSelectorTitle": "Theme",
-    "languageSelectorTitle": "Language"
+    "languageSelectorTitle": "Language",
+    "versionLabel": "Version",
+    "updateCheckerTitle": "Check for updates",
+    "searchingForUpdates": "Searching for updates",
+    "updateAvailableMessage": "Update available",
+    "newVersionLabel": "New version",
+    "noUpdateAvailableMessage": "No update available",
+    "downloadUpdateButton": "DOWNLOAD",
+    "downloadingUpdateMessage": "Downloading update",
+    "downloadCompleteMessage": "Download complete",
+    "downloadErrorMessage": "Error downloading update",
+    "updateCheckErrorMessage": "Error checking for updates",
+    "installUpdateButton": "Install update",
+    "closeModalButtonLabel": "CLOSE"
   },
   "numberInputModal": {
     "cancelButtonLabel": "CANCEL"
