@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, Switch, ScrollView, TextInput, } from "react-native";
+import { Text, View, Switch, ScrollView, TextInput } from "react-native";
 
 import styles from "./weightRackPageStyles";
 
@@ -8,13 +8,12 @@ import { weightConversion } from "../../../helpers/weightConversion";
 
 import Loading from "../../../sharedComponents/loading/loading";
 
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import {
   activeThemeAtom,
   selectedLocaleAtom,
   plateMathPageWeight,
   plateMathWeightUnit,
-  plateMathShowBumper,
   plateMathBarWeight,
   plateMathWeightRack,
   plateMathBumperPlatesRack,
@@ -26,34 +25,33 @@ const WeightRackPage = () => {
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
-  const [currentWeight, setCurrentWeight] = useAtom(plateMathPageWeight);
-  const [weightUnit, setWeightUnit] = useAtom(plateMathWeightUnit); // false == kg == left, true == lbs == right
-  const [showBumper, setShowBumper] = useAtom(plateMathShowBumper);
-  const [barWeight, setBarWeight ] = useAtom(plateMathBarWeight);
-  const [weightRack, setWeightRack ] = useAtom(plateMathWeightRack);
-  const [bumperPlatesRack, setBumperPlatesRack ] = useAtom(plateMathBumperPlatesRack);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
+  const [currentWeight, setCurrentWeight] = useAtom<number>(plateMathPageWeight);
+  const [weightUnit, setWeightUnit] = useAtom<boolean>(plateMathWeightUnit); // false == kg == left, true == lbs == right
+  const [barWeight, setBarWeight] = useAtom<BarWeight>(plateMathBarWeight);
+  const [weightRack, setWeightRack] = useAtom<WeightRack>(plateMathWeightRack);
+  const [bumperPlatesRack, setBumperPlatesRack] = useAtom<BumperRack>(plateMathBumperPlatesRack);
 
-  const handleWeightUnitChange = (e) => {
-    const _convertedWeight = weightConversion(currentWeight, e);
+  const handleWeightUnitChange = (_weightUnit: boolean) => {
+    const _convertedWeight = weightConversion(currentWeight, _weightUnit);
     setCurrentWeight(_convertedWeight);
-    setWeightUnit(e);
+    setWeightUnit(_weightUnit);
   }
 
-  const editWeightRack = (_input, _field, _weightUnit) => {
+  const editWeightRack = (_input: string, _field: string, _weightUnit: string) => {
     const auxWeightRack = deepClone(weightRack);
     auxWeightRack[_weightUnit][_field] = _input;
     setWeightRack(auxWeightRack);
   }
 
-  const editBumperPlateRack = (_input, _field, _weightUnit) => {
+  const editBumperPlateRack = (_input: string, _field: string, _weightUnit: string) => {
     const auxBumperPlatesRack = deepClone(bumperPlatesRack);
     auxBumperPlatesRack[_weightUnit][_field] = _input;
     setBumperPlatesRack(auxBumperPlatesRack);
   }
 
-  const editBarWeight = (_input, _weightUnit) => {
+  const editBarWeight = (_input: string, _weightUnit: string) => {
     const auxBarWeight = deepClone(barWeight);
     auxBarWeight[_weightUnit] = _input;
     setBarWeight(auxBarWeight);
@@ -73,7 +71,7 @@ const WeightRackPage = () => {
                 ios_backgroundColor="#3e3e3e"
                 onValueChange={handleWeightUnitChange}
                 value={weightUnit}
-                style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginHorizontal: 18, }}
+                style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginHorizontal: 18 }}
               />
               <Text style={styles(activeTheme).weightUnitLabel}>lbs</Text>
             </View>
@@ -149,7 +147,7 @@ const WeightRackPage = () => {
             </View>
           </View>
 
-          <View style={styles(activeTheme).inputGroup}>
+          <View style={styles(activeTheme).inputGroupLast}>
             <Text style={styles(activeTheme).inputGroupTitle}>{selectedLocale.plateMathPage.weightRackPage.bumperPlatesRackTitle}</Text>
             <View style={styles(activeTheme).row}>
               <View style={styles(activeTheme).column}>

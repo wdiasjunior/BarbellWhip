@@ -1,8 +1,6 @@
 package com.barbellwhip;
 
 import android.os.Bundle;
-// import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
-// import com.rnfs.RNFSPackage;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -34,24 +32,6 @@ public class MainActivity extends ReactActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(null);
   }
-
-  // react-native-fs config
-  // @Override
-  // protected List<ReactPackage> getPackages() {
-  //   return Arrays.<ReactPackage>asList(
-  //     new MainReactPackage(), // <---- add comma
-  //     new RNFSPackage() // <---------- add package
-  //   );
-  // }
-
-  // // AsyncStorage config
-  // @Override
-  // protected List<ReactPackage> getPackages() {
-  //   return Arrays.<ReactPackage>asList(
-  //     new MainReactPackage(),
-  //     new AsyncStoragePackage()
-  //   );
-  // }
 
   public static class MainActivityDelegate extends ReactActivityDelegate {
     public MainActivityDelegate(ReactActivity activity, String mainComponentName) {

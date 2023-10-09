@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useLayoutEffect, useRef, } from "react";
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from "react-native";
+import React, { useState, useLayoutEffect, useRef } from "react";
+import { Text, View, TouchableOpacity } from "react-native";
 import Modal from "react-native-modal";
 import DraggableFlatList, { ScaleDecorator } from "react-native-draggable-flatlist";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
@@ -23,19 +23,22 @@ const StepThree = ({ navigation }) => {
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
-  const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
+  const selectedWeek = useAtomValue(selectedWeekAtom);
   const [selectedDay, setSelectedDay] = useAtom(selectedDayAtom);
-  const [programEditorMode, ] = useAtom(programEditorModeAtom);
+  const programEditorMode = useAtomValue(programEditorModeAtom);
   const [modalOpen, setModalOpen] = useState(false);
 
   const onScreenLoad = () => {
+    const title = programEditorMode === "Create"
+                    ? selectedLocale.programEditorPage.programEditorStep3.title
+                    : selectedLocale.programEditorPage.programEditorStep3.title2;
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={programEditorMode === "Create" ? selectedLocale.programEditorPage.programEditorStep3.title : selectedLocale.programEditorPage.programEditorStep3.title2}
+                    title={title}
                     menu={false}
                     saveButton={true}
                     backButton={true}
@@ -44,11 +47,13 @@ const StepThree = ({ navigation }) => {
   }
 
   useLayoutEffect(() => {
-    if(isInitialRender) onScreenLoad();
+    if(isInitialRender) {
+      onScreenLoad();
+    }
   }, [])
 
   const dayRef = useRef(null);
-  const selectDay = (day) => {
+  const selectDay = (day: number) => {
     setSelectedDay(day);
   }
 
@@ -77,13 +82,11 @@ const StepThree = ({ navigation }) => {
     if(data === "simple") {
       setModalOpen(false);
       navigation.push("ExerciseEditorPage", {
-        oneRMweight: 0, // TODO - never used? check this
         exerciseIndex: "add",
       });
     } else {
       setModalOpen(false);
       navigation.push("ExerciseEditorPage", {
-        oneRMweight: data.weight, // TODO - never used? check this
         oneRMname: data.name,
         exerciseIndex: "add",
       });
@@ -96,15 +99,13 @@ const StepThree = ({ navigation }) => {
     });
   }
 
-  const reorder = (data, from, to) => {
+  const reorder = (data?:any, from?:any, to?:any) => {
     let auxAtom = deepClone(programEditorData);
     auxAtom.trainingProgram[selectedWeek].week[selectedDay].day = data;
     setProgramEditorData(auxAtom);
   }
 
-  // TODO check if useCallback should be used again, since it's used in stepTwo
-  // const renderDayExerciseItems = useCallback(({item, index, drag}) => {
-  const renderDayExerciseItems = ({item, index, drag}) => {
+  const renderDayExerciseItems = ({ item, index, drag }) => {
 
     const deleteExercise = () => {
       let auxAtom = deepClone(programEditorData);
@@ -127,19 +128,18 @@ const StepThree = ({ navigation }) => {
             <MaterialIcons name="edit" size={20} style={styles(activeTheme).exerciseItemIcon} />
           </TouchableOpacity>
 
-          <TouchableOpacity style={{width: 20, height: 20}} onPress={() => deleteExercise(index)} >
+          <TouchableOpacity style={{width: 20, height: 20}} onPress={() => deleteExercise()} >
             <Ionicons name="trash-outline" size={20} style={styles(activeTheme).exerciseItemIcon} />
           </TouchableOpacity>
         </View>
       </ScaleDecorator>
     )
   }
-  // }, [programEditorData.trainingProgram[selectedWeek].week[selectedDay].day, addExercise, reorder, selectedDay, selectedWeek]); // not sure if this array should have all of this
 
   return (
     <View style={styles(activeTheme).container}>
       <TopTabBar
-        setFirstTab={selectedWeek}
+        selectedWeek={selectedWeek}
         selectDay={selectDay}
         days={programEditorData.trainingProgram[selectedWeek].week.length}
         isProgramPage={false}
@@ -184,9 +184,13 @@ const StepThree = ({ navigation }) => {
         backdropTransitionOutTiming={1}
       >
         <View style={styles(activeTheme).modalContent}>
-          {programEditorData.oneRMs.length > 0 && programEditorData.oneRMs.map((item, index) => {
+          {programEditorData.oneRMs.length > 0 && programEditorData.oneRMs.map((item: OneRMs, index) => {
             return (
-              <TouchableOpacity style={styles(activeTheme).modalItem} key={"ProgramEditorPage_StepThree_ModalItem" + index} onPress={() => addExercise(item)}>
+              <TouchableOpacity
+                style={styles(activeTheme).modalItem}
+                key={"ProgramEditorPage_StepThree_ModalItem" + index}
+                onPress={() => addExercise(item)}
+              >
                 <Text style={styles(activeTheme).modalItemText}>{item.name}</Text>
               </TouchableOpacity>
             )

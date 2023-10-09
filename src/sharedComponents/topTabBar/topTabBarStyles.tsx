@@ -1,10 +1,8 @@
 import { StyleSheet } from "react-native";
 
-const styles = (theme) => {
+const styles = (theme: Theme) => {
   return StyleSheet.create({
     container: {
-      // backgroundColor: "red",
-      // width: "100%",
       flexDirection: "row",
       marginBottom: 10,
       scrollPadding: 80,

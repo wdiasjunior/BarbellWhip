@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import CalculatorPage from "../pages/calculator/calculatorPage";
-// import ProgramPage from "../pages/program/programPage";
-// import PlateMathPage from "../pages/plateMath/plateMathPage";
 import Loading from "../sharedComponents/loading/loading";
 
 import { ProgramPageStack, PlateMathPageStack } from "./StackNavigator";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
 
 import { useInitialRender } from "../helpers/useInitialRender";
@@ -19,8 +17,8 @@ const Tab = createBottomTabNavigator();
 const BottomTabProgramPageNavigator = () => {
 
   const isInitialRender = useInitialRender();
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   return (
     <Tab.Navigator
@@ -48,6 +46,7 @@ const BottomTabProgramPageNavigator = () => {
         cardStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
+          flex: 1,
         },
       })}
     >
@@ -57,17 +56,12 @@ const BottomTabProgramPageNavigator = () => {
         options={{
           headerShown: false,
           title: selectedLocale.programPage.title,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
-          lazy: true,
         }}
       />
       <Tab.Screen
@@ -76,16 +70,12 @@ const BottomTabProgramPageNavigator = () => {
         options={{
           headerShown: true,
           title: selectedLocale.calculatorPage.title,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
         }}
       />
       <Tab.Screen
@@ -94,16 +84,12 @@ const BottomTabProgramPageNavigator = () => {
         options={{
           headerShown: false,
           title: selectedLocale.plateMathPage.title,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
         }}
       />
     </Tab.Navigator>

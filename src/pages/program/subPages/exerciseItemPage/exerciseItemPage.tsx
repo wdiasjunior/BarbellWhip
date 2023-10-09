@@ -1,5 +1,5 @@
-import React, { useLayoutEffect, } from "react";
-import { Text, View, ScrollView, } from "react-native";
+import React, { useLayoutEffect } from "react";
+import { Text, View, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import Header from "../../../../sharedComponents/header/header";
@@ -7,47 +7,49 @@ import Loading from "../../../../sharedComponents/loading/loading";
 
 import styles from "./exerciseItemPageStyles";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
 
-// TODO - make this work for props.route.params
-// interface Props {
-//   exerciseName: any;
-//   onermOBJ: any;
-//   rmId: any;
-//   exerciseOBJ: any;
-//   weightUnit: any;
-// }
+interface IProps {
+  exerciseName: string;
+  onermOBJ: OneRMs[];
+  rmId: string;
+  exerciseOBJ: DayExercises;
+  weightUnit: string;
+}
 
-const ExerciseItemPage = (props) => {
+const ExerciseItemPage = (_props: any) => {
+
+  const props: IProps = _props.route.params;
 
   const navigation = useNavigation();
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={props.route.params.exerciseName}
+                    title={props.exerciseName}
                     backButton={true}
                   />
               });
   }
 
   useLayoutEffect(() => {
-    if(isInitialRender) onScreenLoad();
+    if(isInitialRender) {
+      onScreenLoad();
+    }
   }, [])
 
-  const setsList = props.route.params.exerciseOBJ.set;
-  const onermOBJ = props.route.params.onermOBJ;
-  const rmId = props.route.params.rmId;
-  const weightUnit = props.route.params.weightUnit;
+  const setsList = props.exerciseOBJ.set;
+  const rmId = props.rmId;
+  const weightUnit = props.weightUnit;
   const weightRoundingFactor = weightUnit === "kg" ? 2.5 : 5;
-  const oneRMweight = onermOBJ.find((el) => el.id === rmId) ?? 0; // TODO - check this. not really needed since I can just pass the 1rm as a route.param
+  const oneRMweight: OneRMs | any = props.onermOBJ.find((el) => el.id === rmId) ?? 0;
 
   return (
     <View style={styles(activeTheme).container}>
@@ -56,7 +58,7 @@ const ExerciseItemPage = (props) => {
           <View style={styles(activeTheme).setList}>
             {setsList.map((item, index) => {
               return (
-                <View key={item.exerciseName + index} style={styles(activeTheme).setListItem}>
+                <View key={item.exerciseName + index} style={setsList.length !== index + 1 ? styles(activeTheme).setListItem : styles(activeTheme).setListLastItem}>
 
                   {item.exerciseName ? <Text style={styles(activeTheme).title}>{item.exerciseName}</Text> : null}
 

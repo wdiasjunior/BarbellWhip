@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, FlatList, ScrollView, TouchableOpacity, } from "react-native";
+import { Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Entypo from "react-native-vector-icons/Entypo";
@@ -7,30 +7,47 @@ import Entypo from "react-native-vector-icons/Entypo";
 import styles from "./headerStyles";
 
 import { writeToJSON } from "../../db/fileSystem/fsWrite";
+import { readJSON } from "../../db/fileSystem/fsRead";
 
-import { useAtom } from "jotai";
-import { programEditorDataAtom } from "../../helpers/jotai/programEditorAtoms";
-import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
+import { useAtomValue, useSetAtom } from "jotai";
+import {
+  programEditorDataAtom,
+  programEditorModeAtom,
+  programNameForActionAtom,
+} from "../../helpers/jotai/programEditorAtoms";
+import {
+  activeThemeAtom,
+  activeProgramAtom,
+  activeProgramNameAtom,
+} from "../../helpers/jotai/atomsWithStorage";
 
 import { deepClone } from "../../helpers/deepClone";
 
-interface Props {
-  setIsMenuOpen(): any;
+interface IProps {
+  setIsMenuOpen?: (isOpen: boolean) => void;
   title: string;
-  menu: boolean;
-  weightRack: boolean;
-  saveButton: boolean;
-  backButton: boolean;
-  import: boolean;
-  importProgram(): any;
+  menu?: boolean;
+  weightRack?: boolean;
+  saveButton?: boolean;
+  backButton?: boolean;
+  import?: boolean;
+  importProgram?: () => void;
 }
 
-const Header = (props: Props) => {
+const Header = (props: IProps) => {
 
   const navigation = useNavigation();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const programEditorData = useAtomValue(programEditorDataAtom);
+  const activeProgramName = useAtomValue(activeProgramNameAtom);
+  const programEditorMode = useAtomValue(programEditorModeAtom);
+  const programNameForAction = useAtomValue(programNameForActionAtom);
+  const setActiveProgramData = useSetAtom(activeProgramAtom);
+
+  const readProgram = async (fileName: string) => {
+    return JSON.parse(await readJSON(fileName.replace(".json", "")));
+  }
 
   const saveProgram = async () => {
     const fileName = programEditorData.programName;
@@ -41,14 +58,26 @@ const Header = (props: Props) => {
     } else {
       alert("Please fill in the program name field.")
     }
+    if(programEditorMode === "Edit" && activeProgramName === programNameForAction) {
+      const programData = await readProgram(programNameForAction);
+      setActiveProgramData(programData);
+    }
   }
 
   const importProgram = () => {
-    props.importProgram();
+    if (props.importProgram) {
+      props.importProgram();
+    } else {
+      console.log("could not import program");
+    }
   }
 
   const setMenuOpenFromHeader = () => {
-    props.setIsMenuOpen(prev => !prev);
+    if (props.setIsMenuOpen) {
+      props.setIsMenuOpen(prev => !prev);
+    } else {
+      console.log("could not set menu open");
+    }
   }
 
   const saveButton = async () => {

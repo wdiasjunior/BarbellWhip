@@ -3,20 +3,14 @@ import { View, Text } from "react-native";
 
 import { styles, plateColors } from "./plateStyles";
 
-interface Props {
-  weight: any;
-  // size: any;
-  activeTheme: any;
-  weightUnit: any;
+interface IProps {
+  plate: Plates;
+  activeTheme: Theme;
+  weightUnit: string;
 }
 
-const Plate = (props: Props) => {
-  // I don't like this gambiarra for the plate size, but I guess we'll have to
-  // roll with this since WeightCalc.getPlatePercentOfMax is kinda broken
+const Plate = (props: IProps) => {
   const plateDimensions = {
-    // TODO - find some good colors for the other plates that match the overall theme
-    // don't really like how they look with the rest of the app
-    // I really need a designer helping with this
     kg: {
       50: {
         size: 1.25,
@@ -108,17 +102,17 @@ const Plate = (props: Props) => {
   }
 
   const computePlateStyle = () => {
-    if(props.weight.isBumper) {
-      // add conditional for color coded plates input
+    if(props.plate.isBumper) {
+      // TODO - add conditional for color coded plates input
       return Object.assign({...styles(props.activeTheme).bumperPlate});
     } else {
-      const hScale = 0.5 + (0.5 * plateDimensions[props.weightUnit][props.weight.plate].size);
-      const wScale = 0.7 + (0.3 * plateDimensions[props.weightUnit][props.weight.plate].size);
+      const hScale = 0.5 + (0.5 * plateDimensions[props.weightUnit][props.plate.plate].size);
+      const wScale = 0.7 + (0.3 * plateDimensions[props.weightUnit][props.plate.plate].size);
       return Object.assign({
           ...styles(props.activeTheme).plate}, {
           width: styles(props.activeTheme).plate.width * wScale,
           height: styles(props.activeTheme).plate.height * hScale,
-          // add conditional for color coded plates input
+          // TODO - add conditional for color coded plates input
           // backgroundColor: plateDimensions[props.weightUnit][props.weight.plate].color,
           // borderColor: plateDimensions[props.weightUnit][props.weight.plate].color,
         });
@@ -127,7 +121,7 @@ const Plate = (props: Props) => {
 
   return (
     <View style={computePlateStyle()}>
-      <Text adjustsFontSizeToFit style={styles(props.activeTheme).text}>{props.weight.plate}</Text>
+      <Text adjustsFontSizeToFit style={styles(props.activeTheme).text}>{props.plate.plate}</Text>
     </View>
   );
 }

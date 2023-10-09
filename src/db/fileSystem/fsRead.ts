@@ -1,46 +1,50 @@
 import RNFS from "react-native-fs";
 
-const readJSON = async (programName) => {
-  const fileUri = RNFS.ExternalDirectoryPath + "/" + programName + ".json";
-  let data = null;
+const readJSON = async (programName: string) => {
+  const fileURI = RNFS.ExternalDirectoryPath + "/" + programName + ".json";
+  let data: any = null;
   try {
-    data = await RNFS.readFile(fileUri);
+    data = await RNFS.readFile(fileURI);
   } catch(error) {
+    console.log(error);
     alert("Error reading file.");
   }
   return data;
 }
 
-const readImportedJSON = async (fileUri) => {
-  let data = null;
+const readImportedJSON = async (fileURI: string) => {
+  let data: any = null;
   try {
-    data = await RNFS.readFile(fileUri);
+    data = await RNFS.readFile(fileURI);
   } catch(error) {
+    console.log(error);
     alert("Error reading file.");
   }
   return data;
 }
 
-const returnFileURL = async (programName) => {
-  const fileUri = RNFS.ExternalDirectoryPath + "/" + programName;
-  let data = null;
+const getFileURL = async (programName: string) => {
+  const fileURI = RNFS.ExternalDirectoryPath + "/" + programName;
+  let data: any = null;
   try {
-    data = await RNFS.readFile(fileUri);
+    data = await RNFS.readFile(fileURI);
   } catch(error) {
+    console.log(error);
     alert("Error reading file.");
   }
-  return fileUri;
+  return fileURI;
 }
 
 const readDirectory = async () => {
-  const fileUri = RNFS.ExternalDirectoryPath;
-  let data = null;
+  const fileURI = RNFS.ExternalDirectoryPath;
+  let data: any = null;
   try {
-    data = await RNFS.readDir(fileUri);
+    data = await RNFS.readDir(fileURI);
   } catch(error) {
+    console.log(error);
     alert("Error reading file system.");
   }
   return data;
 }
 
-export { readJSON, readImportedJSON, readDirectory, returnFileURL };
+export { readJSON, readImportedJSON, readDirectory, getFileURL };

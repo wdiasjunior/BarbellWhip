@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const styles = (theme) => {
+const styles = (theme: Theme) => {
   return StyleSheet.create({
     container: {
       flex: 1,
@@ -19,6 +19,10 @@ const styles = (theme) => {
       marginBottom: 16,
       borderBottomWidth: 1,
       borderBottomColor: theme.textFaded,
+    },
+    setListLastItem: {
+      paddingBottom: 20,
+      marginBottom: 16,
     },
     setListItemRow: {
       flexDirection: "row",

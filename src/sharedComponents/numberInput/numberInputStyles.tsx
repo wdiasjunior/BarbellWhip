@@ -1,7 +1,11 @@
 import { StyleSheet } from "react-native";
 
-const styles = (theme) => {
+const styles = (theme: Theme) => {
   return StyleSheet.create({
+    modalContent: {
+      justifyContent: "center",
+      alignItems: "center",
+    },
     container: {
       backgroundColor: theme.backgroundSecondary,
       padding: 16,
@@ -20,6 +24,14 @@ const styles = (theme) => {
       marginBottom: 30,
     },
     inputText: {
+      textAlign: "center",
+      fontWeight: "bold",
+      fontSize: 24,
+      lineHeight: 24,
+      color: theme.text,
+      marginLeft: 25,
+    },
+    inputTextLabel: {
       textAlign: "center",
       fontWeight: "bold",
       fontSize: 24,

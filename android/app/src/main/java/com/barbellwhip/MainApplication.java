@@ -8,12 +8,13 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.config.ReactFeatureFlags;
+import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.barbellwhip.newarchitecture.MainApplicationReactNativeHost;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
-// import com.rnfs.RNFSPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -30,6 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
+          packages.add(new FileOpenerPackage());
           return packages;
         }
 
@@ -39,8 +41,7 @@ public class MainApplication extends Application implements ReactApplication {
         }
       };
 
-  private final ReactNativeHost mNewArchitectureNativeHost =
-      new MainApplicationReactNativeHost(this);
+  private final ReactNativeHost mNewArchitectureNativeHost = new MainApplicationReactNativeHost(this);
 
   @Override
   public ReactNativeHost getReactNativeHost() {
@@ -50,15 +51,6 @@ public class MainApplication extends Application implements ReactApplication {
       return mReactNativeHost;
     }
   }
-
-  // react-native-fs config
-  // @Override
-  // protected List<ReactPackage> getPackages() {
-  //   return Arrays.<ReactPackage>asList(
-  //     new MainReactPackage(), // <---- add comma
-  //     new RNFSPackage() // <---------- add package
-  //   );
-  // }
 
   @Override
   public void onCreate() {

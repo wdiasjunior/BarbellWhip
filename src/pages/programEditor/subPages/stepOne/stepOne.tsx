@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useLayoutEffect } from "react"; // , useRef
-import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, KeyboardAvoidingView, TextInput, } from "react-native";
+import React, { useState, useEffect, useLayoutEffect } from "react";
+import { Text, View, Switch, TouchableOpacity, ScrollView, TextInput } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import { programEditorDataAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
@@ -15,36 +15,25 @@ import Loading from "../../../../sharedComponents/loading/loading";
 
 import styles from "./stepOneStyles";
 
-/*
-  TODO
-  custom header for this stack to control go back button?
-  save icon in header?
-  info icon in header open modal quick tutorial for each page?
-
-  add 1rm -> change into add rm -> add field for reps -> add math for estimated rm if reps > 1
-  if text inputs are left empty, the option in modal on stepThree is also empty. add placeholder and on user interaction delete it?
-
-  keyboard avoiding view not working properly
-*/
-
 const StepOne = ({ navigation }) => {
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
-  const [programEditorMode, ] = useAtom(programEditorModeAtom);
+  const programEditorMode = useAtomValue(programEditorModeAtom);
   const [weightUnit, setWeightUnit] = useState(programEditorData.weightUnit === "kg" ? false : true); // false == kg == left, true == lbs == right
   const toggleWeightUnitSwitch = () => setWeightUnit(previousState => !previousState);
 
-  // const refInputRMName, refInputRMWeight = useRef();
-
   const onScreenLoad = () => {
+    const title = programEditorMode === "Create"
+                    ? selectedLocale.programEditorPage.programEditorStep1.title
+                    : selectedLocale.programEditorPage.programEditorStep1.title2;
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={programEditorMode === "Create" ? selectedLocale.programEditorPage.programEditorStep1.title : selectedLocale.programEditorPage.programEditorStep1.title2}
+                    title={title}
                     menu={false}
                     saveButton={true}
                     backButton={true}
@@ -53,7 +42,9 @@ const StepOne = ({ navigation }) => {
   }
 
   useLayoutEffect(() => {
-    if(isInitialRender) onScreenLoad();
+    if(isInitialRender) {
+      onScreenLoad();
+    }
   }, [])
 
   useEffect(() => {
@@ -62,19 +53,21 @@ const StepOne = ({ navigation }) => {
     setProgramEditorData(auxAtom);
   }, [weightUnit])
 
-  const editProgramName = (e) => {
+  const editProgramName = (input: string) => {
     let auxAtom = deepClone(programEditorData);
-    auxAtom.programName = e;
+    auxAtom.programName = input;
     setProgramEditorData(auxAtom);
   }
-  const editRMname = (e, index) => {
+
+  const editRMname = (input: string, index: number) => {
     let auxAtom = deepClone(programEditorData);
-    auxAtom.oneRMs[index].name = e;
+    auxAtom.oneRMs[index].name = input;
     setProgramEditorData(auxAtom);
   }
-  const editRMweight = (e, index) => {
+
+  const editRMweight = (input: string, index: number) => {
     let auxAtom = deepClone(programEditorData);
-    auxAtom.oneRMs[index].weight = e;
+    auxAtom.oneRMs[index].weight = input;
     setProgramEditorData(auxAtom);
   }
 
@@ -89,7 +82,7 @@ const StepOne = ({ navigation }) => {
     setProgramEditorData(auxAtom);
   }
 
-  const remove1rm = (index) => {
+  const remove1rm = (index: number) => {
     let auxAtom = deepClone(programEditorData);
     auxAtom.oneRMs.splice(index, 1);
     setProgramEditorData(auxAtom);
@@ -121,7 +114,7 @@ const StepOne = ({ navigation }) => {
             <Text style={styles(activeTheme).weightUnitText}>lbs</Text>
           </View>
 
-          {programEditorData.oneRMs.map((item, index) => {
+          {programEditorData.oneRMs.map((item: OneRMs, index) => {
             return (
               <View style={[styles(activeTheme).onermItem, styles(activeTheme).shadowProp]} key={"ProgramEditorPage_StepOne_RMItem" + index} >
                 <TextInput

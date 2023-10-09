@@ -1,13 +1,11 @@
 import { StyleSheet } from "react-native";
 
-const styles = (theme) => {
+const styles = (theme: Theme) => {
   return StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
       paddingHorizontal: 20,
-      // alignItems: "center",
-      // justifyContent: "center",
     },
     title: {
       color: theme.textHighlight,
@@ -19,34 +17,21 @@ const styles = (theme) => {
       fontSize: 16,
       marginTop: 12,
     },
-
-    themeSelectorContainer: {
-      marginTop: 20,
-    },
-    themeSelectorTitle: {
-      color: theme.textHighlight,
-      fontWeight: "bold",
-      fontSize: 18,
-      marginBottom: 10,
-    },
-    themeSelectorItem: {
-      flexDirection: "row",
-      alignItems: "center",
-      height: 46,
-      marginBottom: 6,
-      borderBottomWidth: 1,
-      borderBottomColor: theme.textFaded,
-    },
-    themeSelectorIconContainer: {
-      marginRight: 12,
-      width: 20,
-    },
-    themeSelectorIcon: {
-      color: theme.textHighlight,
-    },
-    themeSelectorItemText: {
-      fontSize: 16,
+    updateCheckerButton: {
       color: theme.text,
+      justifyContent: "center",
+      height: 46,
+      marginTop: 12,
+      marginBottom: 6,
+    },
+    appVersionText: {
+      fontSize: 14,
+      color: theme.text,
+    },
+    updateCheckerButtonText: {
+      fontSize: 18,
+      color: theme.text,
+      fontWeight: "bold",
     },
   });
 }

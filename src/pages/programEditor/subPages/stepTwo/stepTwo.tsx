@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useLayoutEffect, useRef, useCallback, } from "react";
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, } from "react-native";
+import React, { useLayoutEffect, useRef } from "react";
+import { Text, View, TouchableOpacity } from "react-native";
 import DraggableFlatList, { ScaleDecorator } from "react-native-draggable-flatlist";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import { programEditorDataAtom, selectedWeekAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
@@ -20,18 +20,21 @@ const StepTwo = ({ navigation }) => {
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
   const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
-  const [programEditorMode, ] = useAtom(programEditorModeAtom);
+  const programEditorMode = useAtomValue(programEditorModeAtom);
   const weekRef = useRef(null);
 
   const onScreenLoad = () => {
+    const title = programEditorMode === "Create"
+                    ? selectedLocale.programEditorPage.programEditorStep2.title
+                    : selectedLocale.programEditorPage.programEditorStep2.title2;
     navigation.setOptions({ headerTitle: () =>
                   <Header
-                    title={programEditorMode === "Create" ? selectedLocale.programEditorPage.programEditorStep2.title : selectedLocale.programEditorPage.programEditorStep2.title2}
+                    title={title}
                     menu={false}
                     saveButton={true}
                     backButton={true}
@@ -40,7 +43,9 @@ const StepTwo = ({ navigation }) => {
   }
 
   useLayoutEffect(() => {
-    if(isInitialRender) onScreenLoad();
+    if(isInitialRender) {
+      onScreenLoad();
+    }
   }, [])
 
   const addWeek = () => {
@@ -49,11 +54,11 @@ const StepTwo = ({ navigation }) => {
     setProgramEditorData(auxAtom);
   }
 
-  const selectWeek = (index) => {
+  const selectWeek = (index: number) => {
     setSelectedWeek(index);
   }
 
-  const duplicateWeek = (index) => {
+  const duplicateWeek = (index: number) => {
     let auxAtom = deepClone(programEditorData);
     let weekToDuplicate = programEditorData.trainingProgram[index];
     auxAtom.trainingProgram.splice(index + 1, 0, weekToDuplicate);
@@ -74,14 +79,14 @@ const StepTwo = ({ navigation }) => {
     }
   }
 
-  const renderWeekItem = useCallback(({item, index, drag}) => {
+  const renderWeekItem = ({ item, index, drag }) => {
 
     const deleteWeek = () => {
       if(programEditorData.trainingProgram.length > 1) {
         let auxAtom = deepClone(programEditorData);
         auxAtom.trainingProgram.splice(index, 1);
         setProgramEditorData(auxAtom);
-        if(selectedWeek === programEditorData.trainingProgram.length) {
+        if(selectedWeek + 1 === programEditorData.trainingProgram.length) {
           selectWeek(selectedWeek - 1);
         } else if(selectedWeek === index || selectedWeek > index) {
           selectWeek(index);
@@ -104,13 +109,13 @@ const StepTwo = ({ navigation }) => {
             <Ionicons onPress={() => duplicateWeek(index)} name="copy-outline" size={20} style={styles(activeTheme).weekItemIcon} />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles(activeTheme).weekItemIconContainer}  onPress={() => deleteWeek(index)} >
+          <TouchableOpacity style={styles(activeTheme).weekItemIconContainer}  onPress={() => deleteWeek()} >
             <Ionicons name="trash-outline" size={20} style={styles(activeTheme).weekItemIcon} />
           </TouchableOpacity>
         </TouchableOpacity>
       </ScaleDecorator>
     )
-  }, [programEditorData.trainingProgram, addWeek, reorder, selectWeek, duplicateWeek]); // TODO - check this - not sure if this array should have all of this
+  }
 
   return (
     <View style={styles(activeTheme).container}>
@@ -120,7 +125,7 @@ const StepTwo = ({ navigation }) => {
             <DraggableFlatList
               ref={weekRef}
               data={programEditorData.trainingProgram}
-              keyExtractor={(item, index) => index}
+              keyExtractor={(_, index) => "ProgramEditorPage_WeekList_Item" + index}
               onDragEnd={({data, from, to}) => reorder(data, from, to)}
               renderItem={renderWeekItem}
               ListFooterComponent={() => {

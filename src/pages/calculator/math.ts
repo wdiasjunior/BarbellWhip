@@ -11,10 +11,12 @@ function oneRMCalc(weightLifted: number, repsPerformed: number, xRM: number) {
                           wathen(weightLifted, repsPerformed, xRM)) / 7));
 }
 
-function round(weight: number, shouldRound: boolean) {
+function round(weight: number, shouldRound?: boolean, weightUnit?: string) {
   if(!shouldRound) {
     return weight;
   }
+
+  // TODO - enable/disable rounding in ProgramPage or CalculatorPage
   const kgRoundingFactor = 2.5;
   const lbsRoundingFactor = 5;
 

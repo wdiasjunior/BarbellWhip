@@ -1,27 +1,27 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Text, View, ScrollView, TouchableOpacity, } from "react-native";
+import { Text, View, ScrollView, TouchableOpacity } from "react-native";
 import styles from "./topTabBarStyles";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { programPageSelectedDayAtom } from "../../helpers/jotai/atomsWithStorage";
 import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
 
-interface Props {
+interface IProps {
   days: number;
-  selectDay(): any;
-  setFirstTab(): any;
+  selectDay: (day: number) => void;
+  selectedWeek: number;
   isProgramPage: boolean;
 }
 
-const TopTabBar = (props: Props) => {
+const TopTabBar = (props: IProps) => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
-  const [selectedDay, setSelectedDay] = useAtom(programPageSelectedDayAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
+  const selectedDay = useAtomValue<number>(programPageSelectedDayAtom);
 
   const days = Array.from(Array(props.days).keys());
 
-  const [dataSourceCords, setDataSourceCords] = useState([]);
+  const [dataSourceCords, setDataSourceCords] = useState<Array<number>>([]);
   const ref = useRef();
   const [selected, setSelected] = useState(0);
   const selectTab = (index) => {
@@ -40,7 +40,7 @@ const TopTabBar = (props: Props) => {
         ref.current.scrollTo({x: dataSourceCords[0 - 1], y: 0, animated: true});
       }
     }
-  }, [props.setFirstTab])
+  }, [props.selectedWeek])
 
   useEffect(() => {
     setSelected(!props.isProgramPage ? 0 : selectedDay);
@@ -72,7 +72,7 @@ const TopTabBar = (props: Props) => {
         onContentSizeChange={scrollToTabOnLoad}
         overScrollMode="never"
       >
-        {days.map((item, index) => {
+        {days.map((_, index) => {
           return (
             <TouchableOpacity
               key={"TopTabBar" + index}

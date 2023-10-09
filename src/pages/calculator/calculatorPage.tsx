@@ -1,6 +1,5 @@
 import React, { useState, useLayoutEffect } from "react";
-import { Text, View, TouchableOpacity, ScrollView, } from "react-native";
-import Modal from "react-native-modal";
+import { Text, View, TouchableOpacity, ScrollView } from "react-native";
 
 import oneRMCalc from "./math";
 import styles from "./calculatorPageStyles";
@@ -10,7 +9,7 @@ import Loading from "../../sharedComponents/loading/loading";
 
 import { weightConversion } from "../../helpers/weightConversion";
 
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import {
   activeThemeAtom,
   selectedLocaleAtom,
@@ -25,13 +24,12 @@ const CalculatorPage = ({ navigation }) => {
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
-  const [repsPerformed, setRepsPerformed] = useAtom(calculatorPageRepsAtom);
-  const [weightLifted, setWeightLifted] = useAtom(calculatorPageWeightAtom);
-  const [showWarning, setShowWarning] = useState(false);
-  const [weightUnit, setWeightUnit] = useAtom(calculatorPageWeightUnitAtom); // false == kg == left, true == lbs == right
+  const [repsPerformed, setRepsPerformed] = useAtom<number>(calculatorPageRepsAtom);
+  const [weightLifted, setWeightLifted] = useAtom<number>(calculatorPageWeightAtom);
+  const weightUnit = useAtomValue<string>(calculatorPageWeightUnitAtom);
   const [inputLabel, setInputLabel] = useState("");
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
 
@@ -43,29 +41,28 @@ const CalculatorPage = ({ navigation }) => {
 
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
-                  <Header title={selectedLocale.calculatorPage.title} menu={false} />
+                  <Header
+                    title={selectedLocale.calculatorPage.title}
+                    menu={false}
+                  />
               });
   }
 
   useLayoutEffect(() => {
-    if(isInitialRender) onScreenLoad();
+    if(isInitialRender) {
+      onScreenLoad();
+    }
   }, [])
 
   const decrementReps = () => {
     if(repsPerformed > 1) {
       setRepsPerformed(repsPerformed - 1);
     }
-    if(repsPerformed <= 12) {
-      setShowWarning(false);
-    }
   }
 
   const incrementReps = () => {
     if(repsPerformed < 20) {
       setRepsPerformed(repsPerformed + 1);
-    }
-    if(repsPerformed > 12) {
-      setShowWarning(true);
     }
   }
 
@@ -239,21 +236,12 @@ const CalculatorPage = ({ navigation }) => {
             </View>
           </View>
 
-          <Modal
-            isVisible={isModalWeightInputVisible}
-            onBackButtonPress={() => setModalWeightInputVisible(false)}
-            onBackdropPress={() => setModalWeightInputVisible(false)}
-            useNativeDriver={true}
-            hideModalContentWhileAnimating={true}
-            animationInTiming={100}
-            animationOutTiming={1}
-            backdropTransitionInTiming={100}
-            backdropTransitionOutTiming={1}
-          >
-            <View style={styles(activeTheme).modalContent}>
-              <NumberInput toggleModal={toggleModal} inputLabel={inputLabel}/>
-            </View>
-          </Modal>
+          <NumberInput
+            toggleModal={toggleModal}
+            inputLabel={inputLabel}
+            isModalWeightInputVisible={isModalWeightInputVisible}
+            setModalWeightInputVisible={setModalWeightInputVisible}
+          />
 
         </ScrollView>
       ) : (

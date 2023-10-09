@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const styles = (theme) => {
+const styles = (theme: Theme) => {
   return StyleSheet.create({
     container: {
       flex: 1,
@@ -27,6 +27,11 @@ const styles = (theme) => {
       paddingVertical: 22,
       borderColor: theme.textFaded,
       borderBottomWidth: 1,
+    },
+    inputGroupLast: {
+      flex: 1,
+      width: "100%",
+      paddingVertical: 22,
     },
     inputGroupTitle: {
       fontSize: 20,

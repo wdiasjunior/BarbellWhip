@@ -98,7 +98,20 @@
   "settingsPage": {
     "title": "Configurações",
     "themeSelectorTitle": "Tema",
-    "languageSelectorTitle": "Idioma"
+    "languageSelectorTitle": "Idioma",
+    "versionLabel": "Versão",
+    "updateCheckerTitle": "Procurar atualizações",
+    "searchingForUpdates": "Procurando atualizações",
+    "updateAvailableMessage": "Atualização disponível",
+    "newVersionLabel": "Nova versão",
+    "noUpdateAvailableMessage": "Nenhuma atualização disponível",
+    "downloadUpdateButton": "BAIXAR",
+    "downloadingUpdateMessage": "Baixando atualização",
+    "downloadCompleteMessage": "Download completo",
+    "downloadErrorMessage": "Erro ao baixar atualização",
+    "updateCheckErrorMessage": "Erro ao procurar por atualizações",
+    "installUpdateButton": "Instalar atualização",
+    "closeModalButtonLabel": "FECHAR"
   },
   "numberInputModal": {
     "cancelButtonLabel": "CANCELAR"

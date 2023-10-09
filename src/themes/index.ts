@@ -4,7 +4,7 @@ import nordDark from "./nordDark";
 // import nordLight from "./nordLight";
 import chakraUI from "./chakraUI";
 
-export const themes = [
+export const themes: Themes[] = [
   {
     id: "light",
     name: "Default Light",

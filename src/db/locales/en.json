@@ -8,7 +8,7 @@
     "rmReviewWeightLabel": "Weight",
     "weekSelectorTitle": "Week Selector",
     "noActiveProgramTextTitle": "No program loaded.",
-    "noActiveProgramTextSubtitle": "Go to Program Editor Page to create or import one and set it as active.",
+    "noActiveProgramTextSubtitle": "Go to the Program Editor page to create or import one. Then set it as active.",
     "exerciseInfo" : {
       "title": "Exercise Info",
       "sets": "Sets",
@@ -98,7 +98,20 @@
   "settingsPage": {
     "title": "Settings",
     "themeSelectorTitle": "Theme",
-    "languageSelectorTitle": "Language"
+    "languageSelectorTitle": "Language",
+    "versionLabel": "Version",
+    "updateCheckerTitle": "Check for updates",
+    "searchingForUpdates": "Searching for updates",
+    "updateAvailableMessage": "Update available",
+    "newVersionLabel": "New version",
+    "noUpdateAvailableMessage": "No update available",
+    "downloadUpdateButton": "DOWNLOAD",
+    "downloadingUpdateMessage": "Downloading update",
+    "downloadCompleteMessage": "Download complete",
+    "downloadErrorMessage": "Error downloading update",
+    "updateCheckErrorMessage": "Error checking for updates",
+    "installUpdateButton": "Install update",
+    "closeModalButtonLabel": "CLOSE"
   },
   "numberInputModal": {
     "cancelButtonLabel": "CANCEL"

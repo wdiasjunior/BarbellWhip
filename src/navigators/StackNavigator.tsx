@@ -9,7 +9,6 @@ import PlateMathPage from "../pages/plateMath/plateMathPage";
 import WeightRackPage from "../pages/plateMath/weightRackPage/weightRackPage";
 
 import ProgramEditorPage from "../pages/programEditor/programEditorPage";
-// import { BottomTabProgramEditorPageNavigator } from "./TabNavigator";
 
 const Stack = createStackNavigator();
 
@@ -19,19 +18,17 @@ import StepTwo from "../pages/programEditor/subPages/stepTwo/stepTwo";
 import StepThree from "../pages/programEditor/subPages/stepThree/stepThree";
 import ExerciseEditorPage from "../pages/programEditor/subPages/stepThree/exerciseEditorPage/exerciseEditorPage";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
 
 const ProgramEditorDayPageStack = () => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
-
-  const navigation = useNavigation();
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   return (
     <Stack.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={() => ({
         cardStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
@@ -40,17 +37,14 @@ const ProgramEditorDayPageStack = () => {
           backgroundColor: activeTheme.backgroundPrimary,
         },
       })}
-      sceneContainerStyle={{
-        backgroundColor: activeTheme.backgroundPrimary,
-      }}
     >
       <Stack.Screen
         name="DaysStack"
         component={StepThree}
         options={{
           headerShown: true,
-          headerLeft: null,
-          headerStyle:{
+          headerLeft: () => null,
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
@@ -69,7 +63,7 @@ const ProgramEditorDayPageStack = () => {
           presentation: "modal",
           headerTitle: selectedLocale.programEditorPage.exerciseEditorPage.title,
           animationEnabled: false,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
           },
           headerTintColor: activeTheme.text,
@@ -86,17 +80,17 @@ const ProgramEditorDayPageStack = () => {
 const Tab = createBottomTabNavigator();
 const BottomTabProgramEditorPageNavigator = () => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const navigation = useNavigation();
 
   return (
     <Tab.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={() => ({
         tabBarHideOnKeyboard: true,
-        tabBarActiveTintColor: "#3da9db",
-        tabBarInactiveTintColor: "#808080",
+        tabBarActiveTintColor: activeTheme.active,
+        tabBarInactiveTintColor: activeTheme.inactive,
         tabBarIconStyle: { display: "none" },
         tabBarLabelPosition: "beside-icon",
         tabBarLabelStyle: {
@@ -110,8 +104,6 @@ const BottomTabProgramEditorPageNavigator = () => {
           backgroundColor: activeTheme.backgroundSecondary,
           borderTopWidth: 0,
         },
-        tabBarActiveTintColor: activeTheme.active,
-        tabBarInactiveTintColor: activeTheme.inactive,
       })}
       sceneContainerStyle={{
         backgroundColor: activeTheme.backgroundPrimary,
@@ -128,10 +120,6 @@ const BottomTabProgramEditorPageNavigator = () => {
             elevation: 0,
             shadowOpacity: 0,
           },
-          cardStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
         }}
       />
       <Tab.Screen
@@ -144,10 +132,6 @@ const BottomTabProgramEditorPageNavigator = () => {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
-          },
-          cardStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
           },
         }}
       />
@@ -162,10 +146,6 @@ const BottomTabProgramEditorPageNavigator = () => {
             elevation: 0,
             shadowOpacity: 0,
           },
-          cardStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
         }}
       />
     </Tab.Navigator>
@@ -174,14 +154,12 @@ const BottomTabProgramEditorPageNavigator = () => {
 
 const ProgramPageStack = () => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
-
-  const navigation = useNavigation();
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   return (
     <Stack.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={() => ({
         cardStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
@@ -190,9 +168,6 @@ const ProgramPageStack = () => {
           backgroundColor: activeTheme.backgroundPrimary,
         },
       })}
-      sceneContainerStyle={{
-        backgroundColor: activeTheme.backgroundPrimary,
-      }}
     >
       <Stack.Screen
         name="ProgramStack"
@@ -253,14 +228,12 @@ const ProgramPageStack = () => {
 
 const PlateMathPageStack = () => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
-
-  const navigation = useNavigation();
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   return (
     <Stack.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={() => ({
         cardStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
@@ -269,9 +242,6 @@ const PlateMathPageStack = () => {
           backgroundColor: activeTheme.backgroundPrimary,
         },
       })}
-      sceneContainerStyle={{
-        backgroundColor: activeTheme.backgroundPrimary,
-      }}
     >
       <Stack.Screen
         name="PlateMathPage"
@@ -314,14 +284,12 @@ const PlateMathPageStack = () => {
 
 const ProgramEditorPageStack = () => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
-
-  const navigation = useNavigation();
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   return (
     <Stack.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={() => ({
         cardStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
@@ -330,19 +298,16 @@ const ProgramEditorPageStack = () => {
           backgroundColor: activeTheme.backgroundPrimary,
         },
       })}
-      sceneContainerStyle={{
-        backgroundColor: activeTheme.backgroundPrimary,
-      }}
     >
       <Stack.Screen
         name="ProgramEditorStack"
         component={ProgramEditorPage}
         options={{
           headerShown: true,
-          headerLeft: null,
+          headerLeft: () => null,
           title: selectedLocale.programEditorPage.title,
           headerTitle: selectedLocale.programEditorPage.title,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
@@ -357,14 +322,13 @@ const ProgramEditorPageStack = () => {
       <Stack.Screen
         name="StepsTabs"
         component={BottomTabProgramEditorPageNavigator}
-        options={({ route }) => {
+        options={() => {
           return {
-            // headerShown: navigation?.getState()?.routes[1]?.state?.routes[1]?.state?.routes[2]?.state?.routes[1]?.name !== "ExerciseEditorPage",
             headerShown: false,
             presentation: "modal",
             headerTitle: selectedLocale.programEditorPage.programEditorStep1.title,
             animationEnabled: false,
-            headerStyle:{
+            headerStyle: {
               backgroundColor: activeTheme.backgroundSecondary,
               elevation: 0,
               shadowOpacity: 0,

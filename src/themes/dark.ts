@@ -1,4 +1,4 @@
-const colors = {
+const colors: Theme = {
   backgroundPrimary: "#121212",
   backgroundSecondary: "#1d1c1c",
   text: "#FFFFFF",
@@ -8,7 +8,7 @@ const colors = {
   active: "#3dc2ff",
   activeTransparent: "#3dc2ff21",
   inactive: "#FFFFFF",
-  statusBar: "light",
+  statusBar: "light-content",
 }
 
 export default colors;

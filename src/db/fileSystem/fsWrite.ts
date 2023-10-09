@@ -1,32 +1,37 @@
 import RNFS from "react-native-fs";
 
-const writeToJSON = async (programName, programJSON) => {
-  const fileUri = programName.includes(".json") ? RNFS.ExternalDirectoryPath + "/" + programName : RNFS.ExternalDirectoryPath + "/" + programName + ".json";
+const writeToJSON = async (programName: string, programJSON: object) => {
+  const fileUri = programName.includes(".json")
+                    ? RNFS.ExternalDirectoryPath + "/" + programName
+                    : RNFS.ExternalDirectoryPath + "/" + programName + ".json";
   const contents = JSON.stringify(programJSON, null, 2);
   try {
     await RNFS.writeFile(fileUri, contents);
   } catch(error) {
-    alert("Error writing file.");
+    console.log(error);
+    alert("Error writing to file.");
   }
 }
 
-const copyJSON = async (programName, programURL) => {
-  const copyFileUri = RNFS.ExternalDirectoryPath + "/" + programName.replace(".json", "- copy.json");
+const copyJSON = async (programName: string, programURI: string) => {
+  const copyFileURI = RNFS.ExternalDirectoryPath + "/" + programName.replace(".json", " - copy.json");
   const options = {
-    from: programURL,
-    to: copyFileUri
+    from: programURI,
+    to: copyFileURI
   };
   try {
-    await RNFS.copyFile(options);
+    await RNFS.copyFile(programURI, copyFileURI);
   } catch(error) {
-    alert("Error duplicating file.");
+    console.log(error);
+    alert("Error copying file.");
   }
 }
 
-const deleteJSON = async (programURL) => {
+const deleteJSON = async (programURI: string) => {
   try {
-    await RNFS.unlink(programURL);
+    await RNFS.unlink(programURI);
   } catch(error) {
+    console.log(error);
     alert("Error deleting file.");
   }
 }

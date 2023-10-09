@@ -1,12 +1,11 @@
 import { StyleSheet } from "react-native";
 
-const styles = (theme) => {
+const styles = (theme: Theme) => {
   return StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
       paddingTop: 12,
-      // paddingBottom: 102,
       alignItems: "center",
       alignContent: "center",
       justifyContent: "center",

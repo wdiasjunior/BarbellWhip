@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { BottomTabProgramPageNavigator, BottomTabProgramEditorPageNavigator } from "./TabNavigator";
-import { ProgramPageStack, ProgramEditorPageStack } from "./StackNavigator";
+import { BottomTabProgramPageNavigator } from "./TabNavigator";
+import { ProgramEditorPageStack } from "./StackNavigator";
 // import PRTrackerPage from "../pages/prTracker/prTrackerPage";
 import SettingsPage from "../pages/settings/settingsPage";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
 
 import { useInitialRender } from "../helpers/useInitialRender";
@@ -17,8 +17,8 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigator = () => {
 
   const isInitialRender = useInitialRender();
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   return (
     <Drawer.Navigator
@@ -44,7 +44,7 @@ const DrawerNavigator = () => {
         lazy: true,
         drawerStyle: {
           backgroundColor: activeTheme.backgroundSecondary,
-          width: isInitialRender ? null : "75%",
+          width: isInitialRender ? undefined : "75%",
         },
         cardStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
@@ -61,16 +61,12 @@ const DrawerNavigator = () => {
         options={{
           headerShown: false,
           title: selectedLocale.programPage.title,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
         }}
       />
       <Drawer.Screen
@@ -79,35 +75,26 @@ const DrawerNavigator = () => {
         options={{
           headerShown: false,
           title: selectedLocale.programEditorPage.title,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
         }}
       />
-      {/*<Drawer.Screen name="Home" component={HomePage} />*/}
       {/*<Drawer.Screen name="PR Tracker" component={PRTrackerPage} />*/}
       <Drawer.Screen
         name="Settings"
         component={SettingsPage}
         options={{
           title: selectedLocale.settingsPage.title,
-          headerStyle:{
+          headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
         }}
       />
     </Drawer.Navigator>

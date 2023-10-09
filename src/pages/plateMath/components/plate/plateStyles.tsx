@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const styles = (theme) => {
+export const styles = (theme: Theme) => {
   return StyleSheet.create({
     bar: {
       height: 30,
@@ -40,41 +40,40 @@ export const styles = (theme) => {
     },
     text: {
       backgroundColor: "transparent",
-      // backgroundColor: "white",
       textAlign: "center",
       fontSize: 16,
       lineHeight: 16,
-      // height: 25,
       width: "100%",
       color: theme.backgroundSecondary,
     }
   });
 }
 
+// TODO - add proper colors that match the overall theme
 export const plateColors = {
   kg: {
-    50   : "#8c8c8c", // TODO - find colors for these
+    50   : "#8c8c8c",
     25   : "#FF9999",
     20   : "#588dff",
     15   : "#FFFF99",
     10   : "#7FBF7F",
     5    : "#FFFFFF",
     2.5  : "#FFC0CB",
-    2    : "#8c8c8c", // TODO - find colors for these
-    1.5  : "#8c8c8c", // TODO - find colors for these
-    1.25 : "#8c8c8c", // TODO - find colors for these
-    1    : "#8c8c8c", // TODO - find colors for these
-    0.5  : "#8c8c8c", // TODO - find colors for these
+    2    : "#8c8c8c",
+    1.5  : "#8c8c8c",
+    1.25 : "#8c8c8c",
+    1    : "#8c8c8c",
+    0.5  : "#8c8c8c",
   },
   lbs: {
-    100  : "#8c8c8c", // TODO - find colors for these
+    100  : "#8c8c8c",
     55   : "#FF9999",
     45   : "#588dff",
     35   : "#FFFF99",
     25   : "#7FBF7F",
     10   : "#FFFFFF",
     5    : "#FFC0CB",
-    2.5  : "#8c8c8c", // TODO - find colors for these
-    1.25 : "#8c8c8c", // TODO - find colors for these
+    2.5  : "#8c8c8c",
+    1.25 : "#8c8c8c",
   }
 }

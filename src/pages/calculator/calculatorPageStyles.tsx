@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const styles = (theme) => {
+const styles = (theme: Theme) => {
   return StyleSheet.create({
     container: {
       flex: 1,
@@ -31,7 +31,6 @@ const styles = (theme) => {
       marginHorizontal: 20,
       borderRadius: 10,
       height: 240,
-      justifyContent: "center",
       alignItems: "center",
       justifyContent: "space-between",
     },
@@ -146,10 +145,6 @@ const styles = (theme) => {
     weightSubBottom: {
       marginRight: 10,
       color: theme.text,
-    },
-    modalContent: {
-      justifyContent: "center",
-      alignItems: "center",
     },
   });
 }

@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Text, View, Switch, TouchableOpacity, SafeAreaView, ScrollView, KeyboardAvoidingView, TextInput, } from "react-native";
+import React from "react";
+import { Text, View, TouchableOpacity, ScrollView, TextInput } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../../helpers/useInitialRender";
@@ -13,32 +13,31 @@ import { deepClone } from "../../../../../helpers/deepClone";
 
 import styles from "./exerciseEditorPageStyles";
 
-// interface Props {
-//   oneRMweight: any; // TODO - never used? check this
-//   oneRMname: any;
-//   exerciseType: any;
-//   exerciseIndex: any;
-// }
+interface IProps {
+  oneRMname: string;
+  exerciseIndex?: "add" | number;
+}
 
-const ExerciseEditorPage = (props) => {
+const ExerciseEditorPage = (_props: any) => {
+
+  const props: IProps = _props.route.params;
 
   const isInitialRender = useInitialRender();
 
   // TODO - add "discard" icon to header ?
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
-  const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
-  const [selectedDay, setSelectedDay] = useAtom(selectedDayAtom);
+  const selectedWeek = useAtomValue(selectedWeekAtom);
+  const selectedDay = useAtomValue(selectedDayAtom);
 
-  const exerciseIndex = props.route.params.exerciseIndex;
+  const exerciseIndex = props.exerciseIndex;
   const length = programEditorData.trainingProgram[selectedWeek].week[selectedDay].day.length - 1;
   const exerciseData = exerciseIndex === "add" ? deepClone(programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[length]) : deepClone(programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex]);
-  const exerciseType = props.route.params.exerciseType;
-  const oneRMweight = programEditorData.oneRMs.find((el) => el.id === exerciseData.RMid); // TODO - check this - should probably just use the data from route.params
-  const oneRMname = props.route.params.oneRMname;
+  const oneRMweight: OneRMs | any = programEditorData.oneRMs.find((el: OneRMs) => el.id === exerciseData.RMid);
+  const oneRMname = props.oneRMname;
 
   const weightRoundingFactor = programEditorData.weightUnit === "kg" ? 2.5 : 5;
 
@@ -59,18 +58,18 @@ const ExerciseEditorPage = (props) => {
     setProgramEditorData(auxAtom);
   }
 
-  const editExerciseField = (field, e, index) => {
+  const editExerciseField = (field: string, input: string, index?: number) => {
     let auxAtom = deepClone(programEditorData);
     const auxExerciseIndex = exerciseIndex === "add" ? length : exerciseIndex;
     if(field === "parentExerciseName") {
-      auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[auxExerciseIndex].exerciseName = e;
+      auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[auxExerciseIndex].exerciseName = input;
     } else {
-      auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[auxExerciseIndex].set[index][field] = e;
+      auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[auxExerciseIndex].set[index][field] = input;
     }
     setProgramEditorData(auxAtom);
   }
 
-  const removeExerciseSubSet = (index) => {
+  const removeExerciseSubSet = (index: number) => {
     let auxAtom = deepClone(programEditorData);
     auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex === "add" ? length : exerciseIndex].set.splice(index, 1);
     setProgramEditorData(auxAtom);
@@ -90,14 +89,14 @@ const ExerciseEditorPage = (props) => {
               onChangeText={(input) => editExerciseField("parentExerciseName", input)}
               returnKeyType="done"
               editable={oneRMname ? false : true}
-              value={exerciseData.exerciseName+""}
+              value={exerciseData.exerciseName ? exerciseData.exerciseName+"" : ""}
             />
             {oneRMweight?.weight ? <Text style={styles(activeTheme).weightText}>1RM: {oneRMweight?.weight}{programEditorData.weightUnit}</Text> : null}
           </View>
 
           <View style={styles(activeTheme).setList}>
 
-            {exerciseData.set.map((item, index) => {
+            {exerciseData.set.map((item: ExerciseSet, index: number) => {
               return (
                 <View style={styles(activeTheme).exerciseItem} key={"ExerciseEditorPage_SetListExercise" + index}>
 
@@ -109,7 +108,7 @@ const ExerciseEditorPage = (props) => {
                       placeholderTextColor={activeTheme.placeholderText}
                       cursorColor={activeTheme.active}
                       onChangeText={(input) => editExerciseField("exerciseName", input, index)}
-                      value={item.exerciseName+""}
+                      value={item.exerciseName ? item.exerciseName+"" : ""}
                       returnKeyType="done"
                     />
                     <TouchableOpacity style={styles(activeTheme).exerciseItemRemoveIconContainer}  onPress={() => removeExerciseSubSet(index)}>
@@ -127,7 +126,7 @@ const ExerciseEditorPage = (props) => {
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
                         onChangeText={(input) => editExerciseField("sets", input, index)}
-                        value={item.sets+""}
+                        value={item.sets ? item.sets+"" : ""}
                         returnKeyType="done"
                       />
                     </View>
@@ -140,7 +139,7 @@ const ExerciseEditorPage = (props) => {
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
                         onChangeText={(input) => editExerciseField("reps", input, index)}
-                        value={item.reps+""}
+                        value={item.reps ? item.reps+"" : ""}
                         returnKeyType="done"
                       />
                     </View>
@@ -155,7 +154,7 @@ const ExerciseEditorPage = (props) => {
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
                         onChangeText={(input) => editExerciseField("percentage", input, index)}
-                        value={item.percentage+""}
+                        value={item.percentage ? item.percentage+"" : ""}
                         returnKeyType="done"
                       />
                     </View>
@@ -177,7 +176,7 @@ const ExerciseEditorPage = (props) => {
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
                         onChangeText={(input) => editExerciseField("rpe", input, index)}
-                        value={item.rpe+""}
+                        value={item.rpe ? item.rpe+"" : ""}
                         returnKeyType="done"
                       />
                     </View>
@@ -190,7 +189,7 @@ const ExerciseEditorPage = (props) => {
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
                         onChangeText={(input) => editExerciseField("tempo", input, index)}
-                        value={item.tempo+""}
+                        value={item.tempo ? item.tempo+"" : ""}
                         returnKeyType="done"
                       />
                     </View>
@@ -205,7 +204,7 @@ const ExerciseEditorPage = (props) => {
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
                         onChangeText={(input) => editExerciseField("rest", input, index)}
-                        value={item.rest+""}
+                        value={item.rest ? item.rest+"" : ""}
                         returnKeyType="done"
                       />
                     </View>
@@ -220,7 +219,7 @@ const ExerciseEditorPage = (props) => {
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
                         onChangeText={(input) => editExerciseField("altExercise1", input, index)}
-                        value={item.altExercise1+""}
+                        value={item.altExercise1 ? item.altExercise1+"" : ""}
                         returnKeyType="done"
                       />
                     </View>
@@ -233,7 +232,7 @@ const ExerciseEditorPage = (props) => {
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
                         onChangeText={(input) => editExerciseField("altExercise2", input, index)}
-                        value={item.altExercise2+""}
+                        value={item.altExercise2 ? item.altExercise2+"" : ""}
                         returnKeyType="done"
                       />
                     </View>
@@ -246,7 +245,7 @@ const ExerciseEditorPage = (props) => {
                       placeholderTextColor={activeTheme.placeholderText}
                       cursorColor={activeTheme.active}
                       onChangeText={(input) => editExerciseField("description", input, index)}
-                      value={item.description+""}
+                      value={item.description ? item.description+"" : ""}
                       returnKeyType="done"
                       multiline
                     />

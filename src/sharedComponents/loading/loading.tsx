@@ -1,14 +1,14 @@
 import React from "react";
-import { Text, View, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator } from "react-native";
 
 import styles from "./loadingStyles";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
 
-const Loading = ({ navigation }) => {
+const Loading = () => {
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
 
   return (
     <View style={styles(activeTheme).container}>

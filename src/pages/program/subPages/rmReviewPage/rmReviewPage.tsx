@@ -1,28 +1,30 @@
 import React from "react";
-import { Text, View, ScrollView, TouchableOpacity, } from "react-native";
+import { Text, View, ScrollView } from "react-native";
 
 import styles from "./rmReviewPageStyles";
 
 import Loading from "../../../../sharedComponents/loading/loading";
 
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
 
-interface Props {
-  onermOBJ: any;
-  weightUnit: any;
+interface IProps {
+  onermOBJ: OneRMs[];
+  weightUnit: string;
 }
 
-const RMReviewPage = (props: Props) => {
+const RMReviewPage = (_props: any) => {
+
+  const props: IProps = _props.route.params;
 
   const isInitialRender = useInitialRender();
 
-  const [activeTheme, ] = useAtom(activeThemeAtom);
-  const [selectedLocale, ] = useAtom(selectedLocaleAtom);
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
-  const onermOBJ = props.route.params.onermOBJ;
-  const weightUnit = props.route.params.weightUnit;
+  const onermOBJ = props.onermOBJ;
+  const weightUnit = props.weightUnit;
 
   return (
     <View style={styles(activeTheme).container}>
