@@ -100,3 +100,4 @@
   - add switch to turn it on and off
 - calculator page
   - add rpe math block
+- use trainingProgramCleanUp on save program
