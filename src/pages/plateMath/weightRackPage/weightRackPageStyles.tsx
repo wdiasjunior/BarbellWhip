@@ -28,6 +28,11 @@ const styles = (theme: Theme) => {
       borderColor: theme.textFaded,
       borderBottomWidth: 1,
     },
+    inputGroupLast: {
+      flex: 1,
+      width: "100%",
+      paddingVertical: 22,
+    },
     inputGroupTitle: {
       fontSize: 20,
       color: theme.textHighlight,

@@ -147,7 +147,7 @@ const WeightRackPage = () => {
             </View>
           </View>
 
-          <View style={styles(activeTheme).inputGroup}>
+          <View style={styles(activeTheme).inputGroupLast}>
             <Text style={styles(activeTheme).inputGroupTitle}>{selectedLocale.plateMathPage.weightRackPage.bumperPlatesRackTitle}</Text>
             <View style={styles(activeTheme).row}>
               <View style={styles(activeTheme).column}>
