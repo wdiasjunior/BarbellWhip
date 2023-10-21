@@ -7,7 +7,7 @@ import Loading from "../../../../sharedComponents/loading/loading";
 
 import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
-import { useInitialRender } from "../../../../helpers/useInitialRender";
+import { useIsFirstRender } from "../../../../helpers/useIsFirstRender";
 
 interface IProps {
   onermOBJ: OneRMs[];
@@ -18,7 +18,7 @@ const RMReviewPage = (_props: any) => {
 
   const props: IProps = _props.route.params;
 
-  const isInitialRender = useInitialRender();
+  const isInitialRender = useIsFirstRender();
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);

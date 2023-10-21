@@ -9,7 +9,7 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useAtom, useAtomValue } from "jotai";
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
-import { useInitialRender } from "../../../../helpers/useInitialRender";
+import { useIsFirstRender } from "../../../../helpers/useIsFirstRender";
 
 import { deepClone } from "../../../../helpers/deepClone";
 
@@ -21,7 +21,7 @@ import styles from "./stepThreeStyles";
 
 const StepThree = ({ navigation }) => {
 
-  const isInitialRender = useInitialRender();
+  const isInitialRender = useIsFirstRender();
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);

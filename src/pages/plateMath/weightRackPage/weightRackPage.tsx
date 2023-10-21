@@ -19,11 +19,11 @@ import {
   plateMathBumperPlatesRack,
 } from "../../../helpers/jotai/atomsWithStorage";
 
-import { useInitialRender } from "../../../helpers/useInitialRender";
+import { useIsFirstRender } from "../../../helpers/useIsFirstRender";
 
 const WeightRackPage = () => {
 
-  const isInitialRender = useInitialRender();
+  const isInitialRender = useIsFirstRender();
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);

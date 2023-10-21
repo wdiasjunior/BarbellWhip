@@ -9,7 +9,7 @@ import styles from "./exerciseItemPageStyles";
 
 import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
-import { useInitialRender } from "../../../../helpers/useInitialRender";
+import { useIsFirstRender } from "../../../../helpers/useIsFirstRender";
 
 interface IProps {
   exerciseName: string;
@@ -25,7 +25,7 @@ const ExerciseItemPage = (_props: any) => {
 
   const navigation = useNavigation();
 
-  const isInitialRender = useInitialRender();
+  const isInitialRender = useIsFirstRender();
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);

@@ -5,7 +5,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { useAtom, useAtomValue } from "jotai";
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../../helpers/jotai/atomsWithStorage";
-import { useInitialRender } from "../../../../../helpers/useInitialRender";
+import { useIsFirstRender } from "../../../../../helpers/useIsFirstRender";
 
 import Loading from "../../../../../sharedComponents/loading/loading";
 
@@ -22,7 +22,7 @@ const ExerciseEditorPage = (_props: any) => {
 
   const props: IProps = _props.route.params;
 
-  const isInitialRender = useInitialRender();
+  const isInitialRender = useIsFirstRender();
 
   // TODO - add "discard" icon to header ?
 

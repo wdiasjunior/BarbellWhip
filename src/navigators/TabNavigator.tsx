@@ -10,13 +10,13 @@ import { ProgramPageStack, PlateMathPageStack } from "./StackNavigator";
 import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
 
-import { useInitialRender } from "../helpers/useInitialRender";
+import { useIsFirstRender } from "../helpers/useIsFirstRender";
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabProgramPageNavigator = () => {
 
-  const isInitialRender = useInitialRender();
+  const isInitialRender = useIsFirstRender();
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 

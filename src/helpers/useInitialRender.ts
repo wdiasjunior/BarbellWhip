@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 // this gambiarra circumvents a problem that seems to be caused by react
 // navigation where the first time a screen is loaded causes a layout shift/glitch,
@@ -7,9 +7,22 @@ import { useState } from "react";
 
 export function useInitialRender(): boolean {
   const [isInitialRender, setIsInitialRender] = useState(false);
+
   if(!isInitialRender) {
     setTimeout(() => setIsInitialRender(true), 1);
     return true;
   }
+
   return false;
+}
+
+export function useIsFirstRender(): boolean {
+  const isFirst = useRef(true);
+
+  if (isFirst.current) {
+    isFirst.current = false;
+    return true;
+  }
+
+  return isFirst.current;
 }

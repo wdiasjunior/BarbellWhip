@@ -28,7 +28,7 @@ import {
   programEditorModeAtom,
   programNameForActionAtom,
 } from "../../helpers/jotai/programEditorAtoms";
-import { useInitialRender } from "../../helpers/useInitialRender";
+import { useIsFirstRender } from "../../helpers/useIsFirstRender";
 
 import styles from "./programEditorPageStyles";
 
@@ -38,7 +38,7 @@ const ProgramEditorPage = ({ navigation }) => {
 
   const isFocused = useIsFocused();
 
-  const isInitialRender = useInitialRender();
+  const isInitialRender = useIsFirstRender();
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
