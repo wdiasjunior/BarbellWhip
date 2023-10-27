@@ -78,7 +78,7 @@ const plateMathBumperPlatesRack = atomWithStorage("plateMathBumperPlatesRack", {
 // const settingsPage1RMCalculationFormulasAtom = atomWithStorage("settingsPage1RMCalculationFormulas", {}, storage);
 
 // Theme
-const activeThemeIdAtom = atomWithStorage("activeThemeIdAtom", "chakraUI", storage);
+const activeThemeIdAtom = atomWithStorage("activeThemeIdAtom", "dark", storage);
 const activeThemeAtom = atom((get) => {
   const themeId = get(activeThemeIdAtom);
   const themeIndex = themes.findIndex((t) => t.id === themeId);
