@@ -36,8 +36,10 @@ const styles = (theme: Theme) => {
     },
     buttonClose: {
       marginLeft: 30,
-    }
+    },
+    button: {
 
+    },
   });
 }
 

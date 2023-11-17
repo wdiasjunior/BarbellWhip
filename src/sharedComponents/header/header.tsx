@@ -22,6 +22,7 @@ import {
 } from "../../helpers/jotai/atomsWithStorage";
 
 import { deepClone } from "../../helpers/deepClone";
+import { trainingProgramCleanUp } from "../../helpers/trainingProgramCleanUp";
 
 interface IProps {
   setIsMenuOpen?: (isOpen: boolean) => void;
@@ -60,7 +61,8 @@ const Header = (props: IProps) => {
     }
     if(programEditorMode === "Edit" && activeProgramName === programNameForAction) {
       const programData = await readProgram(programNameForAction);
-      setActiveProgramData(programData);
+      const _cleanedUpProgramData = trainingProgramCleanUp(programData);
+      setActiveProgramData(_cleanedUpProgramData);
     }
   }
 

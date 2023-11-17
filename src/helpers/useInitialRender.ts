@@ -7,9 +7,11 @@ import { useState } from "react";
 
 export function useInitialRender(): boolean {
   const [isInitialRender, setIsInitialRender] = useState(false);
+
   if(!isInitialRender) {
     setTimeout(() => setIsInitialRender(true), 1);
     return true;
   }
+
   return false;
 }

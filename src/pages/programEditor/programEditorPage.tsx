@@ -29,6 +29,7 @@ import {
   programNameForActionAtom,
 } from "../../helpers/jotai/programEditorAtoms";
 import { useInitialRender } from "../../helpers/useInitialRender";
+import { trainingProgramCleanUp } from "../../helpers/trainingProgramCleanUp";
 
 import styles from "./programEditorPageStyles";
 
@@ -140,7 +141,8 @@ const ProgramEditorPage = ({ navigation }) => {
     const programData = await readProgram(programNameForAction);
     switch(action) {
       case "setActive":
-        setActiveProgramData(programData);
+        const _cleanedUpProgramData = trainingProgramCleanUp(programData);
+        setActiveProgramData(_cleanedUpProgramData);
         if(activeProgramName !== programNameForAction) {
           setActiveProgramName(programNameForAction);
           setProgramPageSelectedDay(0);

@@ -34,7 +34,9 @@ const ExerciseItem = (props: IProps) => {
         });
       }}
     >
-      <Text adjustsFontSizeToFit style={styles(activeTheme).text1}>{props.exerciseName}</Text>
+      <Text numberOfLines={1} style={styles(activeTheme).text1}>
+        {props.exerciseName}
+      </Text>
     </TouchableOpacity>
   )
 }

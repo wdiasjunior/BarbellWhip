@@ -5,6 +5,7 @@
     - kg - lbs switch
     - checkboxes to choose which formulas to calculate 1rm from (?)
   - implement rpe calculator (?)
+    - add rpe math block
     - https://www.rpecalculator.com/
     - https://articles.reactivetrainingsystems.com/2015/11/29/beginning-rts/
   - get inspiration from the juggernaut app
@@ -19,6 +20,8 @@
   - exercise item page
     - add checkboxes to track how many sets were done (?)
     - header - add weight unit toggle for weight conversion (?)
+    - add estimated rpe weight (?)
+      - add switch to turn it on and off
   - setSelected next day workout on dateNow change (compare with atomsWithStorage lastDay?) (?)
   - rm review page
     - oneRMs atom with storage object for semi persistent data that takes priority over the object in the json file for the percentage math (?)
@@ -60,7 +63,6 @@
   - add switch to disable rounding and show actual weight after percentage calculation
 
 ## misc
-  - add logo to splash screen and app icon
   - excel conversion to json? - spreadsheet template? (sort of done for a few programs)
   - json program validator on import (?)
   - notes input for days/exercises on the program page ? (where/how would I save/load this ?)
@@ -68,15 +70,18 @@
   - make text responsive everywhere (?)
     - `<Text adjustsFontSizeToFit style={styles(activeTheme).text}>teste</Text>`
   - think of a way to extend the program schema to allow for auto regulation logic with reps and weight 1rm estimation - like what happens in the PH3 spreadsheet
+  - add spinner on heavy computational actions
 
 ---
 
 # BUGS
 
-- program page glitch
+- program page glitch on first load
   - remake week menu list without animations?
 
-- on save program - check if file with the same name already exists
+- when saving and importing training programs
+  - check if file with the same name already exists
+  - add as a duplicate
 
 ---
 
@@ -94,9 +99,3 @@
 - https://github.com/marketplace/actions/react-native-android-build-apk
 
 ---
-
-- program page - exercise item page
-  - add estimated rpe weight
-  - add switch to turn it on and off
-- calculator page
-  - add rpe math block

@@ -120,7 +120,7 @@ const StepThree = ({ navigation }) => {
             <Ionicons name="reorder-three-outline" size={30} style={styles(activeTheme).exerciseItemIcon} />
           </TouchableOpacity>
 
-          <Text style={styles(activeTheme).exerciseItemText}>
+          <Text style={styles(activeTheme).exerciseItemText} numberOfLines={1}>
             {programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[index].exerciseName}
           </Text>
 
