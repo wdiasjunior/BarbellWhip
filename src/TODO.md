@@ -84,18 +84,3 @@
   - add as a duplicate
 
 ---
-
-- https://tamagui.dev/
-- try this and have only one codebase for web and native?
-
----
-
-- build release apk instead of debug
-  - https://gist.github.com/wdiasjunior/26c7f0b701c9fd8c184c1ebd92a5d986
-  - https://reactnative.dev/docs/signed-apk-android.html
-  - https://instamobile.io/android-development/generate-react-native-release-build-android/
-
-- https://www.obytes.com/blog/react-native-ci-cd-github-action
-- https://github.com/marketplace/actions/react-native-android-build-apk
-
----
