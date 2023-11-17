@@ -1,0 +1,4848 @@
+{
+  "programName": "strengthV5",
+  "weightUnit": "kg",
+  "oneRMs": [
+    {
+      "id": "1",
+      "name": "Squat",
+      "weight": "160"
+    },
+    {
+      "id": "2",
+      "name": "Bench Press",
+      "weight": "135"
+    },
+    {
+      "id": "3",
+      "name": "Deadlift",
+      "weight": "200"
+    }
+  ],
+  "trainingProgram": [
+    {
+      "week": [
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "4",
+                  "reps": "6",
+                  "percentage": "70",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Paused Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "85",
+                  "rpe": "8",
+                  "tempo": "030",
+                  "description": "3 seconds pause"
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "5",
+                  "reps": "5",
+                  "percentage": "72.5",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "3",
+                  "reps": "6",
+                  "percentage": "70",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "65",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "0",
+              "exerciseName": "Overhead Press",
+              "set": [
+                {
+                  "exerciseName": "Overhead Press",
+                  "sets": "4",
+                  "reps": "10",
+                  "percentage": "",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pull Ups",
+              "set": [
+                {
+                  "exerciseName": "Pull Ups",
+                  "sets": "4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dumbbell Row",
+              "set": [
+                {
+                  "exerciseName": "Dumbbell Row",
+                  "sets": "4",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lat Pulldown",
+              "set": [
+                {
+                  "exerciseName": "Lat Pulldown",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pullover + Face Pull",
+              "set": [
+                {
+                  "exerciseName": "Pullover + Face Pull",
+                  "sets": "3",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bicep Curls",
+              "set": [
+                {
+                  "exerciseName": "Bicep Curls",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Hanging Leg Raises",
+              "set": [
+                {
+                  "exerciseName": "Hanging Leg Raises",
+                  "sets": "3-4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Tempo Paused Squat",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "70",
+                  "rpe": "",
+                  "tempo": "410",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Close Grip Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "85",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Close Grip Bench Press",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "70",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bulgarian Split Squats",
+              "set": [
+                {
+                  "exerciseName": "Bulgarian Split Squats",
+                  "sets": "4",
+                  "reps": "15",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        },
+        {
+          "day": [
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "4",
+                  "reps": "4",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "1-1 Tempo Bench Press",
+                  "sets": "1",
+                  "reps": "2",
+                  "percentage": "85",
+                  "rpe": "7.5",
+                  "tempo": "410",
+                  "description": "The first rep is a tempo rep, the second is a comp bench"
+                },
+                {
+                  "exerciseName": "1-1 Tempo Bench Press",
+                  "sets": "3",
+                  "reps": "2",
+                  "percentage": "80",
+                  "rpe": "6.5",
+                  "tempo": "410",
+                  "description": "The first rep is a tempo rep, the second is a comp bench"
+                },
+                {
+                  "exerciseName": "Paused Bench Press",
+                  "sets": "4",
+                  "reps": "5",
+                  "percentage": "70",
+                  "rpe": "5",
+                  "tempo": "030",
+                  "description": "3 seconds pause"
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dip",
+              "set": [
+                {
+                  "exerciseName": "Dip",
+                  "sets": "4",
+                  "reps": "6",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Skull Crusher",
+              "set": [
+                {
+                  "exerciseName": "Skull Crusher",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Lu Raises",
+              "set": [
+                {
+                  "exerciseName": "Lu Raises",
+                  "sets": "3-4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "or Lateral Raises"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "4",
+                  "reps": "8",
+                  "percentage": "65",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Good Morning",
+              "set": [
+                {
+                  "exerciseName": "Good Morning",
+                  "sets": "4",
+                  "reps": "8 - 10",
+                  "percentage": "",
+                  "rpe": "7-8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        }
+      ]
+    },
+    {
+      "week": [
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "4",
+                  "reps": "6",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Paused Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "87.5",
+                  "rpe": "8",
+                  "tempo": "030",
+                  "description": "3 seconds pause"
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "5",
+                  "reps": "5",
+                  "percentage": "75",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "3",
+                  "reps": "6",
+                  "percentage": "72.5",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "67.5",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "0",
+              "exerciseName": "Overhead Press",
+              "set": [
+                {
+                  "exerciseName": "Overhead Press",
+                  "sets": "4",
+                  "reps": "10",
+                  "percentage": "",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pull Ups",
+              "set": [
+                {
+                  "exerciseName": "Pull Ups",
+                  "sets": "4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dumbbell Row",
+              "set": [
+                {
+                  "exerciseName": "Dumbbell Row",
+                  "sets": "4",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lat Pulldown",
+              "set": [
+                {
+                  "exerciseName": "Lat Pulldown",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pullover + Face Pull",
+              "set": [
+                {
+                  "exerciseName": "Pullover + Face Pull",
+                  "sets": "3",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bicep Curls",
+              "set": [
+                {
+                  "exerciseName": "Bicep Curls",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Hanging Leg Raises",
+              "set": [
+                {
+                  "exerciseName": "Hanging Leg Raises",
+                  "sets": "3-4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Tempo Paused Squat",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "70",
+                  "rpe": "",
+                  "tempo": "410",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Close Grip Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "85",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Close Grip Bench Press",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "70",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bulgarian Split Squats",
+              "set": [
+                {
+                  "exerciseName": "Bulgarian Split Squats",
+                  "sets": "4",
+                  "reps": "15",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        },
+        {
+          "day": [
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "5",
+                  "reps": "4",
+                  "percentage": "77.5",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "1-1 Tempo Bench Press",
+                  "sets": "1",
+                  "reps": "2",
+                  "percentage": "85",
+                  "rpe": "7.5",
+                  "tempo": "410",
+                  "description": "The first rep is a tempo rep, the second is a comp bench"
+                },
+                {
+                  "exerciseName": "1-1 Tempo Bench Press",
+                  "sets": "2",
+                  "reps": "2",
+                  "percentage": "80",
+                  "rpe": "7",
+                  "tempo": "410",
+                  "description": "The first rep is a tempo rep, the second is a comp bench"
+                },
+                {
+                  "exerciseName": "Paused Bench Press",
+                  "sets": "4",
+                  "reps": "5",
+                  "percentage": "70",
+                  "rpe": "6",
+                  "tempo": "030",
+                  "description": "3 seconds pause"
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dip",
+              "set": [
+                {
+                  "exerciseName": "Dip",
+                  "sets": "4",
+                  "reps": "6",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Skull Crusher",
+              "set": [
+                {
+                  "exerciseName": "Skull Crusher",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Lu Raises",
+              "set": [
+                {
+                  "exerciseName": "Lu Raises",
+                  "sets": "3-4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "or Lateral Raises"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "4",
+                  "reps": "8",
+                  "percentage": "70",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Good Morning",
+              "set": [
+                {
+                  "exerciseName": "Good Morning",
+                  "sets": "4",
+                  "reps": "8 - 10",
+                  "percentage": "",
+                  "rpe": "7-8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        }
+      ]
+    },
+    {
+      "week": [
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "1",
+                  "reps": "6",
+                  "percentage": "75",
+                  "rpe": "9",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Squat",
+                  "sets": "2",
+                  "reps": "10",
+                  "percentage": "65",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Paused Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "8.5",
+                  "tempo": "030",
+                  "description": "3 seconds pause"
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "5",
+                  "reps": "5",
+                  "percentage": "77.5",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "70",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "0",
+              "exerciseName": "Overhead Press",
+              "set": [
+                {
+                  "exerciseName": "Overhead Press",
+                  "sets": "4",
+                  "reps": "10",
+                  "percentage": "",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pull Ups",
+              "set": [
+                {
+                  "exerciseName": "Pull Ups",
+                  "sets": "4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dumbbell Row",
+              "set": [
+                {
+                  "exerciseName": "Dumbbell Row",
+                  "sets": "4",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lat Pulldown",
+              "set": [
+                {
+                  "exerciseName": "Lat Pulldown",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pullover + Face Pull",
+              "set": [
+                {
+                  "exerciseName": "Pullover + Face Pull",
+                  "sets": "3",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bicep Curls",
+              "set": [
+                {
+                  "exerciseName": "Bicep Curls",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Hanging Leg Raises",
+              "set": [
+                {
+                  "exerciseName": "Hanging Leg Raises",
+                  "sets": "3-4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Tempo Paused Squat",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "410",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Close Grip Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "85",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Close Grip Bench Press",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "70",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bulgarian Split Squats",
+              "set": [
+                {
+                  "exerciseName": "Bulgarian Split Squats",
+                  "sets": "4",
+                  "reps": "15",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        },
+        {
+          "day": [
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "80",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "1-1 Tempo Bench Press",
+                  "sets": "1",
+                  "reps": "2",
+                  "percentage": "90",
+                  "rpe": "8.5",
+                  "tempo": "410",
+                  "description": "The first rep is a tempo rep, the second is a comp bench"
+                },
+                {
+                  "exerciseName": "1-1 Tempo Bench Press",
+                  "sets": "3",
+                  "reps": "2",
+                  "percentage": "85",
+                  "rpe": "7",
+                  "tempo": "410",
+                  "description": "The first rep is a tempo rep, the second is a comp bench"
+                },
+                {
+                  "exerciseName": "Paused Bench Press",
+                  "sets": "4",
+                  "reps": "5",
+                  "percentage": "75",
+                  "rpe": "7",
+                  "tempo": "030",
+                  "description": "3 seconds pause"
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dip",
+              "set": [
+                {
+                  "exerciseName": "Dip",
+                  "sets": "4",
+                  "reps": "6",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Skull Crusher",
+              "set": [
+                {
+                  "exerciseName": "Skull Crusher",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Lu Raises",
+              "set": [
+                {
+                  "exerciseName": "Lu Raises",
+                  "sets": "3-4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "or Lateral Raises"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "5",
+                  "reps": "5",
+                  "percentage": "80",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Good Morning",
+              "set": [
+                {
+                  "exerciseName": "Good Morning",
+                  "sets": "4",
+                  "reps": "8 - 10",
+                  "percentage": "",
+                  "rpe": "7-8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        }
+      ]
+    },
+    {
+      "week": [
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "4",
+                  "reps": "4",
+                  "percentage": "60",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Paused Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "8.5",
+                  "tempo": "030",
+                  "description": "3 seconds pause"
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "5",
+                  "reps": "4",
+                  "percentage": "77.5",
+                  "rpe": "6.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "77.5",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "3",
+                  "reps": "6",
+                  "percentage": "70",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "0",
+              "exerciseName": "Overhead Press",
+              "set": [
+                {
+                  "exerciseName": "Overhead Press",
+                  "sets": "4",
+                  "reps": "10",
+                  "percentage": "",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pull Ups",
+              "set": [
+                {
+                  "exerciseName": "Pull Ups",
+                  "sets": "4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dumbbell Row",
+              "set": [
+                {
+                  "exerciseName": "Dumbbell Row",
+                  "sets": "4",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lat Pulldown",
+              "set": [
+                {
+                  "exerciseName": "Lat Pulldown",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pullover + Face Pull",
+              "set": [
+                {
+                  "exerciseName": "Pullover + Face Pull",
+                  "sets": "3",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bicep Curls",
+              "set": [
+                {
+                  "exerciseName": "Bicep Curls",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Hanging Leg Raises",
+              "set": [
+                {
+                  "exerciseName": "Hanging Leg Raises",
+                  "sets": "3-4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Tempo Paused Squat",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "65",
+                  "rpe": "",
+                  "tempo": "410",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Close Grip Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "85",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Close Grip Bench Press",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "70",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bulgarian Split Squats",
+              "set": [
+                {
+                  "exerciseName": "Bulgarian Split Squats",
+                  "sets": "4",
+                  "reps": "15",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        },
+        {
+          "day": [
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "5",
+                  "reps": "3",
+                  "percentage": "82.5",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "2",
+                  "percentage": "90",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "3",
+                  "reps": "2",
+                  "percentage": "85",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Paused Bench Press",
+                  "sets": "4",
+                  "reps": "5",
+                  "percentage": "75",
+                  "rpe": "6.5",
+                  "tempo": "030",
+                  "description": "3 seconds pause"
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dip",
+              "set": [
+                {
+                  "exerciseName": "Dip",
+                  "sets": "4",
+                  "reps": "6",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Skull Crusher",
+              "set": [
+                {
+                  "exerciseName": "Skull Crusher",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Lu Raises",
+              "set": [
+                {
+                  "exerciseName": "Lu Raises",
+                  "sets": "3-4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "or Lateral Raises"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "4",
+                  "reps": "4",
+                  "percentage": "65",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Good Morning",
+              "set": [
+                {
+                  "exerciseName": "Good Morning",
+                  "sets": "4",
+                  "reps": "8 - 10",
+                  "percentage": "",
+                  "rpe": "7-8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        }
+      ]
+    },
+    {
+      "week": [
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "4",
+                  "reps": "5",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "5",
+                  "reps": "4",
+                  "percentage": "75",
+                  "rpe": "5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "3",
+                  "reps": "4",
+                  "percentage": "80",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "72.5",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "0",
+              "exerciseName": "Overhead Press",
+              "set": [
+                {
+                  "exerciseName": "Overhead Press",
+                  "sets": "4",
+                  "reps": "10",
+                  "percentage": "",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pull Ups",
+              "set": [
+                {
+                  "exerciseName": "Pull Ups",
+                  "sets": "4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dumbbell Row",
+              "set": [
+                {
+                  "exerciseName": "Dumbbell Row",
+                  "sets": "4",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lat Pulldown",
+              "set": [
+                {
+                  "exerciseName": "Lat Pulldown",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pullover + Face Pull",
+              "set": [
+                {
+                  "exerciseName": "Pullover + Face Pull",
+                  "sets": "3",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bicep Curls",
+              "set": [
+                {
+                  "exerciseName": "Bicep Curls",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Hanging Leg Raises",
+              "set": [
+                {
+                  "exerciseName": "Hanging Leg Raises",
+                  "sets": "3-4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Paused Squat",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "70",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bulgarian Split Squats",
+              "set": [
+                {
+                  "exerciseName": "Bulgarian Split Squats",
+                  "sets": "4",
+                  "reps": "15",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        },
+        {
+          "day": [
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "85",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "3",
+                  "percentage": "85",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "6",
+                  "reps": "3",
+                  "percentage": "77.5",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dip",
+              "set": [
+                {
+                  "exerciseName": "Dip",
+                  "sets": "4",
+                  "reps": "6",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Skull Crusher",
+              "set": [
+                {
+                  "exerciseName": "Skull Crusher",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Lu Raises",
+              "set": [
+                {
+                  "exerciseName": "Lu Raises",
+                  "sets": "3-4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "or Lateral Raises"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "5",
+                  "reps": "4",
+                  "percentage": "80",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Good Morning",
+              "set": [
+                {
+                  "exerciseName": "Good Morning",
+                  "sets": "4",
+                  "reps": "8 - 10",
+                  "percentage": "",
+                  "rpe": "7-8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        }
+      ]
+    },
+    {
+      "week": [
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "5",
+                  "reps": "4",
+                  "percentage": "77.5",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "5",
+                  "reps": "4",
+                  "percentage": "77.5",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "3",
+                  "reps": "4",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "2",
+                  "reps": "5",
+                  "percentage": "70",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "0",
+              "exerciseName": "Overhead Press",
+              "set": [
+                {
+                  "exerciseName": "Overhead Press",
+                  "sets": "4",
+                  "reps": "10",
+                  "percentage": "",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pull Ups",
+              "set": [
+                {
+                  "exerciseName": "Pull Ups",
+                  "sets": "4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dumbbell Row",
+              "set": [
+                {
+                  "exerciseName": "Dumbbell Row",
+                  "sets": "4",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lat Pulldown",
+              "set": [
+                {
+                  "exerciseName": "Lat Pulldown",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pullover + Face Pull",
+              "set": [
+                {
+                  "exerciseName": "Pullover + Face Pull",
+                  "sets": "3",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bicep Curls",
+              "set": [
+                {
+                  "exerciseName": "Bicep Curls",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Hanging Leg Raises",
+              "set": [
+                {
+                  "exerciseName": "Hanging Leg Raises",
+                  "sets": "3-4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Paused Squat",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "72.5",
+                  "rpe": "6.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bulgarian Split Squats",
+              "set": [
+                {
+                  "exerciseName": "Bulgarian Split Squats",
+                  "sets": "4",
+                  "reps": "15",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        },
+        {
+          "day": [
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "3",
+                  "reps": "3",
+                  "percentage": "80",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "3",
+                  "percentage": "87.5",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "6",
+                  "reps": "3",
+                  "percentage": "80",
+                  "rpe": "6.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dip",
+              "set": [
+                {
+                  "exerciseName": "Dip",
+                  "sets": "4",
+                  "reps": "6",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Skull Crusher",
+              "set": [
+                {
+                  "exerciseName": "Skull Crusher",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Lu Raises",
+              "set": [
+                {
+                  "exerciseName": "Lu Raises",
+                  "sets": "3-4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "or Lateral Raises"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "6",
+                  "reps": "3",
+                  "percentage": "82.5",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Good Morning",
+              "set": [
+                {
+                  "exerciseName": "Good Morning",
+                  "sets": "4",
+                  "reps": "8 - 10",
+                  "percentage": "",
+                  "rpe": "7-8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        }
+      ]
+    },
+    {
+      "week": [
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "1",
+                  "reps": "3",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "go for a 3RM"
+                },
+                {
+                  "exerciseName": "Squat",
+                  "sets": "3",
+                  "reps": "4",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "5",
+                  "reps": "4",
+                  "percentage": "80",
+                  "rpe": "6.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "4",
+                  "reps": "4",
+                  "percentage": "80",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "2",
+                  "reps": "5",
+                  "percentage": "72.5",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "0",
+              "exerciseName": "Overhead Press",
+              "set": [
+                {
+                  "exerciseName": "Overhead Press",
+                  "sets": "4",
+                  "reps": "10",
+                  "percentage": "",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pull Ups",
+              "set": [
+                {
+                  "exerciseName": "Pull Ups",
+                  "sets": "4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dumbbell Row",
+              "set": [
+                {
+                  "exerciseName": "Dumbbell Row",
+                  "sets": "4",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lat Pulldown",
+              "set": [
+                {
+                  "exerciseName": "Lat Pulldown",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pullover + Face Pull",
+              "set": [
+                {
+                  "exerciseName": "Pullover + Face Pull",
+                  "sets": "3",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bicep Curls",
+              "set": [
+                {
+                  "exerciseName": "Bicep Curls",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Hanging Leg Raises",
+              "set": [
+                {
+                  "exerciseName": "Hanging Leg Raises",
+                  "sets": "3-4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Paused Squat",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Close Grip Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "85",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Close Grip Bench Press",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "70",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bulgarian Split Squats",
+              "set": [
+                {
+                  "exerciseName": "Bulgarian Split Squats",
+                  "sets": "4",
+                  "reps": "15",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        },
+        {
+          "day": [
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "2",
+                  "reps": "1",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "4",
+                  "reps": "4",
+                  "percentage": "80",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "3",
+                  "percentage": "90",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "6",
+                  "reps": "3",
+                  "percentage": "82.5",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dip",
+              "set": [
+                {
+                  "exerciseName": "Dip",
+                  "sets": "4",
+                  "reps": "6",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Skull Crusher",
+              "set": [
+                {
+                  "exerciseName": "Skull Crusher",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Lu Raises",
+              "set": [
+                {
+                  "exerciseName": "Lu Raises",
+                  "sets": "3-4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "or Lateral Raises"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "6",
+                  "reps": "3",
+                  "percentage": "85",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Good Morning",
+              "set": [
+                {
+                  "exerciseName": "Good Morning",
+                  "sets": "4",
+                  "reps": "8 - 10",
+                  "percentage": "",
+                  "rpe": "7-8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        }
+      ]
+    },
+    {
+      "week": [
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "65",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "5",
+                  "reps": "3",
+                  "percentage": "77.5",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "4",
+                  "reps": "4",
+                  "percentage": "82.5",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "2",
+                  "reps": "5",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "0",
+              "exerciseName": "Overhead Press",
+              "set": [
+                {
+                  "exerciseName": "Overhead Press",
+                  "sets": "4",
+                  "reps": "10",
+                  "percentage": "",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pull Ups",
+              "set": [
+                {
+                  "exerciseName": "Pull Ups",
+                  "sets": "4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dumbbell Row",
+              "set": [
+                {
+                  "exerciseName": "Dumbbell Row",
+                  "sets": "4",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lat Pulldown",
+              "set": [
+                {
+                  "exerciseName": "Lat Pulldown",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pullover + Face Pull",
+              "set": [
+                {
+                  "exerciseName": "Pullover + Face Pull",
+                  "sets": "3",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bicep Curls",
+              "set": [
+                {
+                  "exerciseName": "Bicep Curls",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Hanging Leg Raises",
+              "set": [
+                {
+                  "exerciseName": "Hanging Leg Raises",
+                  "sets": "3-4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Paused Squat",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "70",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Close Grip Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "85",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Close Grip Bench Press",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "70",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bulgarian Split Squats",
+              "set": [
+                {
+                  "exerciseName": "Bulgarian Split Squats",
+                  "sets": "4",
+                  "reps": "15",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        },
+        {
+          "day": [
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "2",
+                  "reps": "1",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "85",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "9",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "5",
+                  "reps": "3",
+                  "percentage": "80",
+                  "rpe": "6.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dip",
+              "set": [
+                {
+                  "exerciseName": "Dip",
+                  "sets": "4",
+                  "reps": "6",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Skull Crusher",
+              "set": [
+                {
+                  "exerciseName": "Skull Crusher",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Lu Raises",
+              "set": [
+                {
+                  "exerciseName": "Lu Raises",
+                  "sets": "3-4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "or Lateral Raises"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "70",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Good Morning",
+              "set": [
+                {
+                  "exerciseName": "Good Morning",
+                  "sets": "4",
+                  "reps": "8 - 10",
+                  "percentage": "",
+                  "rpe": "7-8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        }
+      ]
+    },
+    {
+      "week": [
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "6",
+                  "reps": "3",
+                  "percentage": "85",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "5",
+                  "reps": "4",
+                  "percentage": "72.5",
+                  "rpe": "5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "3",
+                  "reps": "3",
+                  "percentage": "85",
+                  "rpe": "7.5",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "2",
+                  "reps": "5",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "0",
+              "exerciseName": "Overhead Press",
+              "set": [
+                {
+                  "exerciseName": "Overhead Press",
+                  "sets": "4",
+                  "reps": "10",
+                  "percentage": "",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pull Ups",
+              "set": [
+                {
+                  "exerciseName": "Pull Ups",
+                  "sets": "4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dumbbell Row",
+              "set": [
+                {
+                  "exerciseName": "Dumbbell Row",
+                  "sets": "4",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lat Pulldown",
+              "set": [
+                {
+                  "exerciseName": "Lat Pulldown",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pullover + Face Pull",
+              "set": [
+                {
+                  "exerciseName": "Pullover + Face Pull",
+                  "sets": "3",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bicep Curls",
+              "set": [
+                {
+                  "exerciseName": "Bicep Curls",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Hanging Leg Raises",
+              "set": [
+                {
+                  "exerciseName": "Hanging Leg Raises",
+                  "sets": "3-4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Close Grip Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "85",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Close Grip Bench Press",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "70",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bulgarian Split Squats",
+              "set": [
+                {
+                  "exerciseName": "Bulgarian Split Squats",
+                  "sets": "4",
+                  "reps": "15",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        },
+        {
+          "day": [
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "2",
+                  "reps": "1",
+                  "percentage": "",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "3",
+                  "reps": "3",
+                  "percentage": "87.5",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "87.5",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "6",
+                  "reps": "3",
+                  "percentage": "80",
+                  "rpe": "6.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dip",
+              "set": [
+                {
+                  "exerciseName": "Dip",
+                  "sets": "4",
+                  "reps": "6",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Skull Crusher",
+              "set": [
+                {
+                  "exerciseName": "Skull Crusher",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Lu Raises",
+              "set": [
+                {
+                  "exerciseName": "Lu Raises",
+                  "sets": "3-4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "or Lateral Raises"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "7",
+                  "reps": "2",
+                  "percentage": "90",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Good Morning",
+              "set": [
+                {
+                  "exerciseName": "Good Morning",
+                  "sets": "4",
+                  "reps": "8 - 10",
+                  "percentage": "",
+                  "rpe": "7-8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        }
+      ]
+    },
+    {
+      "week": [
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "7",
+                  "reps": "2",
+                  "percentage": "87.5",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "5",
+                  "reps": "4",
+                  "percentage": "77.5",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "3",
+                  "reps": "3",
+                  "percentage": "87.5",
+                  "rpe": "8.5",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "2",
+                  "reps": "5",
+                  "percentage": "77.5",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "0",
+              "exerciseName": "Overhead Press",
+              "set": [
+                {
+                  "exerciseName": "Overhead Press",
+                  "sets": "4",
+                  "reps": "10",
+                  "percentage": "",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pull Ups",
+              "set": [
+                {
+                  "exerciseName": "Pull Ups",
+                  "sets": "4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dumbbell Row",
+              "set": [
+                {
+                  "exerciseName": "Dumbbell Row",
+                  "sets": "4",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lat Pulldown",
+              "set": [
+                {
+                  "exerciseName": "Lat Pulldown",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pullover + Face Pull",
+              "set": [
+                {
+                  "exerciseName": "Pullover + Face Pull",
+                  "sets": "3",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bicep Curls",
+              "set": [
+                {
+                  "exerciseName": "Bicep Curls",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Hanging Leg Raises",
+              "set": [
+                {
+                  "exerciseName": "Hanging Leg Raises",
+                  "sets": "3-4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "75",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bulgarian Split Squats",
+              "set": [
+                {
+                  "exerciseName": "Bulgarian Split Squats",
+                  "sets": "4",
+                  "reps": "15",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        },
+        {
+          "day": [
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "4",
+                  "reps": "2",
+                  "percentage": "90",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "3",
+                  "percentage": "87.5",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "6",
+                  "reps": "3",
+                  "percentage": "80",
+                  "rpe": "6.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dip",
+              "set": [
+                {
+                  "exerciseName": "Dip",
+                  "sets": "4",
+                  "reps": "6",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Skull Crusher",
+              "set": [
+                {
+                  "exerciseName": "Skull Crusher",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Lu Raises",
+              "set": [
+                {
+                  "exerciseName": "Lu Raises",
+                  "sets": "3-4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "or Lateral Raises"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "3",
+                  "reps": "1",
+                  "percentage": "92.5",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Squat",
+                  "sets": "3",
+                  "reps": "2",
+                  "percentage": "90",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Good Morning",
+              "set": [
+                {
+                  "exerciseName": "Good Morning",
+                  "sets": "4",
+                  "reps": "8 - 10",
+                  "percentage": "",
+                  "rpe": "7-8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        }
+      ]
+    },
+    {
+      "week": [
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "5",
+                  "reps": "2",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "5",
+                  "reps": "4",
+                  "percentage": "80",
+                  "rpe": "6.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "3",
+                  "reps": "3",
+                  "percentage": "90",
+                  "rpe": "9",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "2",
+                  "reps": "5",
+                  "percentage": "80",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "0",
+              "exerciseName": "Overhead Press",
+              "set": [
+                {
+                  "exerciseName": "Overhead Press",
+                  "sets": "4",
+                  "reps": "10",
+                  "percentage": "",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pull Ups",
+              "set": [
+                {
+                  "exerciseName": "Pull Ups",
+                  "sets": "4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dumbbell Row",
+              "set": [
+                {
+                  "exerciseName": "Dumbbell Row",
+                  "sets": "4",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lat Pulldown",
+              "set": [
+                {
+                  "exerciseName": "Lat Pulldown",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pullover + Face Pull",
+              "set": [
+                {
+                  "exerciseName": "Pullover + Face Pull",
+                  "sets": "3",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bicep Curls",
+              "set": [
+                {
+                  "exerciseName": "Bicep Curls",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Hanging Leg Raises",
+              "set": [
+                {
+                  "exerciseName": "Hanging Leg Raises",
+                  "sets": "3-4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "75",
+                  "rpe": "6.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bulgarian Split Squats",
+              "set": [
+                {
+                  "exerciseName": "Bulgarian Split Squats",
+                  "sets": "4",
+                  "reps": "15",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        },
+        {
+          "day": [
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "4",
+                  "reps": "1",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "2",
+                  "reps": "2",
+                  "percentage": "92.5",
+                  "rpe": "8.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "3",
+                  "percentage": "90",
+                  "rpe": "9",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "6",
+                  "reps": "3",
+                  "percentage": "82.5",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dip",
+              "set": [
+                {
+                  "exerciseName": "Dip",
+                  "sets": "4",
+                  "reps": "6",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Skull Crusher",
+              "set": [
+                {
+                  "exerciseName": "Skull Crusher",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "exerciseName": "Lu Raises",
+              "set": [
+                {
+                  "exerciseName": "Lu Raises",
+                  "sets": "3-4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "or Lateral Raises"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "go for a 1RM"
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Good Morning",
+              "set": [
+                {
+                  "exerciseName": "Good Morning",
+                  "sets": "4",
+                  "reps": "8 - 10",
+                  "percentage": "",
+                  "rpe": "7-8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        }
+      ]
+    },
+    {
+      "week": [
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "80",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "92.5",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "5",
+                  "reps": "4",
+                  "percentage": "80",
+                  "rpe": "6.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "3",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "8.5",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "3",
+                  "reps": "3",
+                  "percentage": "80",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "0",
+              "exerciseName": "Overhead Press",
+              "set": [
+                {
+                  "exerciseName": "Overhead Press",
+                  "sets": "4",
+                  "reps": "10",
+                  "percentage": "",
+                  "rpe": "7.5",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pull Ups",
+              "set": [
+                {
+                  "exerciseName": "Pull Ups",
+                  "sets": "4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "8",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Dumbbell Row",
+              "set": [
+                {
+                  "exerciseName": "Dumbbell Row",
+                  "sets": "4",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lat Pulldown",
+              "set": [
+                {
+                  "exerciseName": "Lat Pulldown",
+                  "sets": "3",
+                  "reps": "12",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Pullover + Face Pull",
+              "set": [
+                {
+                  "exerciseName": "Pullover + Face Pull",
+                  "sets": "3",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bicep Curls",
+              "set": [
+                {
+                  "exerciseName": "Bicep Curls",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Hanging Leg Raises",
+              "set": [
+                {
+                  "exerciseName": "Hanging Leg Raises",
+                  "sets": "3-4",
+                  "reps": "",
+                  "percentage": "",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+              "RMid": "1",
+              "exerciseName": "Squat",
+              "set": [
+                {
+                  "exerciseName": "Squat",
+                  "sets": "4",
+                  "reps": "3",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "3",
+                  "reps": "1",
+                  "percentage": "90",
+                  "rpe": "9",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "6",
+                  "reps": "3",
+                  "percentage": "82.5",
+                  "rpe": "7",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Bulgarian Split Squats",
+              "set": [
+                {
+                  "exerciseName": "Bulgarian Split Squats",
+                  "sets": "4",
+                  "reps": "15",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Leg Extensions + Calf Raises",
+              "set": [
+                {
+                  "exerciseName": "Leg Extensions + Calf Raises",
+                  "sets": "4",
+                  "reps": "12 + MAX",
+                  "percentage": "",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "day": []
+        },
+        {
+          "day": []
+        },
+        {
+          "day": [
+            {
+              "RMid": "2",
+              "exerciseName": "Bench Press",
+              "set": [
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "92.5",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "98",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Bench Press",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "102",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "go for a 1RM"
+                }
+              ]
+            },
+            {
+              "RMid": "3",
+              "exerciseName": "Deadlift",
+              "set": [
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "92.5",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "98",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
+                },
+                {
+                  "exerciseName": "Deadlift",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "102",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": "go for a 1RM"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

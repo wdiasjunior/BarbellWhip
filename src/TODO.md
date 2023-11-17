@@ -6,7 +6,6 @@
     - checkboxes to choose which formulas to calculate 1rm from (?)
   - implement rpe calculator (?)
     - add rpe math block
-    -
     - https://www.rpecalculator.com/
     - https://articles.reactivetrainingsystems.com/2015/11/29/beginning-rts/
   - get inspiration from the juggernaut app
@@ -21,7 +20,7 @@
   - exercise item page
     - add checkboxes to track how many sets were done (?)
     - header - add weight unit toggle for weight conversion (?)
-    - add estimated rpe weight
+    - add estimated rpe weight (?)
       - add switch to turn it on and off
   - setSelected next day workout on dateNow change (compare with atomsWithStorage lastDay?) (?)
   - rm review page
@@ -64,7 +63,6 @@
   - add switch to disable rounding and show actual weight after percentage calculation
 
 ## misc
-  - add logo to splash screen and app icon
   - excel conversion to json? - spreadsheet template? (sort of done for a few programs)
   - json program validator on import (?)
   - notes input for days/exercises on the program page ? (where/how would I save/load this ?)
