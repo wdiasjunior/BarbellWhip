@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 // this gambiarra circumvents a problem that seems to be caused by react
 // navigation where the first time a screen is loaded causes a layout shift/glitch,

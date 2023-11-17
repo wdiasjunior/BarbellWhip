@@ -71,34 +71,59 @@ const UpdateModal = (props: IProps) => {
     }
   }, [appVersionGithub])
 
+  const checkForDownloadedUpdate = async (appVersion: string): booolean => {
+    const fileName = "BarbellWhip_" + appVersion + ".apk";
+
+    const files = await RNFS.readDir(RNFS.ExternalCachesDirectoryPath);
+    const fileExists = files.some(file => file.name === fileName);
+
+    try {
+      if (fileExists) {
+        console.log(`The file ${fileName} exists in the directory.`);
+        return true;
+      } else {
+        console.log(`The file ${fileName} does not exist in the directory.`);
+        return false;
+      }
+    } catch(error) {
+      console.log("Error reading directory: ", error);
+      return false;
+    }
+  }
+
   const handleDownload = async () => {
     setIsGoBackDisabled(true);
     setShowDownloadSpinner(true);
-// TODO - if file for latest update exists, skip download
-    await RNFS.unlink(RNFS.ExternalCachesDirectoryPath)
-            .then(() => console.log('Cache folder deleted'))
-            .catch((err) => console.log(err.message));
 
-    await RNFS.mkdir(RNFS.ExternalCachesDirectoryPath)
-            .then(() => console.log('Cache folder created'))
-            .catch((err) => console.log(err.message));
+    const hasUpdateDownloaded = await checkForDownloadedUpdate(appVersionGithub);
 
-    await RNFS.downloadFile({
-            fromUrl: url,
-            toFile: filePath,
-            progress: (res) => {
-              const progress = (res.bytesWritten / res.contentLength) * 100;
-              console.log(`Progress: ${progress.toFixed(2)}%`);
-            },
-          }).promise.then((response) => console.log('File downloaded!', response))
-            .catch((err) => {
-              console.log('Download error:', err);
-              setShowDownloadSpinner(false);
-              setShowDownloadErrorMessage(true);
-              setIsGoBackDisabled(false);
-              return;
-            });
+    if(hasUpdateDownloaded) {
+      handleInstallAPK();
+    } else {
+      await RNFS.unlink(RNFS.ExternalCachesDirectoryPath)
+              .then(() => console.log('Cache folder deleted'))
+              .catch((err) => console.log(err.message));
 
+      await RNFS.mkdir(RNFS.ExternalCachesDirectoryPath)
+              .then(() => console.log('Cache folder created'))
+              .catch((err) => console.log(err.message));
+
+      await RNFS.downloadFile({
+              fromUrl: url,
+              toFile: filePath,
+              progress: (res) => {
+                const progress = (res.bytesWritten / res.contentLength) * 100;
+                console.log(`Progress: ${progress.toFixed(2)}%`);
+              },
+            }).promise.then((response) => console.log('File downloaded!', response))
+              .catch((err) => {
+                console.log('Download error:', err);
+                setShowDownloadSpinner(false);
+                setShowDownloadErrorMessage(true);
+                setIsGoBackDisabled(false);
+                return;
+              });
+    }
     setShowDownloadSpinner(false);
     setShowIsDownloadCompleteMessage(true);
     setIsGoBackDisabled(false);
