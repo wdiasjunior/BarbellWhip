@@ -28,7 +28,8 @@ import {
   programEditorModeAtom,
   programNameForActionAtom,
 } from "../../helpers/jotai/programEditorAtoms";
-import { useIsFirstRender } from "../../helpers/useIsFirstRender";
+import { useInitialRender } from "../../helpers/useInitialRender";
+import { trainingProgramCleanUp } from "../../helpers/trainingProgramCleanUp";
 
 import styles from "./programEditorPageStyles";
 
@@ -38,7 +39,7 @@ const ProgramEditorPage = ({ navigation }) => {
 
   const isFocused = useIsFocused();
 
-  const isInitialRender = useIsFirstRender();
+  const isInitialRender = useInitialRender();
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
@@ -123,40 +124,6 @@ const ProgramEditorPage = ({ navigation }) => {
     }
   }
 
-  // const importProgram = (e) => {
-  //   // console.log("importProgram", e.target.files[0]);
-  //   const fileReader = new FileReader();
-  //   if(e.target && e.target.files) {
-  //     if(e.target.files[0].name.includes(".json")) {
-  //       fileReader.readAsText(e.target.files[0], "UTF-8");
-  //       fileReader.onload = e => {
-  //         const program = JSON.parse(e.target.result);
-  //         // setProgramList(prev => [...prev, { name: program.programName + ".json", program: JSON.stringify(program) }]);
-  //         if(programList.some(p => p.name === program.programName + ".json")) {
-  //           let foundProgram = false;
-  //           let _programVersion = 2;
-  //           let _programName = program.programName + " " + _programVersion;
-  //           while(!foundProgram) {
-  //             if(programList.some(p => p.name === _programName + ".json")) {
-  //               _programVersion++;
-  //               _programName = program.programName + " " + _programVersion;
-  //             } else {
-  //               _programName = program.programName + " " + _programVersion;
-  //               saveProgram(_programName, program);
-  //               foundProgram = true;
-  //             }
-  //           }
-  //         } else {
-  //           saveProgram(program.programName, program);
-  //           foundProgram = true;
-  //         }
-  //       };
-  //     } else {
-  //       alert(selectedLocale.programEditorPage.importErrorMessage);
-  //     }
-  //   }
-  // }
-
   const handleFabButtonClick = () => {
     setProgramEditorMode("Create");
     navigation.push("StepsTabs");
@@ -174,7 +141,8 @@ const ProgramEditorPage = ({ navigation }) => {
     const programData = await readProgram(programNameForAction);
     switch(action) {
       case "setActive":
-        setActiveProgramData(programData);
+        const _cleanedUpProgramData = trainingProgramCleanUp(programData);
+        setActiveProgramData(_cleanedUpProgramData);
         if(activeProgramName !== programNameForAction) {
           setActiveProgramName(programNameForAction);
           setProgramPageSelectedDay(0);

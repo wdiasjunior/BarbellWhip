@@ -23,11 +23,11 @@ import {
   plateMathBumperPlatesRack,
 } from "../../helpers/jotai/atomsWithStorage";
 
-import { useIsFirstRender } from "../../helpers/useIsFirstRender";
+import { useInitialRender } from "../../helpers/useInitialRender";
 
 const PlateMathPage = ({ navigation }) => {
 
-  const isInitialRender = useIsFirstRender();
+  const isInitialRender = useInitialRender();
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);

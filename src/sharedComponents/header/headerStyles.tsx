@@ -35,6 +35,7 @@ const styles = (theme: Theme) => {
       left: -2,
       marginRight: 22,
       color: theme.text,
+      width: 40,
     },
     iconRight: {
       width: 40,

@@ -7,7 +7,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { useAtom, useAtomValue } from "jotai";
 import { programEditorDataAtom, selectedWeekAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
-import { useIsFirstRender } from "../../../../helpers/useIsFirstRender";
+import { useInitialRender } from "../../../../helpers/useInitialRender";
 
 import { deepClone } from "../../../../helpers/deepClone";
 
@@ -18,7 +18,7 @@ import styles from "./stepTwoStyles";
 
 const StepTwo = ({ navigation }) => {
 
-  const isInitialRender = useIsFirstRender();
+  const isInitialRender = useInitialRender();
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);

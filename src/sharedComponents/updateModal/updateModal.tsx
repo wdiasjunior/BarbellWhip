@@ -74,7 +74,7 @@ const UpdateModal = (props: IProps) => {
   const handleDownload = async () => {
     setIsGoBackDisabled(true);
     setShowDownloadSpinner(true);
-
+// TODO - if file for latest update exists, skip download
     await RNFS.unlink(RNFS.ExternalCachesDirectoryPath)
             .then(() => console.log('Cache folder deleted'))
             .catch((err) => console.log(err.message));

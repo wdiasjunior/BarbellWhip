@@ -9,7 +9,7 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useAtom, useAtomValue } from "jotai";
 import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
 import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
-import { useIsFirstRender } from "../../../../helpers/useIsFirstRender";
+import { useInitialRender } from "../../../../helpers/useInitialRender";
 
 import { deepClone } from "../../../../helpers/deepClone";
 
@@ -21,7 +21,7 @@ import styles from "./stepThreeStyles";
 
 const StepThree = ({ navigation }) => {
 
-  const isInitialRender = useIsFirstRender();
+  const isInitialRender = useInitialRender();
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
@@ -120,7 +120,7 @@ const StepThree = ({ navigation }) => {
             <Ionicons name="reorder-three-outline" size={30} style={styles(activeTheme).exerciseItemIcon} />
           </TouchableOpacity>
 
-          <Text style={styles(activeTheme).exerciseItemText}>
+          <Text style={styles(activeTheme).exerciseItemText} numberOfLines={1}>
             {programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[index].exerciseName}
           </Text>
 

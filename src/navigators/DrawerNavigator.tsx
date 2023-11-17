@@ -10,13 +10,13 @@ import SettingsPage from "../pages/settings/settingsPage";
 import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
 
-import { useIsFirstRender } from "../helpers/useIsFirstRender";
+import { useInitialRender } from "../helpers/useInitialRender";
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
 
-  const isInitialRender = useIsFirstRender();
+  const isInitialRender = useInitialRender();
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
