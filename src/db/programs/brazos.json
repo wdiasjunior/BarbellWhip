@@ -77,10 +77,10 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Press",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Press",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8",
@@ -353,13 +353,29 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Dip",
+              "exerciseName": "Push Ups",
               "set": [
                 {
-                  "exerciseName": "Dip",
+                  "exerciseName": "Push Ups",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8",
+                  "percentage": "",
+                  "tempo": "",
+                  "rest": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lateral Raises",
+              "set": [
+                {
+                  "exerciseName": "Lateral Raises",
+                  "sets": "4",
+                  "reps": "MAX,
+                  "rpe": "",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -483,12 +499,12 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Extensions + Calf Raises",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Extensions + Calf Raises",
                   "sets": "4",
-                  "reps": "15",
+                  "reps": "MAX",
                   "rpe": "8",
                   "percentage": "",
                   "tempo": "",
@@ -559,10 +575,10 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Press",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Press",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8",
@@ -835,13 +851,29 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Dip",
+              "exerciseName": "Push Ups",
               "set": [
                 {
-                  "exerciseName": "Dip",
+                  "exerciseName": "Push Ups",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8",
+                  "percentage": "",
+                  "tempo": "",
+                  "rest": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lateral Raises",
+              "set": [
+                {
+                  "exerciseName": "Lateral Raises",
+                  "sets": "4",
+                  "reps": "MAX,
+                  "rpe": "",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -965,12 +997,12 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Extensions + Calf Raises",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Extensions + Calf Raises",
                   "sets": "4",
-                  "reps": "15",
+                  "reps": "MAX",
                   "rpe": "8",
                   "percentage": "",
                   "tempo": "",
@@ -1041,10 +1073,10 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Press",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Press",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8",
@@ -1317,13 +1349,29 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Dip",
+              "exerciseName": "Push Ups",
               "set": [
                 {
-                  "exerciseName": "Dip",
+                  "exerciseName": "Push Ups",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8",
+                  "percentage": "",
+                  "tempo": "",
+                  "rest": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lateral Raises",
+              "set": [
+                {
+                  "exerciseName": "Lateral Raises",
+                  "sets": "4",
+                  "reps": "MAX,
+                  "rpe": "",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -1447,12 +1495,12 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Extensions + Calf Raises",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Extensions + Calf Raises",
                   "sets": "4",
-                  "reps": "15",
+                  "reps": "MAX",
                   "rpe": "8",
                   "percentage": "",
                   "tempo": "",
@@ -1523,10 +1571,10 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Press",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Press",
                   "sets": "3",
                   "reps": "15",
                   "rpe": "7",
@@ -1789,13 +1837,29 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Dip",
+              "exerciseName": "Push Ups",
               "set": [
                 {
-                  "exerciseName": "Dip",
+                  "exerciseName": "Push Ups",
                   "sets": "4",
                   "reps": "6",
                   "rpe": "8",
+                  "percentage": "",
+                  "tempo": "",
+                  "rest": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lateral Raises",
+              "set": [
+                {
+                  "exerciseName": "Lateral Raises",
+                  "sets": "4",
+                  "reps": "MAX,
+                  "rpe": "",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -1909,10 +1973,10 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Extensions + Calf Raises",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Extensions + Calf Raises",
                   "sets": "3",
                   "reps": "15",
                   "rpe": "8",
@@ -1985,10 +2049,10 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Press",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Press",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8",
@@ -2001,13 +2065,29 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Dip",
+              "exerciseName": "Push Ups",
               "set": [
                 {
-                  "exerciseName": "Dip",
+                  "exerciseName": "Push Ups",
                   "sets": "4",
                   "reps": "10",
                   "rpe": "8",
+                  "percentage": "",
+                  "tempo": "",
+                  "rest": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lateral Raises",
+              "set": [
+                {
+                  "exerciseName": "Lateral Raises",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "rpe": "",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -2349,12 +2429,12 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Extensions + Calf Raises",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Extensions + Calf Raises",
                   "sets": "4",
-                  "reps": "15",
+                  "reps": "MAX",
                   "rpe": "8",
                   "percentage": "",
                   "tempo": "",
@@ -2425,10 +2505,10 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Press",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Press",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8",
@@ -2441,13 +2521,29 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Dip",
+              "exerciseName": "Push Ups",
               "set": [
                 {
-                  "exerciseName": "Dip",
+                  "exerciseName": "Push Ups",
                   "sets": "4",
                   "reps": "10",
                   "rpe": "8",
+                  "percentage": "",
+                  "tempo": "",
+                  "rest": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lateral Raises",
+              "set": [
+                {
+                  "exerciseName": "Lateral Raises",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "rpe": "",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -2789,12 +2885,12 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Extensions + Calf Raises",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Extensions + Calf Raises",
                   "sets": "4",
-                  "reps": "15",
+                  "reps": "MAX",
                   "rpe": "8",
                   "percentage": "",
                   "tempo": "",
@@ -2865,10 +2961,10 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Press",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Press",
                   "sets": "4",
                   "reps": "15",
                   "rpe": "8",
@@ -2881,13 +2977,29 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Dip",
+              "exerciseName": "Push Ups",
               "set": [
                 {
-                  "exerciseName": "Dip",
+                  "exerciseName": "Push Ups",
                   "sets": "4",
                   "reps": "10",
                   "rpe": "8",
+                  "percentage": "",
+                  "tempo": "",
+                  "rest": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lateral Raises",
+              "set": [
+                {
+                  "exerciseName": "Lateral Raises",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "rpe": "",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -3219,12 +3331,12 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Extensions + Calf Raises",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Extensions + Calf Raises",
                   "sets": "4",
-                  "reps": "15",
+                  "reps": "MAX",
                   "rpe": "8",
                   "percentage": "",
                   "tempo": "",
@@ -3295,10 +3407,10 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Press",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Press",
                   "sets": "3",
                   "reps": "15",
                   "rpe": "7",
@@ -3311,13 +3423,29 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Dip",
+              "exerciseName": "Push Ups",
               "set": [
                 {
-                  "exerciseName": "Dip",
+                  "exerciseName": "Push Ups",
                   "sets": "3",
                   "reps": "10",
                   "rpe": "7",
+                  "percentage": "",
+                  "tempo": "",
+                  "rest": "",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "RMid": "0",
+              "exerciseName": "Lateral Raises",
+              "set": [
+                {
+                  "exerciseName": "Lateral Raises",
+                  "sets": "3",
+                  "reps": "MAX",
+                  "rpe": "",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -3639,10 +3767,10 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Belt Squat/Leg Press",
+              "exerciseName": "Leg Extensions + Calf Raises",
               "set": [
                 {
-                  "exerciseName": "Belt Squat/Leg Press",
+                  "exerciseName": "Leg Extensions + Calf Raises",
                   "sets": "3",
                   "reps": "15",
                   "rpe": "8",
