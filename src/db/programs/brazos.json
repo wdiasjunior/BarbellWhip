@@ -370,13 +370,13 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Lateral Raises",
+              "exerciseName": "Dumbbell Incline Press",
               "set": [
                 {
-                  "exerciseName": "Lateral Raises",
-                  "sets": "4",
-                  "reps": "MAX",
-                  "rpe": "",
+                  "exerciseName": "Dumbbell Incline Press",
+                  "sets": "3",
+                  "reps": "10",
+                  "rpe": "8",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -386,13 +386,13 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Dumbbell Incline Press",
+              "exerciseName": "Lateral Raises",
               "set": [
                 {
-                  "exerciseName": "Dumbbell Incline Press",
-                  "sets": "3",
-                  "reps": "10",
-                  "rpe": "8",
+                  "exerciseName": "Lateral Raises",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "rpe": "",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -869,13 +869,13 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Lateral Raises",
+              "exerciseName": "Dumbbell Incline Press",
               "set": [
                 {
-                  "exerciseName": "Lateral Raises",
-                  "sets": "4",
-                  "reps": "MAX",
-                  "rpe": "",
+                  "exerciseName": "Dumbbell Incline Press",
+                  "sets": "3",
+                  "reps": "10",
+                  "rpe": "8",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -885,13 +885,13 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Dumbbell Incline Press",
+              "exerciseName": "Lateral Raises",
               "set": [
                 {
-                  "exerciseName": "Dumbbell Incline Press",
-                  "sets": "3",
-                  "reps": "10",
-                  "rpe": "8",
+                  "exerciseName": "Lateral Raises",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "rpe": "",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -1368,13 +1368,13 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Lateral Raises",
+              "exerciseName": "Dumbbell Incline Press",
               "set": [
                 {
-                  "exerciseName": "Lateral Raises",
-                  "sets": "4",
-                  "reps": "MAX",
-                  "rpe": "",
+                  "exerciseName": "Dumbbell Incline Press",
+                  "sets": "3",
+                  "reps": "10",
+                  "rpe": "8",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -1384,13 +1384,13 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Dumbbell Incline Press",
+              "exerciseName": "Lateral Raises",
               "set": [
                 {
-                  "exerciseName": "Dumbbell Incline Press",
-                  "sets": "3",
-                  "reps": "10",
-                  "rpe": "8",
+                  "exerciseName": "Lateral Raises",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "rpe": "",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -1857,13 +1857,13 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Lateral Raises",
+              "exerciseName": "Dumbbell Incline Press",
               "set": [
                 {
-                  "exerciseName": "Lateral Raises",
-                  "sets": "4",
-                  "reps": "MAX",
-                  "rpe": "",
+                  "exerciseName": "Dumbbell Incline Press",
+                  "sets": "3",
+                  "reps": "10",
+                  "rpe": "8",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -1873,13 +1873,13 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Dumbbell Incline Press",
+              "exerciseName": "Lateral Raises",
               "set": [
                 {
-                  "exerciseName": "Dumbbell Incline Press",
-                  "sets": "3",
-                  "reps": "10",
-                  "rpe": "8",
+                  "exerciseName": "Lateral Raises",
+                  "sets": "4",
+                  "reps": "MAX",
+                  "rpe": "",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
@@ -2080,22 +2080,6 @@
                   "tempo": "",
                   "rest": "",
                   "altExercise1": "Dips",
-                  "description": ""
-                }
-              ]
-            },
-            {
-              "RMid": "0",
-              "exerciseName": "Lateral Raises",
-              "set": [
-                {
-                  "exerciseName": "Lateral Raises",
-                  "sets": "4",
-                  "reps": "MAX",
-                  "rpe": "",
-                  "percentage": "",
-                  "tempo": "",
-                  "rest": "",
                   "description": ""
                 }
               ]
@@ -2543,22 +2527,6 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Lateral Raises",
-              "set": [
-                {
-                  "exerciseName": "Lateral Raises",
-                  "sets": "4",
-                  "reps": "MAX",
-                  "rpe": "",
-                  "percentage": "",
-                  "tempo": "",
-                  "rest": "",
-                  "description": ""
-                }
-              ]
-            },
-            {
-              "RMid": "0",
               "exerciseName": "Triceps Pushdown",
               "set": [
                 {
@@ -3000,22 +2968,6 @@
             },
             {
               "RMid": "0",
-              "exerciseName": "Lateral Raises",
-              "set": [
-                {
-                  "exerciseName": "Lateral Raises",
-                  "sets": "4",
-                  "reps": "MAX",
-                  "rpe": "",
-                  "percentage": "",
-                  "tempo": "",
-                  "rest": "",
-                  "description": ""
-                }
-              ]
-            },
-            {
-              "RMid": "0",
               "exerciseName": "Triceps Pushdown",
               "set": [
                 {
@@ -3437,22 +3389,6 @@
                   "sets": "3",
                   "reps": "10",
                   "rpe": "7",
-                  "percentage": "",
-                  "tempo": "",
-                  "rest": "",
-                  "description": ""
-                }
-              ]
-            },
-            {
-              "RMid": "0",
-              "exerciseName": "Lateral Raises",
-              "set": [
-                {
-                  "exerciseName": "Lateral Raises",
-                  "sets": "3",
-                  "reps": "MAX",
-                  "rpe": "",
                   "percentage": "",
                   "tempo": "",
                   "rest": "",
