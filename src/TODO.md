@@ -28,7 +28,7 @@
 
 ## program management / program editor page
   - add warning on rm/week/exercise items delete attempt
-  - share api - share json from other apps and import programs
+  - share intent - share json from other apps and import programs
   - replace `navigation.replace("ProgramEditorStack");` with navigation reset? and prevent android back button on program editor stack from exiting and losing progress
   - change program editor program data to atom with storage in both web and native (?) to prevent accidental discard of progress (kinda redundant if there's a warning on go back)
   - add spinner overlay on save
@@ -79,8 +79,13 @@
 - program page glitch on first load
   - remake week menu list without animations?
 
-- when saving and importing training programs
-  - check if file with the same name already exists
-  - add as a duplicate
+- program editor page
+  - when saving and importing training programs
+    - check if file with the same name already exists
+    - add as a duplicate
+  - FS bug
+    - on copy then rename wont change file name. instead creates a different file
+    - use current behavior for save as copy button
+
 
 ---
