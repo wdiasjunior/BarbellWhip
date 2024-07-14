@@ -89,3 +89,8 @@
 
 
 ---
+
+- change tempo for cadencia in ptbr
+- use display flex instead of a bunch of rows on exercise page
+- auto save program editor
+- switch to sqlite and stop using file system?
