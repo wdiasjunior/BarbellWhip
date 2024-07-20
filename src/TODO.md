@@ -80,6 +80,7 @@
   - remake week menu list without animations?
 
 - program editor page
+  - light theme borders not showing on text inputs
   - when saving and importing training programs
     - check if file with the same name already exists
     - add as a duplicate
@@ -90,7 +91,9 @@
 
 ---
 
+- settings page add checkboxes to select rm formulas to be used
 - change tempo for cadencia in ptbr
 - use display flex instead of a bunch of rows on exercise page
 - auto save program editor
 - switch to sqlite and stop using file system?
+- astro fuwari theme

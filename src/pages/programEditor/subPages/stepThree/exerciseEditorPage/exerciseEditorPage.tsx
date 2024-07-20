@@ -182,7 +182,7 @@ const ExerciseEditorPage = (_props: any) => {
                     </View>
 
                     <View style={styles(activeTheme).col}>
-                      <Text style={styles(activeTheme).inputLabel}>Tempo</Text>
+                      <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.tempo}</Text>
                       <TextInput
                         keyboardType="numeric"
                         style={styles(activeTheme).input}

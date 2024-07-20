@@ -95,6 +95,7 @@ interface Locale {
       percentage: string;
       weightLabel: string;
       rest: string;
+      tempo: string;
       altExercise1: string;
       altExercise2: string;
       description: string;
