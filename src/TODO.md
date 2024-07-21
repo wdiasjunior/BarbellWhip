@@ -97,3 +97,4 @@
 - auto save program editor
 - switch to sqlite and stop using file system?
 - astro fuwari theme
+- rm review button separator should not get translucent
