@@ -19,10 +19,9 @@
 ## program page
   - exercise item page
     - add checkboxes to track how many sets were done (?)
-    - header - add weight unit toggle for weight conversion (?)
+    - header - add weight unit toggle for quick weight conversion (?)
     - add estimated rpe weight (?)
       - add switch to turn it on and off
-  - setSelected next day workout on dateNow change (compare with atomsWithStorage lastDay?) (?)
   - rm review page
     - oneRMs atom with storage object for semi persistent data that takes priority over the object in the json file for the percentage math (?)
 
@@ -91,6 +90,8 @@
 
 ---
 
+# TODO priority
+
 - settings page add checkboxes to select rm formulas to be used
 - change tempo for cadencia in ptbr
 - use display flex instead of a bunch of rows on exercise page
@@ -98,3 +99,4 @@
 - switch to sqlite and stop using file system?
 - astro fuwari theme
 - rm review button separator should not get translucent
+- switch to toggle colors depending on plate weight (?)
