@@ -119,7 +119,7 @@ const Header = (props: IProps) => {
         }
       </View>
       <View style={styles(activeTheme).contentCenter}>
-        <Text adjustsFontSizeToFit style={styles(activeTheme).headerText}>{props.title} </Text>
+        <Text style={styles(activeTheme).headerText}>{props.title} </Text>
       </View>
       <View style={styles(activeTheme).contentRight}>
         {props.menu &&

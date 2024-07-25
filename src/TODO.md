@@ -28,8 +28,8 @@
 ## program management / program editor page
   - [ ] add warning on rm/week/exercise items delete attempt
   - [ ] share intent - share json from other apps and import programs
-  - r[ ] eplace `navigation.replace("ProgramEditorStack");` with navigation reset? and prevent android back button on program editor stack from exiting and losing progress
-  - [ ] change program editor program data to atom with storage in both web and native (?) to prevent accidental discard of progress (kinda redundant if there's a warning on go back)
+  - [ ] replace `navigation.replace("ProgramEditorStack");` with navigation reset? and prevent android back button on program editor stack from exiting and losing progress
+  - [-] change program editor program data to atom with storage in both web and native (?) to prevent accidental discard of progress (kinda redundant if there's a warning on go back)
   - [ ] add spinner overlay on save
   - *StepOne*
     - [ ] 1rm input group. add field for reps and math for estimated rm depending on the amount of reps
@@ -52,6 +52,7 @@
 
 ## settings page
   - [ ] about? - separate page for this (?)
+    - [ ] link to website
     - [ ] link to User Guide
     - [ ] "To report bugs, suggest new features, or if want to contribute to the project, access the link below"
     - [ ] link to GitHub Repository
@@ -67,7 +68,6 @@
   - [ ] notes input for days/exercises on the program page ? (where/how would I save/load this ?)
   - [ ] write documentation for the code, program .json schema, and how to use the app.
   - [ ] think of a way to extend the program schema to allow for auto regulation logic with reps and weight, 1rm estimation - like what happens in the PH3 spreadsheet
-  - [ ] add spinner on heavy computational actions (?)
 
 ---
 
@@ -76,7 +76,7 @@
 - [ ] program page glitch on first load - remake week menu list without animations?
 
 - program editor page
-  - [ ] light theme borders not showing on text inputs
+  - [x] light theme borders not showing on text inputs
   - [ ] when saving and importing training programs
     - [ ] check if file with the same name already exists
     - [ ] add as a duplicate
@@ -90,10 +90,9 @@
 
 - [ ] change program editor program data to atom with storage in both apps? prevent accidental discard of progress
 - [ ] settings page add checkboxes to select rm formulas to be used
-- [-] change tempo for cadencia in ptbr
-- [ ] use display flex instead of a bunch of rows on exercise page
-- [ ] auto save program editor
-- [ ] astro fuwari theme
-- [ ] rm review button border bottom separator should not get translucent
-- [ ] switch to toggle colors on or off depending on plate weight (?)
-- [ ] move bumper button to settings page? (defaults to off)
+- [x] change tempo for cadencia in ptbr
+- [-] use display flex instead of a bunch of rows on exercise page
+- [-] auto save program editor
+- [-] astro fuwari theme
+- [-] switch to toggle colors on or off depending on plate weight (?)
+- [-] move bumper button to settings page? (defaults to off)

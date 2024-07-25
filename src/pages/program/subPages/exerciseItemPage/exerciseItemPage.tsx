@@ -85,7 +85,7 @@ const ExerciseItemPage = (_props: any) => {
                   {item.rpe || item.tempo ? (
                     <View style={styles(activeTheme).setListItemRow}>
                       {item.rpe ? <Text style={styles(activeTheme).label}>RPE:  <Text style={styles(activeTheme).data}>{item.rpe}</Text></Text> : null}
-                      {item.tempo ? <Text style={styles(activeTheme).label}>Tempo:  <Text style={styles(activeTheme).data}>{item.tempo}</Text></Text> : null}
+                      {item.tempo ? <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.tempo}:  <Text style={styles(activeTheme).data}>{item.tempo}</Text></Text> : null}
                     </View>
                   ) : null}
 
