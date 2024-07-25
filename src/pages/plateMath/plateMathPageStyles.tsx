@@ -19,7 +19,7 @@ const styles = (theme: Theme) => {
       padding: 22,
       marginTop: 20,
       borderRadius: 10,
-      height: 260,
+      height: 200,
       justifyContent: "center",
       alignItems: "center",
     },

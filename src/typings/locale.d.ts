@@ -39,10 +39,11 @@ interface Locale {
     title: string;
     weightLabel: string;
     currentBarWeightLabel: string;
-    bumperToggleLabel: string;
     weightRackPage: {
       title: string;
       weightUnitLabel: string;
+      bumperToggleLabel: string;
+      coloredPlatesToggleLabel: string;
       barWeightTitle: string;
       plateRackTitle: string;
       bumperPlatesRackTitle: string;

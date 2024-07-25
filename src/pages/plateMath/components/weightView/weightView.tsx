@@ -9,6 +9,7 @@ interface IProps {
   plates: Plates[];
   activeTheme: Theme;
   weightUnit: string;
+  showColoredPlates: boolean;
 }
 
 const WeightView = (props: IProps) => {
@@ -21,6 +22,7 @@ const WeightView = (props: IProps) => {
             key={`keyPlate${index}`}
             activeTheme={props.activeTheme}
             weightUnit={props.weightUnit}
+            showColoredPlates={props.showColoredPlates}
           />
         );
       })}

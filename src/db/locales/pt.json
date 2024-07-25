@@ -34,10 +34,11 @@
     "title": "Calculadora de Anilhas",
     "weightLabel": "Peso",
     "currentBarWeightLabel": "Peso da barra atual",
-    "bumperToggleLabel": "Anilhas Bumper",
     "weightRackPage": {
       "title": "Plate Math Settings",
       "weightUnitLabel": "Unidade de Peso",
+      "bumperToggleLabel": "Anilhas Bumper",
+      "coloredPlatesToggleLabel": "Anilhas Coloridas",
       "barWeightTitle": "Peso da Barra",
       "plateRackTitle": "Rack de Anilhas (qtd. por anilha)",
       "bumperPlatesRackTitle": "Rack de Anilhas Bumper (qtd. por anilha)",

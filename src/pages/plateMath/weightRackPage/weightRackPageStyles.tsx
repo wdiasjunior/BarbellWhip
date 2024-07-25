@@ -28,6 +28,19 @@ const styles = (theme: Theme) => {
       borderColor: theme.textFaded,
       borderBottomWidth: 1,
     },
+    inputGroupSwitches: {
+      flex: 1,
+      flexDirection: "row",
+      flexWrap: "wrap",
+      justifyContent: "space-between",
+      width: "100%",
+      paddingVertical: 22,
+      borderColor: theme.textFaded,
+      borderBottomWidth: 1,
+    },
+    inputGroupSwitch: {
+      // width: "100%",
+    },
     inputGroupLast: {
       flex: 1,
       width: "100%",
@@ -44,7 +57,7 @@ const styles = (theme: Theme) => {
       color: theme.text,
       minWidth: 47,
     },
-    weightUnitLabel: {
+    switchLabel: {
       fontSize: 20,
       color: theme.text,
     },

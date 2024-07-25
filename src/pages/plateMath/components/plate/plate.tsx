@@ -7,6 +7,7 @@ interface IProps {
   plate: Plates;
   activeTheme: Theme;
   weightUnit: string;
+  showColoredPlates: boolean;
 }
 
 const Plate = (props: IProps) => {
@@ -103,19 +104,25 @@ const Plate = (props: IProps) => {
 
   const computePlateStyle = () => {
     if(props.plate.isBumper) {
-      // TODO - add conditional for color coded plates input
       return Object.assign({...styles(props.activeTheme).bumperPlate});
     } else {
       const hScale = 0.5 + (0.5 * plateDimensions[props.weightUnit][props.plate.plate].size);
       const wScale = 0.7 + (0.3 * plateDimensions[props.weightUnit][props.plate.plate].size);
-      return Object.assign({
-          ...styles(props.activeTheme).plate}, {
-          width: styles(props.activeTheme).plate.width * wScale,
-          height: styles(props.activeTheme).plate.height * hScale,
-          // TODO - add conditional for color coded plates input
-          // backgroundColor: plateDimensions[props.weightUnit][props.weight.plate].color,
-          // borderColor: plateDimensions[props.weightUnit][props.weight.plate].color,
-        });
+      if (props.showColoredPlates) {
+        return Object.assign({
+            ...styles(props.activeTheme).plate}, {
+            width: styles(props.activeTheme).plate.width * wScale,
+            height: styles(props.activeTheme).plate.height * hScale,
+            backgroundColor: plateDimensions[props.weightUnit][props.plate.plate].color,
+            borderColor: plateDimensions[props.weightUnit][props.plate.plate].color,
+          });
+      } else {
+        return Object.assign({
+            ...styles(props.activeTheme).plate}, {
+            width: styles(props.activeTheme).plate.width * wScale,
+            height: styles(props.activeTheme).plate.height * hScale,
+          });
+      }
     }
   }
 

@@ -16,7 +16,9 @@ import {
   plateMathWeightUnit,
   plateMathBarWeight,
   plateMathWeightRack,
+  plateMathShowBumper,
   plateMathBumperPlatesRack,
+  plateMathShowColoredPlates,
 } from "../../../helpers/jotai/atomsWithStorage";
 
 import { useInitialRender } from "../../../helpers/useInitialRender";
@@ -31,7 +33,9 @@ const WeightRackPage = () => {
   const [weightUnit, setWeightUnit] = useAtom<boolean>(plateMathWeightUnit); // false == kg == left, true == lbs == right
   const [barWeight, setBarWeight] = useAtom<BarWeight>(plateMathBarWeight);
   const [weightRack, setWeightRack] = useAtom<WeightRack>(plateMathWeightRack);
+  const [showBumper, setShowBumper] = useAtom<boolean>(plateMathShowBumper);
   const [bumperPlatesRack, setBumperPlatesRack] = useAtom<BumperRack>(plateMathBumperPlatesRack);
+  const [showColoredPlates, setShowColoredPlates] = useAtom<boolean>(plateMathShowColoredPlates);
 
   const handleWeightUnitChange = (_weightUnit: boolean) => {
     const _convertedWeight = weightConversion(currentWeight, _weightUnit);
@@ -61,19 +65,53 @@ const WeightRackPage = () => {
     <View style={styles(activeTheme).container}>
       {!isInitialRender ? (
         <ScrollView style={styles(activeTheme).wrapper}>
-          <View style={styles(activeTheme).inputGroup}>
-            <Text style={styles(activeTheme).inputGroupTitle}>{selectedLocale.plateMathPage.weightRackPage.weightUnitLabel}</Text>
-            <View style={styles(activeTheme).inputWeightRackRow}>
-              <Text style={styles(activeTheme).weightUnitLabel}>kg</Text>
-              <Switch
-                trackColor={{ false: activeTheme.inactive, true: activeTheme.active }}
-                thumbColor={"#f4f3f4"}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={handleWeightUnitChange}
-                value={weightUnit}
-                style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginHorizontal: 18 }}
-              />
-              <Text style={styles(activeTheme).weightUnitLabel}>lbs</Text>
+          <View style={styles(activeTheme).inputGroupSwitches}>
+            <View style={styles(activeTheme).inputGroupSwitch}>
+              <Text style={styles(activeTheme).inputGroupTitle}>{selectedLocale.plateMathPage.weightRackPage.weightUnitLabel}</Text>
+              <View style={styles(activeTheme).inputWeightRackRow}>
+                <Text style={styles(activeTheme).switchLabel}>kg</Text>
+                <Switch
+                  trackColor={{ false: activeTheme.inactive, true: activeTheme.active }}
+                  thumbColor={"#f4f3f4"}
+                  ios_backgroundColor="#3e3e3e"
+                  onValueChange={handleWeightUnitChange}
+                  value={weightUnit}
+                  style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginHorizontal: 18 }}
+                />
+                <Text style={styles(activeTheme).switchLabel}>lbs</Text>
+              </View>
+            </View>
+
+            <View style={styles(activeTheme).inputGroupSwitch}>
+              <Text style={styles(activeTheme).inputGroupTitle}>{selectedLocale.plateMathPage.weightRackPage.bumperToggleLabel}</Text>
+              <View style={styles(activeTheme).inputWeightRackRow}>
+                <Text style={styles(activeTheme).switchLabel}>off</Text>
+                <Switch
+                  trackColor={{ false: activeTheme.inactive, true: activeTheme.active }}
+                  thumbColor={"#f4f3f4"}
+                  ios_backgroundColor="#3e3e3e"
+                  onValueChange={setShowBumper}
+                  value={showBumper}
+                  style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginHorizontal: 18 }}
+                />
+                <Text style={styles(activeTheme).switchLabel}>on</Text>
+              </View>
+            </View>
+
+            <View style={styles(activeTheme).inputGroupSwitch}>
+              <Text style={styles(activeTheme).inputGroupTitle}>{selectedLocale.plateMathPage.weightRackPage.coloredPlatesToggleLabel}</Text>
+              <View style={styles(activeTheme).inputWeightRackRow}>
+                <Text style={styles(activeTheme).switchLabel}>off</Text>
+                <Switch
+                  trackColor={{ false: activeTheme.inactive, true: activeTheme.active }}
+                  thumbColor={"#f4f3f4"}
+                  ios_backgroundColor="#3e3e3e"
+                  onValueChange={setShowColoredPlates}
+                  value={showColoredPlates}
+                  style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginHorizontal: 18 }}
+                />
+                <Text style={styles(activeTheme).switchLabel}>on</Text>
+              </View>
             </View>
           </View>
 
@@ -190,8 +228,6 @@ const WeightRackPage = () => {
           </View>
 
           {/* TODO */}
-          {/*<Text style={styles(activeTheme).inputGroupTitle}>{selectedLocale.plateMathPage.weightRackPage.colorCodedPlatesTitle}</Text>*/}
-          {/*<Text style={styles(activeTheme).inputGroupTitle}>{selectedLocale.plateMathPage.weightRackPage.collarsSwitchTitle}</Text>*/}
           {/*<Text style={styles(activeTheme).inputGroupTitle}>import/export plate math settings ?</Text>*/}
 
         </ScrollView>

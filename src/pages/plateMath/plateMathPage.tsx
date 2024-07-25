@@ -21,6 +21,7 @@ import {
   plateMathBarWeight,
   plateMathWeightRack,
   plateMathBumperPlatesRack,
+  plateMathShowColoredPlates
 } from "../../helpers/jotai/atomsWithStorage";
 
 import { useInitialRender } from "../../helpers/useInitialRender";
@@ -33,10 +34,11 @@ const PlateMathPage = ({ navigation }) => {
   const selectedLocale = useAtomValue(selectedLocaleAtom);
   const [currentWeight, setCurrentWeight] = useAtom<number>(plateMathPageWeight);
   const weightUnit = useAtomValue<boolean>(plateMathWeightUnit); // false == kg == left, true == lbs == right
-  const [showBumper, setShowBumper] = useAtom<boolean>(plateMathShowBumper);
+  const showBumper = useAtomValue<boolean>(plateMathShowBumper);
   const barWeight = useAtomValue<BarWeight>(plateMathBarWeight);
   const weightRack = useAtomValue<WeightRack>(plateMathWeightRack);
   const bumperPlatesRack = useAtomValue<BumperRack>(plateMathBumperPlatesRack);
+  const showColoredPlates = useAtomValue<boolean>(plateMathShowColoredPlates);
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
   const currentPlates = showBumper
                           ? WeightCalc.getPlates(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"], bumperPlatesRack[weightUnit ? "lbs" : "kg"])
@@ -89,7 +91,6 @@ const PlateMathPage = ({ navigation }) => {
   // plate view
   // total weight
   // (bar weight + plates weight)
-  // color coded plates? toggle to turn it on and off?
 
   return (
     <View style={styles(activeTheme).container}>
@@ -122,16 +123,6 @@ const PlateMathPage = ({ navigation }) => {
               <Text style={styles(activeTheme).info}>{selectedLocale.plateMathPage.currentBarWeightLabel}:
                 <Text style={styles(activeTheme).infoWeight}> {barWeight[weightUnit ? "lbs" : "kg"]}{weightUnit ? "lbs" : "kg"}</Text>
               </Text>
-
-              <Text style={styles(activeTheme).bumperLabel}>{selectedLocale.plateMathPage.bumperToggleLabel}</Text>
-              <Switch
-                trackColor={{ false: activeTheme.inactive, true: activeTheme.active }}
-                thumbColor={"#f4f3f4"}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={setShowBumper}
-                value={showBumper}
-                style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginTop: 10 }}
-              />
             </View>
           </View>
 
@@ -139,6 +130,7 @@ const PlateMathPage = ({ navigation }) => {
             plates={currentPlates}
             activeTheme={activeTheme}
             weightUnit={weightUnit ? "lbs" : "kg"}
+            showColoredPlates={showColoredPlates}
           />
 
           <NumberInput

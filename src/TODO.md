@@ -94,5 +94,5 @@
 - [-] use display flex instead of a bunch of rows on exercise page
 - [-] auto save program editor
 - [-] astro fuwari theme
-- [-] switch to toggle colors on or off depending on plate weight (?)
-- [-] move bumper button to settings page? (defaults to off)
+- [x] switch to toggle colors on or off depending on plate weight (?)
+- [x] move bumper button to settings page? (defaults to off)

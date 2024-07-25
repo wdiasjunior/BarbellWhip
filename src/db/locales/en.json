@@ -34,10 +34,11 @@
     "title": "Plate Math",
     "weightLabel": "Weight",
     "currentBarWeightLabel": "Current Bar Weight",
-    "bumperToggleLabel": "Bumper Plates",
     "weightRackPage": {
       "title": "Plate Math Settings",
       "weightUnitLabel": "Weight Unit",
+      "bumperToggleLabel": "Bumper Plates",
+      "coloredPlatesToggleLabel": "Colored Plates",
       "barWeightTitle": "Bar Weight",
       "plateRackTitle": "Plate Rack (quantity per plate)",
       "bumperPlatesRackTitle": "Bumper Plate Rack (quantity per plate)",
