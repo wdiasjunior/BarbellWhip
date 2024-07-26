@@ -9,7 +9,7 @@ interface IProps {
   data: Themes[] | Locales[];
   setSelected: (id: string) => void;
   selected: string;
-  activeTheme: Theme
+  activeTheme: Theme;
 }
 
 const ListSelector = (props: IProps) => {
@@ -37,7 +37,7 @@ const ListSelector = (props: IProps) => {
         )
       })}
     </View>
-  )
+  );
 }
 
 export default ListSelector;

@@ -6,7 +6,6 @@ const styles = (theme: Theme) => {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
     },
-
     exerciseList: {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
@@ -28,12 +27,11 @@ const styles = (theme: Theme) => {
       fontSize: 20,
       lineHeight: 30,
       fontWeight: "bold",
-      flex:1
+      flex: 1,
     },
     exerciseItemIcon: {
       color: theme.text,
     },
-
     AddExerciseButton: {
       flex: 1,
       backgroundColor: theme.active,
@@ -49,22 +47,19 @@ const styles = (theme: Theme) => {
       lineHeight: 35,
       fontWeight: "bold",
     },
-
     RestDayText: {
       color: theme.text,
       fontSize: 20,
       lineHeight: 33,
       fontWeight: "bold",
       marginHorizontal: 20,
-      textAlign: "center"
+      textAlign: "center",
     },
-
     title: {
       color: theme.textHighlight,
       fontSize: 20,
       fontWeight: "bold",
     },
-
     modalContent: {
       justifyContent: "center",
       alignItems: "center",

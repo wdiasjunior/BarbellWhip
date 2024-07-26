@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from "react";
-import { Text, View, ScrollView, TouchableOpacity, Switch } from 'react-native';
+import { Text, View, ScrollView, TouchableOpacity } from "react-native";
 
 import Header from "../../sharedComponents/header/header";
 import Loading from "../../sharedComponents/loading/loading";
@@ -79,18 +79,6 @@ const PlateMathPage = ({ navigation }) => {
     }
     setModalWeightInputVisible(!isModalWeightInputVisible);
   };
-
-  // TODO
-  // add warining message if input weight > total weight in rack
-  // juggernaut plate math page structure
-  // weight unit toggle
-  // weight input
-  // bar input (make plate rack input priority?)
-  // smallest plates input
-  //
-  // plate view
-  // total weight
-  // (bar weight + plates weight)
 
   return (
     <View style={styles(activeTheme).container}>

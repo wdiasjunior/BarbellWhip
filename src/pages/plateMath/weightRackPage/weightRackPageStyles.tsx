@@ -39,7 +39,6 @@ const styles = (theme: Theme) => {
       borderBottomWidth: 1,
     },
     inputGroupSwitch: {
-      // width: "100%",
     },
     inputGroupLast: {
       flex: 1,

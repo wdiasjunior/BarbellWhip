@@ -19,7 +19,6 @@ const styles = (theme: Theme) => {
     wrapper: {
       flex: 1,
     },
-
     noProgramListTextContainer: {
       justifyContent: "center",
       alignItems: "center",
@@ -33,7 +32,6 @@ const styles = (theme: Theme) => {
       fontSize: 24,
       textAlign: "center",
     },
-
     shadowProp: {
       elevation: 3,
       shadowColor: "#171717",
@@ -55,7 +53,6 @@ const styles = (theme: Theme) => {
       fontSize: 20,
       lineHeight: 25,
     },
-
     programList: {
       width: "100%",
       height: "100%",
@@ -99,7 +96,6 @@ const styles = (theme: Theme) => {
       width: 36,
       color: theme.text,
     },
-
     modalContent: {
       justifyContent: "center",
       alignItems: "center",

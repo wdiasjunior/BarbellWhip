@@ -72,7 +72,6 @@ const NumberInput = (props: IProps) => {
     }
   }
 
-  // <Text adjustsFontSizeToFit={true} style={styles(activeTheme).text}>teste</Text>
   return (
     <Modal
       isVisible={props.isModalWeightInputVisible}

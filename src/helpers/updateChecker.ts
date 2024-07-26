@@ -3,8 +3,8 @@ export function updateChecker(installedVersion: string, lastestVersion: string):
     return false;
   }
 
-  const installedVersionParts = installedVersion.split('.').map(Number);
-  const lastestVersionParts = lastestVersion.split('.').map(Number);
+  const installedVersionParts = installedVersion.split(".").map(Number);
+  const lastestVersionParts = lastestVersion.split(".").map(Number);
 
   for(let i = 0; i < lastestVersionParts.length; i++) {
     const installedVersionPart = installedVersionParts[i] || 0;

@@ -25,7 +25,6 @@ const styles = (theme: Theme) => {
       lineHeight: 30,
       fontWeight: "bold",
     },
-
     input: {
       backgroundColor: theme.backgroundSecondary,
       height: 50,
@@ -57,7 +56,6 @@ const styles = (theme: Theme) => {
       lineHeight: 30,
       fontWeight: "bold",
     },
-
     exerciseItem: {
       paddingBottom: 20,
       marginBottom: 16,
@@ -86,7 +84,6 @@ const styles = (theme: Theme) => {
       justifyContent: "flex-start",
       minWidth: "45%",
     },
-
     AddExerciseButton: {
       flex: 1,
       backgroundColor: theme.active,

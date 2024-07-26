@@ -45,11 +45,11 @@ export const styles = (theme: Theme) => {
       lineHeight: 16,
       width: "100%",
       color: theme.backgroundSecondary,
-    }
+    },
   });
 }
 
-// TODO - add proper colors that match the overall theme
+// TODO - change colors to match the overall themes
 export const plateColors = {
   kg: {
     50   : "#8c8c8c",

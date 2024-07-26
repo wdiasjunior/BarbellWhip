@@ -264,7 +264,7 @@ const ExerciseEditorPage = (_props: any) => {
         <Loading />
       )}
     </View>
-  )
+  );
 }
 
 export default ExerciseEditorPage;

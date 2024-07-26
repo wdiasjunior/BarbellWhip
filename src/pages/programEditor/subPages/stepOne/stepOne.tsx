@@ -156,4 +156,5 @@ const StepOne = ({ navigation }) => {
     </View>
   );
 }
+
 export default StepOne;

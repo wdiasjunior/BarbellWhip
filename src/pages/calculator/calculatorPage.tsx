@@ -16,6 +16,7 @@ import {
   calculatorPageRepsAtom,
   calculatorPageWeightAtom,
   calculatorPageWeightUnitAtom,
+  settingsPage1RMFormulasAtom,
 } from "../../helpers/jotai/atomsWithStorage";
 
 import { useInitialRender } from "../../helpers/useInitialRender";
@@ -30,6 +31,7 @@ const CalculatorPage = ({ navigation }) => {
   const [repsPerformed, setRepsPerformed] = useAtom<number>(calculatorPageRepsAtom);
   const [weightLifted, setWeightLifted] = useAtom<number>(calculatorPageWeightAtom);
   const weightUnit = useAtomValue<string>(calculatorPageWeightUnitAtom);
+  const RMFormulas = useAtomValue(settingsPage1RMFormulasAtom);
   const [inputLabel, setInputLabel] = useState("");
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
 
@@ -165,11 +167,11 @@ const CalculatorPage = ({ navigation }) => {
 
             <View style={styles(activeTheme).card1RMRow1}>
               <View style={styles(activeTheme).card1RMCol}>
-                <Text style={styles(activeTheme).weightTop}>{oneRMCalc(weightLifted, repsPerformed, 1)} {weightUnit}</Text>
+                <Text style={styles(activeTheme).weightTop}>{oneRMCalc(weightLifted, repsPerformed, 1, RMFormulas)} {weightUnit}</Text>
                 <Text style={styles(activeTheme).weightSubTop}>1RM</Text>
               </View>
               <View style={styles(activeTheme).card1RMCol}>
-                <Text style={styles(activeTheme).weightTop}>{oneRMCalc(weightLifted, repsPerformed, 5)} {weightUnit}</Text>
+                <Text style={styles(activeTheme).weightTop}>{oneRMCalc(weightLifted, repsPerformed, 5, RMFormulas)} {weightUnit}</Text>
                 <Text style={styles(activeTheme).weightSubTop}>5RM</Text>
               </View>
             </View>
@@ -180,7 +182,7 @@ const CalculatorPage = ({ navigation }) => {
                   return (
                     <View style={styles(activeTheme).card1RMColContentRow} key={"key-rmCol1-"+index}>
                       <Text style={styles(activeTheme).weightSubBottom}>{item}RM</Text>
-                      <Text style={styles(activeTheme).weightBottom}>{oneRMCalc(weightLifted, repsPerformed, item)} {weightUnit}</Text>
+                      <Text style={styles(activeTheme).weightBottom}>{oneRMCalc(weightLifted, repsPerformed, item, RMFormulas)} {weightUnit}</Text>
                     </View>
                   )
                 })}
@@ -190,7 +192,7 @@ const CalculatorPage = ({ navigation }) => {
                   return (
                     <View style={styles(activeTheme).card1RMColContentRow} key={"key-rmCol2-"+index}>
                       <Text style={styles(activeTheme).weightSubBottom}>{item}RM</Text>
-                      <Text style={styles(activeTheme).weightBottom}>{oneRMCalc(weightLifted, repsPerformed, item)} {weightUnit}</Text>
+                      <Text style={styles(activeTheme).weightBottom}>{oneRMCalc(weightLifted, repsPerformed, item, RMFormulas)} {weightUnit}</Text>
                     </View>
                   )
                 })}

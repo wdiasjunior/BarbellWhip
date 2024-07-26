@@ -6,7 +6,6 @@ const styles = (theme: Theme) => {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
     },
-
     cardWarning: {
       backgroundColor: theme.textHighlight,
       padding: 16,
@@ -23,7 +22,6 @@ const styles = (theme: Theme) => {
       fontWeight: "bold",
       textAlign: "center",
     },
-
     cardIncrement: {
       backgroundColor: theme.backgroundSecondary,
       padding: 22,
@@ -79,7 +77,6 @@ const styles = (theme: Theme) => {
       fontSize: 12,
       textAlign: "center",
     },
-
     card1RM: {
       backgroundColor: theme.backgroundSecondary,
       padding: 22,

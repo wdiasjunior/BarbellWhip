@@ -108,7 +108,7 @@ const Plate = (props: IProps) => {
     } else {
       const hScale = 0.5 + (0.5 * plateDimensions[props.weightUnit][props.plate.plate].size);
       const wScale = 0.7 + (0.3 * plateDimensions[props.weightUnit][props.plate.plate].size);
-      if (props.showColoredPlates) {
+      if(props.showColoredPlates) {
         return Object.assign({
             ...styles(props.activeTheme).plate}, {
             width: styles(props.activeTheme).plate.width * wScale,

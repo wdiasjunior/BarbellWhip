@@ -49,7 +49,7 @@ const RMReviewPage = (_props: any) => {
         <Loading />
       )}
     </View>
-  )
+  );
 }
 
 export default React.memo(RMReviewPage);

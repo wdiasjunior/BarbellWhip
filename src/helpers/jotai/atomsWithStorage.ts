@@ -8,28 +8,28 @@ import { locales } from "../../db/locales/";
 const storage = createJSONStorage(() => AsyncStorage);
 
 // Active Program
-const activeProgramAtom = atomWithStorage("activeProgramAtom", {}, storage);
-const activeProgramNameAtom = atomWithStorage("activeProgramNameAtom", "", storage);
+export const activeProgramAtom = atomWithStorage("activeProgramAtom", {}, storage);
+export const activeProgramNameAtom = atomWithStorage("activeProgramNameAtom", "", storage);
 
 // Program page
-const programPageSelectedDayAtom = atomWithStorage("programPageSelectedDayAtom", 0, storage);
-const programPageSelectedWeekAtom = atomWithStorage("programPageSelectedWeekAtom", 0, storage);
+export const programPageSelectedDayAtom = atomWithStorage("programPageSelectedDayAtom", 0, storage);
+export const programPageSelectedWeekAtom = atomWithStorage("programPageSelectedWeekAtom", 0, storage);
 
 // 1RM Calculator Page
-const calculatorPageRepsAtom = atomWithStorage("calculatorPageReps", 1, storage);
-const calculatorPageWeightAtom = atomWithStorage("calculatorPageWeight", 150, storage);
-const calculatorPageWeightUnitAtom = atomWithStorage("calculatorPageWeightUnit", "kg", storage);
+export const calculatorPageRepsAtom = atomWithStorage("calculatorPageReps", 1, storage);
+export const calculatorPageWeightAtom = atomWithStorage("calculatorPageWeight", 150, storage);
+export const calculatorPageWeightUnitAtom = atomWithStorage("calculatorPageWeightUnit", "kg", storage);
 
 // Plate Math Page
-const plateMathPageWeight = atomWithStorage("plateMathPageWeight", 150, storage);
-const plateMathWeightUnit = atomWithStorage("plateMathWeightUnit", false, storage); // false == kg == left, true == lbs == right
-const plateMathShowBumper = atomWithStorage("plateMathShowBumper", false, storage);
-const plateMathShowColoredPlates = atomWithStorage("plateMathShowColoredPlates", false, storage);
-const plateMathBarWeight = atomWithStorage("plateMathBarWeight", {
+export const plateMathPageWeight = atomWithStorage("plateMathPageWeight", 150, storage);
+export const plateMathWeightUnit = atomWithStorage("plateMathWeightUnit", false, storage); // false == kg == left, true == lbs == right
+export const plateMathShowBumper = atomWithStorage("plateMathShowBumper", false, storage);
+export const plateMathShowColoredPlates = atomWithStorage("plateMathShowColoredPlates", false, storage);
+export const plateMathBarWeight = atomWithStorage("plateMathBarWeight", {
   lbs: 45,
   kg: 20,
 }, storage);
-const plateMathWeightRack = atomWithStorage("plateMathWeightRack", {
+export const plateMathWeightRack = atomWithStorage("plateMathWeightRack", {
   kg: {
     50   : 0,
     25   : 0,
@@ -56,7 +56,7 @@ const plateMathWeightRack = atomWithStorage("plateMathWeightRack", {
     1.25 : 2,
   }
 }, storage);
-const plateMathBumperPlatesRack = atomWithStorage("plateMathBumperPlatesRack", {
+export const plateMathBumperPlatesRack = atomWithStorage("plateMathBumperPlatesRack", {
   kg: {
     25 : 0,
     20 : 0,
@@ -73,17 +73,24 @@ const plateMathBumperPlatesRack = atomWithStorage("plateMathBumperPlatesRack", {
   },
 }, storage);
 
-// Settings Page - for future reference only
-// const settingsPageWeightRoundAtom = atomWithStorage("settingsPageWeightRound", true, storage);
-// object with keys for every calc funtion and every value is true by defalut
-// const settingsPage1RMCalculationFormulasAtom = atomWithStorage("settingsPage1RMCalculationFormulas", {}, storage);
+// Settings Page
+export const settingsPageWeightRoundAtom = atomWithStorage("settingsPageWeightRoundAtom", true, storage);
+export const settingsPage1RMFormulasAtom = atomWithStorage("settingsPage1RMFormulasAtom", {
+  epley: true,
+  brzycki: true,
+  lombardi: true,
+  mayhew: true,
+  mcglothin: true,
+  oconner: true,
+  wathen: true,
+}, storage);
 
 // Theme
-const activeThemeIdAtom = atomWithStorage("activeThemeIdAtom", "dark", storage);
-const activeThemeAtom = atom((get) => {
+export const activeThemeIdAtom = atomWithStorage("activeThemeIdAtom", "dark", storage);
+export const activeThemeAtom = atom((get) => {
   const themeId = get(activeThemeIdAtom);
   const themeIndex = themes.findIndex((t) => t.id === themeId);
-  if (themeIndex >= 0) {
+  if(themeIndex >= 0) {
     return themes[themeIndex].theme;
   } else {
     return themes[0].theme;
@@ -91,34 +98,13 @@ const activeThemeAtom = atom((get) => {
 });
 
 // Locale
-const selectedLocaleIdAtom = atomWithStorage("selectedLocaleIdAtom", "english", storage);
-const selectedLocaleAtom = atom((get) => {
+export const selectedLocaleIdAtom = atomWithStorage("selectedLocaleIdAtom", "english", storage);
+export const selectedLocaleAtom = atom((get) => {
   const localeId = get(selectedLocaleIdAtom);
   const localeIndex = locales.findIndex((t) => t.id === localeId);
-  if (localeIndex >= 0) {
+  if(localeIndex >= 0) {
     return locales[localeIndex].locale;
   } else {
     return locales[0].locale;
   }
 });
-
-export {
-  activeProgramAtom,
-  activeProgramNameAtom,
-  programPageSelectedDayAtom,
-  programPageSelectedWeekAtom,
-  calculatorPageRepsAtom,
-  calculatorPageWeightAtom,
-  calculatorPageWeightUnitAtom,
-  plateMathPageWeight,
-  plateMathWeightUnit,
-  plateMathShowBumper,
-  plateMathShowColoredPlates,
-  plateMathBarWeight,
-  plateMathWeightRack,
-  plateMathBumperPlatesRack,
-  activeThemeIdAtom,
-  activeThemeAtom,
-  selectedLocaleIdAtom,
-  selectedLocaleAtom,
-};

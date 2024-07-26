@@ -5,11 +5,11 @@ export const themes: Themes[] = [
   {
     id: "light",
     name: "Light",
-    theme: light
+    theme: light,
   },
   {
     id: "dark",
     name: "Dark",
-    theme: dark
+    theme: dark,
   },
 ];

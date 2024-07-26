@@ -25,8 +25,8 @@ interface Locale {
       altExercise1: string;
       altExercise2: string;
       description: string;
-    }
-  }
+    };
+  };
   calculatorPage: {
     title: string;
     weightLifted: string;
@@ -34,7 +34,7 @@ interface Locale {
     rmTitle: string;
     rmPercentageTitle: string;
     textWarning: string;
-  }
+  };
   plateMathPage: {
     title: string;
     weightLabel: string;
@@ -49,8 +49,8 @@ interface Locale {
       bumperPlatesRackTitle: string;
       colorCodedPlatesTitle: string;
       collarsSwitchTitle: string;
-    }
-  }
+    };
+  };
   programEditorPage: {
     title: string;
     noProgramListTextTitle: string;
@@ -62,7 +62,7 @@ interface Locale {
       share: string;
       makeCopy: string;
       delete: string;
-    }
+    };
     programEditorStep1: {
       title: string;
       title2: string;
@@ -71,14 +71,14 @@ interface Locale {
       add1RMexerciseButton: string;
       RMexercise: string;
       weightLabel: string;
-    }
+    };
     programEditorStep2: {
       title: string;
       title2: string;
       tabTitle: string;
       addWeekButton: string;
       week: string;
-    }
+    };
     programEditorStep3: {
       title: string;
       title2: string;
@@ -86,7 +86,7 @@ interface Locale {
       emptyDayInfo: string;
       addExerciseButton: string;
       simpleExerciseModalLabel: string;
-    }
+    };
     exerciseEditorPage: {
       title: string;
       exerciseNameInfo: string;
@@ -101,8 +101,8 @@ interface Locale {
       altExercise2: string;
       description: string;
       addExerciseButton: string;
-    }
-  }
+    };
+  };
   settingsPage: {
     title: string;
     themeSelectorTitle: string;
@@ -120,8 +120,14 @@ interface Locale {
     updateCheckErrorMessage: string;
     installUpdateButton: string;
     closeModalButtonLabel: string;
-  }
+    okModalButtonLabel: string;
+    cancelModalButtonLabel: string;
+    weightRoundingTitle: string;
+    weightRoundingDescription: string;
+    calculationFormulasTitle: string;
+    calculationFormulasDescription: string;
+  };
   numberInputModal: {
     cancelButtonLabel: string;
-  }
+  };
 }

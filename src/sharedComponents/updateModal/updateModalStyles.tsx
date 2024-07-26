@@ -24,7 +24,7 @@ const styles = (theme: Theme) => {
       transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }],
       marginLeft: 12,
       top: -2,
-      position: "relative"
+      position: "relative",
     },
     row: {
       flexDirection: "row",
@@ -38,7 +38,6 @@ const styles = (theme: Theme) => {
       marginLeft: 30,
     },
     button: {
-
     },
   });
 }

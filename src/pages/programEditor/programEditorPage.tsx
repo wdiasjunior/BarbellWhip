@@ -33,7 +33,7 @@ import { trainingProgramCleanUp } from "../../helpers/trainingProgramCleanUp";
 
 import styles from "./programEditorPageStyles";
 
-type ProgramOptionModalAction = "setActive" | "edit" | "share" | "delete" | "copy"
+type ProgramOptionModalAction = "setActive" | "edit" | "share" | "delete" | "copy";
 
 const ProgramEditorPage = ({ navigation }) => {
 

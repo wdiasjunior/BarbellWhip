@@ -12,7 +12,7 @@ interface WeightRack {
     1.25: PlateColorSize;
     1: PlateColorSize;
     0.5: PlateColorSize;
-  }
+  };
   lbs: {
     100: PlateColorSize;
     55: PlateColorSize;
@@ -23,7 +23,7 @@ interface WeightRack {
     5: PlateColorSize;
     2.5: PlateColorSize;
     1.25: PlateColorSize;
-  }
+  };
 }
 
 interface BumperRack extends WeightRack {
@@ -33,14 +33,14 @@ interface BumperRack extends WeightRack {
     15: PlateColorSize;
     10: PlateColorSize;
     5: PlateColorSize;
-  }
+  };
   lbs: {
     55: PlateColorSize;
     45: PlateColorSize;
     35: PlateColorSize;
     25: PlateColorSize;
     10: PlateColorSize;
-  }
+  };
 }
 
 interface PlateColorSize {

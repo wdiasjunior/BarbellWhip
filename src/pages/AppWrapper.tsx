@@ -1,8 +1,8 @@
 import React from "react";
-import { StatusBar } from 'react-native';
+import { StatusBar } from "react-native";
 
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import DrawerNavigator from '../navigators/DrawerNavigator';
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
+import DrawerNavigator from "../navigators/DrawerNavigator";
 
 import { Provider, useAtomValue } from "jotai";
 import { activeThemeAtom } from "../helpers/jotai/atomsWithStorage";

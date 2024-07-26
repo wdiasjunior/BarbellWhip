@@ -1,8 +1,8 @@
 interface TrainingProgramFile {
   programName: string;
   weightUnit: string;
-  oneRMs: OneRMs[],
-  trainingProgram: TrainingProgram[]
+  oneRMs: OneRMs[];
+  trainingProgram: TrainingProgram[];
 }
 
 interface OneRMs {
@@ -12,7 +12,7 @@ interface OneRMs {
 }
 
 interface TrainingProgram {
-  week: Week[]
+  week: Week[];
 }
 
 interface Week {

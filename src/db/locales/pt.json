@@ -114,7 +114,13 @@
     "downloadErrorMessage": "Erro ao baixar atualização",
     "updateCheckErrorMessage": "Erro ao procurar por atualizações",
     "installUpdateButton": "Instalar atualização",
-    "closeModalButtonLabel": "FECHAR"
+    "closeModalButtonLabel": "FECHAR",
+    "okModalButtonLabel": "OK",
+    "cancelModalButtonLabel": "CANCELAR",
+    "weightRoundingTitle": "Arredondar Pesos",
+    "weightRoundingDescription": "Pesos são arredondados para 2.5kg ou 5lbs",
+    "calculationFormulasTitle": "Fórmulas para Cálculo",
+    "calculationFormulasDescription": "Selecione as fórmulas usadas para calcular o seu 1RM"
   },
   "numberInputModal": {
     "cancelButtonLabel": "CANCELAR"

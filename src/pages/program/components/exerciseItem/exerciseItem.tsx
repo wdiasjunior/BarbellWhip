@@ -30,7 +30,7 @@ const ExerciseItem = (props: IProps) => {
           onermOBJ: props.onermOBJ,
           rmId: props.rmId,
           exerciseOBJ: props.exerciseOBJ,
-          weightUnit: props.weightUnit
+          weightUnit: props.weightUnit,
         });
       }}
     >
@@ -38,7 +38,7 @@ const ExerciseItem = (props: IProps) => {
         {props.exerciseName}
       </Text>
     </TouchableOpacity>
-  )
+  );
 }
 
 export default ExerciseItem;

@@ -27,13 +27,13 @@ const DrawerNavigator = () => {
       screenOptions={({ route }) => ({
         drawerIcon: ({ focused, color, size }) => {
           let iconName;
-          if (route.name === "ProgramDrawer") {
+          if(route.name === "ProgramDrawer") {
             iconName = focused ? "barbell-sharp" : "barbell-sharp";
-          } else if (route.name === "Program Editor") {
+          } else if(route.name === "Program Editor") {
             iconName = focused ? "file-tray-full" : "file-tray-full-outline";
-          // } else if (route.name === "PR Tracker") {
+          // } else if(route.name === "PR Tracker") {
           //   iconName = focused ? "bar-chart" : "bar-chart-outline";
-        } else if (route.name === "Settings") {
+          } else if(route.name === "Settings") {
             iconName = focused ? "settings" : "settings-outline";
           }
           return <Ionicons name={iconName} size={size} color={color} />;

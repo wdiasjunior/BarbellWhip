@@ -13,7 +13,6 @@ const styles = (theme: Theme) => {
       flex: 1,
       paddingHorizontal: 20,
     },
-
     cardIncrement: {
       backgroundColor: theme.backgroundSecondary,
       padding: 22,
@@ -82,7 +81,6 @@ const styles = (theme: Theme) => {
       marginBottom: 10,
       textAlign: "center",
     },
-
     cardWarning: {
       backgroundColor: theme.textHighlight,
       padding: 16,
@@ -98,7 +96,6 @@ const styles = (theme: Theme) => {
       fontWeight: "bold",
       textAlign: "center",
     },
-
     modalContent: {
       justifyContent: "center",
       alignItems: "center",

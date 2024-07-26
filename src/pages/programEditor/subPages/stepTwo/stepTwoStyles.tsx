@@ -7,7 +7,6 @@ const styles = (theme: Theme) => {
       height: "100%",
       backgroundColor: theme.backgroundPrimary,
     },
-
     AddWeekButton: {
       backgroundColor: theme.active,
       borderRadius: 10,
@@ -22,7 +21,6 @@ const styles = (theme: Theme) => {
       lineHeight: 35,
       fontWeight: "bold",
     },
-
     weekList: {
       width: "100%",
       height: "100%",
@@ -70,7 +68,6 @@ const styles = (theme: Theme) => {
     weekItemIcon: {
       color: theme.text,
     },
-
     title: {
       color: theme.textHighlight,
       fontSize: 20,
