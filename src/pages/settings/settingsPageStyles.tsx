@@ -8,9 +8,12 @@ const styles = (theme: Theme) => {
       paddingHorizontal: 20,
       paddingTop: 20,
     },
-    itemContainer: {
+    rowContainer: {
       flexDirection: "row",
       marginBottom: 20,
+    },
+    weightRoundingTextContainer: {
+      flex: 1,
     },
     title: {
       color: theme.textHighlight,

@@ -36,8 +36,8 @@ const SettingsPage = () => {
   return (
     <View style={styles(activeTheme).container}>
 
-      <View style={styles(activeTheme).itemContainer}>
-        <View>
+      <View style={styles(activeTheme).rowContainer}>
+        <View style={styles(activeTheme).weightRoundingTextContainer}>
           <Text style={styles(activeTheme).title}>{selectedLocale.settingsPage.weightRoundingTitle}</Text>
           <Text style={styles(activeTheme).subtitle}>{selectedLocale.settingsPage.weightRoundingDescription}</Text>
         </View>
