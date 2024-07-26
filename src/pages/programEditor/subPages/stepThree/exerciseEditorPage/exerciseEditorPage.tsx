@@ -48,6 +48,7 @@ const ExerciseEditorPage = (_props: any) => {
       sets: "",
       reps: "",
       percentage: "",
+      weight: "",
       rpe: "",
       tempo: "",
       rest: "",
@@ -145,27 +146,44 @@ const ExerciseEditorPage = (_props: any) => {
                     </View>
                   </View>
 
-                  <View style={styles(activeTheme).row}>
+                  {exerciseData.RMid !== "0" ? (
+                    <View style={styles(activeTheme).row}>
+                      <View style={styles(activeTheme).col}>
+                        <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.percentage}</Text>
+                        <TextInput
+                          keyboardType="numeric"
+                          style={styles(activeTheme).input}
+                          placeholderTextColor={activeTheme.placeholderText}
+                          cursorColor={activeTheme.active}
+                          onChangeText={(input) => editExerciseField("percentage", input, index)}
+                          value={item.percentage ? item.percentage+"" : ""}
+                          returnKeyType="done"
+                        />
+                      </View>
+                      <View style={styles(activeTheme).colWeight}>
+                        <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.weightLabel}</Text>
+                        <Text style={styles(activeTheme).weightText}>
+                          {isNaN(oneRMweight?.weight * item.percentage / 100) ? "" :
+                            Math.ceil((oneRMweight?.weight * (item.percentage / 100) / weightRoundingFactor)) * weightRoundingFactor } {!isNaN(oneRMweight?.weight * item.percentage / 100) ? programEditorData.weightUnit : "0 " + programEditorData.weightUnit}
+                        </Text>
+                      </View>
+                    </View>
+                  ) : null}
+
+                  {exerciseData.RMid === "0" ? (
                     <View style={styles(activeTheme).col}>
-                      <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.percentage}</Text>
+                      <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.weightLabel}</Text>
                       <TextInput
                         keyboardType="numeric"
                         style={styles(activeTheme).input}
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
-                        onChangeText={(input) => editExerciseField("percentage", input, index)}
-                        value={item.percentage ? item.percentage+"" : ""}
+                        onChangeText={(input) => editExerciseField("weight", input, index)}
+                        value={item.weight ? item.weight+"" : ""}
                         returnKeyType="done"
                       />
                     </View>
-                    <View style={styles(activeTheme).colWeight}>
-                      <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.weightLabel}</Text>
-                      <Text style={styles(activeTheme).weightText}>
-                        {isNaN(oneRMweight?.weight * item.percentage / 100) ? "" :
-                          Math.ceil((oneRMweight?.weight * (item.percentage / 100) / weightRoundingFactor)) * weightRoundingFactor } {!isNaN(oneRMweight?.weight * item.percentage / 100) ? programEditorData.weightUnit : "0 " + programEditorData.weightUnit}
-                      </Text>
-                    </View>
-                  </View>
+                  ) : null}
 
                   <View style={styles(activeTheme).row}>
                     <View style={styles(activeTheme).col}>
@@ -210,32 +228,30 @@ const ExerciseEditorPage = (_props: any) => {
                     </View>
                   </View>
 
-                  <View style={styles(activeTheme).row}>
-                    <View style={styles(activeTheme).col}>
-                      <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.altExercise1}</Text>
-                      <TextInput
-                        keyboardType="numeric"
-                        style={styles(activeTheme).input}
-                        placeholderTextColor={activeTheme.placeholderText}
-                        cursorColor={activeTheme.active}
-                        onChangeText={(input) => editExerciseField("altExercise1", input, index)}
-                        value={item.altExercise1 ? item.altExercise1+"" : ""}
-                        returnKeyType="done"
-                      />
-                    </View>
+                  <View style={styles(activeTheme).col}>
+                    <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.altExercise1}</Text>
+                    <TextInput
+                      keyboardType="numeric"
+                      style={styles(activeTheme).input}
+                      placeholderTextColor={activeTheme.placeholderText}
+                      cursorColor={activeTheme.active}
+                      onChangeText={(input) => editExerciseField("altExercise1", input, index)}
+                      value={item.altExercise1 ? item.altExercise1+"" : ""}
+                      returnKeyType="done"
+                    />
+                  </View>
 
-                    <View style={styles(activeTheme).col}>
-                      <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.altExercise2}</Text>
-                      <TextInput
-                        keyboardType="numeric"
-                        style={styles(activeTheme).input}
-                        placeholderTextColor={activeTheme.placeholderText}
-                        cursorColor={activeTheme.active}
-                        onChangeText={(input) => editExerciseField("altExercise2", input, index)}
-                        value={item.altExercise2 ? item.altExercise2+"" : ""}
-                        returnKeyType="done"
-                      />
-                    </View>
+                  <View style={styles(activeTheme).ccol}>
+                    <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.altExercise2}</Text>
+                    <TextInput
+                      keyboardType="numeric"
+                      style={styles(activeTheme).input}
+                      placeholderTextColor={activeTheme.placeholderText}
+                      cursorColor={activeTheme.active}
+                      onChangeText={(input) => editExerciseField("altExercise2", input, index)}
+                      value={item.altExercise2 ? item.altExercise2+"" : ""}
+                      returnKeyType="done"
+                    />
                   </View>
 
                   <View style={styles(activeTheme).col}>

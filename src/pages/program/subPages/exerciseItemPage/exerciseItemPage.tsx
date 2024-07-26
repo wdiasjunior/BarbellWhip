@@ -74,7 +74,7 @@ const ExerciseItemPage = (_props: any) => {
                     </View>
                   ) : null}
 
-                  {item.percentage ? (
+                  {(rmId !== "0" && item.percentage) ? (
                     <View style={styles(activeTheme).setListItemRow}>
                       {item.percentage ?
                         <Text style={styles(activeTheme).label}>
@@ -85,7 +85,13 @@ const ExerciseItemPage = (_props: any) => {
                       }
                       {item.percentage ? <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.percentage}:  <Text style={styles(activeTheme).data}>{item.percentage}%</Text></Text> : null}
                     </View>
-                  ) : null }
+                  ) : null}
+
+                  {rmId === "0" ? (
+                    <Text style={styles(activeTheme).label}>
+                      {selectedLocale.programPage.exerciseInfo.weightLabel}:  <Text style={styles(activeTheme).weightText}>{item.weight}{weightUnit}</Text>
+                    </Text>
+                  ) : null}
 
                   {item.rpe || item.tempo ? (
                     <View style={styles(activeTheme).setListItemRow}>

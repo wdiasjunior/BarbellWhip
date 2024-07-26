@@ -156,11 +156,11 @@ const CalculatorPage = ({ navigation }) => {
             </View>
           </View>
 
-          {repsPerformed > 12 &&
+          {repsPerformed > 12 ? (
             <View style={styles(activeTheme).cardWarning}>
               <Text style={styles(activeTheme).textWarning}>{selectedLocale.calculatorPage.textWarning}</Text>
             </View>
-          }
+          ) : null}
 
           <View style={styles(activeTheme).card1RM}>
             <Text style={styles(activeTheme).title1RM}>{selectedLocale.calculatorPage.rmTitle}</Text>

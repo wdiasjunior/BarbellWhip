@@ -68,6 +68,7 @@ const StepThree = ({ navigation }) => {
           sets: "",
           reps: "",
           percentage: "",
+          weight: "",
           rpe: "",
           tempo: "",
           rest: "",

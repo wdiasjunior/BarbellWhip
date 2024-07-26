@@ -27,7 +27,7 @@
     "weightLifted": "Weight Lifted",
     "repsPerformed": "Reps Performed",
     "rmTitle": "One Rep Max",
-    "rmPercentageTitle": "Percetage of 1RM",
+    "rmPercentageTitle": "Percentage of 1RM",
     "textWarning": "WARNING. Calculation accuracy drops drastically when calculating above 12 reps."
   },
   "plateMathPage": {

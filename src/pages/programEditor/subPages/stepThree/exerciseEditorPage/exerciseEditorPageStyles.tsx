@@ -35,7 +35,7 @@ const styles = (theme: Theme) => {
       borderRadius: 12,
       marginVertical: 6,
       padding: 10,
-      paddingLeft: 22,
+      paddingLeft: 22, // TODO - make this smaller
       color: theme.text,
       fontSize: 20,
       lineHeight: 30,
@@ -50,7 +50,7 @@ const styles = (theme: Theme) => {
       borderRadius: 12,
       marginVertical: 6,
       padding: 10,
-      paddingLeft: 22,
+      paddingLeft: 22, // TODO - make this smaller
       color: theme.text,
       fontSize: 20,
       lineHeight: 30,

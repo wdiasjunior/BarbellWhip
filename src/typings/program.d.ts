@@ -30,6 +30,7 @@ interface ExerciseSet {
   sets: string;
   reps: string;
   percentage: string;
+  weight: string;
   rpe: string;
   tempo: string;
   rest: string;
