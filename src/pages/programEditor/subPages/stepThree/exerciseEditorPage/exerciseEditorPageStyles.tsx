@@ -60,7 +60,7 @@ const styles = (theme: Theme) => {
       paddingBottom: 20,
       marginBottom: 16,
       borderBottomWidth: 1,
-      borderBottomColor: theme.textFaded,
+      borderBottomColor: theme.placeholderText,
     },
     exerciseItemRemoveIconContainer: {
       width: 25,
@@ -93,7 +93,7 @@ const styles = (theme: Theme) => {
       alignItems: "center",
     },
     AddExerciseButtonText: {
-      color: theme.text,
+      color: theme.statusBar === "dark-content" ? theme.backgroundSecondary : theme.text,
       fontSize: 16,
       lineHeight: 35,
       fontWeight: "bold",

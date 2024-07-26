@@ -25,7 +25,7 @@ const styles = (theme: Theme) => {
       flex: 1,
       width: "100%",
       paddingVertical: 22,
-      borderColor: theme.textFaded,
+      borderColor: theme.placeholderText,
       borderBottomWidth: 1,
     },
     inputGroupSwitches: {
@@ -35,7 +35,7 @@ const styles = (theme: Theme) => {
       justifyContent: "space-between",
       width: "100%",
       paddingVertical: 22,
-      borderColor: theme.textFaded,
+      borderColor: theme.placeholderText,
       borderBottomWidth: 1,
     },
     inputGroupSwitch: {

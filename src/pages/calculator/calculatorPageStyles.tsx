@@ -107,7 +107,7 @@ const styles = (theme: Theme) => {
       marginTop: 20,
       paddingBottom: 16,
       borderBottomWidth: 2,
-      borderColor: theme.textFaded,
+      borderColor: theme.placeholderText,
     },
     card1RMRow2: {
       flexDirection: "row",

@@ -27,7 +27,7 @@
     - [ ] oneRMs atom with storage object for semi persistent data that takes priority over the object in the json file for the percentage math (?)
 
 ## program management / program editor page
-  - [ ] share intent - share json from other apps and import programs
+  - [-] share intent - share json from other apps and import programs
   - [ ] add warning on rm/week/exercise items delete attempt
   - [-] change program editor program data to atom with storage in both apps(?) to prevent accidental discard of progress (kinda redundant if there's a warning on go back)
   - [ ] replace `navigation.replace("ProgramEditorStack");` with navigation reset? and prevent android back button on program editor stack from exiting and losing progress
@@ -47,9 +47,6 @@
   - [ ] display some fancy graphs/charts
   - [ ] show graph with x axis for the passage of time and the y axis for the weight lifted
   - [ ] percentage math for lastest entry of exercise below the graph (kinda like 1rm calculator page)
-
-## program downloader page (?)
-  - [ ] fetch from a git repo (?)
 
 ## settings page
   - [ ] about? - separate page for this (?)
@@ -96,7 +93,7 @@
   - [ ] auto save program editor
 - [x] change tempo for cadencia in ptbr
 - [-] use display flex instead of a bunch of rows on exercise page
-- [ ] add weight input to simple exercise and hide percentage/weight calc row
+- [-] add weight input to simple exercise and hide percentage/weight calc row
 - [-] astro fuwari theme
 - [x] switch to toggle colors on or off depending on plate weight (?)
 - [x] move bumper button to settings page? (defaults to off)

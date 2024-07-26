@@ -12,13 +12,13 @@ const styles = (theme: Theme) => {
     controlsContainer: {
       flex: 1,
       paddingHorizontal: 20,
+      justifyContent: "center",
     },
     cardIncrement: {
       backgroundColor: theme.backgroundSecondary,
       padding: 22,
-      marginTop: 20,
       borderRadius: 10,
-      height: 200,
+      height: 500,
       justifyContent: "center",
       alignItems: "center",
     },

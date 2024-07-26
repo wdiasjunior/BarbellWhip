@@ -44,7 +44,7 @@ export const styles = (theme: Theme) => {
       fontSize: 16,
       lineHeight: 16,
       width: "100%",
-      color: theme.backgroundSecondary,
+      color: theme.statusBar === "light-content" ? theme.backgroundSecondary : theme.text,
     },
   });
 }

@@ -18,7 +18,7 @@ const styles = (theme: Theme) => {
       paddingBottom: 20,
       marginBottom: 16,
       borderBottomWidth: 1,
-      borderBottomColor: theme.textFaded,
+      borderBottomColor: theme.placeholderText,
     },
     setListLastItem: {
       paddingBottom: 20,

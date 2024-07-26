@@ -42,7 +42,7 @@ const styles = (theme: Theme) => {
       alignItems: "center",
     },
     AddExerciseButtonText: {
-      color: theme.text,
+      color: theme.statusBar === "dark-content" ? theme.backgroundSecondary : theme.text,
       fontSize: 16,
       lineHeight: 35,
       fontWeight: "bold",

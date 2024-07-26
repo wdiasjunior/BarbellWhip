@@ -22,7 +22,7 @@ const styles = (theme: Theme) => {
       height: 46,
       marginBottom: 6,
       borderBottomWidth: 1,
-      borderBottomColor: theme.textFaded,
+      borderBottomColor: theme.placeholderText,
     },
     iconContainer: {
       marginRight: 12,

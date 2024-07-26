@@ -16,7 +16,7 @@ const styles = (theme: Theme) => {
       alignItems: "center",
     },
     AddWeekButtonText: {
-      color: theme.text,
+      color: theme.statusBar === "dark-content" ? theme.backgroundSecondary : theme.text,
       fontSize: 16,
       lineHeight: 35,
       fontWeight: "bold",
@@ -67,6 +67,9 @@ const styles = (theme: Theme) => {
     },
     weekItemIcon: {
       color: theme.text,
+    },
+    weekSelectedItemIcon: {
+      color: theme.backgroundSecondary,
     },
     title: {
       color: theme.textHighlight,

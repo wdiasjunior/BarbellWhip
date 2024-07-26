@@ -83,8 +83,8 @@ const PlateMathPage = ({ navigation }) => {
   return (
     <View style={styles(activeTheme).container}>
       {!isInitialRender ? (
-        <ScrollView style={styles(activeTheme).wrapper} overScrollMode="never">
-          <View style={styles(activeTheme).controlsContainer}>
+        <View style={styles(activeTheme).controlsContainer}>
+          {/*<ScrollView style={styles(activeTheme).wrapper} overScrollMode="never">*/}
 
             <View style={styles(activeTheme).cardIncrement}>
               <View style={styles(activeTheme).rowWrapper}>
@@ -111,15 +111,15 @@ const PlateMathPage = ({ navigation }) => {
               <Text style={styles(activeTheme).info}>{selectedLocale.plateMathPage.currentBarWeightLabel}:
                 <Text style={styles(activeTheme).infoWeight}> {barWeight[weightUnit ? "lbs" : "kg"]}{weightUnit ? "lbs" : "kg"}</Text>
               </Text>
-            </View>
-          </View>
 
-          <WeightView
-            plates={currentPlates}
-            activeTheme={activeTheme}
-            weightUnit={weightUnit ? "lbs" : "kg"}
-            showColoredPlates={showColoredPlates}
-          />
+              <WeightView
+                plates={currentPlates}
+                activeTheme={activeTheme}
+                weightUnit={weightUnit ? "lbs" : "kg"}
+                showColoredPlates={showColoredPlates}
+              />
+
+            </View>
 
           <NumberInput
             toggleModal={toggleModal}
@@ -128,7 +128,8 @@ const PlateMathPage = ({ navigation }) => {
             setModalWeightInputVisible={setModalWeightInputVisible}
           />
 
-        </ScrollView>
+          {/*</ScrollView>*/}
+        </View>
       ) : (
         <Loading />
       )}

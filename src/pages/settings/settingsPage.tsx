@@ -47,7 +47,7 @@ const SettingsPage = () => {
           ios_backgroundColor="#3e3e3e"
           onValueChange={setWeightRound}
           value={weightRound}
-          style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginHorizontal: 18 }}
+          style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginHorizontal: 8, marginTop: 8 }}
         />
       </View>
 
