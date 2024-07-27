@@ -74,7 +74,7 @@ const ExerciseItemPage = (_props: any) => {
                     </View>
                   ) : null}
 
-                  {(rmId !== "0" && item.percentage) ? (
+                  {(rmId !== "0" && item.weight !== "" && item.percentage) ? (
                     <View style={styles(activeTheme).setListItemRow}>
                       {item.percentage ?
                         <Text style={styles(activeTheme).label}>
