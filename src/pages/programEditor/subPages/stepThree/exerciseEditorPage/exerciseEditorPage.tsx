@@ -217,7 +217,7 @@ const ExerciseEditorPage = (_props: any) => {
                     <View style={styles(activeTheme).col}>
                       <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.rest}</Text>
                       <TextInput
-                        keyboardType="numeric"
+                        keyboardType="default"
                         style={styles(activeTheme).input}
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
@@ -231,7 +231,7 @@ const ExerciseEditorPage = (_props: any) => {
                   <View style={styles(activeTheme).col}>
                     <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.altExercise1}</Text>
                     <TextInput
-                      keyboardType="numeric"
+                      keyboardType="default"
                       style={styles(activeTheme).input}
                       placeholderTextColor={activeTheme.placeholderText}
                       cursorColor={activeTheme.active}
@@ -244,7 +244,7 @@ const ExerciseEditorPage = (_props: any) => {
                   <View style={styles(activeTheme).ccol}>
                     <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.altExercise2}</Text>
                     <TextInput
-                      keyboardType="numeric"
+                      keyboardType="default"
                       style={styles(activeTheme).input}
                       placeholderTextColor={activeTheme.placeholderText}
                       cursorColor={activeTheme.active}
@@ -257,6 +257,7 @@ const ExerciseEditorPage = (_props: any) => {
                   <View style={styles(activeTheme).col}>
                     <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.description}</Text>
                     <TextInput
+                      keyboardType="default"
                       style={[styles(activeTheme).input, { height: "auto", flex: 0 }]}
                       placeholderTextColor={activeTheme.placeholderText}
                       cursorColor={activeTheme.active}
