@@ -5,8 +5,13 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { useAtom, useAtomValue } from "jotai";
-import { programEditorDataAtom, selectedWeekAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
-import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
+import {
+  activeThemeAtom,
+  selectedLocaleAtom,
+  programEditorDataAtom,
+  selectedWeekAtom,
+  programEditorModeAtom,
+} from "../../../../helpers/jotai/atoms";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
 
 import { deepClone } from "../../../../helpers/deepClone";

@@ -17,7 +17,7 @@ import {
   calculatorPageWeightAtom,
   calculatorPageWeightUnitAtom,
   settingsPage1RMFormulasAtom,
-} from "../../helpers/jotai/atomsWithStorage";
+} from "../../helpers/jotai/atoms";
 
 import { useInitialRender } from "../../helpers/useInitialRender";
 

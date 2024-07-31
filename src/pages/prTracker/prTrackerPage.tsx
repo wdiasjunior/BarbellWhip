@@ -4,7 +4,7 @@ import { Text, View, TouchableOpacity, SafeAreaView, ScrollView } from "react-na
 import styles from "./prTrackerPageStyles";
 
 import { useAtomValue } from "jotai";
-import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atoms";
 
 const PRTrackerPage = ({ navigation }) => {
 

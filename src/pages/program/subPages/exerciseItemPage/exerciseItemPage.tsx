@@ -12,7 +12,7 @@ import {
   activeThemeAtom,
   selectedLocaleAtom,
   settingsPageWeightRoundAtom,
-} from "../../../../helpers/jotai/atomsWithStorage";
+} from "../../../../helpers/jotai/atoms";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
 import { round } from "../../../calculator/math";
 

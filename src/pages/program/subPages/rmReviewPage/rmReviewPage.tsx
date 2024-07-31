@@ -6,7 +6,7 @@ import styles from "./rmReviewPageStyles";
 import Loading from "../../../../sharedComponents/loading/loading";
 
 import { useAtomValue } from "jotai";
-import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atoms";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
 
 interface IProps {

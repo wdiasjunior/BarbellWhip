@@ -14,7 +14,7 @@ import {
   selectedLocaleAtom,
   settingsPageWeightRoundAtom,
   settingsPage1RMFormulasAtom,
-} from "../../helpers/jotai/atomsWithStorage";
+} from "../../helpers/jotai/atoms";
 
 import { themes } from "../../themes/";
 import { locales } from "../../db/locales/";

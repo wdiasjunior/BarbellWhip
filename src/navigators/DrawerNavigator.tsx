@@ -8,7 +8,7 @@ import { ProgramEditorPageStack } from "./StackNavigator";
 import SettingsPage from "../pages/settings/settingsPage";
 
 import { useAtomValue } from "jotai";
-import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atoms";
 
 import { useInitialRender } from "../helpers/useInitialRender";
 

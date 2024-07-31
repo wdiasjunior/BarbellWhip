@@ -8,7 +8,7 @@ import Loading from "../sharedComponents/loading/loading";
 import { ProgramPageStack, PlateMathPageStack } from "./StackNavigator";
 
 import { useAtomValue } from "jotai";
-import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atoms";
 
 import { useInitialRender } from "../helpers/useInitialRender";
 

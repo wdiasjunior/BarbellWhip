@@ -3,7 +3,7 @@ import { Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { useAtomValue } from "jotai";
-import { activeThemeAtom } from "../../../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom } from "../../../../helpers/jotai/atoms";
 
 import styles from "./exerciseItemStyles";
 

@@ -7,7 +7,7 @@ import RNFS from "react-native-fs";
 import styles from "./updateModalStyles";
 
 import { useAtomValue } from "jotai";
-import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atoms";
 import { updateChecker } from "../../helpers/updateChecker";
 
 interface IProps {

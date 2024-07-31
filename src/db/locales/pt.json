@@ -56,7 +56,9 @@
       "edit": "Editar",
       "share": "Compartilhar",
       "makeCopy": "Criar Cópia",
-      "delete": "Excluir"
+      "delete": "Excluir",
+      "newProgram": "Novo Treino",
+      "continueEditing": "Continuar edição prévia"
     },
     "programEditorStep1": {
       "title": "Criar Treino",

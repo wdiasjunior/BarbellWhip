@@ -5,7 +5,7 @@ import { View, Text, ActivityIndicator, StatusBar } from "react-native";
 import AppWrapper from "./src/pages/AppWrapper";
 
 export default function App() {
-
+  //  TODO - move jotai provider here?
   return (
     <Suspense
       fallback={

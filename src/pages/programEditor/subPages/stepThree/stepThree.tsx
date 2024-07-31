@@ -7,8 +7,14 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 import { useAtom, useAtomValue } from "jotai";
-import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
-import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
+import {
+  activeThemeAtom,
+  selectedLocaleAtom,
+  programEditorDataAtom,
+  selectedWeekAtom,
+  selectedDayAtom,
+  programEditorModeAtom,
+} from "../../../../helpers/jotai/atoms";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
 
 import { deepClone } from "../../../../helpers/deepClone";

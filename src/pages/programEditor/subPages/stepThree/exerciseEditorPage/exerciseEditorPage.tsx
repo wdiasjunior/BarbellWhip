@@ -3,8 +3,13 @@ import { Text, View, TouchableOpacity, ScrollView, TextInput } from "react-nativ
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { useAtom, useAtomValue } from "jotai";
-import { programEditorDataAtom, selectedWeekAtom, selectedDayAtom } from "../../../../../helpers/jotai/programEditorAtoms";
-import { activeThemeAtom, selectedLocaleAtom } from "../../../../../helpers/jotai/atomsWithStorage";
+import {
+  activeThemeAtom,
+  selectedLocaleAtom,
+  programEditorDataAtom,
+  selectedWeekAtom,
+  selectedDayAtom,
+} from "../../../../../helpers/jotai/atoms";
 import { useInitialRender } from "../../../../../helpers/useInitialRender";
 
 import Loading from "../../../../../sharedComponents/loading/loading";
@@ -24,7 +29,9 @@ const ExerciseEditorPage = (_props: any) => {
 
   const isInitialRender = useInitialRender();
 
-  // TODO - add "discard" icon to header ?
+  // TODO
+  // add "discard" icon to header ?
+  // on discard show modal asking to confirm
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);

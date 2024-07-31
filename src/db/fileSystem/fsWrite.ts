@@ -1,6 +1,6 @@
 import RNFS from "react-native-fs";
 
-const writeToJSON = async (programName: string, programJSON: object) => {
+export const writeToJSON = async (programName: string, programJSON: object) => {
   const fileUri = programName.includes(".json")
                     ? RNFS.ExternalDirectoryPath + "/" + programName
                     : RNFS.ExternalDirectoryPath + "/" + programName + ".json";
@@ -9,11 +9,11 @@ const writeToJSON = async (programName: string, programJSON: object) => {
     await RNFS.writeFile(fileUri, contents);
   } catch(error) {
     console.log(error);
-    alert("Error writing to file.");
+    alert("Error writing to file."); //  TODO -  add locale here
   }
 }
 
-const copyJSON = async (programName: string, programURI: string) => {
+export const copyJSON = async (programName: string, programURI: string) => {
   const copyFileURI = RNFS.ExternalDirectoryPath + "/" + programName.replace(".json", " - copy.json");
   const options = {
     from: programURI,
@@ -23,17 +23,15 @@ const copyJSON = async (programName: string, programURI: string) => {
     await RNFS.copyFile(programURI, copyFileURI);
   } catch(error) {
     console.log(error);
-    alert("Error copying file.");
+    alert("Error copying file."); //  TODO -  add locale here
   }
 }
 
-const deleteJSON = async (programURI: string) => {
+export const deleteJSON = async (programURI: string) => {
   try {
     await RNFS.unlink(programURI);
   } catch(error) {
     console.log(error);
-    alert("Error deleting file.");
+    alert("Error deleting file."); //  TODO -  add locale here
   }
 }
-
-export { writeToJSON, deleteJSON, copyJSON };

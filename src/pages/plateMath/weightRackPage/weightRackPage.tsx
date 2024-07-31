@@ -19,7 +19,7 @@ import {
   plateMathShowBumper,
   plateMathBumperPlatesRack,
   plateMathShowColoredPlates,
-} from "../../../helpers/jotai/atomsWithStorage";
+} from "../../../helpers/jotai/atoms";
 
 import { useInitialRender } from "../../../helpers/useInitialRender";
 

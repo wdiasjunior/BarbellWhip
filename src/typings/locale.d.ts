@@ -62,6 +62,8 @@ interface Locale {
       share: string;
       makeCopy: string;
       delete: string;
+      newProgram: string;
+      continueEditing: string;
     };
     programEditorStep1: {
       title: string;

@@ -26,11 +26,10 @@
   - rm review page
     - [ ] oneRMs atom with storage object for semi persistent data that takes priority over the object in the json file for the percentage math (?)
 
-## program management / program editor page
+## program editor page
   - [-] share intent - share json from other apps and import programs
   - [ ] add warning on rm/week/exercise items delete attempt
-  - [-] change program editor program data to atom with storage in both apps(?) to prevent accidental discard of progress (kinda redundant if there's a warning on go back)
-  - [ ] replace `navigation.replace("ProgramEditorStack");` with navigation reset? and prevent android back button on program editor stack from exiting and losing progress
+  - [x] change program editor program data to atom with storage in both apps(?) to prevent accidental discard of progress (kinda redundant if there's a warning on go back)
   - [ ] add spinner overlay on save
   - *StepOne*
     - [ ] 1rm input group. add field for reps and math for estimated rm depending on the amount of reps
@@ -87,13 +86,11 @@
 
 # TODO priority
 
-- [ ] change program editor program data prevent accidental discard
-  - [ ] change to atom with storage in both apps?
-  - [ ] save data to file in a temp folder and ask to resume progress
-  - [ ] auto save program editor
+- [x] change program editor program data prevent accidental discard
+  - [x] change to atom with storage
 - [x] change tempo for cadencia in ptbr
-- [-] use display flex instead of a bunch of rows on exercise page
+- [-] use display flex instead of a bunch of rows on exercise page (?)
 - [-] add weight input to simple exercise and hide percentage/weight calc row
-- [-] astro fuwari theme
+- [-] astro fuwari theme (?)
 - [x] switch to toggle colors on or off depending on plate weight (?)
 - [x] move bumper button to settings page? (defaults to off)

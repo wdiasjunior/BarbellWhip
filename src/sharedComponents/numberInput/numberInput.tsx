@@ -6,7 +6,7 @@ import Modal from "react-native-modal";
 import styles from "./numberInputStyles";
 
 import { useAtomValue } from "jotai";
-import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atoms";
 
 interface IProps {
   toggleModal: any | ((value?: string, label?: string) => void) | ((value?: string) => void);

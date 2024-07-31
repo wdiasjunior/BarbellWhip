@@ -6,7 +6,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import styles from "./calculationFormulasModalStyles";
 
 import { useAtomValue } from "jotai";
-import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atoms";
 
 interface IProps {
   isCalculationFormulasModalVisible: boolean;

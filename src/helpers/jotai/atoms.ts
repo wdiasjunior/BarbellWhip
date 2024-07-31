@@ -11,14 +11,17 @@ const storage = createJSONStorage(() => AsyncStorage);
 export const activeProgramAtom = atomWithStorage("activeProgramAtom", {}, storage);
 export const activeProgramNameAtom = atomWithStorage("activeProgramNameAtom", "", storage);
 
+
 // Program page
 export const programPageSelectedDayAtom = atomWithStorage("programPageSelectedDayAtom", 0, storage);
 export const programPageSelectedWeekAtom = atomWithStorage("programPageSelectedWeekAtom", 0, storage);
+
 
 // 1RM Calculator Page
 export const calculatorPageRepsAtom = atomWithStorage("calculatorPageReps", 1, storage);
 export const calculatorPageWeightAtom = atomWithStorage("calculatorPageWeight", 150, storage);
 export const calculatorPageWeightUnitAtom = atomWithStorage("calculatorPageWeightUnit", "kg", storage);
+
 
 // Plate Math Page
 export const plateMathPageWeight = atomWithStorage("plateMathPageWeight", 150, storage);
@@ -73,6 +76,21 @@ export const plateMathBumperPlatesRack = atomWithStorage("plateMathBumperPlatesR
   },
 }, storage);
 
+
+// Program Editor Page
+export const programEditorDataAtom = atomWithStorage("programEditorDataAtom", {
+  programName: "",
+  weightUnit: "kg",
+  oneRMs: [],
+  trainingProgram: [ { week: new Array(7).fill({ day:[] }) } ],
+}, storage);
+export const wasProgramSavedAtom = atomWithStorage("wasProgramSavedAtom", false, storage);
+export const selectedDayAtom = atom(0);
+export const selectedWeekAtom = atom(0);
+export const programEditorModeAtom = atom<"Create" | "Edit">("Create");
+export const programNameForActionAtom = atom("");
+
+
 // Settings Page
 export const settingsPageWeightRoundAtom = atomWithStorage("settingsPageWeightRoundAtom", true, storage);
 export const settingsPage1RMFormulasAtom = atomWithStorage("settingsPage1RMFormulasAtom", {
@@ -84,6 +102,7 @@ export const settingsPage1RMFormulasAtom = atomWithStorage("settingsPage1RMFormu
   oconner: true,
   wathen: true,
 }, storage);
+
 
 // Theme
 export const activeThemeIdAtom = atomWithStorage("activeThemeIdAtom", "dark", storage);
