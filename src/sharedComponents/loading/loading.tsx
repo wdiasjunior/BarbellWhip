@@ -4,7 +4,7 @@ import { View, ActivityIndicator } from "react-native";
 import styles from "./loadingStyles";
 
 import { useAtomValue } from "jotai";
-import { activeThemeAtom } from "../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom } from "../../helpers/jotai/atoms";
 
 const Loading = () => {
 

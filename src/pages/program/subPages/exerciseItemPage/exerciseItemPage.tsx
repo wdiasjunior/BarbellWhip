@@ -8,8 +8,13 @@ import Loading from "../../../../sharedComponents/loading/loading";
 import styles from "./exerciseItemPageStyles";
 
 import { useAtomValue } from "jotai";
-import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
+import {
+  activeThemeAtom,
+  selectedLocaleAtom,
+  settingsPageWeightRoundAtom,
+} from "../../../../helpers/jotai/atoms";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
+import { round } from "../../../calculator/math";
 
 interface IProps {
   exerciseName: string;
@@ -29,6 +34,7 @@ const ExerciseItemPage = (_props: any) => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
+  const weightRound = useAtomValue(settingsPageWeightRoundAtom);
 
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
@@ -48,7 +54,6 @@ const ExerciseItemPage = (_props: any) => {
   const setsList = props.exerciseOBJ.set;
   const rmId = props.rmId;
   const weightUnit = props.weightUnit;
-  const weightRoundingFactor = weightUnit === "kg" ? 2.5 : 5;
   const oneRMweight: OneRMs | any = props.onermOBJ.find((el) => el.id === rmId) ?? 0;
 
   return (
@@ -69,23 +74,31 @@ const ExerciseItemPage = (_props: any) => {
                     </View>
                   ) : null}
 
-                  {item.percentage ? (
+                  {(rmId !== "0" && item.weight !== "" && item.percentage) ? (
                     <View style={styles(activeTheme).setListItemRow}>
                       {item.percentage ?
                         <Text style={styles(activeTheme).label}>
-                          {selectedLocale.programPage.exerciseInfo.weightLabel}:  <Text style={styles(activeTheme).weightText}>{Math.ceil((parseFloat(oneRMweight?.weight) * (parseFloat(item.percentage) / 100) / weightRoundingFactor)) * weightRoundingFactor}{weightUnit}</Text>
+                          {selectedLocale.programPage.exerciseInfo.weightLabel}:  <Text style={styles(activeTheme).weightText}>{round(parseFloat(oneRMweight?.weight), parseFloat(item.percentage), weightRound, weightUnit)}{weightUnit}</Text>
                         </Text>
                         :
                         null
                       }
                       {item.percentage ? <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.percentage}:  <Text style={styles(activeTheme).data}>{item.percentage}%</Text></Text> : null}
                     </View>
-                  ) : null }
+                  ) : null}
+
+                  {rmId === "0" && item.weight && item.weight !== "" ? (
+                    <View style={styles(activeTheme).setListItemRow}>
+                      <Text style={styles(activeTheme).label}>
+                        {selectedLocale.programPage.exerciseInfo.weightLabel}:  <Text style={styles(activeTheme).weightText}>{item.weight}{weightUnit}</Text>
+                      </Text>
+                    </View>
+                  ) : null}
 
                   {item.rpe || item.tempo ? (
                     <View style={styles(activeTheme).setListItemRow}>
                       {item.rpe ? <Text style={styles(activeTheme).label}>RPE:  <Text style={styles(activeTheme).data}>{item.rpe}</Text></Text> : null}
-                      {item.tempo ? <Text style={styles(activeTheme).label}>Tempo:  <Text style={styles(activeTheme).data}>{item.tempo}</Text></Text> : null}
+                      {item.tempo ? <Text style={styles(activeTheme).label}>{selectedLocale.programPage.exerciseInfo.tempo}:  <Text style={styles(activeTheme).data}>{item.tempo}</Text></Text> : null}
                     </View>
                   ) : null}
 
@@ -122,7 +135,7 @@ const ExerciseItemPage = (_props: any) => {
         <Loading />
       )}
     </View>
-  )
+  );
 }
 
 export default ExerciseItemPage;

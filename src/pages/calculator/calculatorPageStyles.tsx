@@ -6,7 +6,6 @@ const styles = (theme: Theme) => {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
     },
-
     cardWarning: {
       backgroundColor: theme.textHighlight,
       padding: 16,
@@ -23,7 +22,6 @@ const styles = (theme: Theme) => {
       fontWeight: "bold",
       textAlign: "center",
     },
-
     cardIncrement: {
       backgroundColor: theme.backgroundSecondary,
       padding: 22,
@@ -79,7 +77,6 @@ const styles = (theme: Theme) => {
       fontSize: 12,
       textAlign: "center",
     },
-
     card1RM: {
       backgroundColor: theme.backgroundSecondary,
       padding: 22,
@@ -110,7 +107,7 @@ const styles = (theme: Theme) => {
       marginTop: 20,
       paddingBottom: 16,
       borderBottomWidth: 2,
-      borderColor: theme.textFaded,
+      borderColor: theme.placeholderText,
     },
     card1RMRow2: {
       flexDirection: "row",

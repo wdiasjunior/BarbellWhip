@@ -19,7 +19,7 @@ import StepThree from "../pages/programEditor/subPages/stepThree/stepThree";
 import ExerciseEditorPage from "../pages/programEditor/subPages/stepThree/exerciseEditorPage/exerciseEditorPage";
 
 import { useAtomValue } from "jotai";
-import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atoms";
 
 const ProgramEditorDayPageStack = () => {
 

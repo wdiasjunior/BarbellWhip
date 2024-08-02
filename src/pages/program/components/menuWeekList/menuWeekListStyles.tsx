@@ -18,7 +18,7 @@ const styles = (theme: Theme) => {
       marginTop: 8,
       marginBottom: 10,
       paddingBottom: 10,
-      borderColor: theme.textFaded,
+      borderColor: theme.placeholderText,
       borderBottomWidth: 1,
       width: "90%",
     },

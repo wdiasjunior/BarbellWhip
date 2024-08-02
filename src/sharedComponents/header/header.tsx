@@ -11,15 +11,14 @@ import { readJSON } from "../../db/fileSystem/fsRead";
 
 import { useAtomValue, useSetAtom } from "jotai";
 import {
-  programEditorDataAtom,
-  programEditorModeAtom,
-  programNameForActionAtom,
-} from "../../helpers/jotai/programEditorAtoms";
-import {
   activeThemeAtom,
   activeProgramAtom,
   activeProgramNameAtom,
-} from "../../helpers/jotai/atomsWithStorage";
+  programEditorDataAtom,
+  programEditorModeAtom,
+  programNameForActionAtom,
+  wasProgramSavedAtom,
+} from "../../helpers/jotai/atoms";
 
 import { deepClone } from "../../helpers/deepClone";
 import { trainingProgramCleanUp } from "../../helpers/trainingProgramCleanUp";
@@ -45,47 +44,55 @@ const Header = (props: IProps) => {
   const programEditorMode = useAtomValue(programEditorModeAtom);
   const programNameForAction = useAtomValue(programNameForActionAtom);
   const setActiveProgramData = useSetAtom(activeProgramAtom);
+  const setWasProgramSaved = useSetAtom(wasProgramSavedAtom);
+  const setProgramEditorData = useSetAtom(programEditorDataAtom);
 
   const readProgram = async (fileName: string) => {
     return JSON.parse(await readJSON(fileName.replace(".json", "")));
   }
 
   const saveProgram = async () => {
-    const fileName = programEditorData.programName;
+    const fileName = programNameForAction;
     if(fileName !== "") {
       const programJSON = deepClone(programEditorData);
       await writeToJSON(fileName, programJSON);
       navigation.replace("ProgramEditorStack");
     } else {
-      alert("Please fill in the program name field.")
+      alert("Please fill in the program name field."); //  TODO - add locale
     }
     if(programEditorMode === "Edit" && activeProgramName === programNameForAction) {
       const programData = await readProgram(programNameForAction);
       const _cleanedUpProgramData = trainingProgramCleanUp(programData);
       setActiveProgramData(_cleanedUpProgramData);
     }
+    setWasProgramSaved(true);
+    setProgramEditorData({
+      programName: "",
+      weightUnit: "kg",
+      oneRMs: [],
+      trainingProgram: [ { week: new Array(7).fill({ day:[] }) } ]
+    })
   }
 
   const importProgram = () => {
-    if (props.importProgram) {
+    if(props.importProgram) {
       props.importProgram();
     } else {
-      console.log("could not import program");
+      console.log("could not import program"); // TODO - add locale
     }
   }
 
   const setMenuOpenFromHeader = () => {
-    if (props.setIsMenuOpen) {
+    if(props.setIsMenuOpen) {
       props.setIsMenuOpen(prev => !prev);
     } else {
-      console.log("could not set menu open");
+      console.log("could not set menu open"); // TODO - add locale
     }
   }
 
   const saveButton = async () => {
     // TODO
-    // - add loading indicator overlay on save
-    // - remove empty days and empty weeks on save
+    // add loading indicator overlay on save
     await saveProgram();
   }
 
@@ -119,7 +126,7 @@ const Header = (props: IProps) => {
         }
       </View>
       <View style={styles(activeTheme).contentCenter}>
-        <Text adjustsFontSizeToFit style={styles(activeTheme).headerText}>{props.title} </Text>
+        <Text adjustsFontSizeToFit style={styles(activeTheme).headerText}>{props.title}</Text>
       </View>
       <View style={styles(activeTheme).contentRight}>
         {props.menu &&

@@ -68,7 +68,7 @@ const styles = (theme: Theme) => {
     },
     icon: {
       color: theme.text,
-    }
+    },
   });
 }
 

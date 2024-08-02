@@ -14,7 +14,7 @@ import {
   activeProgramAtom,
   programPageSelectedDayAtom,
   programPageSelectedWeekAtom
-} from "../../helpers/jotai/atomsWithStorage";
+} from "../../helpers/jotai/atoms";
 
 import styles from "./programPageStyles";
 

@@ -16,7 +16,7 @@ Before submitting a PR make sure that your Prettier configs did not format any o
 
 Use 2 space tabs.
 
-Use double quotes for strings, and single quotes for chars.
+Use double quotes for strings and chars.
 
 Use semicolons at the end of the lines.
 

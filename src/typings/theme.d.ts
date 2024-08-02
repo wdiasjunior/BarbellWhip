@@ -1,7 +1,7 @@
 interface Themes {
-  id: string
-  name: string
-  theme: Theme
+  id: string;
+  name: string;
+  theme: Theme;
 }
 
 interface Theme {

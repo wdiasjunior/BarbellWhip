@@ -6,6 +6,14 @@ const styles = (theme: Theme) => {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
       paddingHorizontal: 20,
+      paddingTop: 20,
+    },
+    rowContainer: {
+      flexDirection: "row",
+      marginBottom: 20,
+    },
+    weightRoundingTextContainer: {
+      flex: 1,
     },
     title: {
       color: theme.textHighlight,
@@ -15,13 +23,12 @@ const styles = (theme: Theme) => {
     subtitle: {
       color: theme.text,
       fontSize: 16,
-      marginTop: 12,
     },
     updateCheckerButton: {
       color: theme.text,
       justifyContent: "center",
       height: 46,
-      marginTop: 12,
+      marginTop: 20,
       marginBottom: 6,
     },
     appVersionText: {

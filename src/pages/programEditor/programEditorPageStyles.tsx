@@ -19,7 +19,6 @@ const styles = (theme: Theme) => {
     wrapper: {
       flex: 1,
     },
-
     noProgramListTextContainer: {
       justifyContent: "center",
       alignItems: "center",
@@ -33,7 +32,6 @@ const styles = (theme: Theme) => {
       fontSize: 24,
       textAlign: "center",
     },
-
     shadowProp: {
       elevation: 3,
       shadowColor: "#171717",
@@ -51,11 +49,10 @@ const styles = (theme: Theme) => {
       zIndex: 999999,
     },
     FabButtonText: {
-      color: theme.text,
+      color: theme.statusBar === "dark-content" ? theme.backgroundSecondary : theme.text,
       fontSize: 20,
       lineHeight: 25,
     },
-
     programList: {
       width: "100%",
       height: "100%",
@@ -68,7 +65,6 @@ const styles = (theme: Theme) => {
     programItem: {
       marginHorizontal: 20,
       backgroundColor: theme.backgroundSecondary,
-      color: theme.text,
       paddingLeft: 15,
       marginVertical: 5,
       borderRadius: 10,
@@ -80,7 +76,6 @@ const styles = (theme: Theme) => {
     programItemSelected: {
       marginHorizontal: 20,
       backgroundColor: theme.active,
-      color: theme.text,
       paddingLeft: 15,
       marginVertical: 5,
       borderRadius: 10,
@@ -90,16 +85,15 @@ const styles = (theme: Theme) => {
       flexDirection: "row",
     },
     programItemText: {
-      color: theme.text,
+      color: theme.statusBar === "dark-content" ? theme.backgroundSecondary : theme.text,
       fontSize: 20,
       lineHeight: 30,
       fontWeight: "bold",
     },
     iconRight: {
       width: 36,
-      color: theme.text,
+      color: theme.statusBar === "dark-content" ? theme.backgroundSecondary : theme.text,
     },
-
     modalContent: {
       justifyContent: "center",
       alignItems: "center",

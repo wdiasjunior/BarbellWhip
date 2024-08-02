@@ -25,7 +25,6 @@ const styles = (theme: Theme) => {
       lineHeight: 30,
       fontWeight: "bold",
     },
-
     input: {
       backgroundColor: theme.backgroundSecondary,
       height: 50,
@@ -36,7 +35,7 @@ const styles = (theme: Theme) => {
       borderRadius: 12,
       marginVertical: 6,
       padding: 10,
-      paddingLeft: 22,
+      paddingLeft: 16,
       color: theme.text,
       fontSize: 20,
       lineHeight: 30,
@@ -45,29 +44,27 @@ const styles = (theme: Theme) => {
     inputExerciseVariationName: {
       backgroundColor: theme.backgroundSecondary,
       height: 50,
-      width: "80%",
+      width: "90%",
       borderColor: theme.backgroundSecondary,
       borderWidth: 1,
       borderRadius: 12,
       marginVertical: 6,
       padding: 10,
-      paddingLeft: 22,
+      paddingLeft: 16,
       color: theme.text,
       fontSize: 20,
       lineHeight: 30,
       fontWeight: "bold",
     },
-
     exerciseItem: {
       paddingBottom: 20,
       marginBottom: 16,
       borderBottomWidth: 1,
-      borderBottomColor: theme.textFaded,
+      borderBottomColor: theme.placeholderText,
     },
     exerciseItemRemoveIconContainer: {
       width: 25,
       height: 25,
-      marginLeft: "auto",
     },
     exerciseItemRemoveIcon: {
       color: theme.text,
@@ -86,7 +83,6 @@ const styles = (theme: Theme) => {
       justifyContent: "flex-start",
       minWidth: "45%",
     },
-
     AddExerciseButton: {
       flex: 1,
       backgroundColor: theme.active,
@@ -96,7 +92,7 @@ const styles = (theme: Theme) => {
       alignItems: "center",
     },
     AddExerciseButtonText: {
-      color: theme.text,
+      color: theme.statusBar === "dark-content" ? theme.backgroundSecondary : theme.text,
       fontSize: 16,
       lineHeight: 35,
       fontWeight: "bold",

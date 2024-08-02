@@ -16,6 +16,7 @@
       "weightLabel": "Peso",
       "percentage": "Porcentagem",
       "rest": "Descanso",
+      "tempo": "Cadência",
       "altExercise1": "Exercício Alternativo 1",
       "altExercise2": "Exercício Alternativo 2",
       "description": "Descrição"
@@ -33,10 +34,12 @@
     "title": "Calculadora de Anilhas",
     "weightLabel": "Peso",
     "currentBarWeightLabel": "Peso da barra atual",
-    "bumperToggleLabel": "Anilhas Bumper",
+    "textWarning": "AVISO. O peso inserido excede o peso configurado no rack.",
     "weightRackPage": {
       "title": "Plate Math Settings",
       "weightUnitLabel": "Unidade de Peso",
+      "bumperToggleLabel": "Anilhas Bumper",
+      "coloredPlatesToggleLabel": "Anilhas Coloridas",
       "barWeightTitle": "Peso da Barra",
       "plateRackTitle": "Rack de Anilhas (qtd. por anilha)",
       "bumperPlatesRackTitle": "Rack de Anilhas Bumper (qtd. por anilha)",
@@ -48,13 +51,14 @@
     "title": "Editor de Treinos",
     "noProgramListTextTitle": "Nenhum treino encontrado.",
     "noProgramListTextSubtitle": "Crie ou importe um.",
-    "importErrorMessage": "Tipo de arquivo inválido.",
     "modal": {
       "setActive": "Ativar",
       "edit": "Editar",
       "share": "Compartilhar",
       "makeCopy": "Criar Cópia",
-      "delete": "Excluir"
+      "delete": "Excluir",
+      "newProgram": "Novo Treino",
+      "continueEditing": "Continuar edição prévia"
     },
     "programEditorStep1": {
       "title": "Criar Treino",
@@ -86,9 +90,10 @@
       "exerciseVariation": "Nome do Exercício/Variação (opcional)",
       "sets": "Séries",
       "reps": "Repetições",
-      "percentage": "Porcetagem",
+      "percentage": "Porcentagem",
       "weightLabel": "Peso",
       "rest": "Descanso",
+      "tempo": "Cadência",
       "altExercise1": "Exercício Alternativo 1",
       "altExercise2": "Exercício Alternativo 2",
       "description": "Descrição",
@@ -111,9 +116,18 @@
     "downloadErrorMessage": "Erro ao baixar atualização",
     "updateCheckErrorMessage": "Erro ao procurar por atualizações",
     "installUpdateButton": "Instalar atualização",
-    "closeModalButtonLabel": "FECHAR"
+    "closeModalButtonLabel": "FECHAR",
+    "okModalButtonLabel": "OK",
+    "cancelModalButtonLabel": "CANCELAR",
+    "weightRoundingTitle": "Arredondar Pesos",
+    "weightRoundingDescription": "Pesos são arredondados para 2.5kg ou 5lbs",
+    "calculationFormulasTitle": "Fórmulas para Cálculo",
+    "calculationFormulasDescription": "Selecione as fórmulas usadas para calcular o seu 1RM"
   },
   "numberInputModal": {
     "cancelButtonLabel": "CANCELAR"
+  },
+  "fileSystem": {
+    "invalidFileType": "Tipo de arquivo inválido.",
   }
 }

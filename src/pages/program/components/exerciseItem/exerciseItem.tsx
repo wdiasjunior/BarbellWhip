@@ -3,7 +3,7 @@ import { Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { useAtomValue } from "jotai";
-import { activeThemeAtom } from "../../../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom } from "../../../../helpers/jotai/atoms";
 
 import styles from "./exerciseItemStyles";
 
@@ -30,7 +30,7 @@ const ExerciseItem = (props: IProps) => {
           onermOBJ: props.onermOBJ,
           rmId: props.rmId,
           exerciseOBJ: props.exerciseOBJ,
-          weightUnit: props.weightUnit
+          weightUnit: props.weightUnit,
         });
       }}
     >
@@ -38,7 +38,7 @@ const ExerciseItem = (props: IProps) => {
         {props.exerciseName}
       </Text>
     </TouchableOpacity>
-  )
+  );
 }
 
 export default ExerciseItem;

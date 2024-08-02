@@ -16,7 +16,7 @@ export const styles = (theme: Theme) => {
     },
     plate: {
       height: 200,
-      width: 30,
+      width: 35,
       borderRadius: 3,
       borderColor: "#cccccc",
       borderWidth: 0.5,
@@ -44,12 +44,12 @@ export const styles = (theme: Theme) => {
       fontSize: 16,
       lineHeight: 16,
       width: "100%",
-      color: theme.backgroundSecondary,
-    }
+      color: theme.statusBar === "light-content" ? theme.backgroundSecondary : theme.text,
+    },
   });
 }
 
-// TODO - add proper colors that match the overall theme
+// TODO - change colors to better match the overall themes (?)
 export const plateColors = {
   kg: {
     50   : "#8c8c8c",

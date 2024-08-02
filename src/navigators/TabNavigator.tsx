@@ -8,7 +8,7 @@ import Loading from "../sharedComponents/loading/loading";
 import { ProgramPageStack, PlateMathPageStack } from "./StackNavigator";
 
 import { useAtomValue } from "jotai";
-import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atoms";
 
 import { useInitialRender } from "../helpers/useInitialRender";
 
@@ -26,12 +26,11 @@ const BottomTabProgramPageNavigator = () => {
         tabBarHideOnKeyboard: true,
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
-          if (route.name === "1RM Calculator") {
+          if(route.name === "1RM Calculator") {
             iconName = focused ? "calculator" : "calculator-outline";
-          } else if (route.name === "ProgramTab") {
+          } else if(route.name === "ProgramTab") {
             iconName = focused ? "list" : "list-outline";
-          }
-          else if (route.name === "Plate Math") {
+          } else if(route.name === "Plate Math") {
             iconName = focused ? "barbell-sharp" : "barbell-sharp";
           }
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -94,6 +93,6 @@ const BottomTabProgramPageNavigator = () => {
       />
     </Tab.Navigator>
   );
-};
+}
 
 export { BottomTabProgramPageNavigator };

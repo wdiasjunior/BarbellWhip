@@ -16,6 +16,7 @@
       "weightLabel": "Weight",
       "percentage": "Percentage",
       "rest": "Rest",
+      "tempo": "Tempo",
       "altExercise1": "Alternative Exercise 1",
       "altExercise2": "Alternative Exercise 2",
       "description": "Description"
@@ -26,17 +27,19 @@
     "weightLifted": "Weight Lifted",
     "repsPerformed": "Reps Performed",
     "rmTitle": "One Rep Max",
-    "rmPercentageTitle": "Percetage of 1RM",
+    "rmPercentageTitle": "Percentage of 1RM",
     "textWarning": "WARNING. Calculation accuracy drops drastically when calculating above 12 reps."
   },
   "plateMathPage": {
     "title": "Plate Math",
     "weightLabel": "Weight",
     "currentBarWeightLabel": "Current Bar Weight",
-    "bumperToggleLabel": "Bumper Plates",
+    "textWarning": "WARNING. The weight entered exceeds the weight in the rack.",
     "weightRackPage": {
       "title": "Plate Math Settings",
       "weightUnitLabel": "Weight Unit",
+      "bumperToggleLabel": "Bumper Plates",
+      "coloredPlatesToggleLabel": "Colored Plates",
       "barWeightTitle": "Bar Weight",
       "plateRackTitle": "Plate Rack (quantity per plate)",
       "bumperPlatesRackTitle": "Bumper Plate Rack (quantity per plate)",
@@ -48,13 +51,14 @@
     "title": "Program Editor",
     "noProgramListTextTitle": "No programs found.",
     "noProgramListTextSubtitle": "Create or import one.",
-    "importErrorMessage": "Invalid file type.",
     "modal": {
       "setActive": "Set Active",
       "edit": "Edit",
       "share": "Share",
       "makeCopy": "Make Copy",
-      "delete": "Delete"
+      "delete": "Delete",
+      "newProgram": "New Program",
+      "continueEditing": "Continue editing"
     },
     "programEditorStep1": {
       "title": "Create Program",
@@ -89,6 +93,7 @@
       "percentage": "Percentage",
       "weightLabel": "Weight",
       "rest": "Rest",
+      "tempo": "Tempo",
       "altExercise1": "Alternative Exercise 1",
       "altExercise2": "Alternative Exercise 2",
       "description": "Description",
@@ -104,16 +109,25 @@
     "searchingForUpdates": "Searching for updates",
     "updateAvailableMessage": "Update available",
     "newVersionLabel": "New version",
-    "noUpdateAvailableMessage": "No update available",
+    "noUpdateAvailableMessage": "No new updates available",
     "downloadUpdateButton": "DOWNLOAD",
     "downloadingUpdateMessage": "Downloading update",
     "downloadCompleteMessage": "Download complete",
     "downloadErrorMessage": "Error downloading update",
     "updateCheckErrorMessage": "Error checking for updates",
     "installUpdateButton": "Install update",
-    "closeModalButtonLabel": "CLOSE"
+    "closeModalButtonLabel": "CLOSE",
+    "okModalButtonLabel": "OK",
+    "cancelModalButtonLabel": "CANCEL",
+    "weightRoundingTitle": "Round Weights",
+    "weightRoundingDescription": "Weights are rounded to 2.5kg or 5lbs",
+    "calculationFormulasTitle": "Calculation Formulas",
+    "calculationFormulasDescription": "Select the formulas used to calculate your 1RM"
   },
   "numberInputModal": {
     "cancelButtonLabel": "CANCEL"
+  },
+  "fileSystem": {
+    "invalidFileType": "Invalid file type."
   }
 }

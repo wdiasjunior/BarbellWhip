@@ -5,11 +5,11 @@ export const locales: Locales[] = [
   {
     id: "english",
     name: "English",
-    locale: en
+    locale: en,
   },
   {
     id: "portuguese",
     name: "Português",
-    locale: pt
+    locale: pt,
   },
 ];

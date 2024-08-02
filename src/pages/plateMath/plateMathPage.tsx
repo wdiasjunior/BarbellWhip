@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from "react";
-import { Text, View, ScrollView, TouchableOpacity, Switch } from 'react-native';
+import { Text, View, ScrollView, TouchableOpacity } from "react-native";
 
 import Header from "../../sharedComponents/header/header";
 import Loading from "../../sharedComponents/loading/loading";
@@ -15,13 +15,14 @@ import { useAtom, useAtomValue } from "jotai";
 import {
   activeThemeAtom,
   selectedLocaleAtom,
-  plateMathPageWeight,
-  plateMathWeightUnit,
-  plateMathShowBumper,
-  plateMathBarWeight,
-  plateMathWeightRack,
-  plateMathBumperPlatesRack,
-} from "../../helpers/jotai/atomsWithStorage";
+  plateMathPageWeightAtom,
+  plateMathWeightUnitAtom,
+  plateMathShowBumperAtom,
+  plateMathBarWeightAtom,
+  plateMathWeightRackAtom,
+  plateMathBumperPlatesRackAtom,
+  plateMathShowColoredPlatesAtom
+} from "../../helpers/jotai/atoms";
 
 import { useInitialRender } from "../../helpers/useInitialRender";
 
@@ -31,13 +32,15 @@ const PlateMathPage = ({ navigation }) => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
-  const [currentWeight, setCurrentWeight] = useAtom<number>(plateMathPageWeight);
-  const weightUnit = useAtomValue<boolean>(plateMathWeightUnit); // false == kg == left, true == lbs == right
-  const [showBumper, setShowBumper] = useAtom<boolean>(plateMathShowBumper);
-  const barWeight = useAtomValue<BarWeight>(plateMathBarWeight);
-  const weightRack = useAtomValue<WeightRack>(plateMathWeightRack);
-  const bumperPlatesRack = useAtomValue<BumperRack>(plateMathBumperPlatesRack);
+  const [currentWeight, setCurrentWeight] = useAtom<number>(plateMathPageWeightAtom);
+  const weightUnit = useAtomValue<boolean>(plateMathWeightUnitAtom); // false == kg == left, true == lbs == right
+  const showBumper = useAtomValue<boolean>(plateMathShowBumperAtom);
+  const barWeight = useAtomValue<BarWeight>(plateMathBarWeightAtom);
+  const weightRack = useAtomValue<WeightRack>(plateMathWeightRackAtom);
+  const bumperPlatesRack = useAtomValue<BumperRack>(plateMathBumperPlatesRackAtom);
+  const showColoredPlates = useAtomValue<boolean>(plateMathShowColoredPlatesAtom);
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
+  const closestAvailableWeight = WeightCalc.getClosestAvailableWeight(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"]);
   const currentPlates = showBumper
                           ? WeightCalc.getPlates(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"], bumperPlatesRack[weightUnit ? "lbs" : "kg"])
                           : WeightCalc.getPlates(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"]);
@@ -76,69 +79,50 @@ const PlateMathPage = ({ navigation }) => {
       setCurrentWeight(weightUpdated);
     }
     setModalWeightInputVisible(!isModalWeightInputVisible);
-  };
-
-  // TODO
-  // add warining message if input weight > total weight in rack
-  // juggernaut plate math page structure
-  // weight unit toggle
-  // weight input
-  // bar input (make plate rack input priority?)
-  // smallest plates input
-  //
-  // plate view
-  // total weight
-  // (bar weight + plates weight)
-  // color coded plates? toggle to turn it on and off?
+  }
 
   return (
     <View style={styles(activeTheme).container}>
       {!isInitialRender ? (
-        <ScrollView style={styles(activeTheme).wrapper} overScrollMode="never">
-          <View style={styles(activeTheme).controlsContainer}>
+        <View style={styles(activeTheme).controlsContainer}>
+          <View style={styles(activeTheme).cardIncrement}>
+            <View style={styles(activeTheme).rowWrapper}>
+              <Text style={styles(activeTheme).title}>{selectedLocale.plateMathPage.weightLabel}</Text>
+              <View style={styles(activeTheme).row}>
+                <TouchableOpacity onPress={decrementWeight}>
+                  <View style={styles(activeTheme).incrementWrapper}>
+                    <Text style={styles(activeTheme).incrementText}>-</Text>
+                  </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => toggleModal()}>
+                  <Text style={styles(activeTheme).weight}>{currentWeight} {weightUnit ? "lbs" : "kg"}</Text>
+                  <Text style={styles(activeTheme).weightConverted}>{weightConversion(currentWeight, !weightUnit)} {!weightUnit ? "lbs" : "kg"}</Text>
+                </TouchableOpacity>
 
-            <View style={styles(activeTheme).cardIncrement}>
-              <View style={styles(activeTheme).rowWrapper}>
-                <Text style={styles(activeTheme).title}>{selectedLocale.plateMathPage.weightLabel}</Text>
-                <View style={styles(activeTheme).row}>
-                  <TouchableOpacity onPress={decrementWeight}>
-                    <View style={styles(activeTheme).incrementWrapper}>
-                      <Text style={styles(activeTheme).incrementText}>-</Text>
-                    </View>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={() => toggleModal()}>
-                    <Text style={styles(activeTheme).weight}>{currentWeight} {weightUnit ? "lbs" : "kg"}</Text>
-                    <Text style={styles(activeTheme).weightConverted}>{weightConversion(currentWeight, !weightUnit)} {!weightUnit ? "lbs" : "kg"}</Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity onPress={incrementWeight}>
-                    <View style={styles(activeTheme).incrementWrapper}>
-                      <Text style={styles(activeTheme).incrementText}>+</Text>
-                    </View>
-                  </TouchableOpacity>
-                </View>
+                <TouchableOpacity onPress={incrementWeight}>
+                  <View style={styles(activeTheme).incrementWrapper}>
+                    <Text style={styles(activeTheme).incrementText}>+</Text>
+                  </View>
+                </TouchableOpacity>
               </View>
-
-              <Text style={styles(activeTheme).info}>{selectedLocale.plateMathPage.currentBarWeightLabel}:
-                <Text style={styles(activeTheme).infoWeight}> {barWeight[weightUnit ? "lbs" : "kg"]}{weightUnit ? "lbs" : "kg"}</Text>
-              </Text>
-
-              <Text style={styles(activeTheme).bumperLabel}>{selectedLocale.plateMathPage.bumperToggleLabel}</Text>
-              <Switch
-                trackColor={{ false: activeTheme.inactive, true: activeTheme.active }}
-                thumbColor={"#f4f3f4"}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={setShowBumper}
-                value={showBumper}
-                style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginTop: 10 }}
-              />
             </View>
+
+            <Text style={styles(activeTheme).info}>{selectedLocale.plateMathPage.currentBarWeightLabel}:
+              <Text style={styles(activeTheme).infoWeight}> {barWeight[weightUnit ? "lbs" : "kg"]}{weightUnit ? "lbs" : "kg"}</Text>
+            </Text>
           </View>
+
+          {currentWeight > closestAvailableWeight ? (
+            <View style={styles(activeTheme).cardWarning}>
+              <Text style={styles(activeTheme).textWarning}>{selectedLocale.plateMathPage.textWarning}</Text>
+            </View>
+          ) : null}
 
           <WeightView
             plates={currentPlates}
             activeTheme={activeTheme}
             weightUnit={weightUnit ? "lbs" : "kg"}
+            showColoredPlates={showColoredPlates}
           />
 
           <NumberInput
@@ -147,8 +131,7 @@ const PlateMathPage = ({ navigation }) => {
             isModalWeightInputVisible={isModalWeightInputVisible}
             setModalWeightInputVisible={setModalWeightInputVisible}
           />
-
-        </ScrollView>
+        </View>
       ) : (
         <Loading />
       )}

@@ -5,7 +5,7 @@
     {
       "id": "1",
       "name": "Squat",
-      "weight": "160"
+      "weight": "170"
     },
     {
       "id": "2",
@@ -69,20 +69,20 @@
                 {
                   "exerciseName": "Deadlift",
                   "sets": "3",
-                  "reps": "6",
+                  "reps": "4",
                   "percentage": "70",
                   "rpe": "",
                   "tempo": "",
                   "description": ""
                 },
                 {
-                  "exerciseName": "Paused Deadlift",
-                  "sets": "3",
-                  "reps": "5",
-                  "percentage": "65",
-                  "rpe": "",
-                  "tempo": "010",
-                  "description": "Pause off the floor"
+                  "exerciseName": "Romanian Deadlift",
+                  "sets": "2",
+                  "reps": "6",
+                  "percentage": "",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
                 }
               ]
             }
@@ -290,12 +290,21 @@
                 },
                 {
                   "exerciseName": "Deadlift",
-                  "sets": "4",
-                  "reps": "4",
-                  "percentage": "75",
+                  "sets": "3",
+                  "reps": "2",
+                  "percentage": "77.5",
                   "rpe": "",
                   "tempo": "",
                   "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "2",
+                  "reps": "2",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
                 }
               ]
             },
@@ -481,20 +490,20 @@
                 {
                   "exerciseName": "Deadlift",
                   "sets": "3",
-                  "reps": "6",
-                  "percentage": "72.5",
+                  "reps": "5",
+                  "percentage": "70",
                   "rpe": "",
                   "tempo": "",
                   "description": ""
                 },
                 {
-                  "exerciseName": "Paused Deadlift",
-                  "sets": "3",
-                  "reps": "5",
-                  "percentage": "67.5",
-                  "rpe": "",
-                  "tempo": "010",
-                  "description": "Pause off the floor"
+                  "exerciseName": "Romanian Deadlift",
+                  "sets": "2",
+                  "reps": "7",
+                  "percentage": "",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
                 }
               ]
             }
@@ -696,18 +705,27 @@
                   "sets": "1",
                   "reps": "1",
                   "percentage": "",
-                  "rpe": "6",
+                  "rpe": "7",
                   "tempo": "",
                   "description": ""
                 },
                 {
                   "exerciseName": "Deadlift",
-                  "sets": "5",
-                  "reps": "4",
+                  "sets": "3",
+                  "reps": "3",
                   "percentage": "77.5",
                   "rpe": "",
                   "tempo": "",
                   "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "2",
+                  "reps": "3",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
                 }
               ]
             },
@@ -902,20 +920,20 @@
                 {
                   "exerciseName": "Deadlift",
                   "sets": "3",
-                  "reps": "5",
-                  "percentage": "75",
+                  "reps": "6",
+                  "percentage": "70",
                   "rpe": "",
                   "tempo": "",
                   "description": ""
                 },
                 {
-                  "exerciseName": "Paused Deadlift",
-                  "sets": "3",
-                  "reps": "5",
-                  "percentage": "70",
-                  "rpe": "",
-                  "tempo": "010",
-                  "description": "Pause off the floor"
+                  "exerciseName": "Romanian Deadlift",
+                  "sets": "2",
+                  "reps": "8",
+                  "percentage": "",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
                 }
               ]
             }
@@ -1117,18 +1135,27 @@
                   "sets": "1",
                   "reps": "1",
                   "percentage": "",
-                  "rpe": "7",
+                  "rpe": "8",
                   "tempo": "",
                   "description": ""
                 },
                 {
                   "exerciseName": "Deadlift",
-                  "sets": "4",
-                  "reps": "3",
-                  "percentage": "80",
+                  "sets": "3",
+                  "reps": "4",
+                  "percentage": "77.5",
                   "rpe": "",
                   "tempo": "",
                   "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "2",
+                  "reps": "4",
+                  "percentage": "75",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
                 }
               ]
             },
@@ -1314,20 +1341,20 @@
                 {
                   "exerciseName": "Deadlift",
                   "sets": "3",
-                  "reps": "5",
+                  "reps": "4",
                   "percentage": "77.5",
                   "rpe": "",
                   "tempo": "",
                   "description": ""
                 },
                 {
-                  "exerciseName": "Paused Deadlift",
-                  "sets": "3",
+                  "exerciseName": "Romanian Deadlift",
+                  "sets": "2",
                   "reps": "6",
-                  "percentage": "70",
-                  "rpe": "",
-                  "tempo": "010",
-                  "description": "Pause off the floor"
+                  "percentage": "",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
                 }
               ]
             }
@@ -1529,18 +1556,27 @@
                   "sets": "1",
                   "reps": "1",
                   "percentage": "",
-                  "rpe": "7",
+                  "rpe": "6",
                   "tempo": "",
                   "description": ""
                 },
                 {
                   "exerciseName": "Deadlift",
-                  "sets": "5",
-                  "reps": "3",
-                  "percentage": "82.5",
+                  "sets": "3",
+                  "reps": "2",
+                  "percentage": "80",
                   "rpe": "",
                   "tempo": "",
                   "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "2",
+                  "reps": "2",
+                  "percentage": "77.5",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
                 }
               ]
             },
@@ -1726,20 +1762,20 @@
                 {
                   "exerciseName": "Deadlift",
                   "sets": "3",
-                  "reps": "4",
-                  "percentage": "80",
+                  "reps": "5",
+                  "percentage": "75",
                   "rpe": "",
                   "tempo": "",
                   "description": ""
                 },
                 {
-                  "exerciseName": "Paused Deadlift",
-                  "sets": "3",
-                  "reps": "5",
-                  "percentage": "72.5",
-                  "rpe": "",
-                  "tempo": "010",
-                  "description": "Pause off the floor"
+                  "exerciseName": "Romanian Deadlift",
+                  "sets": "2",
+                  "reps": "7",
+                  "percentage": "",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
                 }
               ]
             }
@@ -1941,18 +1977,27 @@
                   "sets": "1",
                   "reps": "1",
                   "percentage": "",
-                  "rpe": "8",
+                  "rpe": "7",
                   "tempo": "",
                   "description": ""
                 },
                 {
                   "exerciseName": "Deadlift",
-                  "sets": "4",
+                  "sets": "3",
                   "reps": "3",
-                  "percentage": "85",
+                  "percentage": "82.5",
                   "rpe": "",
                   "tempo": "",
                   "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "2",
+                  "reps": "3",
+                  "percentage": "77.5",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
                 }
               ]
             },
@@ -2129,20 +2174,20 @@
                 {
                   "exerciseName": "Deadlift",
                   "sets": "3",
-                  "reps": "4",
+                  "reps": "6",
                   "percentage": "75",
                   "rpe": "",
                   "tempo": "",
                   "description": ""
                 },
                 {
-                  "exerciseName": "Paused Deadlift",
+                  "exerciseName": "Romanian Deadlift",
                   "sets": "2",
-                  "reps": "5",
-                  "percentage": "70",
-                  "rpe": "",
-                  "tempo": "010",
-                  "description": "Pause off the floor"
+                  "reps": "8",
+                  "percentage": "",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
                 }
               ]
             }
@@ -2344,18 +2389,27 @@
                   "sets": "1",
                   "reps": "1",
                   "percentage": "",
-                  "rpe": "6",
+                  "rpe": "8",
                   "tempo": "",
                   "description": ""
                 },
                 {
                   "exerciseName": "Deadlift",
                   "sets": "3",
-                  "reps": "3",
-                  "percentage": "80",
+                  "reps": "4",
+                  "percentage": "82.5",
                   "rpe": "",
                   "tempo": "",
                   "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "2",
+                  "reps": "4",
+                  "percentage": "77.5",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
                 }
               ]
             },
@@ -2539,20 +2593,20 @@
               "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciseName": "Paused Deadlift",
-                  "sets": "4",
+                  "exerciseName": "Deadlift",
+                  "sets": "3",
                   "reps": "4",
-                  "percentage": "80",
+                  "percentage": "77.5",
                   "rpe": "",
-                  "tempo": "010",
-                  "description": "Pause off the floor"
+                  "tempo": "",
+                  "description": ""
                 },
                 {
-                  "exerciseName": "Deadlift",
+                  "exerciseName": "Romanian Deadlift",
                   "sets": "2",
-                  "reps": "5",
-                  "percentage": "72.5",
-                  "rpe": "",
+                  "reps": "6",
+                  "percentage": "",
+                  "rpe": "6",
                   "tempo": "",
                   "description": ""
                 }
@@ -2753,21 +2807,30 @@
               "set": [
                 {
                   "exerciseName": "Deadlift",
-                  "sets": "2",
+                  "sets": "1",
                   "reps": "1",
                   "percentage": "",
-                  "rpe": "7",
+                  "rpe": "6",
                   "tempo": "",
                   "description": ""
                 },
                 {
                   "exerciseName": "Deadlift",
-                  "sets": "4",
-                  "reps": "4",
-                  "percentage": "80",
+                  "sets": "3",
+                  "reps": "2",
+                  "percentage": "85",
                   "rpe": "",
                   "tempo": "",
                   "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "2",
+                  "reps": "2",
+                  "percentage": "80",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
                 }
               ]
             },
@@ -2942,20 +3005,20 @@
               "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciseName": "Paused Deadlift",
-                  "sets": "4",
-                  "reps": "4",
-                  "percentage": "82.5",
+                  "exerciseName": "Deadlift",
+                  "sets": "3",
+                  "reps": "5",
+                  "percentage": "77.5",
                   "rpe": "",
-                  "tempo": "010",
-                  "description": "Pause off the floor"
+                  "tempo": "",
+                  "description": ""
                 },
                 {
-                  "exerciseName": "Deadlift",
+                  "exerciseName": "Romanian Deadlift",
                   "sets": "2",
-                  "reps": "5",
-                  "percentage": "75",
-                  "rpe": "",
+                  "reps": "7",
+                  "percentage": "",
+                  "rpe": "6",
                   "tempo": "",
                   "description": ""
                 }
@@ -3156,7 +3219,7 @@
               "set": [
                 {
                   "exerciseName": "Deadlift",
-                  "sets": "2",
+                  "sets": "1",
                   "reps": "1",
                   "percentage": "",
                   "rpe": "7",
@@ -3165,12 +3228,21 @@
                 },
                 {
                   "exerciseName": "Deadlift",
-                  "sets": "4",
+                  "sets": "3",
                   "reps": "3",
                   "percentage": "85",
-                  "rpe": "7",
+                  "rpe": "",
                   "tempo": "",
                   "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "2",
+                  "reps": "3",
+                  "percentage": "80",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
                 }
               ]
             },
@@ -3345,20 +3417,20 @@
               "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciseName": "Paused Deadlift",
+                  "exerciseName": "Deadlift",
                   "sets": "3",
-                  "reps": "3",
-                  "percentage": "85",
-                  "rpe": "7.5",
-                  "tempo": "010",
-                  "description": "Pause off the floor"
+                  "reps": "6",
+                  "percentage": "77.5",
+                  "rpe": "",
+                  "tempo": "",
+                  "description": ""
                 },
                 {
-                  "exerciseName": "Deadlift",
+                  "exerciseName": "Romanian Deadlift",
                   "sets": "2",
-                  "reps": "5",
-                  "percentage": "75",
-                  "rpe": "",
+                  "reps": "8",
+                  "percentage": "",
+                  "rpe": "6",
                   "tempo": "",
                   "description": ""
                 }
@@ -3559,21 +3631,30 @@
               "set": [
                 {
                   "exerciseName": "Deadlift",
-                  "sets": "2",
+                  "sets": "1",
                   "reps": "1",
                   "percentage": "",
-                  "rpe": "7.5",
+                  "rpe": "8",
                   "tempo": "",
                   "description": ""
                 },
                 {
                   "exerciseName": "Deadlift",
                   "sets": "3",
-                  "reps": "3",
-                  "percentage": "87.5",
-                  "rpe": "7.5",
+                  "reps": "4",
+                  "percentage": "85",
+                  "rpe": "",
                   "tempo": "",
                   "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "2",
+                  "reps": "4",
+                  "percentage": "80",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
                 }
               ]
             },
@@ -3748,20 +3829,20 @@
               "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciseName": "Paused Deadlift",
-                  "sets": "3",
-                  "reps": "3",
-                  "percentage": "87.5",
-                  "rpe": "8.5",
-                  "tempo": "010",
-                  "description": "Pause off the floor"
+                  "exerciseName": "Deadlift",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
                 },
                 {
                   "exerciseName": "Deadlift",
-                  "sets": "2",
-                  "reps": "5",
+                  "sets": "4",
+                  "reps": "4",
                   "percentage": "77.5",
-                  "rpe": "7",
+                  "rpe": "",
                   "tempo": "",
                   "description": ""
                 }
@@ -3971,12 +4052,21 @@
                 },
                 {
                   "exerciseName": "Deadlift",
-                  "sets": "4",
+                  "sets": "3",
                   "reps": "2",
-                  "percentage": "90",
+                  "percentage": "87.5",
                   "rpe": "8",
                   "tempo": "",
                   "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "2",
+                  "reps": "2",
+                  "percentage": "82.5",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
                 }
               ]
             },
@@ -4160,20 +4250,20 @@
               "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciseName": "Paused Deadlift",
-                  "sets": "3",
-                  "reps": "3",
-                  "percentage": "90",
-                  "rpe": "9",
-                  "tempo": "010",
-                  "description": "Pause off the floor"
+                  "exerciseName": "Deadlift",
+                  "sets": "1",
+                  "reps": "1",
+                  "percentage": "",
+                  "rpe": "6",
+                  "tempo": "",
+                  "description": ""
                 },
                 {
                   "exerciseName": "Deadlift",
-                  "sets": "2",
-                  "reps": "5",
+                  "sets": "4",
+                  "reps": "4",
                   "percentage": "80",
-                  "rpe": "7.5",
+                  "rpe": "",
                   "tempo": "",
                   "description": ""
                 }
@@ -4374,7 +4464,7 @@
               "set": [
                 {
                   "exerciseName": "Deadlift",
-                  "sets": "4",
+                  "sets": "1",
                   "reps": "1",
                   "percentage": "",
                   "rpe": "8",
@@ -4383,12 +4473,21 @@
                 },
                 {
                   "exerciseName": "Deadlift",
-                  "sets": "2",
+                  "sets": "3",
                   "reps": "2",
-                  "percentage": "92.5",
-                  "rpe": "8.5",
+                  "percentage": "87.5",
+                  "rpe": "",
                   "tempo": "",
                   "description": ""
+                },
+                {
+                  "exerciseName": "Paused Deadlift",
+                  "sets": "2",
+                  "reps": "2",
+                  "percentage": "85",
+                  "rpe": "",
+                  "tempo": "010",
+                  "description": "Pause off the floor"
                 }
               ]
             },
@@ -4565,18 +4664,9 @@
                 {
                   "exerciseName": "Deadlift",
                   "sets": "3",
-                  "reps": "1",
-                  "percentage": "90",
-                  "rpe": "8.5",
-                  "tempo": "",
-                  "description": ""
-                },
-                {
-                  "exerciseName": "Deadlift",
-                  "sets": "3",
-                  "reps": "3",
-                  "percentage": "80",
-                  "rpe": "7.5",
+                  "reps": "2",
+                  "percentage": "70",
+                  "rpe": "",
                   "tempo": "",
                   "description": ""
                 }
@@ -4735,29 +4825,14 @@
               ]
             },
             {
-              "RMid": "0",
-              "exerciseName": "Bulgarian Split Squats",
+              "RMid": "3",
+              "exerciseName": "Deadlift",
               "set": [
                 {
-                  "exerciseName": "Bulgarian Split Squats",
-                  "sets": "4",
-                  "reps": "15",
-                  "percentage": "",
-                  "rpe": "",
-                  "tempo": "",
-                  "description": ""
-                }
-              ]
-            },
-            {
-              "RMid": "0",
-              "exerciseName": "Leg Extensions + Calf Raises",
-              "set": [
-                {
-                  "exerciseName": "Leg Extensions + Calf Raises",
-                  "sets": "4",
-                  "reps": "12 + MAX",
-                  "percentage": "",
+                  "exerciseName": "Deadlift",
+                  "sets": "2",
+                  "reps": "2",
+                  "percentage": "60",
                   "rpe": "",
                   "tempo": "",
                   "description": ""

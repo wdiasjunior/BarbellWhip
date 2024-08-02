@@ -9,8 +9,8 @@ import { useIsFocused } from "@react-navigation/native";
 import Header from "../../sharedComponents/header/header";
 import Loading from "../../sharedComponents/loading/loading";
 
-import { writeToJSON, copyJSON, deleteJSON } from "../../db/fileSystem/fsWrite";
-import { readJSON, readImportedJSON, readDirectory, getFileURL } from "../../db/fileSystem/fsRead";
+import { writeToJSON, importJSON, copyJSON, deleteJSON } from "../../db/fileSystem/fsWrite";
+import { readJSON, readImportedJSON, readDirectory, getFileURI } from "../../db/fileSystem/fsRead";
 
 import { useAtom, useSetAtom, useAtomValue } from "jotai";
 import {
@@ -20,20 +20,20 @@ import {
   activeProgramNameAtom,
   programPageSelectedDayAtom,
   programPageSelectedWeekAtom,
-} from "../../helpers/jotai/atomsWithStorage";
-import {
   programEditorDataAtom,
   selectedWeekAtom,
   selectedDayAtom,
   programEditorModeAtom,
   programNameForActionAtom,
-} from "../../helpers/jotai/programEditorAtoms";
+  wasProgramSavedAtom,
+} from "../../helpers/jotai/atoms";
 import { useInitialRender } from "../../helpers/useInitialRender";
 import { trainingProgramCleanUp } from "../../helpers/trainingProgramCleanUp";
+import { checkProgramEditorData } from "../../helpers/checkProgramEditorData";
 
 import styles from "./programEditorPageStyles";
 
-type ProgramOptionModalAction = "setActive" | "edit" | "share" | "delete" | "copy"
+type ProgramOptionModalAction = "setActive" | "edit" | "share" | "delete" | "copy";
 
 const ProgramEditorPage = ({ navigation }) => {
 
@@ -45,7 +45,7 @@ const ProgramEditorPage = ({ navigation }) => {
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const setActiveProgramData = useSetAtom(activeProgramAtom);
-  const setProgramEditorData = useSetAtom(programEditorDataAtom);
+  const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
   const [programList, setProgramList] = useState([]);
   const setSelectedWeek = useSetAtom(selectedWeekAtom);
   const setSelectedDay = useSetAtom(selectedDayAtom);
@@ -54,8 +54,10 @@ const ProgramEditorPage = ({ navigation }) => {
   const setProgramPageSelectedWeek = useSetAtom(programPageSelectedWeekAtom);
   const [programNameForAction, setProgramNameForAction] = useAtom(programNameForActionAtom);
   const [activeProgramName, setActiveProgramName] = useAtom(activeProgramNameAtom);
+  const [wasProgramSaved, setWasProgramSaved] = useAtom(wasProgramSavedAtom);
   const [modalOpen, setModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [modalContentOption, setModalContentOption] = useState("programOptions");
 
   const onScreenLoad = () => {
     navigation.setOptions({ headerTitle: () =>
@@ -70,32 +72,36 @@ const ProgramEditorPage = ({ navigation }) => {
   useLayoutEffect(() => {
     if(isInitialRender) {
       onScreenLoad();
-      readDIR();
+      readDir();
     }
   }, [])
 
   useLayoutEffect(() => {
     if(isFocused) {
-      readDIR();
+      readDir();
     }
   }, [isFocused])
 
-  const saveProgram = async (fileName: string, programJSON: Object) => {
-    await writeToJSON(fileName, programJSON);
-    await readDIR();
+  const saveProgram = async (fileName: string, programJSON: Object, isImport: boolean) => {
+    if(isImport) {
+      await importJSON(fileName, programJSON);
+    } else {
+      await writeToJSON(fileName, programJSON);
+    }
+    await readDir();
   }
 
   const deleteProgram = async (fileName: string) => {
-    const fileURL = await getFileURL(fileName);
-    await deleteJSON(fileURL);
-    await readDIR();
+    const fileURI = await getFileURI(fileName);
+    await deleteJSON(fileURI);
+    await readDir();
   }
 
   const readProgram = async (fileName: string) => {
     return JSON.parse(await readJSON(fileName.replace(".json", "")));
   }
 
-  const readDIR = async () => {
+  const readDir = async () => {
     setLoading(true);
     const _programList = await readDirectory();
     setProgramList(_programList);
@@ -103,13 +109,12 @@ const ProgramEditorPage = ({ navigation }) => {
   }
 
   const copyProgram = async (fileName: string) => {
-    const fileURL = await getFileURL(fileName);
-    await copyJSON(fileName, fileURL);
-    await readDIR();
+    const fileURI = await getFileURI(fileName);
+    await copyJSON(fileName, fileURI);
+    await readDir();
   }
 
   const importProgram = async () => {
-    // TODO - write a test to check if the selected program is valid?
     const file: any = await DocumentPicker.pick();
 
     // if(file[0].type === "application/json") {
@@ -118,15 +123,14 @@ const ProgramEditorPage = ({ navigation }) => {
     // GoHorse is just doing it's thing I guess
     if(file[0].name.includes(".json")) {
       const fileContent = await readImportedJSON(file[0].uri);
-      await saveProgram(file[0].name, JSON.parse(fileContent));
+      await saveProgram(file[0].name, JSON.parse(fileContent), true);
     } else {
-      alert(selectedLocale.programEditorPage.importErrorMessage);
+      alert(selectedLocale.fileSystem.invalidFileType);
     }
   }
 
-  const handleFabButtonClick = () => {
+  const setupNewProgram = () => {
     setProgramEditorMode("Create");
-    navigation.push("StepsTabs");
     setSelectedWeek(0);
     setSelectedDay(0);
     setProgramEditorData({
@@ -137,8 +141,27 @@ const ProgramEditorPage = ({ navigation }) => {
     });
   }
 
+  const handleFabButtonClick = () => {
+    let isDefaultProgram = true;
+    if(checkProgramEditorData(programEditorData)) {
+      isDefaultProgram = false;
+    }
+
+    if(wasProgramSaved || !isDefaultProgram) {
+      setupNewProgram();
+      navigation.push("StepsTabs");
+      setModalContentOption("fabButtonOptions");
+    } else {
+      setModalOpen(true);
+      setModalContentOption("fabButtonOptions");
+    }
+  }
+
   const programOptionModal = async (action: ProgramOptionModalAction) => {
-    const programData = await readProgram(programNameForAction);
+    let programData;
+    if (action !== "newProgram" && action !== "continueEditing") {
+      programData = await readProgram(programNameForAction);
+    }
     switch(action) {
       case "setActive":
         const _cleanedUpProgramData = trainingProgramCleanUp(programData);
@@ -151,26 +174,43 @@ const ProgramEditorPage = ({ navigation }) => {
         setModalOpen(false);
         break;
       case "edit":
+        setWasProgramSaved(false);
+        setProgramEditorMode("Edit");
         setSelectedWeek(0);
         setSelectedDay(0);
         setProgramEditorData(programData);
-        setModalOpen(false);
-        setProgramEditorMode("Edit");
         navigation.push("StepsTabs");
+        setModalOpen(false);
         break;
       case "share":
-        const url = await getFileURL(programNameForAction);
+        const url = await getFileURI(programNameForAction);
         await Share.open({ url: `file://${url}` });
         setModalOpen(false);
         break;
       case "delete":
-        // TODO - before deleting show message "are you sure? this action cannot be undone."
+        // TODO
+        // before deleting show message "are you sure? this action cannot be undone."
         // modal button options - delete and cancel
+        // calcel button with "danger" color?
         await deleteProgram(programNameForAction);
         setModalOpen(false);
         break;
       case "copy":
         await copyProgram(programNameForAction);
+        setModalOpen(false);
+        break;
+      case "newProgram":
+        setWasProgramSaved(false);
+        setupNewProgram();
+        navigation.push("StepsTabs");
+        setModalOpen(false);
+        break;
+      case "continueEditing":
+        setWasProgramSaved(false);
+        setProgramEditorMode("Edit");
+        setSelectedWeek(0);
+        setSelectedDay(0);
+        navigation.push("StepsTabs");
         setModalOpen(false);
         break;
       default:
@@ -204,7 +244,11 @@ const ProgramEditorPage = ({ navigation }) => {
                           name="ellipsis-vertical"
                           size={24}
                           style={styles(activeTheme).iconRight}
-                          onPress={() => { setModalOpen(true); setProgramNameForAction(item.name); }}
+                          onPress={() => {
+                            setModalContentOption("programOptions");
+                            setModalOpen(true);
+                            setProgramNameForAction(item.name);
+                          }}
                         />
                       </View>
                     )
@@ -236,27 +280,39 @@ const ProgramEditorPage = ({ navigation }) => {
         backdropTransitionInTiming={100}
         backdropTransitionOutTiming={1}
       >
-        <View style={styles(activeTheme).modalContent}>
-          <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("setActive")}>
-            <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.setActive}</Text>
-          </TouchableOpacity>
+        {modalContentOption === "programOptions" ? (
+          <View style={styles(activeTheme).modalContent}>
+            <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("setActive")}>
+              <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.setActive}</Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("edit")}>
-            <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.edit}</Text>
-          </TouchableOpacity>
+            <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("edit")}>
+              <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.edit}</Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("share")}>
-            <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.share}</Text>
-          </TouchableOpacity>
+            <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("share")}>
+              <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.share}</Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("copy")}>
-            <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.makeCopy}</Text>
-          </TouchableOpacity>
+            <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("copy")}>
+              <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.makeCopy}</Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("delete")}>
-            <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.delete}</Text>
-          </TouchableOpacity>
-        </View>
+            <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("delete")}>
+              <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.delete}</Text>
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <View style={styles(activeTheme).modalContent}>
+            <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("newProgram")}>
+              <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.newProgram}</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles(activeTheme).modalItem} onPress={() => programOptionModal("continueEditing")}>
+              <Text style={styles(activeTheme).modalItemText}>{selectedLocale.programEditorPage.modal.continueEditing}</Text>
+            </TouchableOpacity>
+          </View>
+        )}
       </Modal>
     </View>
   );

@@ -11,26 +11,19 @@ const styles = (theme: Theme) => {
     },
     controlsContainer: {
       flex: 1,
-      paddingHorizontal: 20,
+      padding: 20,
+      justifyContent: "center",
     },
-
     cardIncrement: {
       backgroundColor: theme.backgroundSecondary,
       padding: 22,
-      marginTop: 20,
       borderRadius: 10,
-      height: 260,
+      height: 180,
       justifyContent: "center",
-      alignItems: "center",
     },
     title: {
       color: theme.text,
       fontSize: 12,
-    },
-    bumperLabel: {
-      color: theme.text,
-      fontSize: 16,
-      marginTop: 20,
     },
     rowWrapper: {
       flexDirection: "column",
@@ -82,23 +75,21 @@ const styles = (theme: Theme) => {
       marginBottom: 10,
       textAlign: "center",
     },
-
     cardWarning: {
       backgroundColor: theme.textHighlight,
       padding: 16,
-      marginBottom: 20,
+      marginTop: 20,
       borderRadius: 10,
-      height: 100,
+      height: 130,
       justifyContent: "center",
       alignItems: "center",
     },
     textWarning: {
-      color: theme.text,
+      color: theme.backgroundPrimary,
       fontSize: 20,
       fontWeight: "bold",
       textAlign: "center",
     },
-
     modalContent: {
       justifyContent: "center",
       alignItems: "center",

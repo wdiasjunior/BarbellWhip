@@ -3,8 +3,8 @@ import { Text, View, ScrollView, TouchableOpacity } from "react-native";
 import styles from "./topTabBarStyles";
 
 import { useAtomValue } from "jotai";
-import { programPageSelectedDayAtom } from "../../helpers/jotai/atomsWithStorage";
-import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
+import { programPageSelectedDayAtom } from "../../helpers/jotai/atoms";
+import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atoms";
 
 interface IProps {
   days: number;

@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, ActivityIndicator, NativeModules } from "react-native";
 import Modal from "react-native-modal";
 
-import RNFS from 'react-native-fs';
+import RNFS from "react-native-fs";
 
 import styles from "./updateModalStyles";
 
 import { useAtomValue } from "jotai";
-import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atomsWithStorage";
+import { activeThemeAtom, selectedLocaleAtom } from "../../helpers/jotai/atoms";
 import { updateChecker } from "../../helpers/updateChecker";
 
 interface IProps {
@@ -40,7 +40,7 @@ const UpdateModal = (props: IProps) => {
   const filePath = `${RNFS.ExternalCachesDirectoryPath}/BarbellWhip_${appVersionGithub}.apk`;
 
   const getAppVersionGithub = () => {
-    fetch('https://raw.githubusercontent.com/wdiasjunior/BarbellWhip/main/package.json')
+    fetch("https://raw.githubusercontent.com/wdiasjunior/BarbellWhip/main/package.json")
       .then(response => response.json())
       .then(json => setAppVersionGithub(json.version))
       .catch(error => console.error(error));
@@ -72,7 +72,7 @@ const UpdateModal = (props: IProps) => {
   }, [appVersionGithub])
 
   const checkForDownloadedUpdate = async (appVersion: string): booolean => {
-    const fileName = "BarbellWhip_" + appVersion + ".apk";
+    const fileName = `BarbellWhip_${appVersion}.apk`;
 
     const files = await RNFS.readDir(RNFS.ExternalCachesDirectoryPath);
     const fileExists = files.some(file => file.name === fileName);
@@ -101,11 +101,11 @@ const UpdateModal = (props: IProps) => {
       handleInstallAPK();
     } else {
       await RNFS.unlink(RNFS.ExternalCachesDirectoryPath)
-              .then(() => console.log('Cache folder deleted'))
+              .then(() => console.log("Cache folder deleted"))
               .catch((err) => console.log(err.message));
 
       await RNFS.mkdir(RNFS.ExternalCachesDirectoryPath)
-              .then(() => console.log('Cache folder created'))
+              .then(() => console.log("Cache folder created"))
               .catch((err) => console.log(err.message));
 
       await RNFS.downloadFile({
@@ -115,9 +115,9 @@ const UpdateModal = (props: IProps) => {
                 const progress = (res.bytesWritten / res.contentLength) * 100;
                 console.log(`Progress: ${progress.toFixed(2)}%`);
               },
-            }).promise.then((response) => console.log('File downloaded!', response))
+            }).promise.then((response) => console.log("File downloaded!", response))
               .catch((err) => {
-                console.log('Download error:', err);
+                console.log("Download error:", err);
                 setShowDownloadSpinner(false);
                 setShowDownloadErrorMessage(true);
                 setIsGoBackDisabled(false);

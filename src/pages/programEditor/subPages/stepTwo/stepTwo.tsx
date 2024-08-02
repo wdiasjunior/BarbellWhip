@@ -5,8 +5,13 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { useAtom, useAtomValue } from "jotai";
-import { programEditorDataAtom, selectedWeekAtom, programEditorModeAtom } from "../../../../helpers/jotai/programEditorAtoms";
-import { activeThemeAtom, selectedLocaleAtom } from "../../../../helpers/jotai/atomsWithStorage";
+import {
+  activeThemeAtom,
+  selectedLocaleAtom,
+  programEditorDataAtom,
+  selectedWeekAtom,
+  programEditorModeAtom,
+} from "../../../../helpers/jotai/atoms";
 import { useInitialRender } from "../../../../helpers/useInitialRender";
 
 import { deepClone } from "../../../../helpers/deepClone";
@@ -101,16 +106,16 @@ const StepTwo = ({ navigation }) => {
           onPress={() => selectWeek(index)}
         >
           <TouchableOpacity style={{width: 40, height: 30}} onLongPress={drag} delayLongPress={50}>
-            <Ionicons name="reorder-three-outline" size={30} style={styles(activeTheme).weekItemIcon} />
+            <Ionicons name="reorder-three-outline" size={30} style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemIcon : styles(activeTheme).weekItemIcon} />
           </TouchableOpacity>
           <Text style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemText : styles(activeTheme).weekItemText}>{selectedLocale.programEditorPage.programEditorStep2.week} {index + 1}</Text>
 
           <TouchableOpacity style={styles(activeTheme).weekItemIconContainer} >
-            <Ionicons onPress={() => duplicateWeek(index)} name="copy-outline" size={20} style={styles(activeTheme).weekItemIcon} />
+            <Ionicons onPress={() => duplicateWeek(index)} name="copy-outline" size={20} style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemIcon : styles(activeTheme).weekItemIcon} />
           </TouchableOpacity>
 
           <TouchableOpacity style={styles(activeTheme).weekItemIconContainer}  onPress={() => deleteWeek()} >
-            <Ionicons name="trash-outline" size={20} style={styles(activeTheme).weekItemIcon} />
+            <Ionicons name="trash-outline" size={20} style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemIcon : styles(activeTheme).weekItemIcon} />
           </TouchableOpacity>
         </TouchableOpacity>
       </ScaleDecorator>

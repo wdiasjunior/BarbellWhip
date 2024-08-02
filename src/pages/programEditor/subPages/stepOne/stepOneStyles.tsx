@@ -12,7 +12,6 @@ const styles = (theme: Theme) => {
       shadowColor: "#171717",
       margin: 12,
     },
-
     programNameTextInput: {
       backgroundColor: theme.backgroundSecondary,
       height: 50,
@@ -22,7 +21,7 @@ const styles = (theme: Theme) => {
       marginVertical: 5,
       marginHorizontal: 20,
       padding: 10,
-      paddingLeft: 22,
+      paddingLeft: 16,
       color: theme.text,
       fontSize: 20,
       lineHeight: 30,
@@ -37,7 +36,7 @@ const styles = (theme: Theme) => {
       borderRadius: 12,
       marginVertical: 6,
       padding: 10,
-      paddingLeft: 22,
+      paddingLeft: 16,
       color: theme.text,
       fontSize: 20,
       lineHeight: 30,
@@ -53,13 +52,12 @@ const styles = (theme: Theme) => {
       marginVertical: 6,
       alignSelf: "flex-start",
       padding: 10,
-      paddingLeft: 22,
+      paddingLeft: 16,
       color: theme.text,
       fontSize: 20,
       lineHeight: 30,
       fontWeight: "bold",
     },
-
     onermItem: {
       backgroundColor: theme.backgroundSecondary,
       paddingHorizontal: 15,
@@ -90,7 +88,6 @@ const styles = (theme: Theme) => {
     onermItemIcon: {
       color: theme.text,
     },
-
     AddOneRMButton: {
       backgroundColor: theme.active,
       borderRadius: 10,
@@ -100,12 +97,11 @@ const styles = (theme: Theme) => {
       alignItems: "center",
     },
     AddOneRMButtonText: {
-      color: theme.text,
+      color: theme.statusBar === "dark-content" ? theme.backgroundSecondary : theme.text,
       fontSize: 16,
       lineHeight: 35,
       fontWeight: "bold",
     },
-
     weightUnitContainer: {
       backgroundColor: theme.backgroundSecondary,
       paddingHorizontal: 15,
