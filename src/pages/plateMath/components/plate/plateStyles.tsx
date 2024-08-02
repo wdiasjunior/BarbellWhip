@@ -49,7 +49,7 @@ export const styles = (theme: Theme) => {
   });
 }
 
-// TODO - change colors to match the overall themes
+// TODO - change colors to better match the overall themes (?)
 export const plateColors = {
   kg: {
     50   : "#8c8c8c",

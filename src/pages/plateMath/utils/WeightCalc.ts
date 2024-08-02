@@ -68,8 +68,6 @@ const WeightCalc = {
   },
 
   getClosestAvailableWeight(weight: number, barWeight: number, weightRack: WeightRack | BumperRack) {
-    console.log({weight, barWeight, weightRack});
-
     return this.getTotalWeight(this.getPlatesForTotalWeight(weight, barWeight, weightRack), barWeight);
   },
 

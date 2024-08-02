@@ -7,7 +7,7 @@ export const readJSON = async (programName: string) => {
     data = await RNFS.readFile(fileURI);
   } catch(error) {
     console.log(error);
-    alert("Error reading file."); //  TODO -  add locale here
+    alert("Error reading file."); //  TODO - add locale
   }
   return data;
 }
@@ -18,7 +18,7 @@ export const readImportedJSON = async (fileURI: string) => {
     data = await RNFS.readFile(fileURI);
   } catch(error) {
     console.log(error);
-    alert("Error reading file."); //  TODO -  add locale here
+    alert("Error reading file."); //  TODO - add locale
   }
   return data;
 }
@@ -30,7 +30,7 @@ export const getFileURI = async (programName: string) => {
     data = await RNFS.readFile(fileURI);
   } catch(error) {
     console.log(error);
-    alert("Error reading file."); //  TODO -  add locale here
+    alert("Error reading file."); //  TODO - add locale
   }
   return fileURI;
 }
@@ -42,7 +42,7 @@ export const readDirectory = async () => {
     data = await RNFS.readDir(fileURI);
   } catch(error) {
     console.log(error);
-    alert("Error reading file system."); //  TODO -  add locale here
+    alert("Error reading file system."); //  TODO - add locale
   }
   return data;
 }

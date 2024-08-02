@@ -58,7 +58,7 @@ const Header = (props: IProps) => {
       await writeToJSON(fileName, programJSON);
       navigation.replace("ProgramEditorStack");
     } else {
-      alert("Please fill in the program name field."); //  TODO -  add locale here
+      alert("Please fill in the program name field."); //  TODO - add locale
     }
     if(programEditorMode === "Edit" && activeProgramName === programNameForAction) {
       const programData = await readProgram(programNameForAction);
@@ -75,18 +75,18 @@ const Header = (props: IProps) => {
   }
 
   const importProgram = () => {
-    if (props.importProgram) {
+    if(props.importProgram) {
       props.importProgram();
     } else {
-      console.log("could not import program");
+      console.log("could not import program"); // TODO - add locale
     }
   }
 
   const setMenuOpenFromHeader = () => {
-    if (props.setIsMenuOpen) {
+    if(props.setIsMenuOpen) {
       props.setIsMenuOpen(prev => !prev);
     } else {
-      console.log("could not set menu open");
+      console.log("could not set menu open"); // TODO - add locale
     }
   }
 
