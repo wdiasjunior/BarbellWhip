@@ -140,7 +140,7 @@ const Plate = (props: IProps) => {
       } else {
         return Object.assign({
             ...styles(props.activeTheme).plate}, {
-            width: styles(props.activeTheme).plate.width * wScale,
+            width: plateDimensions[props.weightUnit][props.plate.plate].hasDecimal ? styles(props.activeTheme).plate.width * wScale + 8 : styles(props.activeTheme).plate.width * wScale - 10,
             height: styles(props.activeTheme).plate.height * hScale,
           });
       }
