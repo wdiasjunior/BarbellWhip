@@ -15,13 +15,13 @@ import { useAtom, useAtomValue } from "jotai";
 import {
   activeThemeAtom,
   selectedLocaleAtom,
-  plateMathPageWeight,
-  plateMathWeightUnit,
-  plateMathShowBumper,
-  plateMathBarWeight,
-  plateMathWeightRack,
-  plateMathBumperPlatesRack,
-  plateMathShowColoredPlates
+  plateMathPageWeightAtom,
+  plateMathWeightUnitAtom,
+  plateMathShowBumperAtom,
+  plateMathBarWeightAtom,
+  plateMathWeightRackAtom,
+  plateMathBumperPlatesRackAtom,
+  plateMathShowColoredPlatesAtom
 } from "../../helpers/jotai/atoms";
 
 import { useInitialRender } from "../../helpers/useInitialRender";
@@ -32,13 +32,13 @@ const PlateMathPage = ({ navigation }) => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
-  const [currentWeight, setCurrentWeight] = useAtom<number>(plateMathPageWeight);
-  const weightUnit = useAtomValue<boolean>(plateMathWeightUnit); // false == kg == left, true == lbs == right
-  const showBumper = useAtomValue<boolean>(plateMathShowBumper);
-  const barWeight = useAtomValue<BarWeight>(plateMathBarWeight);
-  const weightRack = useAtomValue<WeightRack>(plateMathWeightRack);
-  const bumperPlatesRack = useAtomValue<BumperRack>(plateMathBumperPlatesRack);
-  const showColoredPlates = useAtomValue<boolean>(plateMathShowColoredPlates);
+  const [currentWeight, setCurrentWeight] = useAtom<number>(plateMathPageWeightAtom);
+  const weightUnit = useAtomValue<boolean>(plateMathWeightUnitAtom); // false == kg == left, true == lbs == right
+  const showBumper = useAtomValue<boolean>(plateMathShowBumperAtom);
+  const barWeight = useAtomValue<BarWeight>(plateMathBarWeightAtom);
+  const weightRack = useAtomValue<WeightRack>(plateMathWeightRackAtom);
+  const bumperPlatesRack = useAtomValue<BumperRack>(plateMathBumperPlatesRackAtom);
+  const showColoredPlates = useAtomValue<boolean>(plateMathShowColoredPlatesAtom);
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
   const closestAvailableWeight = WeightCalc.getClosestAvailableWeight(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"]);
   const currentPlates = showBumper

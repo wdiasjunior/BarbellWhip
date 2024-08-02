@@ -12,13 +12,13 @@ import { useAtom, useAtomValue } from "jotai";
 import {
   activeThemeAtom,
   selectedLocaleAtom,
-  plateMathPageWeight,
-  plateMathWeightUnit,
-  plateMathBarWeight,
-  plateMathWeightRack,
-  plateMathShowBumper,
-  plateMathBumperPlatesRack,
-  plateMathShowColoredPlates,
+  plateMathPageWeightAtom,
+  plateMathWeightUnitAtom,
+  plateMathBarWeightAtom,
+  plateMathWeightRackAtom,
+  plateMathShowBumperAtom,
+  plateMathBumperPlatesRackAtom,
+  plateMathShowColoredPlatesAtom,
 } from "../../../helpers/jotai/atoms";
 
 import { useInitialRender } from "../../../helpers/useInitialRender";
@@ -29,13 +29,13 @@ const WeightRackPage = () => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
-  const [currentWeight, setCurrentWeight] = useAtom<number>(plateMathPageWeight);
-  const [weightUnit, setWeightUnit] = useAtom<boolean>(plateMathWeightUnit); // false == kg == left, true == lbs == right
-  const [barWeight, setBarWeight] = useAtom<BarWeight>(plateMathBarWeight);
-  const [weightRack, setWeightRack] = useAtom<WeightRack>(plateMathWeightRack);
-  const [showBumper, setShowBumper] = useAtom<boolean>(plateMathShowBumper);
-  const [bumperPlatesRack, setBumperPlatesRack] = useAtom<BumperRack>(plateMathBumperPlatesRack);
-  const [showColoredPlates, setShowColoredPlates] = useAtom<boolean>(plateMathShowColoredPlates);
+  const [currentWeight, setCurrentWeight] = useAtom<number>(plateMathPageWeightAtom);
+  const [weightUnit, setWeightUnit] = useAtom<boolean>(plateMathWeightUnitAtom); // false == kg == left, true == lbs == right
+  const [barWeight, setBarWeight] = useAtom<BarWeight>(plateMathBarWeightAtom);
+  const [weightRack, setWeightRack] = useAtom<WeightRack>(plateMathWeightRackAtom);
+  const [showBumper, setShowBumper] = useAtom<boolean>(plateMathShowBumperAtom);
+  const [bumperPlatesRack, setBumperPlatesRack] = useAtom<BumperRack>(plateMathBumperPlatesRackAtom);
+  const [showColoredPlates, setShowColoredPlates] = useAtom<boolean>(plateMathShowColoredPlatesAtom);
 
   const handleWeightUnitChange = (_weightUnit: boolean) => {
     const _convertedWeight = weightConversion(currentWeight, _weightUnit);

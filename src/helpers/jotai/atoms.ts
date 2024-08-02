@@ -10,6 +10,7 @@ const storage = createJSONStorage(() => AsyncStorage);
 // Active Program
 export const activeProgramAtom = atomWithStorage("activeProgramAtom", {}, storage);
 export const activeProgramNameAtom = atomWithStorage("activeProgramNameAtom", "", storage);
+export const activeProgramURIAtom = atomWithStorage("activeProgramURIAtom", "", storage);
 
 
 // Program page
@@ -18,21 +19,21 @@ export const programPageSelectedWeekAtom = atomWithStorage("programPageSelectedW
 
 
 // 1RM Calculator Page
-export const calculatorPageRepsAtom = atomWithStorage("calculatorPageReps", 1, storage);
-export const calculatorPageWeightAtom = atomWithStorage("calculatorPageWeight", 150, storage);
-export const calculatorPageWeightUnitAtom = atomWithStorage("calculatorPageWeightUnit", "kg", storage);
+export const calculatorPageRepsAtom = atomWithStorage("calculatorPageRepsAtom", 1, storage);
+export const calculatorPageWeightAtom = atomWithStorage("calculatorPageWeightAtom", 150, storage);
+export const calculatorPageWeightUnitAtom = atomWithStorage("calculatorPageWeightUnitAtom", "kg", storage);
 
 
 // Plate Math Page
-export const plateMathPageWeight = atomWithStorage("plateMathPageWeight", 150, storage);
-export const plateMathWeightUnit = atomWithStorage("plateMathWeightUnit", false, storage); // false == kg == left, true == lbs == right
-export const plateMathShowBumper = atomWithStorage("plateMathShowBumper", false, storage);
-export const plateMathShowColoredPlates = atomWithStorage("plateMathShowColoredPlates", false, storage);
-export const plateMathBarWeight = atomWithStorage("plateMathBarWeight", {
+export const plateMathPageWeightAtom = atomWithStorage("plateMathPageWeightAtom", 150, storage);
+export const plateMathWeightUnitAtom = atomWithStorage("plateMathWeightUnitAtom", false, storage); // false == kg == left, true == lbs == right
+export const plateMathShowBumperAtom = atomWithStorage("plateMathShowBumperAtom", false, storage);
+export const plateMathShowColoredPlatesAtom = atomWithStorage("plateMathShowColoredPlatesAtom", false, storage);
+export const plateMathBarWeightAtom = atomWithStorage("plateMathBarWeightAtom", {
   lbs: 45,
   kg: 20,
 }, storage);
-export const plateMathWeightRack = atomWithStorage("plateMathWeightRack", {
+export const plateMathWeightRackAtom = atomWithStorage("plateMathWeightRackAtom", {
   kg: {
     50   : 0,
     25   : 6,
@@ -59,7 +60,7 @@ export const plateMathWeightRack = atomWithStorage("plateMathWeightRack", {
     1.25 : 2,
   }
 }, storage);
-export const plateMathBumperPlatesRack = atomWithStorage("plateMathBumperPlatesRack", {
+export const plateMathBumperPlatesRackAtom = atomWithStorage("plateMathBumperPlatesRackAtom", {
   kg: {
     25 : 0,
     20 : 0,
