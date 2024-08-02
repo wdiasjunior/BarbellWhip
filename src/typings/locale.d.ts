@@ -56,7 +56,6 @@ interface Locale {
     title: string;
     noProgramListTextTitle: string;
     noProgramListTextSubtitle: string;
-    importErrorMessage: string;
     modal: {
       setActive: string;
       edit: string;
@@ -132,5 +131,8 @@ interface Locale {
   };
   numberInputModal: {
     cancelButtonLabel: string;
+  };
+  fileSystem: {
+    invalidFileType: string;
   };
 }

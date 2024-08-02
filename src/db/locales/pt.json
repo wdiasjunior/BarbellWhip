@@ -51,7 +51,6 @@
     "title": "Editor de Treinos",
     "noProgramListTextTitle": "Nenhum treino encontrado.",
     "noProgramListTextSubtitle": "Crie ou importe um.",
-    "importErrorMessage": "Tipo de arquivo inválido.",
     "modal": {
       "setActive": "Ativar",
       "edit": "Editar",
@@ -127,5 +126,8 @@
   },
   "numberInputModal": {
     "cancelButtonLabel": "CANCELAR"
+  },
+  "fileSystem": {
+    "invalidFileType": "Tipo de arquivo inválido.",
   }
 }

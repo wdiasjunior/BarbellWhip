@@ -115,10 +115,6 @@ const ProgramEditorPage = ({ navigation }) => {
   }
 
   const importProgram = async () => {
-    // TODO
-    // write a test to check if the selected program is valid?
-    // might be needed for intent program share
-    // won't be able to rely on `name.includes(".json")`
     const file: any = await DocumentPicker.pick();
 
     // if(file[0].type === "application/json") {
@@ -129,7 +125,7 @@ const ProgramEditorPage = ({ navigation }) => {
       const fileContent = await readImportedJSON(file[0].uri);
       await saveProgram(file[0].name, JSON.parse(fileContent), true);
     } else {
-      alert(selectedLocale.programEditorPage.importErrorMessage);
+      alert(selectedLocale.fileSystem.invalidFileType);
     }
   }
 

@@ -51,7 +51,6 @@
     "title": "Program Editor",
     "noProgramListTextTitle": "No programs found.",
     "noProgramListTextSubtitle": "Create or import one.",
-    "importErrorMessage": "Invalid file type.",
     "modal": {
       "setActive": "Set Active",
       "edit": "Edit",
@@ -127,5 +126,8 @@
   },
   "numberInputModal": {
     "cancelButtonLabel": "CANCEL"
+  },
+  "fileSystem": {
+    "invalidFileType": "Invalid file type."
   }
 }

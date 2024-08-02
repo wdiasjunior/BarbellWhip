@@ -6,7 +6,7 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import DrawerNavigator from "../navigators/DrawerNavigator";
 
 import { Provider, useAtomValue } from "jotai";
-import { activeThemeAtom } from "../helpers/jotai/atoms";
+import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atoms";
 
 import { readImportedJSON } from "../db/fileSystem/fsRead";
 import { importJSON } from "../db/fileSystem/fsWrite";
@@ -14,6 +14,7 @@ import { importJSON } from "../db/fileSystem/fsWrite";
 const AppWrapper = () => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
   const navigatorTheme = {
     ...DefaultTheme,
@@ -31,8 +32,12 @@ const AppWrapper = () => {
       async function handleImportFileFromIntent() {
         const fileContents = await readImportedJSON(data);
         // TODO
-        // test if file matches the program schema
-        importJSON(fileName, fileContents, true);
+        // properly test if file matches the program schema
+        if(fileName.includes(".json")) {
+          importJSON(fileName, fileContents, true);
+        } else {
+          alert(selectedLocale.fileSystem.invalidFileType);
+        }
       }
       handleImportFileFromIntent();
     })
