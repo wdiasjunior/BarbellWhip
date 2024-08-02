@@ -55,9 +55,10 @@
 
 # BUGS
 
-- program page
-  - [ ] "content shift" glitch on first load
-
+- [x] intent from whatsapp does not work. fails on file name
+  - [x] files coming from wpp and telegram have a different name. so grab the name from de program again
+  - [x] add intent option "to open with", instead of just "share"
+- [ ] program page - "content shift" glitch on first load
 - [ ] File system alerts using hard coded messages
 
 ---
