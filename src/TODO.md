@@ -62,7 +62,7 @@
 ## misc
   - [ ] switch to SQLite and stop using file system directly (?)
   - [ ] excel conversion to json? - spreadsheet template? (sort of done for a few programs)
-  - [ ] json program validator on import (?)
+  - [-] json program validator on import (?)
   - [ ] notes input for days/exercises on the program page ? (where/how would I save/load this ?)
   - [ ] write documentation for the code, program .json schema, and how to use the app.
   - [ ] think of a way to extend the program schema to allow for auto regulation logic with reps and weight, 1rm estimation - like what happens in the PH3 spreadsheet
@@ -75,12 +75,12 @@
 
 - program editor page
   - [x] light theme borders not showing on text inputs
-  - [ ] when saving and importing training programs
-    - [ ] check if file with the same name already exists
-    - [ ] add as a duplicate
-  - [ ] FS bug
-    - [ ] on copy then rename wont change file name. instead creates a different file
-    - [ ] use current behavior for save as copy button
+  - [-] when saving and importing training programs
+    - [-] check if file with the same name already exists
+    - [-] add as a duplicate
+  - [-] FS bug
+    - [-] on copy then rename wont change file name. instead creates a different file
+    - [-] use current behavior for save as copy button
 
 ---
 
@@ -90,7 +90,7 @@
   - [x] change to atom with storage
 - [x] change tempo for cadencia in ptbr
 - [-] use display flex instead of a bunch of rows on exercise page (?)
-- [-] add weight input to simple exercise and hide percentage/weight calc row
+- [x] add weight input to simple exercise and hide percentage/weight calc row
 - [-] astro fuwari theme (?)
 - [x] switch to toggle colors on or off depending on plate weight (?)
 - [x] move bumper button to settings page? (defaults to off)

@@ -26,7 +26,7 @@ interface WeightRack {
   };
 }
 
-interface BumperRack extends WeightRack {
+interface BumperRack {
   kg: {
     25: PlateColorSize;
     20: PlateColorSize;

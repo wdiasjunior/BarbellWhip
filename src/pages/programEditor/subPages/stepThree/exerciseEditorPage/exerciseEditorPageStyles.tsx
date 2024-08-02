@@ -35,7 +35,7 @@ const styles = (theme: Theme) => {
       borderRadius: 12,
       marginVertical: 6,
       padding: 10,
-      paddingLeft: 22, // TODO - make this smaller
+      paddingLeft: 16,
       color: theme.text,
       fontSize: 20,
       lineHeight: 30,
@@ -44,13 +44,13 @@ const styles = (theme: Theme) => {
     inputExerciseVariationName: {
       backgroundColor: theme.backgroundSecondary,
       height: 50,
-      width: "80%",
+      width: "90%",
       borderColor: theme.backgroundSecondary,
       borderWidth: 1,
       borderRadius: 12,
       marginVertical: 6,
       padding: 10,
-      paddingLeft: 22, // TODO - make this smaller
+      paddingLeft: 16,
       color: theme.text,
       fontSize: 20,
       lineHeight: 30,
@@ -65,7 +65,6 @@ const styles = (theme: Theme) => {
     exerciseItemRemoveIconContainer: {
       width: 25,
       height: 25,
-      marginLeft: "auto",
     },
     exerciseItemRemoveIcon: {
       color: theme.text,

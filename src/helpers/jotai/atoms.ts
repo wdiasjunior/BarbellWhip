@@ -35,7 +35,7 @@ export const plateMathBarWeight = atomWithStorage("plateMathBarWeight", {
 export const plateMathWeightRack = atomWithStorage("plateMathWeightRack", {
   kg: {
     50   : 0,
-    25   : 0,
+    25   : 6,
     20   : 6,
     15   : 2,
     10   : 2,

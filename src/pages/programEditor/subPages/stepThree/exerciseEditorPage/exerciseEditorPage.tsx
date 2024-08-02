@@ -108,22 +108,22 @@ const ExerciseEditorPage = (_props: any) => {
               return (
                 <View style={styles(activeTheme).exerciseItem} key={"ExerciseEditorPage_SetListExercise" + index}>
 
-                <View style={styles(activeTheme).col}>
-                  <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.exerciseVariation}</Text>
-                  <View style={styles(activeTheme).row}>
-                    <TextInput
-                      style={styles(activeTheme).inputExerciseVariationName}
-                      placeholderTextColor={activeTheme.placeholderText}
-                      cursorColor={activeTheme.active}
-                      onChangeText={(input) => editExerciseField("exerciseName", input, index)}
-                      value={item.exerciseName ? item.exerciseName+"" : ""}
-                      returnKeyType="done"
-                    />
-                    <TouchableOpacity style={styles(activeTheme).exerciseItemRemoveIconContainer}  onPress={() => removeExerciseSubSet(index)}>
-                      <Ionicons name="trash-outline" size={25} style={styles(activeTheme).exerciseItemRemoveIcon} />
-                    </TouchableOpacity>
+                  <View style={styles(activeTheme).col}>
+                    <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.exerciseVariation}</Text>
+                    <View style={styles(activeTheme).row}>
+                      <TextInput
+                        style={styles(activeTheme).inputExerciseVariationName}
+                        placeholderTextColor={activeTheme.placeholderText}
+                        cursorColor={activeTheme.active}
+                        onChangeText={(input) => editExerciseField("exerciseName", input, index)}
+                        value={item.exerciseName ? item.exerciseName+"" : ""}
+                        returnKeyType="done"
+                      />
+                      <TouchableOpacity style={styles(activeTheme).exerciseItemRemoveIconContainer}  onPress={() => removeExerciseSubSet(index)}>
+                        <Ionicons name="trash-outline" size={25} style={styles(activeTheme).exerciseItemRemoveIcon} />
+                      </TouchableOpacity>
+                    </View>
                   </View>
-                </View>
 
                   <View style={styles(activeTheme).row}>
                     <View style={styles(activeTheme).col}>
@@ -220,19 +220,17 @@ const ExerciseEditorPage = (_props: any) => {
                     </View>
                   </View>
 
-                  <View style={styles(activeTheme).row}>
-                    <View style={styles(activeTheme).col}>
-                      <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.rest}</Text>
-                      <TextInput
-                        keyboardType="default"
-                        style={styles(activeTheme).input}
-                        placeholderTextColor={activeTheme.placeholderText}
-                        cursorColor={activeTheme.active}
-                        onChangeText={(input) => editExerciseField("rest", input, index)}
-                        value={item.rest ? item.rest+"" : ""}
-                        returnKeyType="done"
-                      />
-                    </View>
+                  <View style={styles(activeTheme).col}>
+                    <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.rest}</Text>
+                    <TextInput
+                      keyboardType="default"
+                      style={styles(activeTheme).input}
+                      placeholderTextColor={activeTheme.placeholderText}
+                      cursorColor={activeTheme.active}
+                      onChangeText={(input) => editExerciseField("rest", input, index)}
+                      value={item.rest ? item.rest+"" : ""}
+                      returnKeyType="done"
+                    />
                   </View>
 
                   <View style={styles(activeTheme).col}>

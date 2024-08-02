@@ -39,6 +39,7 @@ interface Locale {
     title: string;
     weightLabel: string;
     currentBarWeightLabel: string;
+    textWarning: string;
     weightRackPage: {
       title: string;
       weightUnitLabel: string;

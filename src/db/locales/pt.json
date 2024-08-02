@@ -34,6 +34,7 @@
     "title": "Calculadora de Anilhas",
     "weightLabel": "Peso",
     "currentBarWeightLabel": "Peso da barra atual",
+    "textWarning": "AVISO. O peso inserido excede o peso configurado no rack.",
     "weightRackPage": {
       "title": "Plate Math Settings",
       "weightUnitLabel": "Unidade de Peso",

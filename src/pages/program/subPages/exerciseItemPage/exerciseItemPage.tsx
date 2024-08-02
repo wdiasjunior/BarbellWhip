@@ -87,10 +87,12 @@ const ExerciseItemPage = (_props: any) => {
                     </View>
                   ) : null}
 
-                  {rmId === "0" ? (
-                    <Text style={styles(activeTheme).label}>
-                      {selectedLocale.programPage.exerciseInfo.weightLabel}:  <Text style={styles(activeTheme).weightText}>{item.weight}{weightUnit}</Text>
-                    </Text>
+                  {rmId === "0" && item.weight && item.weight !== "" ? (
+                    <View style={styles(activeTheme).setListItemRow}>
+                      <Text style={styles(activeTheme).label}>
+                        {selectedLocale.programPage.exerciseInfo.weightLabel}:  <Text style={styles(activeTheme).weightText}>{item.weight}{weightUnit}</Text>
+                      </Text>
+                    </View>
                   ) : null}
 
                   {item.rpe || item.tempo ? (

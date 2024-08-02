@@ -16,7 +16,7 @@ export const styles = (theme: Theme) => {
     },
     plate: {
       height: 200,
-      width: 30,
+      width: 35,
       borderRadius: 3,
       borderColor: "#cccccc",
       borderWidth: 0.5,
