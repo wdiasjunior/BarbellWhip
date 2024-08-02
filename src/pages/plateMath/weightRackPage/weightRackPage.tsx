@@ -148,7 +148,7 @@ const WeightRackPage = () => {
             <View style={styles(activeTheme).row}>
               <View style={styles(activeTheme).column}>
                 <Text style={styles(activeTheme).inputLabel}>kg</Text>
-                {Object.entries(weightRack.kg).map((plate, j) => {
+                {Object.entries(weightRack.kg).sort((a, b) => parseFloat(b[0]) - parseFloat(a[0])).map((plate, j) => {
                   return (
                     <View style={styles(activeTheme).inputWeightRackRow} key={"PlateRackPage_WeightRackInput_1_" + j} >
                       <Text style={styles(activeTheme).inputLabel}>{plate[0]} </Text>
@@ -166,7 +166,7 @@ const WeightRackPage = () => {
               </View>
               <View style={styles(activeTheme).column}>
                 <Text style={styles(activeTheme).inputLabel}>lbs</Text>
-                {Object.entries(weightRack.lbs).map((plate, j) => {
+                {Object.entries(weightRack.lbs).sort((a, b) => parseFloat(b[0]) - parseFloat(a[0])).map((plate, j) => {
                   return (
                     <View style={styles(activeTheme).inputWeightRackRow} key={"PlateRackPage_WeightRackInput_2_" + j} >
                       <Text style={styles(activeTheme).inputLabel}>{plate[0]} </Text>
@@ -190,7 +190,7 @@ const WeightRackPage = () => {
             <View style={styles(activeTheme).row}>
               <View style={styles(activeTheme).column}>
                 <Text style={styles(activeTheme).inputLabel}>kg</Text>
-                {Object.entries(bumperPlatesRack.kg).map((plate, j) => {
+                {Object.entries(bumperPlatesRack.kg).sort((a, b) => parseFloat(b[0]) - parseFloat(a[0])).map((plate, j) => {
                   return (
                     <View style={styles(activeTheme).inputWeightRackRow} key={"PlateRackPage_BumperPlatesRackInput_1_" + j} >
                       <Text style={styles(activeTheme).inputLabel}>{plate[0]} </Text>
@@ -208,7 +208,7 @@ const WeightRackPage = () => {
               </View>
               <View style={styles(activeTheme).column}>
                 <Text style={styles(activeTheme).inputLabel}>lbs</Text>
-                {Object.entries(bumperPlatesRack.lbs).map((plate, j) => {
+                {Object.entries(bumperPlatesRack.lbs).sort((a, b) => parseFloat(b[0]) - parseFloat(a[0])).map((plate, j) => {
                   return (
                     <View style={styles(activeTheme).inputWeightRackRow} key={"PlateRackPage_BumperPlatesRackInput_2_" + j} >
                       <Text style={styles(activeTheme).inputLabel}>{plate[0]} </Text>
