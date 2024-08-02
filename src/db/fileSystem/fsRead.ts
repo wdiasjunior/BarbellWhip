@@ -1,7 +1,7 @@
 import RNFS from "react-native-fs";
 
 export const readJSON = async (programName: string) => {
-  const fileURI = RNFS.ExternalDirectoryPath + "/" + programName + ".json";
+  const fileURI = `${RNFS.ExternalDirectoryPath}/${programName}.json`;
   let data: any = null;
   try {
     data = await RNFS.readFile(fileURI);
@@ -23,8 +23,8 @@ export const readImportedJSON = async (fileURI: string) => {
   return data;
 }
 
-export const getFileURL = async (programName: string) => {
-  const fileURI = RNFS.ExternalDirectoryPath + "/" + programName;
+export const getFileURI = async (programName: string) => {
+  const fileURI = `${RNFS.ExternalDirectoryPath}/${programName}`;
   let data: any = null;
   try {
     data = await RNFS.readFile(fileURI);

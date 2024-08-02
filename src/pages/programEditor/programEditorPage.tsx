@@ -9,8 +9,8 @@ import { useIsFocused } from "@react-navigation/native";
 import Header from "../../sharedComponents/header/header";
 import Loading from "../../sharedComponents/loading/loading";
 
-import { writeToJSON, copyJSON, deleteJSON } from "../../db/fileSystem/fsWrite";
-import { readJSON, readImportedJSON, readDirectory, getFileURL } from "../../db/fileSystem/fsRead";
+import { writeToJSON, importJSON, copyJSON, deleteJSON } from "../../db/fileSystem/fsWrite";
+import { readJSON, readImportedJSON, readDirectory, getFileURI } from "../../db/fileSystem/fsRead";
 
 import { useAtom, useSetAtom, useAtomValue } from "jotai";
 import {
@@ -82,14 +82,18 @@ const ProgramEditorPage = ({ navigation }) => {
     }
   }, [isFocused])
 
-  const saveProgram = async (fileName: string, programJSON: Object) => {
-    await writeToJSON(fileName, programJSON);
+  const saveProgram = async (fileName: string, programJSON: Object, isImport: boolean) => {
+    if(isImport) {
+      await importJSON(fileName, programJSON);
+    } else {
+      await writeToJSON(fileName, programJSON);
+    }
     await readDir();
   }
 
   const deleteProgram = async (fileName: string) => {
-    const fileURL = await getFileURL(fileName);
-    await deleteJSON(fileURL);
+    const fileURI = await getFileURI(fileName);
+    await deleteJSON(fileURI);
     await readDir();
   }
 
@@ -98,15 +102,17 @@ const ProgramEditorPage = ({ navigation }) => {
   }
 
   const readDir = async () => {
+
     setLoading(true);
     const _programList = await readDirectory();
     setProgramList(_programList);
+    console.log(_programList);
     setLoading(false);
   }
 
   const copyProgram = async (fileName: string) => {
-    const fileURL = await getFileURL(fileName);
-    await copyJSON(fileName, fileURL);
+    const fileURI = await getFileURI(fileName);
+    await copyJSON(fileName, fileURI);
     await readDir();
   }
 
@@ -123,7 +129,7 @@ const ProgramEditorPage = ({ navigation }) => {
     // GoHorse is just doing it's thing I guess
     if(file[0].name.includes(".json")) {
       const fileContent = await readImportedJSON(file[0].uri);
-      await saveProgram(file[0].name, JSON.parse(fileContent));
+      await saveProgram(file[0].name, JSON.parse(fileContent), true);
     } else {
       alert(selectedLocale.programEditorPage.importErrorMessage);
     }
@@ -183,7 +189,7 @@ const ProgramEditorPage = ({ navigation }) => {
         setModalOpen(false);
         break;
       case "share":
-        const url = await getFileURL(programNameForAction);
+        const url = await getFileURI(programNameForAction);
         await Share.open({ url: `file://${url}` });
         setModalOpen(false);
         break;

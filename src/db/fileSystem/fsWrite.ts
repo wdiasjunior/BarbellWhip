@@ -1,10 +1,22 @@
 import RNFS from "react-native-fs";
+import { readDirectory } from "./fsRead";
+
+const getAvailableFileName = async (baseName) => {
+  let fileName = baseName.includes(".json") ? `${baseName}` : `${baseName}.json`;
+  let counter = 1;
+
+  while(await RNFS.exists(`${RNFS.ExternalDirectoryPath}/${fileName}`)) {
+    fileName = `${baseName.replace(".json", "")} (${counter}).json`;
+    counter++;
+  }
+
+  return fileName;
+}
 
 export const writeToJSON = async (programName: string, programJSON: object) => {
-  const fileUri = programName.includes(".json")
-                    ? RNFS.ExternalDirectoryPath + "/" + programName
-                    : RNFS.ExternalDirectoryPath + "/" + programName + ".json";
+  const fileUri = programName.includes(".json") ? `${RNFS.ExternalDirectoryPath}/${programName}` : `${RNFS.ExternalDirectoryPath}/${programName}.json`;
   const contents = JSON.stringify(programJSON, null, 2);
+
   try {
     await RNFS.writeFile(fileUri, contents);
   } catch(error) {
@@ -13,13 +25,23 @@ export const writeToJSON = async (programName: string, programJSON: object) => {
   }
 }
 
-export const copyJSON = async (programName: string, programURI: string) => {
-  const copyFileURI = RNFS.ExternalDirectoryPath + "/" + programName.replace(".json", " - copy.json");
-  const options = {
-    from: programURI,
-    to: copyFileURI
-  };
+export const importJSON = async (programName: string, programJSON: object) => {
   try {
+    const availableFileName = await getAvailableFileName(programName);
+    const fileUri = `${RNFS.ExternalDirectoryPath}/${availableFileName}`;
+    const contents = JSON.stringify(programJSON, null, 2);
+    await RNFS.writeFile(fileUri, contents);
+  } catch(error) {
+    console.log(error);
+    alert("Error writing to file."); //  TODO -  add locale here
+  }
+}
+
+export const copyJSON = async (programName: string, programURI: string) => {
+  try {
+    const availableFileName = await getAvailableFileName(programName);
+    const copyFileURI = `${RNFS.ExternalDirectoryPath}/${availableFileName}`;
+
     await RNFS.copyFile(programURI, copyFileURI);
   } catch(error) {
     console.log(error);

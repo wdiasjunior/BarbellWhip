@@ -75,12 +75,13 @@
 
 - program editor page
   - [x] light theme borders not showing on text inputs
-  - [-] when saving and importing training programs
-    - [-] check if file with the same name already exists
-    - [-] add as a duplicate
-  - [-] FS bug
-    - [-] on copy then rename wont change file name. instead creates a different file
-    - [-] use current behavior for save as copy button
+  - [x] when saving and importing training programs
+    - [x] check if file with the same name already exists
+    - [x] add as a duplicate
+  - [x] FS bug
+    - [x] on copy then rename wont change file name. instead creates a different file
+
+- [ ] File system alerts using hard coded messages
 
 ---
 

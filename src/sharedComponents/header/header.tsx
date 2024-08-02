@@ -52,7 +52,7 @@ const Header = (props: IProps) => {
   }
 
   const saveProgram = async () => {
-    const fileName = programEditorData.programName;
+    const fileName = programNameForAction;
     if(fileName !== "") {
       const programJSON = deepClone(programEditorData);
       await writeToJSON(fileName, programJSON);
