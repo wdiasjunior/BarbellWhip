@@ -28,7 +28,7 @@ export const calculatorPageWeightUnitAtom = atomWithStorage("calculatorPageWeigh
 export const plateMathPageWeightAtom = atomWithStorage("plateMathPageWeightAtom", 150, storage);
 export const plateMathWeightUnitAtom = atomWithStorage("plateMathWeightUnitAtom", false, storage); // false == kg == left, true == lbs == right
 export const plateMathShowBumperAtom = atomWithStorage("plateMathShowBumperAtom", false, storage);
-export const plateMathShowColoredPlatesAtom = atomWithStorage("plateMathShowColoredPlatesAtom", false, storage);
+export const plateMathShowColoredPlatesAtom = atomWithStorage("plateMathShowColoredPlatesAtom", true, storage);
 export const plateMathBarWeightAtom = atomWithStorage("plateMathBarWeightAtom", {
   lbs: 45,
   kg: 20,
