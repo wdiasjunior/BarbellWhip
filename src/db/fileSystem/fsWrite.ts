@@ -25,11 +25,11 @@ export const writeToJSON = async (programName: string, programJSON: object) => {
   }
 }
 
-export const importJSON = async (programName: string, programJSON: object) => {
+export const importJSON = async (programName: string, programJSON: object, isIntentImport: boolean) => {
   try {
     const availableFileName = await getAvailableFileName(programName);
     const fileUri = `${RNFS.ExternalDirectoryPath}/${availableFileName}`;
-    const contents = JSON.stringify(programJSON, null, 2);
+    const contents = isIntentImport ? programJSON : JSON.stringify(programJSON, null, 2);
     await RNFS.writeFile(fileUri, contents);
   } catch(error) {
     console.log(error);

@@ -27,7 +27,7 @@
     - [ ] oneRMs atom with storage object for semi persistent data that takes priority over the object in the json file for the percentage math (?)
 
 ## program editor page
-  - [-] share intent - share json from other apps and import programs
+  - [x] share intent - share json from other apps and import programs
   - [ ] add warning on rm/week/exercise items delete attempt
   - [x] change program editor program data to atom with storage in both apps(?) to prevent accidental discard of progress (kinda redundant if there's a warning on go back)
   - [ ] add spinner overlay on save

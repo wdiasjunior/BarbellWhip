@@ -102,11 +102,9 @@ const ProgramEditorPage = ({ navigation }) => {
   }
 
   const readDir = async () => {
-
     setLoading(true);
     const _programList = await readDirectory();
     setProgramList(_programList);
-    console.log(_programList);
     setLoading(false);
   }
 

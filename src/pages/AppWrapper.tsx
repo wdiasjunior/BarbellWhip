@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { StatusBar } from "react-native";
-// import { NativeEventEmitter, NativeModules } from 'react-native';
+import { NativeEventEmitter, NativeModules } from "react-native";
 
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import DrawerNavigator from "../navigators/DrawerNavigator";
 
 import { Provider, useAtomValue } from "jotai";
 import { activeThemeAtom } from "../helpers/jotai/atoms";
+
+import { readImportedJSON } from "../db/fileSystem/fsRead";
+import { importJSON } from "../db/fileSystem/fsWrite";
 
 const AppWrapper = () => {
 
@@ -20,20 +23,24 @@ const AppWrapper = () => {
     },
   };
 
-  // useEffect(() => {
-  //   const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
-  //   const eventListener = eventEmitter.addListener('ShareIntent', (event) => {
-  //     console.log('Received share intent data:', event);
-  //     // Handle the shared data
-  //     const { type, data } = event;
-  //     // Do something with the data
-  //     // TODO - save to fileSystem
-  //   });
-  //
-  //   return () => {
-  //     eventListener.remove();
-  //   };
-  // }, []);
+  useEffect(() => {
+    const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
+    const eventListener = eventEmitter.addListener("ShareIntent", (event) => {
+      const { type, data, fileName } = event;
+
+      async function handleImportFileFromIntent() {
+        const fileContents = await readImportedJSON(data);
+        // TODO
+        // test if file matches the program schema
+        importJSON(fileName, fileContents, true);
+      }
+      handleImportFileFromIntent();
+    })
+
+    return () => {
+      eventListener.remove();
+    }
+  }, []);
 
   return (
     <Provider>
