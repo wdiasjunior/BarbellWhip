@@ -10,7 +10,7 @@
     - [ ] add rpe math block
     - https://www.rpecalculator.com/
     - https://articles.reactivetrainingsystems.com/2015/11/29/beginning-rts/
-  - [ ] get inspiration from the juggernaut app
+    - [ ] get inspiration from the juggernaut app
   - [ ] calculator tab screen - add topTabBar to switch between RPE and RM (?) (example on juggernaut app)
 
 ## plate math page
@@ -20,11 +20,10 @@
 
 ## program page
   - exercise item page
+    - [-] use flex wrap instead of a bunch of rows (?)
     - [ ] add checkboxes to track how many sets were done (?)
     - [ ] header - add weight unit toggle for quick weight conversion (?)
     - [ ] add estimated rpe weight (?) - add switch to turn it on and off
-  - rm review page
-    - [ ] oneRMs atom with storage object for semi persistent data that takes priority over the object in the json file for the percentage math (?)
 
 ## program editor page
   - [x] share intent - share json from other apps and import programs
@@ -42,19 +41,11 @@
       - [ ] button - show screen for weekly (input amount of weeks(block)) volume / intensity
 
 ## PR Tracker page
+  - [ ] integrate OpenBarbell data (?)
   - [ ] lift/movement/exercise selector
   - [ ] display some fancy graphs/charts
-  - [ ] show graph with x axis for the passage of time and the y axis for the weight lifted
-  - [ ] percentage math for lastest entry of exercise below the graph (kinda like 1rm calculator page)
 
 ## settings page
-  - [ ] about? - separate page for this (?)
-    - [ ] link to website
-    - [ ] link to User Guide
-    - [ ] "To report bugs, suggest new features, or if you want to contribute to the project, access the link below"
-    - [ ] link to GitHub Repository
-    - [ ] "This app is ad free. If you feel like it, please support the project"
-    - [ ] link to buy me a coffee
   - [x] add switch to disable rounding and show actual weight after percentage calculation
     - [x] add checkboxes to select rm formulas to be used
     - [x] "Weights are rounded to 2.5kg and 5lbs"
@@ -71,7 +62,8 @@
 
 # BUGS
 
-- [ ] program page glitch on first load - remake week menu list without animations?
+- program page
+  - [ ] "content shift" glitch on first load
 
 - program editor page
   - [x] light theme borders not showing on text inputs
@@ -87,11 +79,10 @@
 
 # TODO priority
 
-- [x] change program editor program data prevent accidental discard
+- [x] change program editor program data to prevent accidental discard
   - [x] change to atom with storage
 - [x] change tempo for cadencia in ptbr
-- [-] use display flex instead of a bunch of rows on exercise page (?)
+
 - [x] add weight input to simple exercise and hide percentage/weight calc row
-- [-] astro fuwari theme (?)
 - [x] switch to toggle colors on or off depending on plate weight (?)
 - [x] move bumper button to settings page? (defaults to off)
