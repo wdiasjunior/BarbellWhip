@@ -31,13 +31,7 @@ const AppWrapper = () => {
 
       async function handleImportFileFromIntent() {
         const fileContents = await readImportedJSON(data);
-        // TODO
-        // properly test if file matches the program schema
-        if(fileName.includes(".json")) {
-          importJSON(fileName, fileContents, true);
-        } else {
-          alert(selectedLocale.fileSystem.invalidFileType);
-        }
+        importJSON(fileName, fileContents, true);
       }
       handleImportFileFromIntent();
     })

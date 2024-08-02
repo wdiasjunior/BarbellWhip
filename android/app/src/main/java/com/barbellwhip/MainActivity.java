@@ -56,11 +56,14 @@ public class MainActivity extends ReactActivity {
     if(intent != null) {
       String action = intent.getAction();
       String type = intent.getType();
+      Uri data = intent.getData();
 
-      if (Intent.ACTION_SEND.equals(action) && type != null) {
-        handleSendFile(intent);
-      } else if (Intent.ACTION_SEND_MULTIPLE.equals(action) && type != null) {
-        handleSendMultipleFiles(intent);
+      if(Intent.ACTION_SEND.equals(action) && type != null) {
+        if("application/json".equals(type)) {
+          handleSendFile(intent);
+        }
+      } else if(Intent.ACTION_VIEW.equals(action) && data != null) {
+        handleViewFile(intent);
       }
     }
   }
@@ -73,16 +76,11 @@ public class MainActivity extends ReactActivity {
     }
   }
 
-  void handleSendMultipleFiles(Intent intent) {
-    ArrayList<Uri> fileUris = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
-    if(fileUris != null) {
-      ArrayList<String> filePaths = new ArrayList<>();
-      ArrayList<String> fileNames = new ArrayList<>();
-      for(Uri uri : fileUris) {
-        filePaths.add(uri.toString());
-        fileNames.add(getFileName(uri));
-      }
-      sendToReactNative("files", filePaths.toString(), fileNames.toString());
+  void handleViewFile(Intent intent) {
+    Uri fileUri = intent.getData();
+    if(fileUri != null) {
+      String fileName = getFileName(fileUri);
+      sendToReactNative("file", fileUri.toString(), fileName);
     }
   }
 

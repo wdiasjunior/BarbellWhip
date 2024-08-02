@@ -55,9 +55,7 @@
 
 # BUGS
 
-- program page
-  - [ ] "content shift" glitch on first load
-
+- [ ] program page - "content shift" glitch on first load
 - [ ] File system alerts using hard coded messages
 
 ---
