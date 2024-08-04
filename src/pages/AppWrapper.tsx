@@ -33,6 +33,7 @@ const AppWrapper = () => {
         const fileContents = await readImportedJSON(data);
         importJSON(fileName, fileContents, true);
       }
+      // TODO - add alert "program imported successfully"
       handleImportFileFromIntent();
     })
 

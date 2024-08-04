@@ -57,5 +57,6 @@
 
 - [ ] program page - "content shift" glitch on first load
 - [ ] File system alerts using hard coded messages
+- [ ] clicking import button deletes data from editor (unconfirmed)
 
 ---
