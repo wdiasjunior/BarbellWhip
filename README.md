@@ -21,9 +21,9 @@ In one terminal run the command below
 
 And in another terminal run the following commands
 
-`export JAVA_HOME='/usr/lib/jvm/java-11-openjdk'`
+`export JAVA_HOME=/usr/lib/jvm/java-11-openjdk`
 
-`export ANDROID_SDK_ROOT='/home/$USER/Android/Sdk'`
+`export ANDROID_SDK_ROOT=/home/$USER/Android/Sdk`
 
 `npx react-native run-android`
 
