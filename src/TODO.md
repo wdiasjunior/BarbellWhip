@@ -30,6 +30,7 @@
     - [ ] 1rm input group. add field for reps and math for estimated rm depending on the amount of reps
   - *StepThree*
     - [ ] copy and paste function? - similar to how whatsapp lets you forward a message to multiple chats, do this for exercise items in day section (?)
+      - [ ] move/copy and paste exercise to day x in the same week
   - *StepFour* (?)
     - [ ] create 4th step on program editor (screen / modal options) (?)
     - [ ] another page or modal to display per week total volume of 1rm exercise
