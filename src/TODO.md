@@ -56,6 +56,7 @@
 
 # BUGS
 
+- [ ] number input should always start with 0 and not the previous value after the state was set in the page
 - [ ] program page - "content shift" glitch on first load
 - [ ] File system alerts using hard coded messages
 - [ ] clicking import button deletes data from editor (unconfirmed)
