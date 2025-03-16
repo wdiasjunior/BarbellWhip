@@ -100,6 +100,9 @@
       "addExerciseButton": "ADD EXERCISE"
     }
   },
+  "openBarbellPage": {
+    "title": "OpenBarbell",
+  },
   "settingsPage": {
     "title": "Settings",
     "themeSelectorTitle": "Theme",

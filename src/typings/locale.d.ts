@@ -105,6 +105,9 @@ interface Locale {
       addExerciseButton: string;
     };
   };
+  openBarbellPage: {
+    title: string,
+  };
   settingsPage: {
     title: string;
     themeSelectorTitle: string;
