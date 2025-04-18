@@ -1,6 +1,6 @@
 # TODO
 
-- [ ] change splash screen based on the selected theme (?)
+- [ ] change splash screen background color based on the selected theme (?)
 
 ## calculator page
   - [ ] add settings screen (?)
@@ -45,21 +45,20 @@
 ## settings page
 
 ## misc
+  - [ ] ditch barbellwhip-web and try and get react native compiled for the web
   - [ ] switch to SQLite and stop using file system directly (?)
   - [ ] excel conversion to json? - spreadsheet template? (sort of done for a few programs)
   - [ ] json program validator on import
   - [ ] notes input for days/exercises on the program page ? (where/how would I save/load this ?)
-  - [ ] write documentation for the code, program .json schema, and how to use the app.
+  - [ ] write documentation for the code, program .json schema, and how to use the app. add a docs section to the website
   - [ ] think of a way to extend the program schema to allow for auto regulation logic with reps and weight, 1rm estimation - like what happens in the PH3 spreadsheet
 
 ---
 
 # BUGS
 
-- [ ] number input should always start with 0 and not the previous value after the state was set in the page
 - [ ] program page - "content shift" glitch on first load
 - [ ] File system alerts using hard coded messages
 - [ ] clicking import button deletes data from editor (unconfirmed)
-- [ ] plate math page - number input modal should have the default value as 0. instead it is the current selected weight
 
 ---

@@ -24,7 +24,6 @@ const NumberInput = (props: IProps) => {
   const [weightString, setWeightString] = useState("0");
 
   const handleInput = (value: string) => {
-
     switch(value) {
       case "0":
         if(weightString == "0") {
@@ -72,6 +71,15 @@ const NumberInput = (props: IProps) => {
     }
   }
 
+  const handleButtons = (buttonAction: string) => {
+    if (buttonAction === "ok") {
+      props.toggleModal(weightString, props.inputLabel)
+    } else if (buttonAction === "cancel") {
+      props.toggleModal()
+    }
+    setWeightString("0");
+  }
+
   return (
     <Modal
       isVisible={props.isModalWeightInputVisible}
@@ -111,8 +119,8 @@ const NumberInput = (props: IProps) => {
           </View>
 
           <View style={styles(activeTheme).bottomButtonsRow}>
-            <Text style={styles(activeTheme).bottomButtonsText} onPress={() => props.toggleModal()}>{selectedLocale.numberInputModal.cancelButtonLabel}</Text>
-            <Text style={styles(activeTheme).bottomButtonsText} onPress={() => props.toggleModal(weightString, props.inputLabel)}>OK</Text>
+            <Text style={styles(activeTheme).bottomButtonsText} onPress={() => handleButtons("cancel")}>{selectedLocale.numberInputModal.cancelButtonLabel}</Text>
+            <Text style={styles(activeTheme).bottomButtonsText} onPress={() => handleButtons("ok")}>OK</Text>
           </View>
 
         </View>
