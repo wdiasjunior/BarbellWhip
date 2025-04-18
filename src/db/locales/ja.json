@@ -1,0 +1,136 @@
+{
+  "programPage": {
+    "defaultTitle": "プログラムページ",
+    "title": "プログラム",
+    "week": "週",
+    "day": "日",
+    "rmReviewTitle": "1RMレビュー",
+    "rmReviewWeightLabel": "重量",
+    "weekSelectorTitle": "週の選択",
+    "noActiveProgramTextTitle": "プログラムが読み込まれていません。",
+    "noActiveProgramTextSubtitle": "プログラムエディターで作成またはインポートし、アクティブに設定してください。",
+    "exerciseInfo": {
+      "title": "エクササイズ情報",
+      "sets": "セット",
+      "reps": "レップ",
+      "weightLabel": "重量",
+      "percentage": "パーセンテージ",
+      "rest": "休憩",
+      "tempo": "テンポ",
+      "altExercise1": "代替エクササイズ1",
+      "altExercise2": "代替エクササイズ2",
+      "description": "説明"
+    }
+  },
+  "calculatorPage": {
+    "title": "1RM計算機",
+    "weightLifted": "持ち上げた重量",
+    "repsPerformed": "実施したレップ数",
+    "rmTitle": "1回最大挙上重量",
+    "rmPercentageTitle": "1RMのパーセンテージ",
+    "textWarning": "警告：12回以上のレップでは計算の精度が大幅に低下します。"
+  },
+  "plateMathPage": {
+    "title": "プレート計算",
+    "weightLabel": "重量",
+    "currentBarWeightLabel": "現在のバーベル重量",
+    "textWarning": "警告：入力された重量はラック内の重量を超えています。",
+    "weightRackPage": {
+      "title": "プレート計算の設定",
+      "weightUnitLabel": "重量単位",
+      "bumperToggleLabel": "バンパープレート",
+      "coloredPlatesToggleLabel": "カラープレート",
+      "barWeightTitle": "バーベル重量",
+      "plateRackTitle": "プレートラック（プレートごとの数量）",
+      "bumperPlatesRackTitle": "バンパープレートラック（プレートごとの数量）",
+      "colorCodedPlatesTitle": "カラープレート",
+      "collarsSwitchTitle": "2.5kgカラー"
+    }
+  },
+  "programEditorPage": {
+    "title": "プログラムエディター",
+    "noProgramListTextTitle": "プログラムが見つかりません。",
+    "noProgramListTextSubtitle": "新しく作成するか、インポートしてください。",
+    "modal": {
+      "setActive": "アクティブに設定",
+      "edit": "編集",
+      "share": "共有",
+      "makeCopy": "コピーを作成",
+      "delete": "削除",
+      "newProgram": "新しいプログラム",
+      "continueEditing": "編集を続ける"
+    },
+    "programEditorStep1": {
+      "title": "プログラム作成",
+      "title2": "プログラム編集",
+      "tabTitle": "情報",
+      "programName": "プログラム名",
+      "add1RMexerciseButton": "1RMエクササイズを追加",
+      "RMexercise": "1RMエクササイズ",
+      "weightLabel": "重量"
+    },
+    "programEditorStep2": {
+      "title": "プログラム作成",
+      "title2": "プログラム編集",
+      "tabTitle": "週",
+      "addWeekButton": "週を追加",
+      "week": "週"
+    },
+    "programEditorStep3": {
+      "title": "プログラム作成",
+      "title2": "プログラム編集",
+      "tabTitle": "日",
+      "emptyDayInfo": "空白のままにすると休養日として扱われます",
+      "addExerciseButton": "エクササイズを追加",
+      "simpleExerciseModalLabel": "シンプルなエクササイズ（RMなし）"
+    },
+    "exerciseEditorPage": {
+      "title": "エクササイズエディター",
+      "exerciseNameInfo": "日ごとのリストに表示される名前",
+      "exerciseVariation": "エクササイズ／バリエーション名（任意）",
+      "sets": "セット",
+      "reps": "レップ",
+      "percentage": "パーセンテージ",
+      "weightLabel": "重量",
+      "rest": "休憩",
+      "tempo": "テンポ",
+      "altExercise1": "代替エクササイズ1",
+      "altExercise2": "代替エクササイズ2",
+      "description": "説明",
+      "addExerciseButton": "エクササイズを追加"
+    }
+  },
+  "openBarbellPage": {
+    "title": "オープンバーベル"
+  },
+  "settingsPage": {
+    "title": "設定",
+    "themeSelectorTitle": "テーマ",
+    "languageSelectorTitle": "言語",
+    "versionLabel": "バージョン",
+    "updateCheckerTitle": "アップデートを確認",
+    "searchingForUpdates": "アップデートを検索中",
+    "updateAvailableMessage": "アップデートがあります",
+    "newVersionLabel": "新しいバージョン",
+    "noUpdateAvailableMessage": "新しいアップデートはありません",
+    "downloadUpdateButton": "ダウンロード",
+    "downloadingUpdateMessage": "アップデートをダウンロード中",
+    "downloadCompleteMessage": "ダウンロード完了",
+    "downloadErrorMessage": "アップデートのダウンロード中にエラーが発生しました",
+    "updateCheckErrorMessage": "アップデート確認中にエラーが発生しました",
+    "installUpdateButton": "アップデートをインストール",
+    "closeModalButtonLabel": "閉じる",
+    "okModalButtonLabel": "OK",
+    "cancelModalButtonLabel": "キャンセル",
+    "weightRoundingTitle": "重量の丸め",
+    "weightRoundingDescription": "重量は2.5kgまたは5ポンドに丸められます",
+    "calculationFormulasTitle": "計算式",
+    "calculationFormulasDescription": "1RMを計算するために使用する式を選択します"
+  },
+  "numberInputModal": {
+    "cancelButtonLabel": "キャンセル"
+  },
+  "fileSystem": {
+    "invalidFileType": "無効なファイル形式です。"
+  }
+}
