@@ -33,7 +33,7 @@ function oneRMCalc(weightLifted: number, repsPerformed: number, xRM: number, RMF
 
 export function round(weight: number, percentage?: number = 100, shouldRound?: boolean = false, weightUnit?: string = "kg"): number {
   if(!shouldRound) {
-    return round(parseFloat(weight) * (parseFloat(percentage) / 100));
+    return Math.round(parseFloat(weight) * (parseFloat(percentage) / 100));
   }
 
   const roundingFactor = weightUnit === "kg" ? 2.5 : 5;
