@@ -23,9 +23,18 @@ const DrawerNavigator = () => {
 
   return (
     <Drawer.Navigator
-      useLegacyImplementation={true}
+      // useLegacyImplementation={true}
       defaultStatus="closed"
-      screenOptions={({ route }) => ({
+      screenOptions={({ route, navigation }) => ({
+        headerLeft: () => (
+          <Ionicons
+            name="menu-sharp"
+            size={24}
+            color={activeTheme.text}
+            style={{ marginLeft: 16 }}
+            onPress={() => navigation.openDrawer()}
+          />
+        ),
         drawerIcon: ({ focused, color, size }) => {
           let iconName;
           if(route.name === "ProgramDrawer") {
@@ -49,7 +58,7 @@ const DrawerNavigator = () => {
           backgroundColor: activeTheme.backgroundSecondary,
           width: isInitialRender ? undefined : "75%",
         },
-        cardStyle: {
+        contentStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
         },
@@ -92,6 +101,7 @@ const DrawerNavigator = () => {
         component={OpenBarbellPage}
         options={{
           title: selectedLocale.openBarbellPage.title,
+          headerTitleStyle: { color: activeTheme.text },
           headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
@@ -105,6 +115,7 @@ const DrawerNavigator = () => {
         component={SettingsPage}
         options={{
           title: selectedLocale.settingsPage.title,
+          headerTitleStyle: { color: activeTheme.text },
           headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,

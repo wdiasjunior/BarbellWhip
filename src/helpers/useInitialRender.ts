@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // this gambiarra circumvents a problem that seems to be caused by react
 // navigation where the first time a screen is loaded causes a layout shift/glitch,
@@ -6,12 +6,11 @@ import { useState } from "react";
 // for some reason in ProgramPage this does not help in the first page load of the app.
 
 export function useInitialRender(): boolean {
-  const [isInitialRender, setIsInitialRender] = useState(false);
+  const [isInitialRender, setIsInitialRender] = useState(true);
 
-  if(!isInitialRender) {
-    setTimeout(() => setIsInitialRender(true), 1);
-    return true;
-  }
+  useEffect(() => {
+    setIsInitialRender(false);
+  }, []);
 
-  return false;
+  return isInitialRender;
 }

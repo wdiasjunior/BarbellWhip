@@ -112,7 +112,8 @@ const StepThree = ({ navigation }) => {
     setProgramEditorData(auxAtom);
   }
 
-  const renderDayExerciseItems = ({ item, index, drag }) => {
+  const renderDayExerciseItems = ({ item, getIndex, drag }) => {
+    const index = getIndex();
 
     const deleteExercise = () => {
       let auxAtom = deepClone(programEditorData);
@@ -124,7 +125,7 @@ const StepThree = ({ navigation }) => {
       <ScaleDecorator key={"ProgramEditorPage_StepThree_ExerciseItem" + index}>
         <View style={styles(activeTheme).exerciseItem}>
           <TouchableOpacity style={{width: 36, height: 30}} onLongPress={drag} delayLongPress={50}>
-            <Ionicons name="reorder-three-outline" size={30} style={styles(activeTheme).exerciseItemIcon} />
+            <Ionicons name="reorder-three-outline" size={30} color={activeTheme.text} style={styles(activeTheme).exerciseItemIcon} />
           </TouchableOpacity>
 
           <Text style={styles(activeTheme).exerciseItemText} numberOfLines={1}>
@@ -132,11 +133,11 @@ const StepThree = ({ navigation }) => {
           </Text>
 
           <TouchableOpacity style={{width: 32, height: 20}} onPress={() => editExercise(index)} >
-            <MaterialIcons name="edit" size={20} style={styles(activeTheme).exerciseItemIcon} />
+            <MaterialIcons name="edit" size={20} color={activeTheme.text} style={styles(activeTheme).exerciseItemIcon} />
           </TouchableOpacity>
 
           <TouchableOpacity style={{width: 20, height: 20}} onPress={() => deleteExercise()} >
-            <Ionicons name="trash-outline" size={20} style={styles(activeTheme).exerciseItemIcon} />
+            <Ionicons name="trash-outline" size={20} color={activeTheme.text} style={styles(activeTheme).exerciseItemIcon} />
           </TouchableOpacity>
         </View>
       </ScaleDecorator>

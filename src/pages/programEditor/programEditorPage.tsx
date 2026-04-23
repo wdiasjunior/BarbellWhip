@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity, ScrollView } from "react-native";
 import Modal from "react-native-modal";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Share from "react-native-share";
-import DocumentPicker from "react-native-document-picker";
+import { pick as documentPick } from "@react-native-documents/picker";
 import { useIsFocused } from "@react-navigation/native";
 
 import Header from "../../sharedComponents/header/header";
@@ -115,7 +115,7 @@ const ProgramEditorPage = ({ navigation }) => {
   }
 
   const importProgram = async () => {
-    const file: any = await DocumentPicker.pick();
+    const file: any = await documentPick();
 
     // if(file[0].type === "application/json") {
     // this apparently does not work in some older android versions for whatever
@@ -239,10 +239,11 @@ const ProgramEditorPage = ({ navigation }) => {
                         style={activeProgramName === item.name ? styles(activeTheme).programItemSelected : styles(activeTheme).programItem}
                         key={"ProgramEditorPage_ProgramListItem" + index}
                       >
-                        <Text adjustsFontSizeToFit style={styles(activeTheme).programItemText}>{item.name.replace(".json", "")}</Text>
+                        <Text adjustsFontSizeToFit style={activeProgramName === item.name ? styles(activeTheme).programItemSelectedText : styles(activeTheme).programItemText}>{item.name.replace(".json", "")}</Text>
                         <Ionicons
                           name="ellipsis-vertical"
                           size={24}
+                          color={activeProgramName === item.name ? styles(activeTheme).programItemSelectedText.color : styles(activeTheme).programItemText.color}
                           style={styles(activeTheme).iconRight}
                           onPress={() => {
                             setModalContentOption("programOptions");

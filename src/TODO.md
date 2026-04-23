@@ -1,6 +1,8 @@
 # TODO
 
-- [ ] change splash screen background color based on the selected theme (?)
+## general
+  - [ ] change splash screen background color based on the selected theme (?)
+  - [ ] change icon in splash screen for a svg? transparent background?
 
 ## calculator page
   - [ ] add settings screen (?)
@@ -37,21 +39,24 @@
       - [ ] separate values for accessories and total
       - [ ] button - show screen for weekly (input amount of weeks(block)) volume / intensity
 
-## PR Tracker page
-  - [ ] integrate OpenBarbell data (?)
-  - [ ] lift/movement/exercise selector
+## PR Tracker / OpenBarbell page
+  - [ ] port code from openbarbell app
+  - [ ] integrate OpenBarbell device data via bluetooth
+  - [ ] lift/movement/exercise selector tabs
   - [ ] display some fancy graphs/charts
+  - [ ] google drive/spreadsheet integration?
 
 ## settings page
 
 ## misc
+  - [ ] fix navigation stack weird go back behavior
   - [ ] ditch barbellwhip-web and try and get react native compiled for the web
-  - [ ] switch to SQLite and stop using file system directly (?)
-  - [ ] excel conversion to json? - spreadsheet template? (sort of done for a few programs)
+  - [ ] switch to SQLite and stop using file system directly (op-sqlite?)
+  - [ ] excel conversion to json? - spreadsheet template? (sort of done for a few programs) (AI powered?)
   - [ ] json program validator on import
   - [ ] notes input for days/exercises on the program page ? (where/how would I save/load this ?)
   - [ ] write documentation for the code, program .json schema, and how to use the app. add a docs section to the website
-  - [ ] think of a way to extend the program schema to allow for auto regulation logic with reps and weight, 1rm estimation - like what happens in the PH3 spreadsheet
+  - [ ] think of a way to extend the program schema to allow for auto regulation logic with reps and weight, 1rm estimation and VBT - like what happens in the PH3 spreadsheet
 
 ---
 
@@ -60,5 +65,13 @@
 - [ ] program page - "content shift" glitch on first load
 - [ ] File system alerts using hard coded messages
 - [ ] clicking import button deletes data from editor (unconfirmed)
+
+---
+
+# RN Version Upgrade Bugs
+
+- [-] useInitialRender causing some errors in debug but not crashing the app
+  - [ ] check for old UI glitch/shift on load
+- [ ] test the whole thing and check for new bugs/weird issues
 
 ---

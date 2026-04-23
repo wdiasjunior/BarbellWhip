@@ -42,7 +42,7 @@ const BottomTabProgramPageNavigator = () => {
           borderTopWidth: 0,
           display: isInitialRender ? "none" : "flex",
         },
-        cardStyle: {
+        contentStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
           flex: 1,

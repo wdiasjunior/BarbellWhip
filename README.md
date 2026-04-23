@@ -13,15 +13,19 @@ For iOS users or whoever wants to test the app without downloading it, there's a
 
 ## How to run
 
-Using node version `v18.12.1` install the dependencies by running `npm i`.
+Using node version `v22.12.0` install the dependencies by running `npm i`.
 
 In one terminal run the command below
 
 `npx react-native start`
 
+Make sure you have Android SDK 35.0.0 and Java JDK 17 installed.
+
 And in another terminal run the following commands
 
-`export JAVA_HOME=/usr/lib/jvm/java-11-openjdk`
+`export JAVA_HOME=/usr/lib/jvm/java-17-openjdk`
+
+`export PATH="$JAVA_HOME/bin:$PATH"`
 
 `export ANDROID_SDK_ROOT=/home/$USER/Android/Sdk`
 
@@ -29,13 +33,19 @@ And in another terminal run the following commands
 
 ## How to build (debug apk)
 
+Using node version `v22.12.0` install the dependencies by running `npm i`.
+
 Run the command below in the project's root directory
 
 `npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res`
 
+Make sure you have Android SDK 35.0.0 and Java JDK 17 installed.
+
 Then run the commands below in the `/android` directory
 
-`export JAVA_HOME='/usr/lib/jvm/java-11-openjdk'`
+`export JAVA_HOME=/usr/lib/jvm/java-17-openjdk`
+
+`export PATH="$JAVA_HOME/bin:$PATH"`
 
 `export ANDROID_SDK_ROOT='/home/$USER/Android/Sdk'`
 

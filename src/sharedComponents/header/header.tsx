@@ -52,16 +52,17 @@ const Header = (props: IProps) => {
   }
 
   const saveProgram = async () => {
-    const fileName = programNameForAction;
+    const fileName = programEditorData.programName || programNameForAction;
     if(fileName !== "") {
       const programJSON = deepClone(programEditorData);
       await writeToJSON(fileName, programJSON);
       navigation.replace("ProgramEditorStack");
     } else {
       alert("Please fill in the program name field."); //  TODO - add locale
+      return;
     }
-    if(programEditorMode === "Edit" && activeProgramName === programNameForAction) {
-      const programData = await readProgram(programNameForAction);
+    if(programEditorMode === "Edit" && activeProgramName === fileName) {
+      const programData = await readProgram(fileName);
       const _cleanedUpProgramData = trainingProgramCleanUp(programData);
       setActiveProgramData(_cleanedUpProgramData);
     }
@@ -113,6 +114,7 @@ const Header = (props: IProps) => {
           <Ionicons
             name="arrow-back-sharp"
             size={24}
+            color={activeTheme.text}
             style={styles(activeTheme).iconLeft}
             onPress={backButton}
           />
@@ -120,6 +122,7 @@ const Header = (props: IProps) => {
           <Ionicons
             name="menu-sharp"
             size={24}
+            color={activeTheme.text}
             style={styles(activeTheme).iconLeft}
             onPress={() => navigation.openDrawer()}
           />
@@ -133,6 +136,7 @@ const Header = (props: IProps) => {
           <Ionicons
             name="ellipsis-vertical"
             size={24}
+            color={activeTheme.text}
             style={styles(activeTheme).iconRight}
             onPress={setMenuOpenFromHeader}
           />
@@ -141,6 +145,7 @@ const Header = (props: IProps) => {
           <Ionicons
             name="settings-sharp"
             size={24}
+            color={activeTheme.text}
             style={styles(activeTheme).iconRight}
             onPress={() => navigation.push("WeightRackPage")}
           />
@@ -149,6 +154,7 @@ const Header = (props: IProps) => {
           <Ionicons
             name="download-outline"
             size={24}
+            color={activeTheme.text}
             style={styles(activeTheme).iconRight}
             onPress={importProgram}
           />
@@ -157,6 +163,7 @@ const Header = (props: IProps) => {
           <Entypo
             name="save"
             size={24}
+            color={activeTheme.text}
             style={styles(activeTheme).iconRight}
             onPress={saveButton}
           />

@@ -1,5 +1,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { useNavigation } from "@react-navigation/native";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 import ProgramPage from "../pages/program/programPage";
 import ExerciseItemPage from "../pages/program/subPages/exerciseItemPage/exerciseItemPage";
@@ -29,7 +30,7 @@ const ProgramEditorDayPageStack = () => {
   return (
     <Stack.Navigator
       screenOptions={() => ({
-        cardStyle: {
+        contentStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
         },
@@ -49,7 +50,7 @@ const ProgramEditorDayPageStack = () => {
             elevation: 0,
             shadowOpacity: 0,
           },
-          cardStyle: {
+          contentStyle: {
             backgroundColor: activeTheme.backgroundPrimary,
             opacity: 1,
           },
@@ -58,20 +59,30 @@ const ProgramEditorDayPageStack = () => {
       <Stack.Screen
         name="ExerciseEditorPage"
         component={ExerciseEditorPage}
-        options={{
+        options={({ navigation }) => ({
           headerShown: true,
           presentation: "modal",
           headerTitle: selectedLocale.programEditorPage.exerciseEditorPage.title,
+          headerTitleStyle: { color: activeTheme.text },
           animationEnabled: false,
+          headerLeft: () => (
+            <Ionicons
+              name="arrow-back-sharp"
+              size={24}
+              color={activeTheme.text}
+              style={{ marginLeft: 16 }}
+              onPress={() => navigation.goBack()}
+            />
+          ),
           headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
+          contentStyle: {
             backgroundColor: activeTheme.backgroundPrimary,
             opacity: 1,
           },
-        }}
+        })}
       />
     </Stack.Navigator>
   );
@@ -160,7 +171,7 @@ const ProgramPageStack = () => {
   return (
     <Stack.Navigator
       screenOptions={() => ({
-        cardStyle: {
+        contentStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
         },
@@ -181,7 +192,7 @@ const ProgramPageStack = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
+          contentStyle: {
             backgroundColor: activeTheme.backgroundPrimary,
             opacity: 1,
           },
@@ -196,6 +207,7 @@ const ProgramPageStack = () => {
           presentation: "modal",
           detachPreviousScreen: false,
           headerTitle: selectedLocale.programPage.exerciseInfo.title,
+          headerTitleStyle: { color: activeTheme.text },
           animationEnabled: false,
           headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
@@ -208,19 +220,29 @@ const ProgramPageStack = () => {
       <Stack.Screen
         name="RMReviewPage"
         component={RMReviewPage}
-        options={{
+        options={({ navigation }) => ({
           headerShown: true,
           presentation: "modal",
           detachPreviousScreen: false,
           headerTitle: selectedLocale.programPage.rmReviewTitle,
+          headerTitleStyle: { color: activeTheme.text },
           animationEnabled: false,
+          headerLeft: () => (
+            <Ionicons
+              name="arrow-back-sharp"
+              size={24}
+              color={activeTheme.text}
+              style={{ marginLeft: 16 }}
+              onPress={() => navigation.goBack()}
+            />
+          ),
           headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-        }}
+        })}
       />
     </Stack.Navigator>
   );
@@ -234,7 +256,7 @@ const PlateMathPageStack = () => {
   return (
     <Stack.Navigator
       screenOptions={() => ({
-        cardStyle: {
+        contentStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
         },
@@ -255,7 +277,7 @@ const PlateMathPageStack = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
+          contentStyle: {
             backgroundColor: activeTheme.backgroundPrimary,
             opacity: 1,
           },
@@ -264,19 +286,29 @@ const PlateMathPageStack = () => {
       <Stack.Screen
         name="WeightRackPage"
         component={WeightRackPage}
-        options={{
+        options={({ navigation }) => ({
           headerShown: true,
           presentation: "modal",
           detachPreviousScreen: false,
           headerTitle: selectedLocale.plateMathPage.weightRackPage.title,
+          headerTitleStyle: { color: activeTheme.text },
           animationEnabled: false,
+          headerLeft: () => (
+            <Ionicons
+              name="arrow-back-sharp"
+              size={24}
+              color={activeTheme.text}
+              style={{ marginLeft: 16 }}
+              onPress={() => navigation.goBack()}
+            />
+          ),
           headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-        }}
+        })}
       />
     </Stack.Navigator>
   );
@@ -290,7 +322,7 @@ const ProgramEditorPageStack = () => {
   return (
     <Stack.Navigator
       screenOptions={() => ({
-        cardStyle: {
+        contentStyle: {
           backgroundColor: activeTheme.backgroundPrimary,
           opacity: 1,
         },
@@ -313,7 +345,7 @@ const ProgramEditorPageStack = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          cardStyle: {
+          contentStyle: {
             backgroundColor: activeTheme.backgroundPrimary,
             opacity: 1,
           },
@@ -334,7 +366,7 @@ const ProgramEditorPageStack = () => {
               shadowOpacity: 0,
             },
             headerTintColor: activeTheme.text,
-            cardStyle: {
+            contentStyle: {
               backgroundColor: activeTheme.backgroundPrimary,
               opacity: 1,
             },

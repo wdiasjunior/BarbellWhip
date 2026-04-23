@@ -99,6 +99,7 @@ const NumberInput = (props: IProps) => {
             <Icon
               name="backspace"
               size={30}
+              color={activeTheme.text}
               style={styles(activeTheme).icon}
               onPress={() => handleInput("backspace")}
             />

@@ -84,7 +84,8 @@ const StepTwo = ({ navigation }) => {
     }
   }
 
-  const renderWeekItem = ({ item, index, drag }) => {
+  const renderWeekItem = ({ item, getIndex, drag }) => {
+    const index = getIndex();
 
     const deleteWeek = () => {
       if(programEditorData.trainingProgram.length > 1) {
@@ -106,16 +107,32 @@ const StepTwo = ({ navigation }) => {
           onPress={() => selectWeek(index)}
         >
           <TouchableOpacity style={{width: 40, height: 30}} onLongPress={drag} delayLongPress={50}>
-            <Ionicons name="reorder-three-outline" size={30} style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemIcon : styles(activeTheme).weekItemIcon} />
+            <Ionicons
+              size={30}
+              name="reorder-three-outline"
+              color={(selectedWeek == index) ? activeTheme.backgroundSecondary : activeTheme.text}
+              style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemIcon : styles(activeTheme).weekItemIcon}
+            />
           </TouchableOpacity>
           <Text style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemText : styles(activeTheme).weekItemText}>{selectedLocale.programEditorPage.programEditorStep2.week} {index + 1}</Text>
 
           <TouchableOpacity style={styles(activeTheme).weekItemIconContainer} >
-            <Ionicons onPress={() => duplicateWeek(index)} name="copy-outline" size={20} style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemIcon : styles(activeTheme).weekItemIcon} />
+            <Ionicons
+              size={20}
+              name="copy-outline"
+              onPress={() => duplicateWeek(index)}
+              color={(selectedWeek == index) ? activeTheme.backgroundSecondary : activeTheme.text}
+              style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemIcon : styles(activeTheme).weekItemIcon}
+            />
           </TouchableOpacity>
 
           <TouchableOpacity style={styles(activeTheme).weekItemIconContainer}  onPress={() => deleteWeek()} >
-            <Ionicons name="trash-outline" size={20} style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemIcon : styles(activeTheme).weekItemIcon} />
+            <Ionicons
+              size={20}
+              name="trash-outline"
+              color={(selectedWeek == index) ? activeTheme.backgroundSecondary : activeTheme.text}
+              style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemIcon : styles(activeTheme).weekItemIcon}
+            />
           </TouchableOpacity>
         </TouchableOpacity>
       </ScaleDecorator>

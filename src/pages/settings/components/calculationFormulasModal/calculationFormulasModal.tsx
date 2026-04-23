@@ -54,6 +54,7 @@ const CalculationFormulasModal = (props: IProps) => {
               <Ionicons
                 name="checkmark-sharp"
                 size={20}
+                color={activeTheme.textHighlight}
                 style={styles(activeTheme).icon}
               />
             }
@@ -69,6 +70,7 @@ const CalculationFormulasModal = (props: IProps) => {
               <Ionicons
                 name="checkmark-sharp"
                 size={20}
+                color={activeTheme.textHighlight}
                 style={styles(activeTheme).icon}
               />
             }
@@ -84,6 +86,7 @@ const CalculationFormulasModal = (props: IProps) => {
               <Ionicons
                 name="checkmark-sharp"
                 size={20}
+                color={activeTheme.textHighlight}
                 style={styles(activeTheme).icon}
               />
             }
@@ -99,6 +102,7 @@ const CalculationFormulasModal = (props: IProps) => {
               <Ionicons
                 name="checkmark-sharp"
                 size={20}
+                color={activeTheme.textHighlight}
                 style={styles(activeTheme).icon}
               />
             }
@@ -114,6 +118,7 @@ const CalculationFormulasModal = (props: IProps) => {
               <Ionicons
                 name="checkmark-sharp"
                 size={20}
+                color={activeTheme.textHighlight}
                 style={styles(activeTheme).icon}
               />
             }
@@ -129,6 +134,7 @@ const CalculationFormulasModal = (props: IProps) => {
               <Ionicons
                 name="checkmark-sharp"
                 size={20}
+                color={activeTheme.textHighlight}
                 style={styles(activeTheme).icon}
               />
             }
@@ -144,6 +150,7 @@ const CalculationFormulasModal = (props: IProps) => {
               <Ionicons
                 name="checkmark-sharp"
                 size={20}
+                color={activeTheme.textHighlight}
                 style={styles(activeTheme).icon}
               />
             }

@@ -6,33 +6,34 @@ import { themes } from "../../themes/";
 import { locales } from "../../db/locales/";
 
 const storage = createJSONStorage(() => AsyncStorage);
+const storageOptions = { getOnInit: true };
 
 // Active Program
-export const activeProgramAtom = atomWithStorage("activeProgramAtom", {}, storage);
-export const activeProgramNameAtom = atomWithStorage("activeProgramNameAtom", "", storage);
-export const activeProgramURIAtom = atomWithStorage("activeProgramURIAtom", "", storage);
+export const activeProgramAtom = atomWithStorage("activeProgramAtom", {}, storage, storageOptions);
+export const activeProgramNameAtom = atomWithStorage("activeProgramNameAtom", "", storage, storageOptions);
+export const activeProgramURIAtom = atomWithStorage("activeProgramURIAtom", "", storage, storageOptions);
 
 
 // Program page
-export const programPageSelectedDayAtom = atomWithStorage("programPageSelectedDayAtom", 0, storage);
-export const programPageSelectedWeekAtom = atomWithStorage("programPageSelectedWeekAtom", 0, storage);
+export const programPageSelectedDayAtom = atomWithStorage("programPageSelectedDayAtom", 0, storage, storageOptions);
+export const programPageSelectedWeekAtom = atomWithStorage("programPageSelectedWeekAtom", 0, storage, storageOptions);
 
 
 // 1RM Calculator Page
-export const calculatorPageRepsAtom = atomWithStorage("calculatorPageRepsAtom", 1, storage);
-export const calculatorPageWeightAtom = atomWithStorage("calculatorPageWeightAtom", 150, storage);
-export const calculatorPageWeightUnitAtom = atomWithStorage("calculatorPageWeightUnitAtom", "kg", storage);
+export const calculatorPageRepsAtom = atomWithStorage("calculatorPageRepsAtom", 1, storage, storageOptions);
+export const calculatorPageWeightAtom = atomWithStorage("calculatorPageWeightAtom", 150, storage, storageOptions);
+export const calculatorPageWeightUnitAtom = atomWithStorage("calculatorPageWeightUnitAtom", "kg", storage, storageOptions);
 
 
 // Plate Math Page
-export const plateMathPageWeightAtom = atomWithStorage("plateMathPageWeightAtom", 150, storage);
-export const plateMathWeightUnitAtom = atomWithStorage("plateMathWeightUnitAtom", false, storage); // false == kg == left, true == lbs == right
-export const plateMathShowBumperAtom = atomWithStorage("plateMathShowBumperAtom", false, storage);
-export const plateMathShowColoredPlatesAtom = atomWithStorage("plateMathShowColoredPlatesAtom", true, storage);
+export const plateMathPageWeightAtom = atomWithStorage("plateMathPageWeightAtom", 150, storage, storageOptions);
+export const plateMathWeightUnitAtom = atomWithStorage("plateMathWeightUnitAtom", false, storage, storageOptions); // false == kg == left, true == lbs == right
+export const plateMathShowBumperAtom = atomWithStorage("plateMathShowBumperAtom", false, storage, storageOptions);
+export const plateMathShowColoredPlatesAtom = atomWithStorage("plateMathShowColoredPlatesAtom", true, storage, storageOptions);
 export const plateMathBarWeightAtom = atomWithStorage("plateMathBarWeightAtom", {
   lbs: 45,
   kg: 20,
-}, storage);
+}, storage, storageOptions);
 export const plateMathWeightRackAtom = atomWithStorage("plateMathWeightRackAtom", {
   kg: {
     50   : 0,
@@ -59,7 +60,7 @@ export const plateMathWeightRackAtom = atomWithStorage("plateMathWeightRackAtom"
     2.5  : 2,
     1.25 : 2,
   }
-}, storage);
+}, storage, storageOptions);
 export const plateMathBumperPlatesRackAtom = atomWithStorage("plateMathBumperPlatesRackAtom", {
   kg: {
     25 : 0,
@@ -75,7 +76,7 @@ export const plateMathBumperPlatesRackAtom = atomWithStorage("plateMathBumperPla
     25 : 2,
     10 : 2
   },
-}, storage);
+}, storage, storageOptions);
 
 
 // Program Editor Page
@@ -84,8 +85,8 @@ export const programEditorDataAtom = atomWithStorage("programEditorDataAtom", {
   weightUnit: "kg",
   oneRMs: [],
   trainingProgram: [ { week: new Array(7).fill({ day:[] }) } ],
-}, storage);
-export const wasProgramSavedAtom = atomWithStorage("wasProgramSavedAtom", false, storage);
+}, storage, storageOptions);
+export const wasProgramSavedAtom = atomWithStorage("wasProgramSavedAtom", false, storage, storageOptions);
 export const selectedDayAtom = atom(0);
 export const selectedWeekAtom = atom(0);
 export const programEditorModeAtom = atom<"Create" | "Edit">("Create");
@@ -93,7 +94,7 @@ export const programNameForActionAtom = atom("");
 
 
 // Settings Page
-export const settingsPageWeightRoundAtom = atomWithStorage("settingsPageWeightRoundAtom", true, storage);
+export const settingsPageWeightRoundAtom = atomWithStorage("settingsPageWeightRoundAtom", true, storage, storageOptions);
 export const settingsPage1RMFormulasAtom = atomWithStorage("settingsPage1RMFormulasAtom", {
   epley: true,
   brzycki: true,
@@ -102,11 +103,11 @@ export const settingsPage1RMFormulasAtom = atomWithStorage("settingsPage1RMFormu
   mcglothin: true,
   oconner: true,
   wathen: true,
-}, storage);
+}, storage, storageOptions);
 
 
 // Theme
-export const activeThemeIdAtom = atomWithStorage("activeThemeIdAtom", "dark", storage);
+export const activeThemeIdAtom = atomWithStorage("activeThemeIdAtom", "dark", storage, storageOptions);
 export const activeThemeAtom = atom((get) => {
   const themeId = get(activeThemeIdAtom);
   const themeIndex = themes.findIndex((t) => t.id === themeId);
@@ -118,7 +119,7 @@ export const activeThemeAtom = atom((get) => {
 });
 
 // Locale
-export const selectedLocaleIdAtom = atomWithStorage("selectedLocaleIdAtom", "english", storage);
+export const selectedLocaleIdAtom = atomWithStorage("selectedLocaleIdAtom", "english", storage, storageOptions);
 export const selectedLocaleAtom = atom((get) => {
   const localeId = get(selectedLocaleIdAtom);
   const localeIndex = locales.findIndex((t) => t.id === localeId);

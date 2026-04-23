@@ -3,7 +3,7 @@ const theme: Theme = {
   backgroundSecondary: "#EAEFF5",
   text: "#2D3748",
   textHighlight: "#319795",
-  textFaded: "#3182ce33",
+  textFaded: "#718096",
   placeholderText: "#ABABAB",
   active: "#319795",
   activeTransparent: "#3182ce33",

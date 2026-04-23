@@ -142,7 +142,7 @@ const StepOne = ({ navigation }) => {
                     returnKeyType="done"
                   />
                   <TouchableOpacity style={styles(activeTheme).onermItemIconContainer} onPress={() => remove1rm(index)}>
-                    <Ionicons name="trash-outline" size={30} style={styles(activeTheme).onermItemIcon} />
+                    <Ionicons name="trash-outline" size={30} color={activeTheme.text} style={styles(activeTheme).onermItemIcon} />
                   </TouchableOpacity>
                 </View>
               </View>

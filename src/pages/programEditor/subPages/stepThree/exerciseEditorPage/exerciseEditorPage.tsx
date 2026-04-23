@@ -120,7 +120,7 @@ const ExerciseEditorPage = (_props: any) => {
                         returnKeyType="done"
                       />
                       <TouchableOpacity style={styles(activeTheme).exerciseItemRemoveIconContainer}  onPress={() => removeExerciseSubSet(index)}>
-                        <Ionicons name="trash-outline" size={25} style={styles(activeTheme).exerciseItemRemoveIcon} />
+                        <Ionicons name="trash-outline" size={25} color={activeTheme.text} style={styles(activeTheme).exerciseItemRemoveIcon} />
                       </TouchableOpacity>
                     </View>
                   </View>

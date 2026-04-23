@@ -5,7 +5,7 @@ import { NativeEventEmitter, NativeModules } from "react-native";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import DrawerNavigator from "../navigators/DrawerNavigator";
 
-import { Provider, useAtomValue } from "jotai";
+import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atoms";
 
 import { readImportedJSON } from "../db/fileSystem/fsRead";
@@ -43,7 +43,7 @@ const AppWrapper = () => {
   }, []);
 
   return (
-    <Provider>
+    <>
       <StatusBar
         translucent={false}
         barStyle={activeTheme.statusBar}
@@ -52,7 +52,7 @@ const AppWrapper = () => {
       <NavigationContainer theme={navigatorTheme} >
         <DrawerNavigator />
       </NavigationContainer>
-    </Provider>
+    </>
   );
 }
 

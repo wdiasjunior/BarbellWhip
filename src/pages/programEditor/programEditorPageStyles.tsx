@@ -85,6 +85,12 @@ const styles = (theme: Theme) => {
       flexDirection: "row",
     },
     programItemText: {
+      color: theme.text,
+      fontSize: 20,
+      lineHeight: 30,
+      fontWeight: "bold",
+    },
+    programItemSelectedText: {
       color: theme.statusBar === "dark-content" ? theme.backgroundSecondary : theme.text,
       fontSize: 20,
       lineHeight: 30,
@@ -92,7 +98,6 @@ const styles = (theme: Theme) => {
     },
     iconRight: {
       width: 36,
-      color: theme.statusBar === "dark-content" ? theme.backgroundSecondary : theme.text,
     },
     modalContent: {
       justifyContent: "center",

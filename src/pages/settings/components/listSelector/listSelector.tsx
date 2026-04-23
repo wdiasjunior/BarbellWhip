@@ -28,6 +28,7 @@ const ListSelector = (props: IProps) => {
                 <Ionicons
                   name="checkmark-sharp"
                   size={20}
+                  color={props.activeTheme.textHighlight}
                   style={styles(props.activeTheme).listSelectorIcon}
                 />
               }
