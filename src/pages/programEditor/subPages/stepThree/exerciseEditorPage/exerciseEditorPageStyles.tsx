@@ -1,10 +1,11 @@
 import { StyleSheet } from "react-native";
 
-const styles = (theme: Theme) => {
+const styles = (theme: Theme, bottomInset: number = 0) => {
   return StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
+      paddingBottom: bottomInset,
     },
     wrapper: {
       flex: 1,

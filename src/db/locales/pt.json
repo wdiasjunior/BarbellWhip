@@ -132,5 +132,12 @@
   },
   "fileSystem": {
     "invalidFileType": "Tipo de arquivo inválido.",
+    "errorReading": "Erro ao ler arquivo.",
+    "errorReadingFileSystem": "Erro ao ler sistema de arquivos.",
+    "errorWriting": "Erro ao salvar arquivo.",
+    "errorCopying": "Erro ao copiar arquivo.",
+    "errorDeleting": "Erro ao deletar arquivo.",
+    "missingProgramName": "Preencha o nome do treino.",
+    "importSuccess": "Programa importado com sucesso."
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useMemo, useLayoutEffect } from "react";
 import { Text, View, ScrollView, TouchableOpacity } from "react-native";
 
 import Header from "../../sharedComponents/header/header";
@@ -45,20 +45,23 @@ const PlateMathPage = ({ navigation }) => {
                           ? WeightCalc.getPlates(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"], bumperPlatesRack[weightUnit ? "lbs" : "kg"])
                           : WeightCalc.getPlates(currentWeight, barWeight[weightUnit ? "lbs" : "kg"], weightRack[weightUnit ? "lbs" : "kg"]);
 
+  const s = useMemo(() => styles(activeTheme), [activeTheme]);
+
   const onScreenLoad = () => {
-    navigation.setOptions({ headerTitle: () =>
-                  <Header title={selectedLocale.plateMathPage.title} weightRack={true} />
-              });
+    navigation.setOptions({
+      headerTitle: () =>
+        <Header title={selectedLocale.plateMathPage.title} weightRack={true} />
+    });
   }
 
   useLayoutEffect(() => {
-    if(isInitialRender) {
+    if (isInitialRender) {
       onScreenLoad();
     }
   }, [])
 
   const decrementWeight = () => {
-    if((currentWeight - 5) < 0) {
+    if ((currentWeight - 5) < 0) {
       setCurrentWeight(0);
     } else {
       setCurrentWeight(currentWeight - 5);
@@ -66,7 +69,7 @@ const PlateMathPage = ({ navigation }) => {
   }
 
   const incrementWeight = () => {
-    if((currentWeight + 5) > 2000) {
+    if ((currentWeight + 5) > 2000) {
       setCurrentWeight(2000);
     } else {
       setCurrentWeight(currentWeight + 5);
@@ -74,7 +77,7 @@ const PlateMathPage = ({ navigation }) => {
   }
 
 	const toggleModal = (weight?: string) => {
-    if(typeof weight === "string" || weight instanceof String) {
+    if (typeof weight === "string" || weight instanceof String) {
       const weightUpdated = parseFloat(weight);
       setCurrentWeight(weightUpdated);
     }
@@ -82,39 +85,39 @@ const PlateMathPage = ({ navigation }) => {
   }
 
   return (
-    <View style={styles(activeTheme).container}>
+    <View style={s.container}>
       {!isInitialRender ? (
-        <View style={styles(activeTheme).controlsContainer}>
-          <View style={styles(activeTheme).cardIncrement}>
-            <View style={styles(activeTheme).rowWrapper}>
-              <Text style={styles(activeTheme).title}>{selectedLocale.plateMathPage.weightLabel}</Text>
-              <View style={styles(activeTheme).row}>
+        <View style={s.controlsContainer}>
+          <View style={s.cardIncrement}>
+            <View style={s.rowWrapper}>
+              <Text style={s.title}>{selectedLocale.plateMathPage.weightLabel}</Text>
+              <View style={s.row}>
                 <TouchableOpacity onPress={decrementWeight}>
-                  <View style={styles(activeTheme).incrementWrapper}>
-                    <Text style={styles(activeTheme).incrementText}>-</Text>
+                  <View style={s.incrementWrapper}>
+                    <Text style={s.incrementText}>-</Text>
                   </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => toggleModal()}>
-                  <Text style={styles(activeTheme).weight}>{currentWeight} {weightUnit ? "lbs" : "kg"}</Text>
-                  <Text style={styles(activeTheme).weightConverted}>{weightConversion(currentWeight, !weightUnit)} {!weightUnit ? "lbs" : "kg"}</Text>
+                  <Text style={s.weight}>{currentWeight} {weightUnit ? "lbs" : "kg"}</Text>
+                  <Text style={s.weightConverted}>{weightConversion(currentWeight, !weightUnit)} {!weightUnit ? "lbs" : "kg"}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={incrementWeight}>
-                  <View style={styles(activeTheme).incrementWrapper}>
-                    <Text style={styles(activeTheme).incrementText}>+</Text>
+                  <View style={s.incrementWrapper}>
+                    <Text style={s.incrementText}>+</Text>
                   </View>
                 </TouchableOpacity>
               </View>
             </View>
 
-            <Text style={styles(activeTheme).info}>{selectedLocale.plateMathPage.currentBarWeightLabel}:
-              <Text style={styles(activeTheme).infoWeight}> {barWeight[weightUnit ? "lbs" : "kg"]}{weightUnit ? "lbs" : "kg"}</Text>
+            <Text style={s.info}>{selectedLocale.plateMathPage.currentBarWeightLabel}:
+              <Text style={s.infoWeight}> {barWeight[weightUnit ? "lbs" : "kg"]}{weightUnit ? "lbs" : "kg"}</Text>
             </Text>
           </View>
 
           {currentWeight > closestAvailableWeight ? (
-            <View style={styles(activeTheme).cardWarning}>
-              <Text style={styles(activeTheme).textWarning}>{selectedLocale.plateMathPage.textWarning}</Text>
+            <View style={s.cardWarning}>
+              <Text style={s.textWarning}>{selectedLocale.plateMathPage.textWarning}</Text>
             </View>
           ) : null}
 

@@ -3,11 +3,11 @@ import { deepClone } from "./deepClone";
 export function trainingProgramCleanUp(obj: TrainingProgramFile): TrainingProgramFile {
   let cleanObj: TrainingProgramFile = deepClone(obj);
 
-  if(cleanObj.oneRMs.length > 0) {
+  if (cleanObj.oneRMs.length > 0) {
     cleanObj.oneRMs = cleanObj.oneRMs.filter(oneRM => oneRM.name !== "" && oneRM.weight !== "");
   }
 
-  if(cleanObj.trainingProgram.length > 0) {
+  if (cleanObj.trainingProgram.length > 0) {
     cleanObj.trainingProgram.forEach(program => {
       program.week.forEach(week => {
         week.day.forEach(day => {

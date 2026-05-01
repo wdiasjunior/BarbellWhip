@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Text, View, ScrollView, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -20,12 +20,14 @@ const MenuWeekList = (props: IProps) => {
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
+  const s = useMemo(() => styles(activeTheme), [activeTheme]);
+
   const navigation = useNavigation();
 
   return (
-    <View style={styles(activeTheme).containerDrawer}>
+    <View style={s.containerDrawer}>
       <TouchableOpacity
-        style={styles(activeTheme).rmReviewContainer}
+        style={s.rmReviewContainer}
         onPress={() => {
           props.setIsMenuOpen(!props.isMenuOpen);
           navigation.push("RMReviewPage", {
@@ -34,20 +36,20 @@ const MenuWeekList = (props: IProps) => {
             });
         }}
       >
-        <Text style={styles(activeTheme).rmReview}>{selectedLocale.programPage.rmReviewTitle}</Text>
+        <Text style={s.rmReview}>{selectedLocale.programPage.rmReviewTitle}</Text>
       </TouchableOpacity>
 
-      <View style={styles(activeTheme).weekSelectorContainer}>
-        <Text style={styles(activeTheme).titleWeekDrawer}>{selectedLocale.programPage.weekSelectorTitle}</Text>
+      <View style={s.weekSelectorContainer}>
+        <Text style={s.titleWeekDrawer}>{selectedLocale.programPage.weekSelectorTitle}</Text>
         <ScrollView persistentScrollbar={true} overScrollMode="never">
           {props.activeProgram?.trainingProgram?.map((item, index) => {
             return (
               <TouchableOpacity
                 key={"MenuWeekListItem" + index}
-                style={(index == props.selectedWeek) ? styles(activeTheme).drawerItemSelected : styles(activeTheme).drawerItem}
+                style={(index == props.selectedWeek) ? s.drawerItemSelected : s.drawerItem}
                 onPress={() => props.selectWeek(index)}
               >
-                <Text style={(index == props.selectedWeek) ? styles(activeTheme).drawerTextSelected : styles(activeTheme).drawerText}>
+                <Text style={(index == props.selectedWeek) ? s.drawerTextSelected : s.drawerText}>
                   {selectedLocale.programPage.week} {index + 1}
                 </Text>
               </TouchableOpacity>

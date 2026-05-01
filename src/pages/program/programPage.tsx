@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useMemo, useCallback, useLayoutEffect, useEffect } from "react";
 import { Text, View, FlatList, Animated } from "react-native";
 import SideMenu from "react-native-side-menu-updated";
 
@@ -16,6 +16,7 @@ import {
   programPageSelectedWeekAtom
 } from "../../helpers/jotai/atoms";
 
+import Loading from "../../sharedComponents/loading/loading";
 import styles from "./programPageStyles";
 
 const ProgramPage = ({ navigation }) => {
@@ -25,7 +26,10 @@ const ProgramPage = ({ navigation }) => {
 
   const activeProgram = useAtomValue<TrainingProgramFile>(activeProgramAtom);
 
+  const [isHydrated, setIsHydrated] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const s = useMemo(() => styles(activeTheme), [activeTheme]);
 
   const closeMenu = (isOpen: boolean) => {
     setIsMenuOpen(isOpen);
@@ -42,13 +46,14 @@ const ProgramPage = ({ navigation }) => {
   }
 
   const setHeader = (_selectedWeek: number = selectedWeek) => {
-    navigation.setOptions({ headerTitle: () =>
-                  <Header
-                    title={headerTitle(_selectedWeek + 1)}
-                    setIsMenuOpen={setIsMenuOpen}
-                    menu={activeProgram?.programName ? true : false}
-                  />
-              });
+    navigation.setOptions({
+      headerTitle: () =>
+        <Header
+          title={headerTitle(_selectedWeek + 1)}
+          setIsMenuOpen={setIsMenuOpen}
+          menu={activeProgram?.programName ? true : false}
+        />
+    });
   }
 
   const selectDay = (day: number) => {
@@ -56,13 +61,27 @@ const ProgramPage = ({ navigation }) => {
   }
 
   const selectWeek = (index: number) => {
-    if(selectedWeek != index) {
+    if (selectedWeek != index) {
       setSelectedDay(0);
     }
     setSelectedWeek(index);
     setIsMenuOpen(!isMenuOpen);
     setHeader(index)
   }
+
+  useEffect(() => {
+    if (activeProgram && Object.keys(activeProgram).length > 0) {
+      setIsHydrated(true);
+    }
+  }, [activeProgram]);
+
+  // fallback: if atom resolved to {} (no program saved), stop loading after a short delay
+  useEffect(() => {
+    if (!isHydrated) {
+      const timeout = setTimeout(() => setIsHydrated(true), 300);
+      return () => clearTimeout(timeout);
+    }
+  }, [isHydrated]);
 
   useLayoutEffect(() => {
     setHeader();
@@ -78,7 +97,7 @@ const ProgramPage = ({ navigation }) => {
     />
   )
 
-  const flatListRenderItem = ({ item }) => (
+  const flatListRenderItem = useCallback(({ item }) => (
     <ExerciseItem
       onermOBJ={activeProgram?.oneRMs}
       rmId={item.RMid}
@@ -86,10 +105,18 @@ const ProgramPage = ({ navigation }) => {
       exerciseName={item.exerciseName}
       exerciseOBJ={item}
     />
-  )
+  ), [activeProgram?.oneRMs, activeProgram?.weightUnit])
+
+  if (!isHydrated) {
+    return (
+      <View style={s.container}>
+        <Loading />
+      </View>
+    );
+  }
 
   return (
-    <View style={styles(activeTheme).container}>
+    <View style={s.container}>
       {activeProgram?.trainingProgram?.length > 0 ? (
         <SideMenu
           menu={menuWeekList}
@@ -106,7 +133,7 @@ const ProgramPage = ({ navigation }) => {
             })
           }
         >
-          <View style={styles(activeTheme).container}>
+          <View style={s.container}>
             <TopTabBar
               selectedWeek={selectedWeek}
               selectDay={selectDay}
@@ -121,11 +148,11 @@ const ProgramPage = ({ navigation }) => {
           </View>
         </SideMenu>
       ) : (
-        <View style={styles(activeTheme).noActiveProgramTextContainer}>
-          <Text style={styles(activeTheme).noActiveProgramTextTitle}>
+        <View style={s.noActiveProgramTextContainer}>
+          <Text style={s.noActiveProgramTextTitle}>
             {selectedLocale.programPage.noActiveProgramTextTitle}
           </Text>
-          <Text style={styles(activeTheme).noActiveProgramTextSubtitle}>
+          <Text style={s.noActiveProgramTextSubtitle}>
             {selectedLocale.programPage.noActiveProgramTextSubtitle}
           </Text>
         </View>

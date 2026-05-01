@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Text, View, Switch, TouchableOpacity } from "react-native";
 import UpdateModal from "../../sharedComponents/updateModal/updateModal";
 import ListSelector from "./components/listSelector/listSelector";
@@ -30,16 +30,18 @@ const SettingsPage = () => {
   const [weightRound, setWeightRound] = useAtom<boolean>(settingsPageWeightRoundAtom);
   const [RMFormulas, setRMFormulas] = useAtom(settingsPage1RMFormulasAtom);
 
+  const s = useMemo(() => styles(activeTheme), [activeTheme]);
+
   const [isUpdateModalVisible, setUpdateModalVisible] = useState(false);
   const [isCalculationFormulasModalVisible, setCalculationFormulasModalVisible] = useState(false);
 
   return (
-    <View style={styles(activeTheme).container}>
+    <View style={s.container}>
 
-      <View style={styles(activeTheme).rowContainer}>
-        <View style={styles(activeTheme).weightRoundingTextContainer}>
-          <Text style={styles(activeTheme).title}>{selectedLocale.settingsPage.weightRoundingTitle}</Text>
-          <Text style={styles(activeTheme).subtitle}>{selectedLocale.settingsPage.weightRoundingDescription}</Text>
+      <View style={s.rowContainer}>
+        <View style={s.weightRoundingTextContainer}>
+          <Text style={s.title}>{selectedLocale.settingsPage.weightRoundingTitle}</Text>
+          <Text style={s.subtitle}>{selectedLocale.settingsPage.weightRoundingDescription}</Text>
         </View>
         <Switch
           trackColor={{ false: activeTheme.inactive, true: activeTheme.active }}
@@ -52,8 +54,8 @@ const SettingsPage = () => {
       </View>
 
       <TouchableOpacity onPress={() => setCalculationFormulasModalVisible(true)}>
-        <Text style={styles(activeTheme).title}>{selectedLocale.settingsPage.calculationFormulasTitle}</Text>
-        <Text style={styles(activeTheme).subtitle}>{selectedLocale.settingsPage.calculationFormulasDescription}</Text>
+        <Text style={s.title}>{selectedLocale.settingsPage.calculationFormulasTitle}</Text>
+        <Text style={s.subtitle}>{selectedLocale.settingsPage.calculationFormulasDescription}</Text>
       </TouchableOpacity>
 
       <ListSelector
@@ -73,13 +75,13 @@ const SettingsPage = () => {
       />
 
       <TouchableOpacity
-        style={styles(activeTheme).updateCheckerButton}
+        style={s.updateCheckerButton}
         onPress={() => setUpdateModalVisible(true)}
       >
-        <Text style={styles(activeTheme).appVersionText}>
+        <Text style={s.appVersionText}>
           {selectedLocale.settingsPage.versionLabel}: {currentAppVersion}
         </Text>
-        <Text style={styles(activeTheme).updateCheckerButtonText}>
+        <Text style={s.updateCheckerButtonText}>
           {selectedLocale.settingsPage.updateCheckerTitle}
         </Text>
       </TouchableOpacity>

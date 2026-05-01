@@ -1,3 +1,4 @@
+import React, { useMemo } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -22,21 +23,28 @@ import ExerciseEditorPage from "../pages/programEditor/subPages/stepThree/exerci
 import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atoms";
 
+const backIconStyle = { marginLeft: 16, marginRight: 12 };
+const tabBarLabelStyle = { fontWeight: "700" as const, fontSize: 15, position: "relative" as const, left: -10 };
+
 const ProgramEditorDayPageStack = () => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
+  const contentStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundPrimary,
+    opacity: 1,
+  }), [activeTheme.backgroundPrimary]);
+
+  const sceneContainerStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundPrimary,
+  }), [activeTheme.backgroundPrimary]);
+
   return (
     <Stack.Navigator
       screenOptions={() => ({
-        contentStyle: {
-          backgroundColor: activeTheme.backgroundPrimary,
-          opacity: 1,
-        },
-        sceneContainerStyle: {
-          backgroundColor: activeTheme.backgroundPrimary,
-        },
+        contentStyle,
+        sceneContainerStyle,
       })}
     >
       <Stack.Screen
@@ -50,10 +58,7 @@ const ProgramEditorDayPageStack = () => {
             elevation: 0,
             shadowOpacity: 0,
           },
-          contentStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
+          contentStyle,
         }}
       />
       <Stack.Screen
@@ -64,13 +69,13 @@ const ProgramEditorDayPageStack = () => {
           presentation: "modal",
           headerTitle: selectedLocale.programEditorPage.exerciseEditorPage.title,
           headerTitleStyle: { color: activeTheme.text },
-          animationEnabled: false,
+          animation: "none",
           headerLeft: () => (
             <Ionicons
-              name="arrow-back-sharp"
               size={24}
+              name="arrow-back-sharp"
               color={activeTheme.text}
-              style={{ marginLeft: 16 }}
+              style={backIconStyle}
               onPress={() => navigation.goBack()}
             />
           ),
@@ -78,10 +83,7 @@ const ProgramEditorDayPageStack = () => {
             backgroundColor: activeTheme.backgroundSecondary,
           },
           headerTintColor: activeTheme.text,
-          contentStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
+          contentStyle,
         })}
       />
     </Stack.Navigator>
@@ -96,6 +98,10 @@ const BottomTabProgramEditorPageNavigator = () => {
 
   const navigation = useNavigation();
 
+  const editorSceneContainerStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundPrimary,
+  }), [activeTheme.backgroundPrimary]);
+
   return (
     <Tab.Navigator
       screenOptions={() => ({
@@ -104,21 +110,14 @@ const BottomTabProgramEditorPageNavigator = () => {
         tabBarInactiveTintColor: activeTheme.inactive,
         tabBarIconStyle: { display: "none" },
         tabBarLabelPosition: "beside-icon",
-        tabBarLabelStyle: {
-          fontWeight: "700",
-          fontSize: 15,
-          position: "relative",
-          left: -10,
-        },
+        tabBarLabelStyle,
         tabBarStyle: {
           display: (navigation?.getState()?.routes[1]?.state?.routes[2]?.state?.routes[1]?.name === "ExerciseEditorPage") ? "none" : "flex",
           backgroundColor: activeTheme.backgroundSecondary,
           borderTopWidth: 0,
         },
       })}
-      sceneContainerStyle={{
-        backgroundColor: activeTheme.backgroundPrimary,
-      }}
+      sceneContainerStyle={editorSceneContainerStyle}
     >
       <Tab.Screen
         name="Info"
@@ -168,16 +167,20 @@ const ProgramPageStack = () => {
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
+  const contentStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundPrimary,
+    opacity: 1,
+  }), [activeTheme.backgroundPrimary]);
+
+  const sceneContainerStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundPrimary,
+  }), [activeTheme.backgroundPrimary]);
+
   return (
     <Stack.Navigator
       screenOptions={() => ({
-        contentStyle: {
-          backgroundColor: activeTheme.backgroundPrimary,
-          opacity: 1,
-        },
-        sceneContainerStyle: {
-          backgroundColor: activeTheme.backgroundPrimary,
-        },
+        contentStyle,
+        sceneContainerStyle,
       })}
     >
       <Stack.Screen
@@ -192,10 +195,7 @@ const ProgramPageStack = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          contentStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
+          contentStyle,
         }}
       />
       <Stack.Screen
@@ -208,7 +208,7 @@ const ProgramPageStack = () => {
           detachPreviousScreen: false,
           headerTitle: selectedLocale.programPage.exerciseInfo.title,
           headerTitleStyle: { color: activeTheme.text },
-          animationEnabled: false,
+          animation: "none",
           headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
@@ -226,13 +226,13 @@ const ProgramPageStack = () => {
           detachPreviousScreen: false,
           headerTitle: selectedLocale.programPage.rmReviewTitle,
           headerTitleStyle: { color: activeTheme.text },
-          animationEnabled: false,
+          animation: "none",
           headerLeft: () => (
             <Ionicons
-              name="arrow-back-sharp"
               size={24}
+              name="arrow-back-sharp"
               color={activeTheme.text}
-              style={{ marginLeft: 16 }}
+              style={backIconStyle}
               onPress={() => navigation.goBack()}
             />
           ),
@@ -253,16 +253,21 @@ const PlateMathPageStack = () => {
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
+  const contentStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundPrimary,
+    opacity: 1,
+  }), [activeTheme.backgroundPrimary]);
+
+  const sceneContainerStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundPrimary,
+  }), [activeTheme.backgroundPrimary]);
+
   return (
     <Stack.Navigator
       screenOptions={() => ({
-        contentStyle: {
-          backgroundColor: activeTheme.backgroundPrimary,
-          opacity: 1,
-        },
-        sceneContainerStyle: {
-          backgroundColor: activeTheme.backgroundPrimary,
-        },
+        animation: "none",
+        contentStyle,
+        sceneContainerStyle,
       })}
     >
       <Stack.Screen
@@ -277,10 +282,7 @@ const PlateMathPageStack = () => {
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          contentStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
+          contentStyle,
         }}
       />
       <Stack.Screen
@@ -292,13 +294,13 @@ const PlateMathPageStack = () => {
           detachPreviousScreen: false,
           headerTitle: selectedLocale.plateMathPage.weightRackPage.title,
           headerTitleStyle: { color: activeTheme.text },
-          animationEnabled: false,
+          animation: "none",
           headerLeft: () => (
             <Ionicons
-              name="arrow-back-sharp"
               size={24}
+              name="arrow-back-sharp"
               color={activeTheme.text}
-              style={{ marginLeft: 16 }}
+              style={backIconStyle}
               onPress={() => navigation.goBack()}
             />
           ),
@@ -319,16 +321,20 @@ const ProgramEditorPageStack = () => {
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
+  const contentStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundPrimary,
+    opacity: 1,
+  }), [activeTheme.backgroundPrimary]);
+
+  const sceneContainerStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundPrimary,
+  }), [activeTheme.backgroundPrimary]);
+
   return (
     <Stack.Navigator
       screenOptions={() => ({
-        contentStyle: {
-          backgroundColor: activeTheme.backgroundPrimary,
-          opacity: 1,
-        },
-        sceneContainerStyle: {
-          backgroundColor: activeTheme.backgroundPrimary,
-        },
+        contentStyle,
+        sceneContainerStyle,
       })}
     >
       <Stack.Screen
@@ -339,16 +345,14 @@ const ProgramEditorPageStack = () => {
           headerLeft: () => null,
           title: selectedLocale.programEditorPage.title,
           headerTitle: selectedLocale.programEditorPage.title,
+          animation: "none",
           headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-          contentStyle: {
-            backgroundColor: activeTheme.backgroundPrimary,
-            opacity: 1,
-          },
+          contentStyle,
         }}
       />
       <Stack.Screen
@@ -359,17 +363,14 @@ const ProgramEditorPageStack = () => {
             headerShown: false,
             presentation: "modal",
             headerTitle: selectedLocale.programEditorPage.programEditorStep1.title,
-            animationEnabled: false,
+            animation: "none",
             headerStyle: {
               backgroundColor: activeTheme.backgroundSecondary,
               elevation: 0,
               shadowOpacity: 0,
             },
             headerTintColor: activeTheme.text,
-            contentStyle: {
-              backgroundColor: activeTheme.backgroundPrimary,
-              opacity: 1,
-            },
+            contentStyle,
           }
         }}
       />

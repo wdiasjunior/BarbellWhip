@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { View, Text } from "react-native";
 
 import { styles, plateColors } from "./plateStyles";
@@ -11,10 +11,12 @@ interface IProps {
 }
 
 const Plate = (props: IProps) => {
+  const s = useMemo(() => styles(props.activeTheme), [props.activeTheme]);
+
   const plateDimensions = {
     kg: {
       50: {
-        size: 1.25,
+        size: 1,
         color: plateColors[props.weightUnit]["50"],
         hasDecimal: false,
       },
@@ -123,33 +125,36 @@ const Plate = (props: IProps) => {
     }
   }
 
-  const computePlateStyle = () => {
-    if(props.plate.isBumper) {
-      return Object.assign({...styles(props.activeTheme).bumperPlate});
+  const plateStyle = useMemo(() => {
+    if (props.plate.isBumper) {
+      return Object.assign({...s.bumperPlate});
     } else {
       const hScale = 0.5 + (0.5 * plateDimensions[props.weightUnit][props.plate.plate].size);
       const wScale = 0.7 + (0.3 * plateDimensions[props.weightUnit][props.plate.plate].size);
-      if(props.showColoredPlates) {
+      if (props.showColoredPlates) {
         return Object.assign({
-            ...styles(props.activeTheme).plate}, {
-            width: plateDimensions[props.weightUnit][props.plate.plate].hasDecimal ? styles(props.activeTheme).plate.width * wScale + 8 : styles(props.activeTheme).plate.width * wScale - 10,
-            height: styles(props.activeTheme).plate.height * hScale,
+            ...s.plate}, {
+            width: plateDimensions[props.weightUnit][props.plate.plate].hasDecimal ? s.plate.width * wScale + 8 : s.plate.width * wScale - 10,
+            height: s.plate.height * hScale,
             backgroundColor: plateDimensions[props.weightUnit][props.plate.plate].color,
             borderColor: plateDimensions[props.weightUnit][props.plate.plate].color,
           });
       } else {
         return Object.assign({
-            ...styles(props.activeTheme).plate}, {
-            width: plateDimensions[props.weightUnit][props.plate.plate].hasDecimal ? styles(props.activeTheme).plate.width * wScale + 8 : styles(props.activeTheme).plate.width * wScale - 10,
-            height: styles(props.activeTheme).plate.height * hScale,
+            ...s.plate}, {
+            width: plateDimensions[props.weightUnit][props.plate.plate].hasDecimal ? s.plate.width * wScale + 8 : s.plate.width * wScale - 10,
+            height: s.plate.height * hScale,
           });
       }
     }
-  }
+  }, [props.plate, props.weightUnit, props.activeTheme, props.showColoredPlates, s]);
+
+  const plate = props.plate.plate;
+  const needsLightText = props.showColoredPlates && !props.plate.isBumper && ((props.weightUnit === "kg" && plate === 50) || (props.weightUnit === "lbs" && plate === 100));
 
   return (
-    <View style={computePlateStyle()}>
-      <Text adjustsFontSizeToFit style={styles(props.activeTheme).text}>{props.plate.plate}</Text>
+    <View style={plateStyle}>
+      <Text adjustsFontSizeToFit style={[s.text, needsLightText && { color: "#E2E8F0" }]}>{props.plate.plate}</Text>
     </View>
   );
 }

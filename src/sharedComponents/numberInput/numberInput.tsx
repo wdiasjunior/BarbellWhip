@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import Modal from "react-native-modal";
@@ -20,16 +20,18 @@ const NumberInput = (props: IProps) => {
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
+  const s = useMemo(() => styles(activeTheme), [activeTheme]);
+
   const buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", " ", "0", "."];
   const [weightString, setWeightString] = useState("0");
 
   const handleInput = (value: string) => {
     switch(value) {
       case "0":
-        if(weightString == "0") {
+        if (weightString == "0") {
           break;
         } else {
-          if(weightString.length == 0) {
+          if (weightString.length == 0) {
             break;
           } else {
             setWeightString(weightString + value);
@@ -42,9 +44,9 @@ const NumberInput = (props: IProps) => {
         break;
 
       case ".":
-        if(weightString.slice(-1) == ".") {
+        if (weightString.slice(-1) == ".") {
           break;
-        } else if(weightString.includes(".")) {
+        } else if (weightString.includes(".")) {
           break;
         } else {
           setWeightString(weightString + value);
@@ -54,7 +56,7 @@ const NumberInput = (props: IProps) => {
       case "backspace":
         const weightStringCopy = weightString;
         const deleteLastCharacter = weightStringCopy.substring(0, weightStringCopy.length - 1);
-        if(deleteLastCharacter.length == 0) {
+        if (deleteLastCharacter.length == 0) {
           setWeightString("0");
         } else {
           setWeightString(deleteLastCharacter);
@@ -62,7 +64,7 @@ const NumberInput = (props: IProps) => {
         break;
 
       default:
-        if(weightString == "0") {
+        if (weightString == "0") {
           setWeightString(value);
         } else {
           setWeightString(weightString + value);
@@ -92,36 +94,36 @@ const NumberInput = (props: IProps) => {
       backdropTransitionInTiming={100}
       backdropTransitionOutTiming={1}
     >
-      <View style={styles(activeTheme).modalContent}>
-        <View style={styles(activeTheme).container}>
-          <View style={styles(activeTheme).input}>
-            <Text style={styles(activeTheme).inputText}>{weightString} <Text style={styles(activeTheme).inputTextLabel}>{props.inputLabel}</Text></Text>
+      <View style={s.modalContent}>
+        <View style={s.container}>
+          <View style={s.input}>
+            <Text style={s.inputText}>{weightString} <Text style={s.inputTextLabel}>{props.inputLabel}</Text></Text>
             <Icon
               name="backspace"
               size={30}
               color={activeTheme.text}
-              style={styles(activeTheme).icon}
+              style={s.icon}
               onPress={() => handleInput("backspace")}
             />
           </View>
 
-          <View style={styles(activeTheme).numpad}>
+          <View style={s.numpad}>
             {buttons.map((value, index) => {
               return (
                 <TouchableOpacity
                   key={"NumberInput_NumpadItem" + index}
-                  style={styles(activeTheme).numpadButton}
+                  style={s.numpadButton}
                   onPress={() => handleInput(value)}
                 >
-                  <Text style={styles(activeTheme).numpadButtonText}>{value}</Text>
+                  <Text style={s.numpadButtonText}>{value}</Text>
                 </TouchableOpacity>
               );
             })}
           </View>
 
-          <View style={styles(activeTheme).bottomButtonsRow}>
-            <Text style={styles(activeTheme).bottomButtonsText} onPress={() => handleButtons("cancel")}>{selectedLocale.numberInputModal.cancelButtonLabel}</Text>
-            <Text style={styles(activeTheme).bottomButtonsText} onPress={() => handleButtons("ok")}>OK</Text>
+          <View style={s.bottomButtonsRow}>
+            <Text style={s.bottomButtonsText} onPress={() => handleButtons("cancel")}>{selectedLocale.numberInputModal.cancelButtonLabel}</Text>
+            <Text style={s.bottomButtonsText} onPress={() => handleButtons("ok")}>OK</Text>
           </View>
 
         </View>

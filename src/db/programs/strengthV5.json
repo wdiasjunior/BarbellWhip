@@ -1,5 +1,6 @@
 {
   "programName": "strengthV5",
+  "description": "",
   "weightUnit": "kg",
   "oneRMs": [
     {
@@ -10,12 +11,12 @@
     {
       "id": "2",
       "name": "Bench Press",
-      "weight": "135"
+      "weight": "145"
     },
     {
       "id": "3",
       "name": "Deadlift",
-      "weight": "200"
+      "weight": "220"
     }
   ],
   "trainingProgram": [

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { StatusBar } from "react-native";
 import { NativeEventEmitter, NativeModules } from "react-native";
 
@@ -16,13 +16,13 @@ const AppWrapper = () => {
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
-  const navigatorTheme = {
+  const navigatorTheme = useMemo(() => ({
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
       background: activeTheme.backgroundPrimary,
     },
-  };
+  }), [activeTheme.backgroundPrimary]);
 
   useEffect(() => {
     const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
@@ -30,10 +30,11 @@ const AppWrapper = () => {
       const { type, data, fileName } = event;
 
       async function handleImportFileFromIntent() {
-        const fileContents = await readImportedJSON(data);
-        importJSON(fileName, fileContents, true);
+        const fileContents = await readImportedJSON(data, selectedLocale.fileSystem.errorReading);
+        await importJSON(fileName, fileContents, true, selectedLocale.fileSystem.errorWriting);
+        alert(selectedLocale.fileSystem.importSuccess);
       }
-      // TODO - add alert "program imported successfully"
+
       handleImportFileFromIntent();
     })
 
@@ -49,7 +50,7 @@ const AppWrapper = () => {
         barStyle={activeTheme.statusBar}
         backgroundColor={activeTheme.backgroundSecondary}
       />
-      <NavigationContainer theme={navigatorTheme} >
+      <NavigationContainer theme={navigatorTheme}>
         <DrawerNavigator />
       </NavigationContainer>
     </>

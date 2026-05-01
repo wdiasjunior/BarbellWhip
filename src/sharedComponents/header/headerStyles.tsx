@@ -33,7 +33,6 @@ const styles = (theme: Theme) => {
     },
     iconLeft: {
       left: -2,
-      marginRight: 22,
       color: theme.text,
       width: 40,
     },

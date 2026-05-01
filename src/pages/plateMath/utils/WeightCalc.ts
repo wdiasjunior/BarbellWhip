@@ -6,12 +6,12 @@ const WeightCalc = {
     let platesAux: number[] = []; // keeps track of all plates weights - only used for math
     let plates: Plates[] = []; // array of objets to keeps track of isBumper
 
-    if(bumperRack) { // adds bumper plates before metal plates
+    if (bumperRack) { // adds bumper plates before metal plates
       const bumperPlatesAvailable = this.getPlatesAvailableFromRack(bumperRack);
       bumperPlatesAvailable.forEach((plate) => {
         let numPlates = Math.floor(bumperRack[plate] / 2);
-        for(let i = 1; i <= numPlates; i++) {
-          if(this.sum([...platesAux, plate]) <= weightOfSingleSidePlates) {
+        for (let i = 1; i <= numPlates; i++) {
+          if (this.sum([...platesAux, plate]) <= weightOfSingleSidePlates) {
             platesAux.push(plate);
             plates.push({
               plate: plate,
@@ -25,12 +25,12 @@ const WeightCalc = {
       })
     }
 
-    if(weightRack) { // adds the rest of the "metal" plates to the rack
+    if (weightRack) { // adds the rest of the "metal" plates to the rack
       const platesAvailable = this.getPlatesAvailableFromRack(weightRack);
       platesAvailable.forEach((plate) => {
         let numPlates = Math.floor(weightRack[plate] / 2);
-        for(let i = 1; i <= numPlates; i++) {
-          if(this.sum([...platesAux, plate]) <= weightOfSingleSidePlates) {
+        for (let i = 1; i <= numPlates; i++) {
+          if (this.sum([...platesAux, plate]) <= weightOfSingleSidePlates) {
             platesAux.push(plate);
             plates.push({
               plate: plate,
@@ -52,7 +52,7 @@ const WeightCalc = {
   },
 
   sum(arr: number[]) {
-    if(arr.length === 0) {
+    if (arr.length === 0) {
       return 0;
     }
 
@@ -79,8 +79,8 @@ const WeightCalc = {
 
     platesAvailable.forEach((plate) => {
       let numPlates = Math.floor(weightRack[plate] / 2);
-      for(let i = 1; i <= numPlates; i++) {
-        if(this.sum([...plates, plate]) <= weightOfSingleSidePlates) {
+      for (let i = 1; i <= numPlates; i++) {
+        if (this.sum([...plates, plate]) <= weightOfSingleSidePlates) {
           plates.push(plate);
         } else {
           return;
@@ -97,7 +97,7 @@ const WeightCalc = {
   },
 
   sumPlates(arr: WeightRack) {
-    if(arr?.length === 0) {
+    if (arr?.length === 0) {
       return 0;
     }
 

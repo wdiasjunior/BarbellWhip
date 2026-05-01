@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const styles = (theme: Theme) => {
+const styles = (theme: Theme, bottomInset: number = 0) => {
   return StyleSheet.create({
     container: {
       flex: 1,
@@ -44,7 +44,7 @@ const styles = (theme: Theme) => {
       justifyContent: "center",
       alignItems: "center",
       position: "absolute",
-      bottom: 20,
+      bottom: 20 + bottomInset,
       right: 20,
       zIndex: 999999,
     },

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Text, View, ScrollView } from "react-native";
 
 import styles from "./rmReviewPageStyles";
@@ -23,24 +23,20 @@ const RMReviewPage = (_props: any) => {
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
+  const s = useMemo(() => styles(activeTheme), [activeTheme]);
+
   const onermOBJ = props.onermOBJ;
   const weightUnit = props.weightUnit;
 
   return (
-    <View style={styles(activeTheme).container}>
+    <View style={s.container}>
       {!isInitialRender ? (
-        <ScrollView style={styles(activeTheme).wrapper} overScrollMode="never">
+        <ScrollView style={s.wrapper} overScrollMode="never">
         {onermOBJ?.map((item, index) => {
           return (
-            <View key={"RMItem" + index} style={styles(activeTheme).item}>
-              {item.name ? <Text style={styles(activeTheme).title}>{item.name}</Text> : null}
-              {item.weight ?
-                <Text style={styles(activeTheme).subTitle}>
-                  {selectedLocale.programPage.rmReviewWeightLabel}: <Text style={styles(activeTheme).weight}>{item.weight}{weightUnit}</Text>
-                </Text>
-                :
-                null
-              }
+            <View key={"RMItem" + index} style={s.item}>
+              {item.name ? <Text style={s.title}>{item.name}</Text> : null}
+              {item.weight ? <Text style={s.weight}>{item.weight}{weightUnit}</Text> : null}
             </View>
           )
         })}

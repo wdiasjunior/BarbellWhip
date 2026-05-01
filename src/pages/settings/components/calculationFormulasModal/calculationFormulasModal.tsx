@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import Modal from "react-native-modal";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -21,6 +21,12 @@ const CalculationFormulasModal = (props: IProps) => {
   const selectedLocale = useAtomValue(selectedLocaleAtom);
   const [_RMFormulas, _setRMFormulas] = useState(props.RMFormulas);
 
+  useEffect(() => {
+    _setRMFormulas(props.RMFormulas);
+  }, [props.RMFormulas]);
+
+  const s = useMemo(() => styles(activeTheme), [activeTheme]);
+
   const handleCloseModal = () => {
     _setRMFormulas(props.RMFormulas);
     props.setCalculationFormulasModalVisible(false);
@@ -42,137 +48,137 @@ const CalculationFormulasModal = (props: IProps) => {
       backdropTransitionInTiming={100}
       backdropTransitionOutTiming={1}
     >
-      <View style={styles(activeTheme).container}>
-        <Text style={styles(activeTheme).title}>{selectedLocale.settingsPage.calculationFormulasTitle}</Text>
+      <View style={s.container}>
+        <Text style={s.title}>{selectedLocale.settingsPage.calculationFormulasTitle}</Text>
 
         <TouchableOpacity
-          style={styles(activeTheme).itemSelect}
+          style={s.itemSelect}
           onPress={() => handleRMFormulas("epley")}
         >
-          <View style={styles(activeTheme).iconContainer}>
+          <View style={s.iconContainer}>
             {_RMFormulas.epley &&
               <Ionicons
-                name="checkmark-sharp"
                 size={20}
+                name="checkmark-sharp"
                 color={activeTheme.textHighlight}
-                style={styles(activeTheme).icon}
+                style={s.icon}
               />
             }
           </View>
-          <Text style={styles(activeTheme).itemSelectText}>Epley</Text>
+          <Text style={s.itemSelectText}>Epley</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles(activeTheme).itemSelect}
+          style={s.itemSelect}
           onPress={() => handleRMFormulas("brzycki")}
         >
-          <View style={styles(activeTheme).iconContainer}>
+          <View style={s.iconContainer}>
             {_RMFormulas.brzycki &&
               <Ionicons
-                name="checkmark-sharp"
                 size={20}
+                name="checkmark-sharp"
                 color={activeTheme.textHighlight}
-                style={styles(activeTheme).icon}
+                style={s.icon}
               />
             }
           </View>
-          <Text style={styles(activeTheme).itemSelectText}>Brzycki</Text>
+          <Text style={s.itemSelectText}>Brzycki</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles(activeTheme).itemSelect}
+          style={s.itemSelect}
           onPress={() => handleRMFormulas("lombardi")}
         >
-          <View style={styles(activeTheme).iconContainer}>
+          <View style={s.iconContainer}>
             {_RMFormulas.lombardi &&
               <Ionicons
-                name="checkmark-sharp"
                 size={20}
+                name="checkmark-sharp"
                 color={activeTheme.textHighlight}
-                style={styles(activeTheme).icon}
+                style={s.icon}
               />
             }
           </View>
-          <Text style={styles(activeTheme).itemSelectText}>Lombardi</Text>
+          <Text style={s.itemSelectText}>Lombardi</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles(activeTheme).itemSelect}
+          style={s.itemSelect}
           onPress={() => handleRMFormulas("mayhew")}
         >
-          <View style={styles(activeTheme).iconContainer}>
+          <View style={s.iconContainer}>
             {_RMFormulas.mayhew &&
               <Ionicons
-                name="checkmark-sharp"
                 size={20}
+                name="checkmark-sharp"
                 color={activeTheme.textHighlight}
-                style={styles(activeTheme).icon}
+                style={s.icon}
               />
             }
           </View>
-          <Text style={styles(activeTheme).itemSelectText}>Mayhew</Text>
+          <Text style={s.itemSelectText}>Mayhew</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles(activeTheme).itemSelect}
+          style={s.itemSelect}
           onPress={() => handleRMFormulas("mcglothin")}
         >
-          <View style={styles(activeTheme).iconContainer}>
+          <View style={s.iconContainer}>
             {_RMFormulas.mcglothin &&
               <Ionicons
-                name="checkmark-sharp"
                 size={20}
+                name="checkmark-sharp"
                 color={activeTheme.textHighlight}
-                style={styles(activeTheme).icon}
+                style={s.icon}
               />
             }
           </View>
-          <Text style={styles(activeTheme).itemSelectText}>McGlothin</Text>
+          <Text style={s.itemSelectText}>McGlothin</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles(activeTheme).itemSelect}
+          style={s.itemSelect}
           onPress={() => handleRMFormulas("oconner")}
         >
-          <View style={styles(activeTheme).iconContainer}>
+          <View style={s.iconContainer}>
             {_RMFormulas.oconner &&
               <Ionicons
-                name="checkmark-sharp"
                 size={20}
+                name="checkmark-sharp"
                 color={activeTheme.textHighlight}
-                style={styles(activeTheme).icon}
+                style={s.icon}
               />
             }
           </View>
-          <Text style={styles(activeTheme).itemSelectText}>OConner</Text>
+          <Text style={s.itemSelectText}>OConner</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles(activeTheme).itemSelect}
+          style={s.itemSelect}
           onPress={() => handleRMFormulas("wathen")}
         >
-          <View style={styles(activeTheme).iconContainer}>
+          <View style={s.iconContainer}>
             {_RMFormulas.wathen &&
               <Ionicons
-                name="checkmark-sharp"
                 size={20}
+                name="checkmark-sharp"
                 color={activeTheme.textHighlight}
-                style={styles(activeTheme).icon}
+                style={s.icon}
               />
             }
           </View>
-          <Text style={styles(activeTheme).itemSelectText}>Wathan</Text>
+          <Text style={s.itemSelectText}>Wathan</Text>
         </TouchableOpacity>
 
-        <View style={styles(activeTheme).buttonRow}>
+        <View style={s.buttonRow}>
           <TouchableOpacity
-            style={styles(activeTheme).buttonClose}
+            style={s.buttonClose}
             onPress={() => handleCloseModal()}
           >
-            <Text style={styles(activeTheme).buttonOkCloseText}>{selectedLocale.settingsPage.cancelModalButtonLabel}</Text>
+            <Text style={s.buttonOkCloseText}>{selectedLocale.settingsPage.cancelModalButtonLabel}</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles(activeTheme).buttonOk}
+            style={s.buttonOk}
             onPress={() => {
               props.setRMFormulas(_RMFormulas);
               handleCloseModal();
             }}
           >
-            <Text style={styles(activeTheme).buttonOkCloseText}>{selectedLocale.settingsPage.okModalButtonLabel}</Text>
+            <Text style={s.buttonOkCloseText}>{selectedLocale.settingsPage.okModalButtonLabel}</Text>
           </TouchableOpacity>
         </View>
 

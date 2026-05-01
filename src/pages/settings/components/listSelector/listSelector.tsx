@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
@@ -13,27 +13,29 @@ interface IProps {
 }
 
 const ListSelector = (props: IProps) => {
+  const s = useMemo(() => styles(props.activeTheme), [props.activeTheme]);
+
   return (
-    <View style={styles(props.activeTheme).listSelectorContainer}>
-      <Text style={styles(props.activeTheme).listSelectorTitle}>{props.title}:</Text>
+    <View style={s.listSelectorContainer}>
+      <Text style={s.listSelectorTitle}>{props.title}:</Text>
       {props.data.map((item: any, index: number) => {
         return (
           <TouchableOpacity
-            style={styles(props.activeTheme).listSelectorItem}
+            style={s.listSelectorItem}
             key={index + "" + item.id}
             onPress={() => props.setSelected(item.id)}
           >
-            <View style={styles(props.activeTheme).listSelectorIconContainer}>
+            <View style={s.listSelectorIconContainer}>
               {item.id === props.selected &&
                 <Ionicons
-                  name="checkmark-sharp"
                   size={20}
+                  name="checkmark-sharp"
                   color={props.activeTheme.textHighlight}
-                  style={styles(props.activeTheme).listSelectorIcon}
+                  style={s.listSelectorIcon}
                 />
               }
             </View>
-            <Text style={styles(props.activeTheme).listSelectorItemText}>{item.name}</Text>
+            <Text style={s.listSelectorItemText}>{item.name}</Text>
           </TouchableOpacity>
         )
       })}

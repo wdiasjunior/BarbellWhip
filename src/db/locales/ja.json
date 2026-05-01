@@ -131,6 +131,13 @@
     "cancelButtonLabel": "キャンセル"
   },
   "fileSystem": {
-    "invalidFileType": "無効なファイル形式です。"
+    "invalidFileType": "無効なファイル形式です。",
+    "errorReading": "ファイルの読み込みエラー。",
+    "errorReadingFileSystem": "ファイルシステムの読み込みエラー。",
+    "errorWriting": "ファイルの書き込みエラー。",
+    "errorCopying": "ファイルのコピーエラー。",
+    "errorDeleting": "ファイルの削除エラー。",
+    "missingProgramName": "プログラム名を入力してください。",
+    "importSuccess": "プログラムのインポートが完了しました。"
   }
 }

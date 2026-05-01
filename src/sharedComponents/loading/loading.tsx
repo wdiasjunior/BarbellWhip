@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { View, ActivityIndicator } from "react-native";
 
 import styles from "./loadingStyles";
@@ -10,8 +10,10 @@ const Loading = () => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
 
+  const s = useMemo(() => styles(activeTheme), [activeTheme]);
+
   return (
-    <View style={styles(activeTheme).container}>
+    <View style={s.container}>
       <ActivityIndicator size="large" color={activeTheme.textFaded} />
     </View>
   );

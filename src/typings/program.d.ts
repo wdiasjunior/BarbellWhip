@@ -1,5 +1,6 @@
 interface TrainingProgramFile {
   programName: string;
+  description: string;
   weightUnit: string;
   oneRMs: OneRMs[];
   trainingProgram: TrainingProgram[];

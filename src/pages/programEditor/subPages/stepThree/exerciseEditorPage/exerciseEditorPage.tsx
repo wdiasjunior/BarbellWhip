@@ -1,6 +1,8 @@
-import React from "react";
-import { Text, View, TouchableOpacity, ScrollView, TextInput } from "react-native";
+import React, { useCallback, useMemo } from "react";
+import { Text, View, TouchableOpacity, TextInput } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-controller";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useAtom, useAtomValue } from "jotai";
 import {
@@ -33,6 +35,7 @@ const ExerciseEditorPage = (_props: any) => {
   // add "discard" icon to header ?
   // on discard show modal asking to confirm
 
+  const insets = useSafeAreaInsets();
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
@@ -42,56 +45,113 @@ const ExerciseEditorPage = (_props: any) => {
 
   const exerciseIndex = props.exerciseIndex;
   const length = programEditorData.trainingProgram[selectedWeek].week[selectedDay].day.length - 1;
-  const exerciseData = exerciseIndex === "add" ? deepClone(programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[length]) : deepClone(programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex]);
-  const oneRMweight: OneRMs | any = programEditorData.oneRMs.find((el: OneRMs) => el.id === exerciseData.RMid);
+
+  const exerciseData = useMemo(() => {
+    const idx = exerciseIndex === "add" ? length : exerciseIndex;
+    return deepClone(programEditorData.trainingProgram[selectedWeek].week[selectedDay].day[idx]);
+  }, [programEditorData, selectedWeek, selectedDay, exerciseIndex, length]);
+
+  const oneRMweight = useMemo(() => {
+    return programEditorData.oneRMs.find((el: OneRMs) => el.id === exerciseData?.RMid);
+  }, [programEditorData.oneRMs, exerciseData?.RMid]);
+
   const oneRMname = props.oneRMname;
 
   const weightRoundingFactor = programEditorData.weightUnit === "kg" ? 2.5 : 5;
 
-  const addExerciseSubSet = () => {
-    let auxAtom = deepClone(programEditorData);
-    auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex === "add" ? length : exerciseIndex].set.push({
-      exerciseName: "",
-      sets: "",
-      reps: "",
-      percentage: "",
-      weight: "",
-      rpe: "",
-      tempo: "",
-      rest: "",
-      altExercise1: "",
-      altExercise2: "",
-      description: ""
-    });
-    setProgramEditorData(auxAtom);
-  }
-
-  const editExerciseField = (field: string, input: string, index?: number) => {
-    let auxAtom = deepClone(programEditorData);
+  const addExerciseSubSet = useCallback(() => {
     const auxExerciseIndex = exerciseIndex === "add" ? length : exerciseIndex;
-    if(field === "parentExerciseName") {
-      auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[auxExerciseIndex].exerciseName = input;
-    } else {
-      auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[auxExerciseIndex].set[index][field] = input;
-    }
-    setProgramEditorData(auxAtom);
-  }
+    setProgramEditorData(prev => ({
+      ...prev,
+      trainingProgram: prev.trainingProgram.map((tp, wi) =>
+        wi === selectedWeek ? {
+          ...tp,
+          week: tp.week.map((w, di) =>
+            di === selectedDay ? {
+              ...w,
+              day: w.day.map((ex, ei) =>
+                ei === auxExerciseIndex ? {
+                  ...ex,
+                  set: [...ex.set, {
+                    exerciseName: "",
+                    sets: "",
+                    reps: "",
+                    percentage: "",
+                    weight: "",
+                    rpe: "",
+                    tempo: "",
+                    rest: "",
+                    altExercise1: "",
+                    altExercise2: "",
+                    description: "",
+                  }]
+                } : ex
+              )
+            } : w
+          )
+        } : tp
+      ),
+    }));
+  }, [selectedWeek, selectedDay, exerciseIndex, length]);
 
-  const removeExerciseSubSet = (index: number) => {
-    let auxAtom = deepClone(programEditorData);
-    auxAtom.trainingProgram[selectedWeek].week[selectedDay].day[exerciseIndex === "add" ? length : exerciseIndex].set.splice(index, 1);
-    setProgramEditorData(auxAtom);
-  }
+  const editExerciseField = useCallback((field: string, input: string, index?: number) => {
+    const auxExerciseIndex = exerciseIndex === "add" ? length : exerciseIndex;
+    setProgramEditorData(prev => ({
+      ...prev,
+      trainingProgram: prev.trainingProgram.map((tp, wi) =>
+        wi === selectedWeek ? {
+          ...tp,
+          week: tp.week.map((w, di) =>
+            di === selectedDay ? {
+              ...w,
+              day: w.day.map((ex, ei) =>
+                ei === auxExerciseIndex ? (
+                  field === "parentExerciseName"
+                    ? { ...ex, exerciseName: input }
+                    : { ...ex, set: ex.set.map((s, si) => si === index ? { ...s, [field]: input } : s) }
+                ) : ex
+              )
+            } : w
+          )
+        } : tp
+      ),
+    }));
+  }, [selectedWeek, selectedDay, exerciseIndex, length]);
+
+  const removeExerciseSubSet = useCallback((index: number) => {
+    const auxExerciseIndex = exerciseIndex === "add" ? length : exerciseIndex;
+    setProgramEditorData(prev => ({
+      ...prev,
+      trainingProgram: prev.trainingProgram.map((tp, wi) =>
+        wi === selectedWeek ? {
+          ...tp,
+          week: tp.week.map((w, di) =>
+            di === selectedDay ? {
+              ...w,
+              day: w.day.map((ex, ei) =>
+                ei === auxExerciseIndex ? {
+                  ...ex,
+                  set: ex.set.filter((_, si) => si !== index)
+                } : ex
+              )
+            } : w
+          )
+        } : tp
+      ),
+    }));
+  }, [selectedWeek, selectedDay, exerciseIndex, length]);
+
+  const s = useMemo(() => styles(activeTheme, insets.bottom), [activeTheme, insets.bottom]);
 
   return (
-    <View style={styles(activeTheme).container}>
+    <View style={s.container}>
       {!isInitialRender ? (
-        <ScrollView style={styles(activeTheme).wrapper} overScrollMode="never">
+        <KeyboardAwareScrollView style={s.wrapper} overScrollMode="never" keyboardShouldPersistTaps="handled" bottomOffset={20}>
 
-          <View style={styles(activeTheme).exerciseItem}>
-            <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.exerciseNameInfo}</Text>
+          <View style={s.exerciseItem}>
+            <Text style={s.inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.exerciseNameInfo}</Text>
             <TextInput
-              style={styles(activeTheme).input}
+              style={s.input}
               placeholderTextColor={activeTheme.placeholderText}
               cursorColor={activeTheme.active}
               onChangeText={(input) => editExerciseField("parentExerciseName", input)}
@@ -99,38 +159,43 @@ const ExerciseEditorPage = (_props: any) => {
               editable={oneRMname ? false : true}
               value={exerciseData.exerciseName ? exerciseData.exerciseName+"" : ""}
             />
-            {oneRMweight?.weight ? <Text style={styles(activeTheme).weightText}>1RM: {oneRMweight?.weight}{programEditorData.weightUnit}</Text> : null}
+            {oneRMweight?.weight ? <Text style={s.weightText}>1RM: {oneRMweight?.weight}{programEditorData.weightUnit}</Text> : null}
           </View>
 
-          <View style={styles(activeTheme).setList}>
+          <View style={s.setList}>
 
             {exerciseData.set.map((item: ExerciseSet, index: number) => {
               return (
-                <View style={styles(activeTheme).exerciseItem} key={"ExerciseEditorPage_SetListExercise" + index}>
+                <View style={s.exerciseItem} key={"ExerciseEditorPage_SetListExercise" + index}>
 
-                  <View style={styles(activeTheme).col}>
-                    <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.exerciseVariation}</Text>
-                    <View style={styles(activeTheme).row}>
+                  <View style={s.col}>
+                    <Text style={s.inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.exerciseVariation}</Text>
+                    <View style={s.row}>
                       <TextInput
-                        style={styles(activeTheme).inputExerciseVariationName}
+                        style={s.inputExerciseVariationName}
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
                         onChangeText={(input) => editExerciseField("exerciseName", input, index)}
                         value={item.exerciseName ? item.exerciseName+"" : ""}
                         returnKeyType="done"
                       />
-                      <TouchableOpacity style={styles(activeTheme).exerciseItemRemoveIconContainer}  onPress={() => removeExerciseSubSet(index)}>
-                        <Ionicons name="trash-outline" size={25} color={activeTheme.text} style={styles(activeTheme).exerciseItemRemoveIcon} />
+                      <TouchableOpacity style={s.exerciseItemRemoveIconContainer}  onPress={() => removeExerciseSubSet(index)}>
+                        <Ionicons
+                          size={25}
+                          name="trash-outline"
+                          color={activeTheme.text}
+                          style={s.exerciseItemRemoveIcon}
+                        />
                       </TouchableOpacity>
                     </View>
                   </View>
 
-                  <View style={styles(activeTheme).row}>
-                    <View style={styles(activeTheme).col}>
-                      <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.sets}</Text>
+                  <View style={s.row}>
+                    <View style={s.col}>
+                      <Text style={s.inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.sets}</Text>
                       <TextInput
                         keyboardType="numeric"
-                        style={styles(activeTheme).input}
+                        style={s.input}
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
                         onChangeText={(input) => editExerciseField("sets", input, index)}
@@ -139,11 +204,11 @@ const ExerciseEditorPage = (_props: any) => {
                       />
                     </View>
 
-                    <View style={styles(activeTheme).col}>
-                      <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.reps}</Text>
+                    <View style={s.col}>
+                      <Text style={s.inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.reps}</Text>
                       <TextInput
                         keyboardType="numeric"
-                        style={styles(activeTheme).input}
+                        style={s.input}
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
                         onChangeText={(input) => editExerciseField("reps", input, index)}
@@ -154,12 +219,12 @@ const ExerciseEditorPage = (_props: any) => {
                   </View>
 
                   {exerciseData.RMid !== "0" ? (
-                    <View style={styles(activeTheme).row}>
-                      <View style={styles(activeTheme).col}>
-                        <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.percentage}</Text>
+                    <View style={s.row}>
+                      <View style={s.col}>
+                        <Text style={s.inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.percentage}</Text>
                         <TextInput
                           keyboardType="numeric"
-                          style={styles(activeTheme).input}
+                          style={s.input}
                           placeholderTextColor={activeTheme.placeholderText}
                           cursorColor={activeTheme.active}
                           onChangeText={(input) => editExerciseField("percentage", input, index)}
@@ -167,9 +232,9 @@ const ExerciseEditorPage = (_props: any) => {
                           returnKeyType="done"
                         />
                       </View>
-                      <View style={styles(activeTheme).colWeight}>
-                        <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.weightLabel}</Text>
-                        <Text style={styles(activeTheme).weightText}>
+                      <View style={s.colWeight}>
+                        <Text style={s.inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.weightLabel}</Text>
+                        <Text style={s.weightText}>
                           {isNaN(oneRMweight?.weight * item.percentage / 100) ? "" :
                             Math.ceil((oneRMweight?.weight * (item.percentage / 100) / weightRoundingFactor)) * weightRoundingFactor } {!isNaN(oneRMweight?.weight * item.percentage / 100) ? programEditorData.weightUnit : "0 " + programEditorData.weightUnit}
                         </Text>
@@ -178,11 +243,11 @@ const ExerciseEditorPage = (_props: any) => {
                   ) : null}
 
                   {exerciseData.RMid === "0" ? (
-                    <View style={styles(activeTheme).col}>
-                      <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.weightLabel}</Text>
+                    <View style={s.col}>
+                      <Text style={s.inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.weightLabel}</Text>
                       <TextInput
                         keyboardType="numeric"
-                        style={styles(activeTheme).input}
+                        style={s.input}
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
                         onChangeText={(input) => editExerciseField("weight", input, index)}
@@ -192,12 +257,12 @@ const ExerciseEditorPage = (_props: any) => {
                     </View>
                   ) : null}
 
-                  <View style={styles(activeTheme).row}>
-                    <View style={styles(activeTheme).col}>
-                      <Text style={styles(activeTheme).inputLabel}>RPE</Text>
+                  <View style={s.row}>
+                    <View style={s.col}>
+                      <Text style={s.inputLabel}>RPE</Text>
                       <TextInput
                         keyboardType="numeric"
-                        style={styles(activeTheme).input}
+                        style={s.input}
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
                         onChangeText={(input) => editExerciseField("rpe", input, index)}
@@ -206,11 +271,11 @@ const ExerciseEditorPage = (_props: any) => {
                       />
                     </View>
 
-                    <View style={styles(activeTheme).col}>
-                      <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.tempo}</Text>
+                    <View style={s.col}>
+                      <Text style={s.inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.tempo}</Text>
                       <TextInput
                         keyboardType="numeric"
-                        style={styles(activeTheme).input}
+                        style={s.input}
                         placeholderTextColor={activeTheme.placeholderText}
                         cursorColor={activeTheme.active}
                         onChangeText={(input) => editExerciseField("tempo", input, index)}
@@ -220,11 +285,11 @@ const ExerciseEditorPage = (_props: any) => {
                     </View>
                   </View>
 
-                  <View style={styles(activeTheme).col}>
-                    <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.rest}</Text>
+                  <View style={s.col}>
+                    <Text style={s.inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.rest}</Text>
                     <TextInput
                       keyboardType="default"
-                      style={styles(activeTheme).input}
+                      style={s.input}
                       placeholderTextColor={activeTheme.placeholderText}
                       cursorColor={activeTheme.active}
                       onChangeText={(input) => editExerciseField("rest", input, index)}
@@ -233,11 +298,11 @@ const ExerciseEditorPage = (_props: any) => {
                     />
                   </View>
 
-                  <View style={styles(activeTheme).col}>
-                    <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.altExercise1}</Text>
+                  <View style={s.col}>
+                    <Text style={s.inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.altExercise1}</Text>
                     <TextInput
                       keyboardType="default"
-                      style={styles(activeTheme).input}
+                      style={s.input}
                       placeholderTextColor={activeTheme.placeholderText}
                       cursorColor={activeTheme.active}
                       onChangeText={(input) => editExerciseField("altExercise1", input, index)}
@@ -246,11 +311,11 @@ const ExerciseEditorPage = (_props: any) => {
                     />
                   </View>
 
-                  <View style={styles(activeTheme).ccol}>
-                    <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.altExercise2}</Text>
+                  <View style={s.ccol}>
+                    <Text style={s.inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.altExercise2}</Text>
                     <TextInput
                       keyboardType="default"
-                      style={styles(activeTheme).input}
+                      style={s.input}
                       placeholderTextColor={activeTheme.placeholderText}
                       cursorColor={activeTheme.active}
                       onChangeText={(input) => editExerciseField("altExercise2", input, index)}
@@ -259,11 +324,11 @@ const ExerciseEditorPage = (_props: any) => {
                     />
                   </View>
 
-                  <View style={styles(activeTheme).col}>
-                    <Text style={styles(activeTheme).inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.description}</Text>
+                  <View style={s.col}>
+                    <Text style={s.inputLabel}>{selectedLocale.programEditorPage.exerciseEditorPage.description}</Text>
                     <TextInput
                       keyboardType="default"
-                      style={[styles(activeTheme).input, { height: "auto", flex: 0 }]}
+                      style={[s.input, { height: "auto", flex: 0 }]}
                       placeholderTextColor={activeTheme.placeholderText}
                       cursorColor={activeTheme.active}
                       onChangeText={(input) => editExerciseField("description", input, index)}
@@ -276,12 +341,12 @@ const ExerciseEditorPage = (_props: any) => {
               )
             })}
 
-            <TouchableOpacity onPress={addExerciseSubSet} style={styles(activeTheme).AddExerciseButton}>
-              <Text style={styles(activeTheme).AddExerciseButtonText}>{selectedLocale.programEditorPage.exerciseEditorPage.addExerciseButton}</Text>
+            <TouchableOpacity onPress={addExerciseSubSet} style={s.AddExerciseButton}>
+              <Text style={s.AddExerciseButtonText}>{selectedLocale.programEditorPage.exerciseEditorPage.addExerciseButton}</Text>
             </TouchableOpacity>
 
           </View>
-        </ScrollView>
+        </KeyboardAwareScrollView>
       ) : (
         <Loading />
       )}

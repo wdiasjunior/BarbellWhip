@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useMemo } from "react";
 import { Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -14,13 +14,13 @@ import {
   activeThemeAtom,
   activeProgramAtom,
   activeProgramNameAtom,
+  selectedLocaleAtom,
   programEditorDataAtom,
   programEditorModeAtom,
   programNameForActionAtom,
   wasProgramSavedAtom,
 } from "../../helpers/jotai/atoms";
 
-import { deepClone } from "../../helpers/deepClone";
 import { trainingProgramCleanUp } from "../../helpers/trainingProgramCleanUp";
 
 interface IProps {
@@ -44,24 +44,25 @@ const Header = (props: IProps) => {
   const programEditorMode = useAtomValue(programEditorModeAtom);
   const programNameForAction = useAtomValue(programNameForActionAtom);
   const setActiveProgramData = useSetAtom(activeProgramAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
   const setWasProgramSaved = useSetAtom(wasProgramSavedAtom);
   const setProgramEditorData = useSetAtom(programEditorDataAtom);
 
   const readProgram = async (fileName: string) => {
-    return JSON.parse(await readJSON(fileName.replace(".json", "")));
+    return JSON.parse(await readJSON(fileName.replace(".json", ""), selectedLocale.fileSystem.errorReading));
   }
 
-  const saveProgram = async () => {
+  const saveProgram = useCallback(async () => {
     const fileName = programEditorData.programName || programNameForAction;
-    if(fileName !== "") {
-      const programJSON = deepClone(programEditorData);
-      await writeToJSON(fileName, programJSON);
-      navigation.replace("ProgramEditorStack");
+    if (fileName !== "") {
+      const programJSON = { ...programEditorData };
+      await writeToJSON(fileName, programJSON, selectedLocale.fileSystem.errorWriting);
+      navigation.popToTop();
     } else {
-      alert("Please fill in the program name field."); //  TODO - add locale
+      alert(selectedLocale.fileSystem.missingProgramName);
       return;
     }
-    if(programEditorMode === "Edit" && activeProgramName === fileName) {
+    if (programEditorMode === "Edit" && activeProgramName === fileName) {
       const programData = await readProgram(fileName);
       const _cleanedUpProgramData = trainingProgramCleanUp(programData);
       setActiveProgramData(_cleanedUpProgramData);
@@ -73,98 +74,100 @@ const Header = (props: IProps) => {
       oneRMs: [],
       trainingProgram: [ { week: new Array(7).fill({ day:[] }) } ]
     })
-  }
+  }, [programEditorData, programNameForAction, programEditorMode, activeProgramName]);
 
-  const importProgram = () => {
-    if(props.importProgram) {
+  const importProgram = useCallback(() => {
+    if (props.importProgram) {
       props.importProgram();
     } else {
-      console.log("could not import program"); // TODO - add locale
+      console.warn("Header: importProgram callback not provided");
     }
-  }
+  }, [props.importProgram]);
 
-  const setMenuOpenFromHeader = () => {
-    if(props.setIsMenuOpen) {
+  const setMenuOpenFromHeader = useCallback(() => {
+    if (props.setIsMenuOpen) {
       props.setIsMenuOpen(prev => !prev);
     } else {
-      console.log("could not set menu open"); // TODO - add locale
+      console.warn("Header: setIsMenuOpen callback not provided");
     }
-  }
+  }, [props.setIsMenuOpen]);
 
-  const saveButton = async () => {
+  const saveButton = useCallback(async () => {
     // TODO
     // add loading indicator overlay on save
     await saveProgram();
-  }
+  }, [saveProgram]);
 
-  const backButton = () => {
+  const backButton = useCallback(() => {
     // TODO
-    // if(!navigation?.getState()?.routes[0]?.name === "Info") {
+    // if (!navigation?.getState()?.routes[0]?.name === "Info") {
       // ask to save before goBack
       // prevent android back button goBack
       // console.log("stepOne");
       navigation.goBack();
     // }
-  }
+  }, [navigation]);
+
+  const s = useMemo(() => styles(activeTheme), [activeTheme]);
 
   return (
-    <View style={styles(activeTheme).header}>
-      <View style={styles(activeTheme).contentLeft}>
+    <View style={s.header}>
+      <View style={s.contentLeft}>
         {props.backButton ?
           <Ionicons
-            name="arrow-back-sharp"
             size={24}
+            name="arrow-back-sharp"
             color={activeTheme.text}
-            style={styles(activeTheme).iconLeft}
+            style={s.iconLeft}
             onPress={backButton}
           />
           :
           <Ionicons
-            name="menu-sharp"
             size={24}
+            name="menu-sharp"
             color={activeTheme.text}
-            style={styles(activeTheme).iconLeft}
+            style={s.iconLeft}
             onPress={() => navigation.openDrawer()}
           />
         }
       </View>
-      <View style={styles(activeTheme).contentCenter}>
-        <Text adjustsFontSizeToFit style={styles(activeTheme).headerText}>{props.title}</Text>
+      <View style={s.contentCenter}>
+        <Text adjustsFontSizeToFit style={s.headerText}>{props.title}</Text>
       </View>
-      <View style={styles(activeTheme).contentRight}>
+      <View style={s.contentRight}>
         {props.menu &&
           <Ionicons
-            name="ellipsis-vertical"
             size={24}
+            name="ellipsis-vertical"
             color={activeTheme.text}
-            style={styles(activeTheme).iconRight}
+            style={s.iconRight}
             onPress={setMenuOpenFromHeader}
           />
         }
         {props.weightRack &&
           <Ionicons
-            name="settings-sharp"
             size={24}
+            name="settings-sharp"
             color={activeTheme.text}
-            style={styles(activeTheme).iconRight}
+            style={s.iconRight}
             onPress={() => navigation.push("WeightRackPage")}
           />
         }
         {props.import &&
           <Ionicons
-            name="download-outline"
             size={24}
+            name="download-outline"
             color={activeTheme.text}
-            style={styles(activeTheme).iconRight}
+            style={s.iconRight}
             onPress={importProgram}
           />
         }
         {props.saveButton &&
           <Entypo
-            name="save"
             size={24}
+            name="save"
             color={activeTheme.text}
-            style={styles(activeTheme).iconRight}
+            style={s.iconRight}
             onPress={saveButton}
           />
         }

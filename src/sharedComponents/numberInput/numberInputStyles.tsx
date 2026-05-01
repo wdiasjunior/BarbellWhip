@@ -27,7 +27,7 @@ const styles = (theme: Theme) => {
       textAlign: "center",
       fontWeight: "bold",
       fontSize: 24,
-      lineHeight: 24,
+      lineHeight: 28,
       color: theme.text,
       marginLeft: 25,
     },

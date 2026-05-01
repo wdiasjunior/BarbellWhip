@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useCallback, useMemo } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import DraggableFlatList, { ScaleDecorator } from "react-native-draggable-flatlist";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -31,70 +31,72 @@ const StepTwo = ({ navigation }) => {
   const [programEditorData, setProgramEditorData] = useAtom(programEditorDataAtom);
   const [selectedWeek, setSelectedWeek] = useAtom(selectedWeekAtom);
   const programEditorMode = useAtomValue(programEditorModeAtom);
-  const weekRef = useRef(null);
 
   const onScreenLoad = () => {
-    const title = programEditorMode === "Create"
-                    ? selectedLocale.programEditorPage.programEditorStep2.title
-                    : selectedLocale.programEditorPage.programEditorStep2.title2;
-    navigation.setOptions({ headerTitle: () =>
-                  <Header
-                    title={title}
-                    menu={false}
-                    saveButton={true}
-                    backButton={true}
-                  />
-              });
+    const title = programEditorMode === "Create" ? selectedLocale.programEditorPage.programEditorStep2.title : selectedLocale.programEditorPage.programEditorStep2.title2;
+    navigation.setOptions({
+      headerTitle: () =>
+        <Header
+          title={title}
+          menu={false}
+          saveButton={true}
+          backButton={true}
+        />
+    });
   }
 
   useLayoutEffect(() => {
-    if(isInitialRender) {
+    if (isInitialRender) {
       onScreenLoad();
     }
   }, [])
 
-  const addWeek = () => {
-    let auxAtom = deepClone(programEditorData);
-    auxAtom.trainingProgram.push({ week: new Array(7).fill({ day:[] }) });
-    setProgramEditorData(auxAtom);
-  }
+  const addWeek = useCallback(() => {
+    setProgramEditorData(prev => ({
+      ...prev,
+      trainingProgram: [...prev.trainingProgram, { week: new Array(7).fill({ day:[] }) }],
+    }));
+  }, []);
 
-  const selectWeek = (index: number) => {
+  const selectWeek = useCallback((index: number) => {
     setSelectedWeek(index);
-  }
+  }, []);
 
-  const duplicateWeek = (index: number) => {
-    let auxAtom = deepClone(programEditorData);
-    let weekToDuplicate = programEditorData.trainingProgram[index];
-    auxAtom.trainingProgram.splice(index + 1, 0, weekToDuplicate);
-    setProgramEditorData(auxAtom);
-    selectWeek(index + 1)
-  }
+  const duplicateWeek = useCallback((index: number) => {
+    setProgramEditorData(prev => {
+      const weekCopy = deepClone(prev.trainingProgram[index]);
+      const newProgram = [...prev.trainingProgram];
+      newProgram.splice(index + 1, 0, weekCopy);
+      return { ...prev, trainingProgram: newProgram };
+    });
+    selectWeek(index + 1);
+  }, [selectWeek]);
 
-  const reorder = (data, from, to) => {
-    let auxAtom = deepClone(programEditorData);
-    auxAtom.trainingProgram = data;
-    setProgramEditorData(auxAtom);
-    if(selectedWeek == from) {
+  const reorder = useCallback((data, from, to) => {
+    setProgramEditorData(prev => ({ ...prev, trainingProgram: data }));
+
+    if (selectedWeek == from) {
       selectWeek(to);
-    } else if(selectedWeek < from && selectedWeek >= to) {
+    } else if (selectedWeek < from && selectedWeek >= to) {
       selectWeek(selectedWeek + 1);
-    } else if(selectedWeek > from && selectedWeek <= to) {
+    } else if (selectedWeek > from && selectedWeek <= to) {
       selectWeek(selectedWeek - 1);
     }
-  }
+  }, [selectedWeek, selectWeek]);
 
   const renderWeekItem = ({ item, getIndex, drag }) => {
     const index = getIndex();
 
     const deleteWeek = () => {
-      if(programEditorData.trainingProgram.length > 1) {
-        let auxAtom = deepClone(programEditorData);
-        auxAtom.trainingProgram.splice(index, 1);
-        setProgramEditorData(auxAtom);
-        if(selectedWeek + 1 === programEditorData.trainingProgram.length) {
+      if (programEditorData.trainingProgram.length > 1) {
+        setProgramEditorData(prev => ({
+          ...prev,
+          trainingProgram: prev.trainingProgram.filter((_, i) => i !== index),
+        }));
+
+        if (selectedWeek + 1 === programEditorData.trainingProgram.length) {
           selectWeek(selectedWeek - 1);
-        } else if(selectedWeek === index || selectedWeek > index) {
+        } else if (selectedWeek === index || selectedWeek > index) {
           selectWeek(index);
         }
       }
@@ -103,7 +105,7 @@ const StepTwo = ({ navigation }) => {
     return (
       <ScaleDecorator>
         <TouchableOpacity
-          style={selectedWeek == index ? styles(activeTheme).weekItemSelected : styles(activeTheme).weekItem}
+          style={selectedWeek == index ? s.weekItemSelected : s.weekItem}
           onPress={() => selectWeek(index)}
         >
           <TouchableOpacity style={{width: 40, height: 30}} onLongPress={drag} delayLongPress={50}>
@@ -111,27 +113,27 @@ const StepTwo = ({ navigation }) => {
               size={30}
               name="reorder-three-outline"
               color={(selectedWeek == index) ? activeTheme.backgroundSecondary : activeTheme.text}
-              style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemIcon : styles(activeTheme).weekItemIcon}
+              style={(selectedWeek == index) ? s.weekSelectedItemIcon : s.weekItemIcon}
             />
           </TouchableOpacity>
-          <Text style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemText : styles(activeTheme).weekItemText}>{selectedLocale.programEditorPage.programEditorStep2.week} {index + 1}</Text>
+          <Text style={(selectedWeek == index) ? s.weekSelectedItemText : s.weekItemText}>{selectedLocale.programEditorPage.programEditorStep2.week} {index + 1}</Text>
 
-          <TouchableOpacity style={styles(activeTheme).weekItemIconContainer} >
+          <TouchableOpacity style={s.weekItemIconContainer} >
             <Ionicons
               size={20}
               name="copy-outline"
               onPress={() => duplicateWeek(index)}
               color={(selectedWeek == index) ? activeTheme.backgroundSecondary : activeTheme.text}
-              style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemIcon : styles(activeTheme).weekItemIcon}
+              style={(selectedWeek == index) ? s.weekSelectedItemIcon : s.weekItemIcon}
             />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles(activeTheme).weekItemIconContainer}  onPress={() => deleteWeek()} >
+          <TouchableOpacity style={s.weekItemIconContainer}  onPress={() => deleteWeek()} >
             <Ionicons
               size={20}
               name="trash-outline"
               color={(selectedWeek == index) ? activeTheme.backgroundSecondary : activeTheme.text}
-              style={(selectedWeek == index) ? styles(activeTheme).weekSelectedItemIcon : styles(activeTheme).weekItemIcon}
+              style={(selectedWeek == index) ? s.weekSelectedItemIcon : s.weekItemIcon}
             />
           </TouchableOpacity>
         </TouchableOpacity>
@@ -139,21 +141,22 @@ const StepTwo = ({ navigation }) => {
     )
   }
 
+  const s = useMemo(() => styles(activeTheme), [activeTheme]);
+
   return (
-    <View style={styles(activeTheme).container}>
+    <View style={s.container}>
       {!isInitialRender ? (
-        <View style={styles(activeTheme).weekList}>
+        <View style={s.weekList}>
           <GestureHandlerRootView>
             <DraggableFlatList
-              ref={weekRef}
               data={programEditorData.trainingProgram}
               keyExtractor={(_, index) => "ProgramEditorPage_WeekList_Item" + index}
               onDragEnd={({data, from, to}) => reorder(data, from, to)}
               renderItem={renderWeekItem}
               ListFooterComponent={() => {
                 return (
-                  <TouchableOpacity onPress={addWeek} style={styles(activeTheme).AddWeekButton}>
-                    <Text style={styles(activeTheme).AddWeekButtonText}>{selectedLocale.programEditorPage.programEditorStep2.addWeekButton}</Text>
+                  <TouchableOpacity onPress={addWeek} style={s.AddWeekButton}>
+                    <Text style={s.AddWeekButtonText}>{selectedLocale.programEditorPage.programEditorStep2.addWeekButton}</Text>
                   </TouchableOpacity>
                 )
               }}

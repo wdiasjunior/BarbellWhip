@@ -137,5 +137,12 @@ interface Locale {
   };
   fileSystem: {
     invalidFileType: string;
+    errorReading: string;
+    errorReadingFileSystem: string;
+    errorWriting: string;
+    errorCopying: string;
+    errorDeleting: string;
+    missingProgramName: string;
+    importSuccess: string;
   };
 }

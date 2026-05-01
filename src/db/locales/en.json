@@ -131,6 +131,13 @@
     "cancelButtonLabel": "CANCEL"
   },
   "fileSystem": {
-    "invalidFileType": "Invalid file type."
+    "invalidFileType": "Invalid file type.",
+    "errorReading": "Error reading file.",
+    "errorReadingFileSystem": "Error reading file system.",
+    "errorWriting": "Error writing to file.",
+    "errorCopying": "Error copying file.",
+    "errorDeleting": "Error deleting file.",
+    "missingProgramName": "Please fill in the program name field.",
+    "importSuccess": "Program imported successfully."
   }
 }

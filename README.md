@@ -25,13 +25,11 @@ And in another terminal run the following commands
 
 `export JAVA_HOME=/usr/lib/jvm/java-17-openjdk`
 
-`export PATH="$JAVA_HOME/bin:$PATH"`
-
 `export ANDROID_SDK_ROOT=/home/$USER/Android/Sdk`
 
 `npx react-native run-android`
 
-## How to build (debug apk)
+## How to build
 
 Using node version `v22.12.0` install the dependencies by running `npm i`.
 
@@ -45,11 +43,15 @@ Then run the commands below in the `/android` directory
 
 `export JAVA_HOME=/usr/lib/jvm/java-17-openjdk`
 
-`export PATH="$JAVA_HOME/bin:$PATH"`
-
-`export ANDROID_SDK_ROOT='/home/$USER/Android/Sdk'`
+`export ANDROID_SDK_ROOT=/home/$USER/Android/Sdk`
 
 `./gradlew assembleDebug`
+
+or
+
+`./gradlew assembleRelease`
+
+The `.apk ` generated are located at `/android/app/build/outputs/apk/debug/` and `/android/app/build/outputs/apk/release/`.
 
 ## Contributing
 

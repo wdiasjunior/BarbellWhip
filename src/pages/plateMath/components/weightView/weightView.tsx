@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { View } from "react-native";
 
 import Plate from "../plate/plate";
@@ -13,8 +13,10 @@ interface IProps {
 }
 
 const WeightView = (props: IProps) => {
+  const s = useMemo(() => styles(props.activeTheme), [props.activeTheme]);
+
   return (
-    <View style={styles(props.activeTheme).plateWrap}>
+    <View style={s.plateWrap}>
       {props.plates.map((plate, index) => {
         return (
           <Plate

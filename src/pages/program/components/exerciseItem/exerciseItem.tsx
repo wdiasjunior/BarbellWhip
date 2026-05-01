@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -18,12 +18,13 @@ interface IProps {
 const ExerciseItem = (props: IProps) => {
 
   const activeTheme = useAtomValue(activeThemeAtom);
+  const s = useMemo(() => styles(activeTheme), [activeTheme]);
 
   const navigation = useNavigation();
 
   return (
     <TouchableOpacity
-      style={styles(activeTheme).item}
+      style={s.item}
       onPress={() => {
         navigation.push("ExerciseItemPage", {
           exerciseName: props.exerciseName,
@@ -34,11 +35,11 @@ const ExerciseItem = (props: IProps) => {
         });
       }}
     >
-      <Text numberOfLines={1} style={styles(activeTheme).text1}>
+      <Text numberOfLines={1} style={s.text1}>
         {props.exerciseName}
       </Text>
     </TouchableOpacity>
   );
 }
 
-export default ExerciseItem;
+export default React.memo(ExerciseItem);

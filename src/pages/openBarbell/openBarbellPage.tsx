@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useMemo } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 
 import styles from "./openBarbellPageStyles";
@@ -16,13 +16,12 @@ const OpenBarbellPage = ({ navigation }) => {
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
-  
-
+  const s = useMemo(() => styles(activeTheme), [activeTheme]);
 
   return (
-    <View style={styles(activeTheme).container}>
-      <View style={styles(activeTheme).rowContainer}>
-        <Text style={styles(activeTheme).title}>{selectedLocale.openBarbellPage.title}</Text>
+    <View style={s.container}>
+      <View style={s.rowContainer}>
+        <Text style={s.title}>{selectedLocale.openBarbellPage.title}</Text>
       </View>
     </View>
   );

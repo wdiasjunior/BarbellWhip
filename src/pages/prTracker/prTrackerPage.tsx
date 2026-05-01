@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView } from "react-native";
+import React, { useMemo } from "react";
+import { Text, View } from "react-native";
 
 import styles from "./prTrackerPageStyles";
 
@@ -11,11 +11,13 @@ const PRTrackerPage = ({ navigation }) => {
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
+  const s = useMemo(() => styles(activeTheme), [activeTheme]);
+
   return (
-    <View style={styles(activeTheme).container}>
-      <View style={styles(activeTheme).content}>
-        <Text style={styles(activeTheme).title}>PR Tracker Page</Text>
-        <Text style={styles(activeTheme).subtitle}>Display some fancy graphs/charts</Text>
+    <View style={s.container}>
+      <View style={s.content}>
+        <Text style={s.title}>PR Tracker Page</Text>
+        <Text style={s.subtitle}>Display some fancy graphs/charts</Text>
       </View>
     </View>
   );

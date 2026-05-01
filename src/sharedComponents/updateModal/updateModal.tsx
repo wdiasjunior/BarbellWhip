@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { View, Text, TouchableOpacity, ActivityIndicator, NativeModules } from "react-native";
 import Modal from "react-native-modal";
 
@@ -34,6 +34,8 @@ const UpdateModal = (props: IProps) => {
   const [showDownloadErrorMessage, setShowDownloadErrorMessage] = useState(false);
   const [showUpdateCheckErrorMessage, setShowUpdateCheckErrorMessage] = useState(false);
 
+  const s = useMemo(() => styles(activeTheme), [activeTheme]);
+
   const { FileOpenerModule } = NativeModules;
 
   const url = `https://github.com/wdiasjunior/BarbellWhip/releases/download/v${appVersionGithub}/BarbellWhip_${appVersionGithub}.apk`
@@ -47,7 +49,7 @@ const UpdateModal = (props: IProps) => {
   }
 
   useEffect(() => {
-    if(props.isUpdateModalVisible) {
+    if (props.isUpdateModalVisible) {
       setAppVersionGithub(null);
       setShowUpdateCheckerSpinner(true);
       setShowUpdateCheckErrorMessage(false);
@@ -58,8 +60,8 @@ const UpdateModal = (props: IProps) => {
 
   useEffect(() => {
     if (appVersionGithub !== null) {
-      if(typeof appVersionGithub === "string") {
-        if(updateChecker(props.currentVersion, appVersionGithub)) {
+      if (typeof appVersionGithub === "string") {
+        if (updateChecker(props.currentVersion, appVersionGithub)) {
           setHasUpadateAvailable(true);
         } else {
           setHasUpadateAvailable(false);
@@ -71,7 +73,7 @@ const UpdateModal = (props: IProps) => {
     }
   }, [appVersionGithub])
 
-  const checkForDownloadedUpdate = async (appVersion: string): booolean => {
+  const checkForDownloadedUpdate = async (appVersion: string): boolean => {
     const fileName = `BarbellWhip_${appVersion}.apk`;
 
     const files = await RNFS.readDir(RNFS.ExternalCachesDirectoryPath);
@@ -97,7 +99,7 @@ const UpdateModal = (props: IProps) => {
 
     const hasUpdateDownloaded = await checkForDownloadedUpdate(appVersionGithub);
 
-    if(hasUpdateDownloaded) {
+    if (hasUpdateDownloaded) {
       handleInstallAPK();
     } else {
       await RNFS.unlink(RNFS.ExternalCachesDirectoryPath)
@@ -142,10 +144,10 @@ const UpdateModal = (props: IProps) => {
 
   const CloseButton = ({ hasMarginLeft }: ICloseButton) => (
     <TouchableOpacity
-      style={hasMarginLeft ? styles(activeTheme).buttonClose : styles(activeTheme).button}
+      style={hasMarginLeft ? s.buttonClose : s.button}
       onPress={() => handleCloseModal()}
     >
-      <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.closeModalButtonLabel}</Text>
+      <Text style={s.text}>{selectedLocale.settingsPage.closeModalButtonLabel}</Text>
     </TouchableOpacity>
   )
 
@@ -161,13 +163,13 @@ const UpdateModal = (props: IProps) => {
       backdropTransitionInTiming={100}
       backdropTransitionOutTiming={1}
     >
-      <View style={styles(activeTheme).container}>
+      <View style={s.container}>
         {(showUpdateCheckerSpinner && !showUpdateCheckErrorMessage) &&
-          <View style={styles(activeTheme).row}>
-            <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.searchingForUpdates}</Text>
+          <View style={s.row}>
+            <Text style={s.text}>{selectedLocale.settingsPage.searchingForUpdates}</Text>
             <ActivityIndicator
             size="small"
-            style={styles(activeTheme).spinner}
+            style={s.spinner}
             color={activeTheme.textFaded}
             />
           </View>
@@ -175,14 +177,14 @@ const UpdateModal = (props: IProps) => {
 
         {(hasUpdateAvailable && !showDownloadSpinner && !showIsDownloadCompleteMessage) &&
           <View>
-            <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.updateAvailableMessage}</Text>
-            <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.newVersionLabel}: {appVersionGithub}</Text>
-            <View style={styles(activeTheme).buttonRow}>
+            <Text style={s.text}>{selectedLocale.settingsPage.updateAvailableMessage}</Text>
+            <Text style={s.text}>{selectedLocale.settingsPage.newVersionLabel}: {appVersionGithub}</Text>
+            <View style={s.buttonRow}>
               <TouchableOpacity
-                style={styles(activeTheme).button}
+                style={s.button}
                 onPress={() => handleDownload()}
               >
-                <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.downloadUpdateButton}</Text>
+                <Text style={s.text}>{selectedLocale.settingsPage.downloadUpdateButton}</Text>
               </TouchableOpacity>
               <CloseButton hasMarginLeft />
             </View>
@@ -191,19 +193,19 @@ const UpdateModal = (props: IProps) => {
 
         {(typeof appVersionGithub === "string" && !hasUpdateAvailable && !showUpdateCheckErrorMessage) &&
           <View>
-            <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.noUpdateAvailableMessage}</Text>
-            <View style={styles(activeTheme).buttonRow}>
+            <Text style={s.text}>{selectedLocale.settingsPage.noUpdateAvailableMessage}</Text>
+            <View style={s.buttonRow}>
               <CloseButton />
             </View>
           </View>
         }
 
         {showDownloadSpinner &&
-          <View style={styles(activeTheme).row}>
-            <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.downloadingUpdateMessage}</Text>
+          <View style={s.row}>
+            <Text style={s.text}>{selectedLocale.settingsPage.downloadingUpdateMessage}</Text>
             <ActivityIndicator
               size="small"
-              style={styles(activeTheme).spinner}
+              style={s.spinner}
               color={activeTheme.textFaded}
             />
           </View>
@@ -211,15 +213,15 @@ const UpdateModal = (props: IProps) => {
 
         {(showIsDownloadCompleteMessage && !showDownloadSpinner && !showDownloadErrorMessage) &&
           <View>
-            <Text style={styles(activeTheme).text}>
+            <Text style={s.text}>
               {selectedLocale.settingsPage.downloadCompleteMessage}
             </Text>
-            <View style={styles(activeTheme).buttonRow}>
+            <View style={s.buttonRow}>
               <TouchableOpacity
-                style={styles(activeTheme).button}
+                style={s.button}
                 onPress={() => handleInstallAPK()}
               >
-                <Text style={styles(activeTheme).text}>{selectedLocale.settingsPage.installUpdateButton}</Text>
+                <Text style={s.text}>{selectedLocale.settingsPage.installUpdateButton}</Text>
               </TouchableOpacity>
               <CloseButton hasMarginLeft />
             </View>
@@ -228,10 +230,10 @@ const UpdateModal = (props: IProps) => {
 
         {showDownloadErrorMessage &&
           <View>
-            <Text style={styles(activeTheme).text}>
+            <Text style={s.text}>
               {selectedLocale.settingsPage.downloadErrorMessage}
             </Text>
-            <View style={styles(activeTheme).buttonRow}>
+            <View style={s.buttonRow}>
               <CloseButton />
             </View>
           </View>
@@ -239,10 +241,10 @@ const UpdateModal = (props: IProps) => {
 
         {showUpdateCheckErrorMessage &&
           <View>
-            <Text style={styles(activeTheme).text}>
+            <Text style={s.text}>
               {selectedLocale.settingsPage.updateCheckErrorMessage}
             </Text>
-            <View style={styles(activeTheme).buttonRow}>
+            <View style={s.buttonRow}>
               <CloseButton />
             </View>
           </View>

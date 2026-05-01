@@ -1,21 +1,22 @@
 {
   "programName": "Brazos",
+  "description": "",
   "weightUnit": "kg",
   "oneRMs": [
     {
       "id": "1",
       "name": "Squat",
-      "weight": "160"
+      "weight": "170"
     },
     {
       "id": "2",
       "name": "Bench Press",
-      "weight": "135"
+      "weight": "145"
     },
     {
       "id": "3",
       "name": "Deadlift",
-      "weight": "200"
+      "weight": "220"
     }
   ],
   "trainingProgram": [

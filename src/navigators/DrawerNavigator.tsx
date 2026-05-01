@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useCallback } from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
@@ -15,56 +15,61 @@ import { useInitialRender } from "../helpers/useInitialRender";
 
 const Drawer = createDrawerNavigator();
 
+const menuIconStyle = { marginLeft: 16, marginRight: 16 };
+
 const DrawerNavigator = () => {
 
   const isInitialRender = useInitialRender();
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
+  const drawerStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundSecondary,
+    width: isInitialRender ? undefined : "75%" as const,
+  }), [activeTheme.backgroundSecondary, isInitialRender]);
+
+  const contentStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundPrimary,
+    opacity: 1,
+  }), [activeTheme.backgroundPrimary]);
+
+  const sceneContainerStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundPrimary,
+  }), [activeTheme.backgroundPrimary]);
+
   return (
     <Drawer.Navigator
       // useLegacyImplementation={true}
       defaultStatus="closed"
-      screenOptions={({ route, navigation }) => ({
-        headerLeft: () => (
-          <Ionicons
-            name="menu-sharp"
-            size={24}
-            color={activeTheme.text}
-            style={{ marginLeft: 16 }}
-            onPress={() => navigation.openDrawer()}
-          />
-        ),
+      screenOptions={({ route }) => ({
         drawerIcon: ({ focused, color, size }) => {
           let iconName;
-          if(route.name === "ProgramDrawer") {
+          if (route.name === "ProgramDrawer") {
             iconName = focused ? "barbell-sharp" : "barbell-sharp";
-          } else if(route.name === "Program Editor") {
+          } else if (route.name === "Program Editor") {
             iconName = focused ? "file-tray-full" : "file-tray-full-outline";
-          // } else if(route.name === "PR Tracker") {
+          // } else if (route.name === "PR Tracker") {
           //   iconName = focused ? "bar-chart" : "bar-chart-outline";
-          } else if(route.name === "OpenBarbell") {
+          } else if (route.name === "OpenBarbell") {
             iconName = focused ? "bar-chart" : "bar-chart-outline";
-          } else if(route.name === "Settings") {
+          } else if (route.name === "Settings") {
             iconName = focused ? "settings" : "settings-outline";
           }
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return (
+            <Ionicons
+              name={iconName}
+              size={size}
+              color={color}
+            />
+          );
         },
         drawerActiveTintColor: activeTheme.active,
         drawerInactiveTintColor: activeTheme.inactive,
         drawerType: "back",
         lazy: true,
-        drawerStyle: {
-          backgroundColor: activeTheme.backgroundSecondary,
-          width: isInitialRender ? undefined : "75%",
-        },
-        contentStyle: {
-          backgroundColor: activeTheme.backgroundPrimary,
-          opacity: 1,
-        },
-        sceneContainerStyle: {
-          backgroundColor: activeTheme.backgroundPrimary,
-        },
+        drawerStyle,
+        contentStyle,
+        sceneContainerStyle,
       })}
     >
       <Drawer.Screen
@@ -99,30 +104,48 @@ const DrawerNavigator = () => {
       <Drawer.Screen
         name="OpenBarbell"
         component={OpenBarbellPage}
-        options={{
+        options={({ navigation }) => ({
           title: selectedLocale.openBarbellPage.title,
           headerTitleStyle: { color: activeTheme.text },
+          headerLeft: () => (
+            <Ionicons
+              name="menu-sharp"
+              size={24}
+              color={activeTheme.text}
+              style={menuIconStyle}
+              onPress={() => navigation.openDrawer()}
+            />
+          ),
           headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-        }}
+        })}
       />
       <Drawer.Screen
         name="Settings"
         component={SettingsPage}
-        options={{
+        options={({ navigation }) => ({
           title: selectedLocale.settingsPage.title,
           headerTitleStyle: { color: activeTheme.text },
+          headerLeft: () => (
+            <Ionicons
+              name="menu-sharp"
+              size={24}
+              color={activeTheme.text}
+              style={menuIconStyle}
+              onPress={() => navigation.openDrawer()}
+            />
+          ),
           headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-        }}
+        })}
       />
     </Drawer.Navigator>
   );
