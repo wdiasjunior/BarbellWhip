@@ -1,6 +1,7 @@
-import React, { useState, useMemo, useCallback, useLayoutEffect, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useCallback, useLayoutEffect } from "react";
 import { Text, View, FlatList, Animated } from "react-native";
 import SideMenu from "react-native-side-menu-updated";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import Header from "../../sharedComponents/header/header";
 import TopTabBar from "../../sharedComponents/topTabBar/topTabBar";
@@ -26,7 +27,7 @@ const ProgramPage = ({ navigation }) => {
 
   const activeProgram = useAtomValue<TrainingProgramFile>(activeProgramAtom);
 
-  const [isHydrated, setIsHydrated] = useState(false);
+  const [storageLoaded, setStorageLoaded] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const s = useMemo(() => styles(activeTheme), [activeTheme]);
@@ -70,18 +71,8 @@ const ProgramPage = ({ navigation }) => {
   }
 
   useEffect(() => {
-    if (activeProgram && Object.keys(activeProgram).length > 0) {
-      setIsHydrated(true);
-    }
-  }, [activeProgram]);
-
-  // fallback: if atom resolved to {} (no program saved), stop loading after a short delay
-  useEffect(() => {
-    if (!isHydrated) {
-      const timeout = setTimeout(() => setIsHydrated(true), 300);
-      return () => clearTimeout(timeout);
-    }
-  }, [isHydrated]);
+    AsyncStorage.getItem("activeProgramAtom").then(() => setStorageLoaded(true));
+  }, []);
 
   useLayoutEffect(() => {
     setHeader();
@@ -107,7 +98,7 @@ const ProgramPage = ({ navigation }) => {
     />
   ), [activeProgram?.oneRMs, activeProgram?.weightUnit])
 
-  if (!isHydrated) {
+  if (!storageLoaded) {
     return (
       <View style={s.container}>
         <Loading />
