@@ -27,7 +27,6 @@ import {
 import { useInitialRender } from "../../helpers/useInitialRender";
 
 const PlateMathPage = ({ navigation }) => {
-
   const isInitialRender = useInitialRender();
 
   const activeTheme = useAtomValue(activeThemeAtom);
@@ -50,7 +49,10 @@ const PlateMathPage = ({ navigation }) => {
   const onScreenLoad = () => {
     navigation.setOptions({
       headerTitle: () =>
-        <Header title={selectedLocale.plateMathPage.title} weightRack={true} />
+        <Header
+          title={selectedLocale.plateMathPage.title}
+          weightRack={true}
+        />
     });
   }
 

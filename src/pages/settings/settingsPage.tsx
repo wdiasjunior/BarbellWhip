@@ -2,7 +2,6 @@ import React, { useState, useMemo } from "react";
 import { Text, View, Switch, TouchableOpacity } from "react-native";
 import UpdateModal from "../../sharedComponents/updateModal/updateModal";
 import ListSelector from "./components/listSelector/listSelector";
-import CalculationFormulasModal from "./components/calculationFormulasModal/calculationFormulasModal";
 
 import styles from "./settingsPageStyles";
 
@@ -13,7 +12,6 @@ import {
   selectedLocaleIdAtom,
   selectedLocaleAtom,
   settingsPageWeightRoundAtom,
-  settingsPage1RMFormulasAtom,
 } from "../../helpers/jotai/atoms";
 
 import { themes } from "../../themes/";
@@ -28,12 +26,10 @@ const SettingsPage = () => {
   const selectedLocale = useAtomValue(selectedLocaleAtom);
   const [selectedLocaleId, setSelectedLocaleId] = useAtom<string>(selectedLocaleIdAtom);
   const [weightRound, setWeightRound] = useAtom<boolean>(settingsPageWeightRoundAtom);
-  const [RMFormulas, setRMFormulas] = useAtom(settingsPage1RMFormulasAtom);
 
   const s = useMemo(() => styles(activeTheme), [activeTheme]);
 
   const [isUpdateModalVisible, setUpdateModalVisible] = useState(false);
-  const [isCalculationFormulasModalVisible, setCalculationFormulasModalVisible] = useState(false);
 
   return (
     <View style={s.container}>
@@ -52,11 +48,6 @@ const SettingsPage = () => {
           style={{ transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }], marginHorizontal: 8, marginTop: 8 }}
         />
       </View>
-
-      <TouchableOpacity onPress={() => setCalculationFormulasModalVisible(true)}>
-        <Text style={s.title}>{selectedLocale.settingsPage.calculationFormulasTitle}</Text>
-        <Text style={s.subtitle}>{selectedLocale.settingsPage.calculationFormulasDescription}</Text>
-      </TouchableOpacity>
 
       <ListSelector
         title={selectedLocale.settingsPage.languageSelectorTitle}
@@ -91,14 +82,6 @@ const SettingsPage = () => {
           isUpdateModalVisible={isUpdateModalVisible}
           setUpdateModalVisible={setUpdateModalVisible}
           currentVersion={currentAppVersion}
-        />
-      }
-      {isCalculationFormulasModalVisible &&
-        <CalculationFormulasModal
-          isCalculationFormulasModalVisible={isCalculationFormulasModalVisible}
-          setCalculationFormulasModalVisible={setCalculationFormulasModalVisible}
-          RMFormulas={RMFormulas}
-          setRMFormulas={setRMFormulas}
         />
       }
     </View>

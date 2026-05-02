@@ -28,7 +28,13 @@
     "repsPerformed": "実施したレップ数",
     "rmTitle": "1回最大挙上重量",
     "rmPercentageTitle": "1RMのパーセンテージ",
-    "textWarning": "警告：12回以上のレップでは計算の精度が大幅に低下します。"
+    "textWarning": "警告：12回以上のレップでは計算の精度が大幅に低下します。",
+    "calculatorSettingsPage": {
+      "title": "1RM計算機設定",
+      "weightUnitLabel": "重量",
+      "calculationFormulasTitle": "計算式",
+      "calculationFormulasDescription": "1RMを計算するために使用する式を選択します"
+    }
   },
   "plateMathPage": {
     "title": "プレート計算",
@@ -123,9 +129,7 @@
     "okModalButtonLabel": "OK",
     "cancelModalButtonLabel": "キャンセル",
     "weightRoundingTitle": "重量の丸め",
-    "weightRoundingDescription": "重量は2.5kgまたは5ポンドに丸められます",
-    "calculationFormulasTitle": "計算式",
-    "calculationFormulasDescription": "1RMを計算するために使用する式を選択します"
+    "weightRoundingDescription": "重量は2.5kgまたは5ポンドに丸められます"
   },
   "numberInputModal": {
     "cancelButtonLabel": "キャンセル"

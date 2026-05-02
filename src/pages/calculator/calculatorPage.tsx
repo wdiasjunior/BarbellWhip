@@ -16,7 +16,7 @@ import {
   calculatorPageRepsAtom,
   calculatorPageWeightAtom,
   calculatorPageWeightUnitAtom,
-  settingsPage1RMFormulasAtom,
+  calculatorSettingsPage1RMFormulasAtom,
 } from "../../helpers/jotai/atoms";
 
 import { useInitialRender } from "../../helpers/useInitialRender";
@@ -28,16 +28,15 @@ const percentCol2 = [0.65, 0.6, 0.55, 0.5, 0.45, 0.4];
 const percentLabel = (i: number) => i.toFixed(2).toString().replace("0.", "");
 
 const CalculatorPage = ({ navigation }) => {
-
   const isInitialRender = useInitialRender();
 
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
-
   const [repsPerformed, setRepsPerformed] = useAtom<number>(calculatorPageRepsAtom);
   const [weightLifted, setWeightLifted] = useAtom<number>(calculatorPageWeightAtom);
-  const weightUnit = useAtomValue<string>(calculatorPageWeightUnitAtom);
-  const RMFormulas = useAtomValue(settingsPage1RMFormulasAtom);
+  const weightUnitAtom = useAtomValue<boolean>(calculatorPageWeightUnitAtom);
+  const weightUnit = !weightUnitAtom ? "kg" : "lbs";
+  const RMFormulas = useAtomValue(calculatorSettingsPage1RMFormulasAtom);
   const [inputLabel, setInputLabel] = useState("");
   const [isModalWeightInputVisible, setModalWeightInputVisible] = useState(false);
 
@@ -48,7 +47,7 @@ const CalculatorPage = ({ navigation }) => {
       headerTitle: () =>
         <Header
           title={selectedLocale.calculatorPage.title}
-          menu={false}
+          calculatorSettings={true}
         />
     });
   }

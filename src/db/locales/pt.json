@@ -28,7 +28,13 @@
     "repsPerformed": "Repetições Feitas",
     "rmTitle": "One Rep Max",
     "rmPercentageTitle": "Porcentagem de 1RM",
-    "textWarning": "AVISO. A precisão dos calculos diminúi drásticamente com repetições acima de 12."
+    "textWarning": "AVISO. A precisão dos calculos diminúi drásticamente com repetições acima de 12.",
+    "calculatorSettingsPage": {
+      "title": "1RM Calculator Settings",
+      "weightUnitLabel": "Unidade de Peso",
+      "calculationFormulasTitle": "Fórmulas para Cálculo",
+      "calculationFormulasDescription": "Selecione as fórmulas usadas para calcular o seu 1RM"
+    }
   },
   "plateMathPage": {
     "title": "Calculadora de Anilhas",
@@ -123,9 +129,7 @@
     "okModalButtonLabel": "OK",
     "cancelModalButtonLabel": "CANCELAR",
     "weightRoundingTitle": "Arredondar Pesos",
-    "weightRoundingDescription": "Pesos são arredondados para 2.5kg ou 5lbs",
-    "calculationFormulasTitle": "Fórmulas para Cálculo",
-    "calculationFormulasDescription": "Selecione as fórmulas usadas para calcular o seu 1RM"
+    "weightRoundingDescription": "Pesos são arredondados para 2.5kg ou 5lbs"
   },
   "numberInputModal": {
     "cancelButtonLabel": "CANCELAR"

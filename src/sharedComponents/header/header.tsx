@@ -27,6 +27,7 @@ interface IProps {
   setIsMenuOpen?: (isOpen: boolean) => void;
   title: string;
   menu?: boolean;
+  calculatorSettings?: boolean;
   weightRack?: boolean;
   saveButton?: boolean;
   backButton?: boolean;
@@ -142,6 +143,15 @@ const Header = (props: IProps) => {
             color={activeTheme.text}
             style={s.iconRight}
             onPress={setMenuOpenFromHeader}
+          />
+        }
+        {props.calculatorSettings &&
+          <Ionicons
+            size={24}
+            name="settings-sharp"
+            color={activeTheme.text}
+            style={s.iconRight}
+            onPress={() => navigation.push("CalculatorSettingsPage")}
           />
         }
         {props.weightRack &&

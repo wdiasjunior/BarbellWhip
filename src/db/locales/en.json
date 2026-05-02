@@ -28,7 +28,13 @@
     "repsPerformed": "Reps Performed",
     "rmTitle": "One Rep Max",
     "rmPercentageTitle": "Percentage of 1RM",
-    "textWarning": "WARNING. Calculation accuracy drops drastically when calculating above 12 reps."
+    "textWarning": "WARNING. Calculation accuracy drops drastically when calculating above 12 reps.",
+    "calculatorSettingsPage": {
+      "title": "1RM Calculator Settings",
+      "weightUnitLabel": "Weight Unit",
+      "calculationFormulasTitle": "Calculation Formulas",
+      "calculationFormulasDescription": "Select the formulas used to calculate your 1RM"
+    }
   },
   "plateMathPage": {
     "title": "Plate Math",
@@ -123,9 +129,7 @@
     "okModalButtonLabel": "OK",
     "cancelModalButtonLabel": "CANCEL",
     "weightRoundingTitle": "Round Weights",
-    "weightRoundingDescription": "Weights are rounded to 2.5kg or 5lbs",
-    "calculationFormulasTitle": "Calculation Formulas",
-    "calculationFormulasDescription": "Select the formulas used to calculate your 1RM"
+    "weightRoundingDescription": "Weights are rounded to 2.5kg or 5lbs"
   },
   "numberInputModal": {
     "cancelButtonLabel": "CANCEL"

@@ -2,20 +2,35 @@ import { StyleSheet } from "react-native";
 
 const styles = (theme: Theme) => {
   return StyleSheet.create({
-    modalContent: {
-    },
     container: {
+      flex: 1,
       backgroundColor: theme.backgroundPrimary,
-      padding: 30,
-      height: 510,
     },
+    wrapper: {
+      flex: 1,
+      paddingHorizontal: 22,
+      paddingTop: 22,
+      flexDirection: "column",
+    },
+
+    switchContainer: {},
     title: {
+      fontSize: 20,
+      color: theme.textHighlight,
+      marginBottom: 20,
       fontWeight: "bold",
-      fontSize: 22,
-      lineHeight: 22,
-      color: theme.text,
-      paddingBottom: 10,
     },
+    switchLabel: {
+      fontSize: 20,
+      color: theme.text,
+    },
+    switchWrapper: {
+      flexDirection: "row",
+      alignItems: "center",
+      marginBottom: 32,
+    },
+
+    formulasWrapper: {},
     itemSelect: {
       flexDirection: "row",
       alignItems: "center",
@@ -33,22 +48,6 @@ const styles = (theme: Theme) => {
     },
     itemSelectText: {
       fontSize: 16,
-      color: theme.text,
-    },
-    buttonRow: {
-      flexDirection: "row",
-      marginTop: 40,
-      justifyContent: "flex-end",
-    },
-    buttonClose: {
-      marginRight: 20,
-    },
-    buttonOk: {
-    },
-    buttonOkCloseText: {
-      fontWeight: "bold",
-      fontSize: 18,
-      lineHeight: 22,
       color: theme.text,
     },
   });

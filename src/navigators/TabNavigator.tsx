@@ -2,10 +2,9 @@ import React, { useMemo } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import CalculatorPage from "../pages/calculator/calculatorPage";
 import Loading from "../sharedComponents/loading/loading";
 
-import { ProgramPageStack, PlateMathPageStack } from "./StackNavigator";
+import { ProgramPageStack, PlateMathPageStack, CalculatorPageStack } from "./StackNavigator";
 
 import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atoms";
@@ -15,7 +14,6 @@ import { useInitialRender } from "../helpers/useInitialRender";
 const Tab = createBottomTabNavigator();
 
 const BottomTabProgramPageNavigator = () => {
-
   const isInitialRender = useInitialRender();
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
@@ -75,9 +73,9 @@ const BottomTabProgramPageNavigator = () => {
       />
       <Tab.Screen
         name="1RM Calculator"
-        component={CalculatorPage}
+        component={CalculatorPageStack}
         options={{
-          headerShown: true,
+          headerShown: false,
           title: selectedLocale.calculatorPage.title,
           headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,

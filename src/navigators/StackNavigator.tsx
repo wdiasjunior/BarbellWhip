@@ -7,6 +7,9 @@ import ProgramPage from "../pages/program/programPage";
 import ExerciseItemPage from "../pages/program/subPages/exerciseItemPage/exerciseItemPage";
 import RMReviewPage from "../pages/program/subPages/rmReviewPage/rmReviewPage";
 
+import CalculatorPage from "../pages/calculator/calculatorPage";
+import CalculatorSettingsPage from "../pages/calculator/calculatorSettingsPage/calculatorSettingsPage";
+
 import PlateMathPage from "../pages/plateMath/plateMathPage";
 import WeightRackPage from "../pages/plateMath/weightRackPage/weightRackPage";
 
@@ -23,11 +26,18 @@ import ExerciseEditorPage from "../pages/programEditor/subPages/stepThree/exerci
 import { useAtomValue } from "jotai";
 import { activeThemeAtom, selectedLocaleAtom } from "../helpers/jotai/atoms";
 
-const backIconStyle = { marginLeft: 16, marginRight: 12 };
-const tabBarLabelStyle = { fontWeight: "700" as const, fontSize: 15, position: "relative" as const, left: -10 };
+const backIconStyle = {
+  marginLeft: 16,
+  marginRight: 12,
+}
+const tabBarLabelStyle = {
+  fontWeight: "700" as const,
+  fontSize: 15,
+  position: "relative" as const,
+  left: -10,
+}
 
 const ProgramEditorDayPageStack = () => {
-
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
@@ -91,8 +101,8 @@ const ProgramEditorDayPageStack = () => {
 }
 
 const Tab = createBottomTabNavigator();
-const BottomTabProgramEditorPageNavigator = () => {
 
+const BottomTabProgramEditorPageNavigator = () => {
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
@@ -162,8 +172,7 @@ const BottomTabProgramEditorPageNavigator = () => {
   );
 };
 
-const ProgramPageStack = () => {
-
+export const ProgramPageStack = () => {
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
@@ -248,8 +257,74 @@ const ProgramPageStack = () => {
   );
 }
 
-const PlateMathPageStack = () => {
+export const CalculatorPageStack = () => {
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
 
+  const contentStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundPrimary,
+    opacity: 1,
+  }), [activeTheme.backgroundPrimary]);
+
+  const sceneContainerStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundPrimary,
+  }), [activeTheme.backgroundPrimary]);
+
+  return (
+    <Stack.Navigator
+      screenOptions={() => ({
+        animation: "none",
+        contentStyle,
+        sceneContainerStyle,
+      })}
+    >
+      <Stack.Screen
+        name="CalculatorPage"
+        component={CalculatorPage}
+        options={{
+          headerShown: true,
+          title: selectedLocale.calculatorPage.title,
+          headerStyle: {
+            backgroundColor: activeTheme.backgroundSecondary,
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+          headerTintColor: activeTheme.text,
+          contentStyle,
+        }}
+      />
+      <Stack.Screen
+        name="CalculatorSettingsPage"
+        component={CalculatorSettingsPage}
+        options={({ navigation }) => ({
+          headerShown: true,
+          presentation: "modal",
+          detachPreviousScreen: false,
+          headerTitle: selectedLocale.calculatorPage.calculatorSettingsPage.title,
+          headerTitleStyle: { color: activeTheme.text },
+          animation: "none",
+          headerLeft: () => (
+            <Ionicons
+              size={24}
+              name="arrow-back-sharp"
+              color={activeTheme.text}
+              style={backIconStyle}
+              onPress={() => navigation.goBack()}
+            />
+          ),
+          headerStyle: {
+            backgroundColor: activeTheme.backgroundSecondary,
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+          headerTintColor: activeTheme.text,
+        })}
+      />
+    </Stack.Navigator>
+  );
+}
+
+export const PlateMathPageStack = () => {
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
@@ -316,8 +391,7 @@ const PlateMathPageStack = () => {
   );
 }
 
-const ProgramEditorPageStack = () => {
-
+export const ProgramEditorPageStack = () => {
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);
 
@@ -377,5 +451,3 @@ const ProgramEditorPageStack = () => {
     </Stack.Navigator>
   );
 }
-
-export { ProgramPageStack, ProgramEditorPageStack, PlateMathPageStack };

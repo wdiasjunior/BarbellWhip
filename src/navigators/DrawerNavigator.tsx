@@ -18,7 +18,6 @@ const Drawer = createDrawerNavigator();
 const menuIconStyle = { marginLeft: 16, marginRight: 16 };
 
 const DrawerNavigator = () => {
-
   const isInitialRender = useInitialRender();
   const activeTheme = useAtomValue(activeThemeAtom);
   const selectedLocale = useAtomValue(selectedLocaleAtom);

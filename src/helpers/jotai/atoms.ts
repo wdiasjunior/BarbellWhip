@@ -21,7 +21,16 @@ export const programPageSelectedWeekAtom = atomWithStorage("programPageSelectedW
 // 1RM Calculator Page
 export const calculatorPageRepsAtom = atomWithStorage("calculatorPageRepsAtom", 1, storage);
 export const calculatorPageWeightAtom = atomWithStorage("calculatorPageWeightAtom", 150, storage);
-export const calculatorPageWeightUnitAtom = atomWithStorage("calculatorPageWeightUnitAtom", "kg", storage);
+export const calculatorPageWeightUnitAtom = atomWithStorage("calculatorPageWeightUnitAtom", false, storage); // false == kg == left, true == lbs == right
+export const calculatorSettingsPage1RMFormulasAtom = atomWithStorage("calculatorSettingsPage1RMFormulasAtom", {
+  epley: true,
+  brzycki: true,
+  lombardi: true,
+  mayhew: true,
+  mcglothin: true,
+  oconner: true,
+  wathen: true,
+}, storage);
 
 
 // Plate Math Page
@@ -97,15 +106,6 @@ export const programNameForActionAtom = atom("");
 
 // Settings Page
 export const settingsPageWeightRoundAtom = atomWithStorage("settingsPageWeightRoundAtom", true, storage);
-export const settingsPage1RMFormulasAtom = atomWithStorage("settingsPage1RMFormulasAtom", {
-  epley: true,
-  brzycki: true,
-  lombardi: true,
-  mayhew: true,
-  mcglothin: true,
-  oconner: true,
-  wathen: true,
-}, storage);
 
 
 // Theme
