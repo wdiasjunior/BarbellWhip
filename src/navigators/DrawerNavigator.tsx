@@ -3,9 +3,8 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { BottomTabProgramPageNavigator } from "./TabNavigator";
-import { ProgramEditorPageStack } from "./StackNavigator";
+import { ProgramEditorPageStack, OpenBarbellPageStack } from "./StackNavigator";
 // import PRTrackerPage from "../pages/prTracker/prTrackerPage";
-import OpenBarbellPage from "../pages/openBarbell/openBarbellPage";
 import SettingsPage from "../pages/settings/settingsPage";
 
 import { useAtomValue } from "jotai";
@@ -102,26 +101,17 @@ const DrawerNavigator = () => {
       {/*<Drawer.Screen name="PR Tracker" component={PRTrackerPage} />*/}
       <Drawer.Screen
         name="OpenBarbell"
-        component={OpenBarbellPage}
-        options={({ navigation }) => ({
+        component={OpenBarbellPageStack}
+        options={{
+          headerShown: false,
           title: selectedLocale.openBarbellPage.title,
-          headerTitleStyle: { color: activeTheme.text },
-          headerLeft: () => (
-            <Ionicons
-              name="menu-sharp"
-              size={24}
-              color={activeTheme.text}
-              style={menuIconStyle}
-              onPress={() => navigation.openDrawer()}
-            />
-          ),
           headerStyle: {
             backgroundColor: activeTheme.backgroundSecondary,
             elevation: 0,
             shadowOpacity: 0,
           },
           headerTintColor: activeTheme.text,
-        })}
+        }}
       />
       <Drawer.Screen
         name="Settings"

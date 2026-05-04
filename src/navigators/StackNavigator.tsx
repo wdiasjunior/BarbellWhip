@@ -15,6 +15,10 @@ import WeightRackPage from "../pages/plateMath/weightRackPage/weightRackPage";
 
 import ProgramEditorPage from "../pages/programEditor/programEditorPage";
 
+import OpenBarbellPage from "../pages/openBarbell/openBarbellPage";
+import OBWorkoutPage from "../pages/openBarbell/components/workout/obWorkoutPage";
+import OBExerciseReviewPage from "../pages/openBarbell/components/exerciseReview/obExerciseReviewPage";
+
 const Stack = createStackNavigator();
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -447,6 +451,102 @@ export const ProgramEditorPageStack = () => {
             contentStyle,
           }
         }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+export const OpenBarbellPageStack = () => {
+  const activeTheme = useAtomValue(activeThemeAtom);
+  const selectedLocale = useAtomValue(selectedLocaleAtom);
+
+  const contentStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundPrimary,
+    opacity: 1,
+  }), [activeTheme.backgroundPrimary]);
+
+  const sceneContainerStyle = useMemo(() => ({
+    backgroundColor: activeTheme.backgroundPrimary,
+  }), [activeTheme.backgroundPrimary]);
+
+  return (
+    <Stack.Navigator
+      screenOptions={() => ({
+        animation: "none",
+        contentStyle,
+        sceneContainerStyle,
+      })}
+    >
+      <Stack.Screen
+        name="OpenBarbellMain"
+        component={OpenBarbellPage}
+        options={{
+          headerShown: true,
+          title: selectedLocale.openBarbellPage.title,
+          headerStyle: {
+            backgroundColor: activeTheme.backgroundSecondary,
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+          headerTintColor: activeTheme.text,
+          contentStyle,
+        }}
+      />
+      <Stack.Screen
+        name="OBWorkout"
+        component={OBWorkoutPage}
+        options={({ navigation }) => ({
+          headerShown: true,
+          presentation: "modal",
+          detachPreviousScreen: false,
+          headerTitle: selectedLocale.openBarbellPage.workout.title,
+          headerTitleStyle: { color: activeTheme.text },
+          animation: "none",
+          headerLeft: () => (
+            <Ionicons
+              size={24}
+              name="arrow-back-sharp"
+              color={activeTheme.text}
+              style={backIconStyle}
+              onPress={() => navigation.goBack()}
+            />
+          ),
+          headerStyle: {
+            backgroundColor: activeTheme.backgroundSecondary,
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+          headerTintColor: activeTheme.text,
+          contentStyle,
+        })}
+      />
+      <Stack.Screen
+        name="OBExerciseReview"
+        component={OBExerciseReviewPage}
+        options={({ navigation }) => ({
+          headerShown: true,
+          presentation: "modal",
+          detachPreviousScreen: false,
+          headerTitle: selectedLocale.openBarbellPage.exerciseReview.title,
+          headerTitleStyle: { color: activeTheme.text },
+          animation: "none",
+          headerLeft: () => (
+            <Ionicons
+              size={24}
+              name="arrow-back-sharp"
+              color={activeTheme.text}
+              style={backIconStyle}
+              onPress={() => navigation.goBack()}
+            />
+          ),
+          headerStyle: {
+            backgroundColor: activeTheme.backgroundSecondary,
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+          headerTintColor: activeTheme.text,
+          contentStyle,
+        })}
       />
     </Stack.Navigator>
   );

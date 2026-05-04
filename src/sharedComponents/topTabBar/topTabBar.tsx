@@ -11,6 +11,7 @@ interface IProps {
   selectDay: (day: number) => void;
   selectedWeek: number;
   isProgramPage: boolean;
+  labels?: string[];
 }
 
 const TopTabBar = (props: IProps) => {
@@ -21,7 +22,9 @@ const TopTabBar = (props: IProps) => {
 
   const s = useMemo(() => styles(activeTheme), [activeTheme]);
 
-  const days = Array.from(Array(props.days).keys());
+  const useLabels = !!props.labels;
+  const tabCount = useLabels ? props.labels!.length : props.days;
+  const tabs = Array.from(Array(tabCount).keys());
 
   const [dataSourceCords, setDataSourceCords] = useState<Array<number>>([]);
   const ref = useRef();
@@ -35,7 +38,7 @@ const TopTabBar = (props: IProps) => {
   }
 
   useEffect(() => {
-    if (props.isProgramPage) {
+    if (!useLabels && props.isProgramPage) {
       setSelected(0);
       props.selectDay(0);
       if (ref.current != null) {
@@ -45,24 +48,36 @@ const TopTabBar = (props: IProps) => {
   }, [props.selectedWeek])
 
   useEffect(() => {
-    setSelected(!props.isProgramPage ? 0 : selectedDay);
-    props.selectDay(!props.isProgramPage ? 0 : selectedDay);
+    if (useLabels) {
+      setSelected(0);
+      props.selectDay(0);
+    } else {
+      setSelected(!props.isProgramPage ? 0 : selectedDay);
+      props.selectDay(!props.isProgramPage ? 0 : selectedDay);
+    }
     if (ref.current != null) {
       ref.current.scrollTo({x: dataSourceCords[0 - 1], y: 0, animated: true});
     }
   }, [])
 
   useEffect(() => {
-    if (props.isProgramPage) {
+    if (!useLabels && props.isProgramPage) {
       selectTab(selectedDay);
     }
   }, [selectedDay])
 
   const scrollToTabOnLoad = () => {
-    if (ref.current != null && props.isProgramPage) {
+    if (ref.current != null && !useLabels && props.isProgramPage) {
       ref.current.scrollTo({x: dataSourceCords[selectedDay - 2], y: 0, animated: true});
     }
   }
+
+  const getTabLabel = (index: number): string => {
+    if (useLabels) {
+      return props.labels![index];
+    }
+    return `${selectedLocale.programPage.day} ${index + 1}`;
+  };
 
   return (
     <View style={s.container}>
@@ -74,7 +89,7 @@ const TopTabBar = (props: IProps) => {
         onContentSizeChange={scrollToTabOnLoad}
         overScrollMode="never"
       >
-        {days.map((_, index) => {
+        {tabs.map((_, index) => {
           return (
             <TouchableOpacity
               key={"TopTabBar" + index}
@@ -89,8 +104,11 @@ const TopTabBar = (props: IProps) => {
                 });
               }}
             >
-              <Text style={(index === selected) ? s.textSelected : s.text}>
-                {selectedLocale.programPage.day} {JSON.stringify(index + 1)}
+              <Text
+                style={(index === selected) ? s.textSelected : s.text}
+                numberOfLines={1}
+              >
+                {getTabLabel(index)}
               </Text>
             </TouchableOpacity>
           )

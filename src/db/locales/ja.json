@@ -107,7 +107,44 @@
     }
   },
   "openBarbellPage": {
-    "title": "オープンバーベル"
+    "title": "オープンバーベル",
+    "scanButton": "デバイスを検索",
+    "stopScanButton": "検索を停止",
+    "connectButton": "接続",
+    "disconnectButton": "切断",
+    "noDeviceFound": "デバイスが見つかりません",
+    "deviceList": "利用可能なデバイス",
+    "deviceStatus": {
+      "disconnected": "未接続",
+      "scanning": "検索中...",
+      "connecting": "接続中...",
+      "connected": "接続済み",
+      "bluetoothOff": "Bluetoothオフ"
+    },
+    "workout": {
+      "title": "ワークアウト",
+      "createNewSet": "新しいセット",
+      "endSet": "セット終了",
+      "exerciseName": "エクササイズ名",
+      "weight": "重量",
+      "rpe": "RPE",
+      "noRepsYet": "レップデータを待っています...",
+      "endWorkout": "ワークアウト終了",
+      "startWorkout": "ワークアウト開始",
+      "rep": "レップ",
+      "set": "セット",
+      "avgVelocity": "平均速度",
+      "peakVelocity": "最大速度",
+      "rom": "可動域",
+      "duration": "時間",
+      "restTimer": "休憩"
+    },
+    "exerciseReview": {
+      "title": "エクササイズレビュー",
+      "noData": "エクササイズデータがありません。",
+      "velocityChart": "平均速度",
+      "setHistory": "セット履歴"
+    }
   },
   "settingsPage": {
     "title": "設定",

@@ -106,7 +106,44 @@ interface Locale {
     };
   };
   openBarbellPage: {
-    title: string,
+    title: string;
+    scanButton: string;
+    stopScanButton: string;
+    connectButton: string;
+    disconnectButton: string;
+    noDeviceFound: string;
+    deviceList: string;
+    deviceStatus: {
+      disconnected: string;
+      scanning: string;
+      connecting: string;
+      connected: string;
+      bluetoothOff: string;
+    };
+    workout: {
+      title: string;
+      createNewSet: string;
+      endSet: string;
+      exerciseName: string;
+      weight: string;
+      rpe: string;
+      noRepsYet: string;
+      endWorkout: string;
+      startWorkout: string;
+      rep: string;
+      set: string;
+      avgVelocity: string;
+      peakVelocity: string;
+      rom: string;
+      duration: string;
+      restTimer: string;
+    };
+    exerciseReview: {
+      title: string;
+      noData: string;
+      velocityChart: string;
+      setHistory: string;
+    };
   };
   settingsPage: {
     title: string;

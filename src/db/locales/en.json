@@ -108,6 +108,43 @@
   },
   "openBarbellPage": {
     "title": "OpenBarbell",
+    "scanButton": "Scan for Devices",
+    "stopScanButton": "Stop Scanning",
+    "connectButton": "Connect",
+    "disconnectButton": "Disconnect",
+    "noDeviceFound": "No devices found",
+    "deviceList": "Available Devices",
+    "deviceStatus": {
+      "disconnected": "Disconnected",
+      "scanning": "Scanning...",
+      "connecting": "Connecting...",
+      "connected": "Connected",
+      "bluetoothOff": "Bluetooth Off"
+    },
+    "workout": {
+      "title": "Workout",
+      "createNewSet": "NEW SET",
+      "endSet": "END SET",
+      "exerciseName": "Exercise Name",
+      "weight": "Weight",
+      "rpe": "RPE",
+      "noRepsYet": "Waiting for rep data...",
+      "endWorkout": "END WORKOUT",
+      "startWorkout": "START WORKOUT",
+      "rep": "Rep",
+      "set": "Set",
+      "avgVelocity": "Avg Velocity",
+      "peakVelocity": "Peak Velocity",
+      "rom": "ROM",
+      "duration": "Duration",
+      "restTimer": "Rest"
+    },
+    "exerciseReview": {
+      "title": "Exercise Review",
+      "noData": "No exercise data recorded yet.",
+      "velocityChart": "Average Velocity",
+      "setHistory": "Set History"
+    }
   },
   "settingsPage": {
     "title": "Settings",

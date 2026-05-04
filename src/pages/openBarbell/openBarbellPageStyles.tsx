@@ -5,21 +5,44 @@ const styles = (theme: Theme) => {
     container: {
       flex: 1,
       backgroundColor: theme.backgroundPrimary,
-      paddingHorizontal: 20,
-      paddingTop: 20,
     },
-    rowContainer: {
+    scrollContent: {
+      padding: 20,
+    },
+    actionsContainer: {
+      marginTop: 10,
+      gap: 12,
+    },
+    actionButton: {
+      backgroundColor: theme.active,
+      paddingVertical: 16,
+      borderRadius: 8,
       flexDirection: "row",
-      marginBottom: 20,
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 10,
     },
-    title: {
-      color: theme.textHighlight,
-      fontSize: 20,
+    actionButtonDisabled: {
+      opacity: 0.5,
+    },
+    actionButtonText: {
+      color: theme.backgroundPrimary,
+      fontSize: 16,
       fontWeight: "bold",
     },
-    subtitle: {
-      color: theme.text,
+    actionButtonSecondary: {
+      backgroundColor: theme.backgroundSecondary,
+      paddingVertical: 16,
+      borderRadius: 8,
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 10,
+    },
+    actionButtonSecondaryText: {
+      color: theme.textHighlight,
       fontSize: 16,
+      fontWeight: "bold",
     },
   });
 }
