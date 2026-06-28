@@ -1,8 +1,7 @@
 # TODO
 
 ## general
-  - [ ] change splash screen background color based on the selected theme (?)
-  - [ ] change icon in splash screen for a svg? transparent background?
+  - [ ] change icon in splash screen for a svg with transparent background? current one has a visible square "border" due to the difference in colors
 
 
 ## calculator page
@@ -22,7 +21,7 @@
 ## program page
   - exercise item page
     - [-] use flex wrap instead of a bunch of rows
-    - [ ] add checkboxes to track how many sets were done (?) (value is only persisted while the exercise screen is open/active?)
+    - [ ] add checkboxes to track how many sets were done (?) (value is only persisted while the exercise screen is open/active? persist in the session?)
     - [ ] header - add weight unit toggle for quick weight conversion (?)
     - [ ] add estimated rpe weight (?) - add switch to turn it on and off
 
@@ -43,33 +42,37 @@
 
 
 ## PR Tracker / OpenBarbell page
-  - [ ] port code from openbarbell app
-  - [ ] integrate OpenBarbell device data via bluetooth
-  - [ ] lift/movement/exercise selector tabs
-  - [ ] display some fancy graphs/charts
+  - [-] port code from openbarbell app
+  - [-] integrate OpenBarbell device data via bluetooth
+  - [-] lift/movement/exercise selector tabs
+  - [-] display some fancy graphs/charts
   - [ ] google drive/spreadsheet integration?
 
 
 ## settings page
+  - [ ]
 
 
 ## misc
   - [ ] ditch barbellwhip-web and try and get react native compiled for the web
-  - [ ] switch to SQLite and stop using file system directly (op-sqlite?)
+  - [ ] switch to SQLite and stop using json files for everything (op-sqlite?)
   - [ ] excel conversion to json? - spreadsheet template? (sort of done for a few programs) (AI powered?)
-  - [ ] json program validator on import
+  - [ ] json program schema validator on import
   - [ ] notes input for days/exercises on the program page ? (where/how would I save/load this ?)
   - [ ] write documentation for the code, program .json schema, and how to use the app. add a docs section to the website
-  - [ ] think of a way to extend the program schema to allow for auto regulation logic with reps and weight, 1rm estimation and VBT - like what happens in the PH3 spreadsheet
+  - [ ] think of a way to extend the program schema to allow for auto regulation logic with reps and weight, 1RM estimation and VBT - like what happens in the PH3 spreadsheet
 
 
 ---
 
 # BUGS / RN Version Upgrade Bugs
 
-**update notes. for users on older versions, back up your programs via the export button, clean the app data and cache then update the app, as there are some issues and incompatibilities found after some of the app dependencies got upgraded**
+**update notes. for users on older versions, back up your training programs via the export button, clean the app data and cache then update the app, as there are some issues and incompatibilities found after some of the app dependencies got upgraded**
 
 - [ ] test the whole thing and check for new bugs/weird issues
+- [ ] test openbarbell integration
+
+- [ ] apk size got huge after the upgrade. wft happened?
 
 - [-] programpage - "content shift" glitch on cold boot launch load
 - [x] programpage displays default program data on cold boot launch load
@@ -105,31 +108,5 @@ I'm seeing some weird behavior. when editing and saving a program, the the navig
 - [x] add settings screen (?)
   - [x] add "kg - lbs" switch
   - [x] move formula selector to new screen
-
----
-
-# commit message
-
-feat: openbarbell app port and integration
-
----
-
-ultrathink
-
-I want to port the original openbarbell app functionality to my app barbellwhip, into the openbarbell page directory.
-
-in the src/pages/openbarbell/legacy-openbarbell sub directory you will find the original app's source code that I want to integrate, however it is old and uses class components, so you should convert them into function and hook based components into a components directory separate from the legacy code, leaving it untouched.
-
-make sure to install the necessary up to date bluetooth management package, refer to the legacy-openbarbell package.json.
-
-openBarbellPage.tsx should be the main screen with a button to search for available bluetooth devices matching the device IDs, and a way to connect to the device.
-
-a screen to start a workout, like in the workout tab for the original app, except no camera option should be implemented yet, just leave a TODO comment there.
-
-I'm not sure how the original openbarbell app works for the user, but I want to keep track of the data received from the device in json files, separate for each exercise that the user can select from.
-
-create a sub screen-stack in the openbarbellpage to review each exercise in a tab layout screen using the sharedcomponents/toptabbar, displaying a graph at the top and a list of reps/sets beneath it.
-
-add locale keys and jotai atoms as seem fit.
 
 ---
